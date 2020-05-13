@@ -6,7 +6,7 @@
   
   <mapper namespace="com.pet.p1.member.MemberDAO">
  	
- 	<select id="memberCart" resultType="DogVO" parameterType="DogVO">
+ 	<select id="memberCart" resultType="MemberVO" parameterType="MemberVO">
  		select * from product where productNum = #{productNum}
  	</select>
   	

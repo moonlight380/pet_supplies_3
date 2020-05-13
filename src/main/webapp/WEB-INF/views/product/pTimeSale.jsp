@@ -174,7 +174,7 @@
                                 
                                 <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
 
-                 				<div id="timeSale">time sale</div>    
+                 				<p>남은시간 : <span id="timer"></span></p>  
                  				
                  				                    
                                 </div>

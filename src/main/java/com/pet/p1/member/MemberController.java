@@ -207,7 +207,12 @@ public class MemberController {
 	
 	//-- id 중복검사 끝
 	
+	//-- memberPayment
 	
+	@GetMapping("memberPayment")
+	public void memberPayment()throws Exception{
+		
+	}
 	
 //-------------------------------------------------------------------------------------------------------	
 	

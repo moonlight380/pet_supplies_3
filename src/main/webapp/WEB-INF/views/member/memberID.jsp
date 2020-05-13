@@ -74,5 +74,23 @@
 </div>
 </div>
 
+
+<script type="text/javascript">
+	
+	
+    var email = $("#check_email").attr("checked"); 
+	var phone = $("#check_phone").attr("checked");
+	
+  	if(email == "checked"){
+		$("#find_phone").css({'display':'none'});
+	}else if(phone == "checked"){
+		$("#find_email").css({'display':'none'});
+	}  
+	  
+
+
+</script>
+
+
 </body>
 </html>

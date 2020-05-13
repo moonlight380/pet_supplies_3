@@ -27,17 +27,17 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<img
-					src="${pageContext.request.contextPath}/resources/images/carousel1.jpg"
+					src="${pageContext.request.contextPath}/resources/images/index_1.jpg"
 					class="d-block w-100" alt="...">
 			</div>
 			<div class="carousel-item">
 				<img
-					src="${pageContext.request.contextPath}/resources/images/carousel2.jpg"
+					src="${pageContext.request.contextPath}/resources/images/index_2.jpg"
 					class="d-block w-100" alt="...">
 			</div>
 			<div class="carousel-item">
 				<img
-					src="${pageContext.request.contextPath}/resources/images/carousel3.jpg"
+					src="${pageContext.request.contextPath}/resources/images/index_3.jpg"
 					class="d-block w-100" alt="...">
 			</div>
 		</div>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+  <mapper namespace="com.pet.p1.product.file.ProductFileDAO">
+  
+  <!-- INSERT -->
+  <insert id="fileInsert" parameterType="ProductFileVO">
+  INSERT INTO productFile VALUES(productFile_seq.nextval,#{num},#{fileName},#{oriName},#{board},#{firstFile})
+  </insert>
+  
+  <!-- fileSelect -->
+	<select id="fileSelect" parameterType="ProductFileVO" resultType="ProductFileVO">
+	select * from productFile where fileNum=#{fileNum} and board=#{board}
+	</select>
+  
+  <!-- filedelete -->
+    <delete id="fileDelete" parameterType="ProductFileVO" >
+  delete productFile where fileNum=#{fileNum}
+  </delete>
+  
+ <!-- fileDeleteAll --> 
+    <delete id="fileDeleteAll" parameterType="Long" >
+  delete productFile where num=#{num}
+  </delete>
+  
+<!-- fileList -->  
+    
+  <select id="fileList" parameterType="Long" resultType="ProductFileVO">
+  <!-- //어떤 글의 글번호를 이용해서 파일의 정보를 꺼내오는 것 -->
+  select * from productFile where num=#{num}
+  </select> 
+  
+  
+  
+  </mapper>
+  

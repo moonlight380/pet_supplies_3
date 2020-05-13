@@ -164,7 +164,7 @@
                                         <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
                                         <li><a href="//bestwebcreator.com/shopwise/demo/shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
                                         <li><a href="//bestwebcreator.com/shopwise/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                                 
                                 <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
 
-                 				<p>남은시간 : <span id="timer"></span></p>  
+                 				<div id="countdown"></div>  
                  				
                  				                    
                                 </div>
@@ -185,6 +185,8 @@
                                         <span>35% Off</span>
                                     </div>
                                 </div>
+                                
+                                
                                 <div class="rating_wrap">
                                     <div class="rating">
                                         <div class="product_rate" style="width:80%"></div>
@@ -298,36 +300,8 @@
 <!-- scripts js --> 
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
 
-$(document).ready(function(){
-	  tid=setInterval('msg_time()',1000); // 타이머 1초간격으로 수행
-	});
-
-var stDate = new Date().getTime();
-var edDate = new Date('2018-10-25 24:00:00').getTime(); // 종료날짜
-var RemainDate = edDate - stDate;
- 
-function msg_time() {
-  var hours = Math.floor((RemainDate % (1000 * 60 * 60 * 24)) / (1000*60*60));
-  var miniutes = Math.floor((RemainDate % (1000 * 60 * 60)) / (1000*60));
-  var seconds = Math.floor((RemainDate % (1000 * 60)) / 1000);
-  
-  m = hours + ":" +  miniutes + ":" + seconds ; // 남은 시간 text형태로 변경
-  
-  document.all.timer.innerHTML = m;   // div 영역에 보여줌 
-  
-  if (RemainDate < 0) {      
-    // 시간이 종료 되었으면..
-    clearInterval(tid);   // 타이머 해제
-  }else{
-    RemainDate = RemainDate - 1000; // 남은시간 -1초
-  }
-}
-
-
-</script>
+<script type="text/javascript" src="../resources/script/timeSale.js"> </script> 
 
 
 

@@ -298,7 +298,7 @@
 <!-- scripts js --> 
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 
-
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function(){

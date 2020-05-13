@@ -173,10 +173,12 @@
                                 <div class="product_contents">
                                 
                                 <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
+				
+								<!-- 타이머기능 -->
+                 				<input type="button" value="타이머 정지" onclick="clearInterval(timer)">
+      							  <div class="test"></div>
 
-                 				<div id="countdown"></div>  
-                 				
-                 				                    
+             
                                 </div>
                                 <div class="product_price">
 		                              <span class="price">${vo.price}</span>

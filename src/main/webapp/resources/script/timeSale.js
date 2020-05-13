@@ -2,7 +2,7 @@
  * 
  */
 
-/* Timer */
+/* Timer 
 function countdown( elementId, seconds ){
   var element, endTime, hours, mins, msLeft, time;
 
@@ -26,4 +26,16 @@ function countdown( elementId, seconds ){
 }
 
 countdown('countdown', 43200);	 // second base
+*/
+        var timer;
+        
+        window.onload = function() {
+            timer = window.setInterval(
+            function(){
+                var dat = new Date();
+                document.getElementsByClassName("test").innerHTML 
+                = dat.toLocaleTimeString();
+            },1000);
+        };
+
 

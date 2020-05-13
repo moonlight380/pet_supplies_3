@@ -154,6 +154,7 @@ public class MemberController {
 		System.out.println("로그아웃");
 		memberService.kakaoLogout((String)session.getAttribute("access_Token"));
 		session.removeAttribute("access_Token");
+
 		return "redirect:../";
 	}
 	

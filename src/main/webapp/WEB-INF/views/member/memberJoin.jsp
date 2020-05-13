@@ -52,7 +52,7 @@
 
 </div> --%>
 
-<h5 style="float: right; margin-top: 60px; font-size: 15px;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h5>
+<h4 style="float: right; margin-top: 60px; font-size: 14px;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h4>
 
 <table class="table table-bordered" style="margin-bottom: -1px;">
 
@@ -155,20 +155,21 @@
 </form>
 
 <div class="AgreeFrm" style="margin-top: 50px;">
+
 <div class="container" id="result"  style="background-color: #ffffff; border: 1px solid #d7d5d5;">	
 	
-	<div class="row" style="border-bottom : 1px solid #d7d5d5; height: 70px;">
+	<div class="row" style="border-bottom : 1px solid #d7d5d5;">
 	<div  style="margin-left:2%; width: 100%; height: 100%">
 		<input type="checkbox"  hidden="hidden"  id="checkAll" class="checkAll2" style="float: left;">
 		<div class="col-sm-1 m-2" style="display: inline;">
-		<label for="checkAll" style="float: left; margin-top: 15px; display: inline; margin-left: 20px;">
+		<label for="checkAll"  style="float: left; margin-top: 18px; display: inline; margin-left: 7px;">
 		<span><i class='far fa-check-circle ac m-2 nocheck checkbox' style='font-size: 24px; color: gray;' id='img'></i>
 		</span></label>
 		</div>
 		
 		<div class="col">
 			<label for="checkAll">
-			<span class="ac nocheck checkcon" id="contents1" style="float:left; margin-top: 2px;"> 이용약관 및 개인정보 수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다. </span>
+			<span class="ac nocheck checkcon" id="contents1" style="float:left; margin-top: 5px; "> 이용약관 및 개인정보 수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다. </span>
 			</label>
 		</div>
 	</div>

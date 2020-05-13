@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.pet.p1.product.DogDAO">
+     
+     <resultMap type="DogVO" id="selectResult">
+  		<id column="productNum" property="productNum"/>
+  		<result column="productName" property="productName"/>
+  		<result column="price" property="price"/>
+  		<result column="contents" property="contents" />
+  		<result column="amount" property="amount"/>	
+  		<result column="hit" property="hit"/>	
+  		<result column="regDate" property="regDate"/>
+  		<result column="point" property="point"/>
+  		
+  		<collection property="productFileVOs" javaType="List" ofType="ProductFileVO">
+  			<id column="fileNum" property="fileNum"/>
+  			<result column="fileName" property="fileName"/>
+  			<result column="oriName" property="oriName"/>
+  			<result column="board" property="board"/>
+  		</collection>
+  		
+  	</resultMap>
+  		
+  		
+  		<!-- 전체 글의 개수 -->
+  		<select id="dogCount"  parameterType="Pager"  resultType="Long">
+
+  		select count(productNum) from product 
+    	<where>
+  			<if test="kind=='pn'">
+  			productName like '%'||#{search}||'%'
+  			</if>
+  			
+  			<if test="kind=='pc'">
+  			Contents like '%'||#{search}||'%'
+  			</if>
+  		
+  			
+  		</where> 
+
+  		</select>
+
+<!-- LIST -->
+   	<select id="dogList" parameterType="Pager" resultMap="selectResult">
+		select P.*, F.*
+		from
+		(select * from
+			 (select N.*, rownum R from 
+				(select * from product 
+				 where 
+				   <choose>
+					<when test="kind == 'pc'">
+						Contents
+					</when>
+					
+					<when test="kind=='pn'">
+						productName
+					</when>
+					<otherwise>
+						productNum
+					</otherwise>
+				</choose> 
+				like '%'||#{search}||'%' and productNum>=1 order by productNum desc) N )
+				where R between #{startRow} and #{lastRow})P  left join productFile F
+				on (P.productNum=F.num) order by F.firstFile asc
+	</select>    
+	
+<!--dogNewList-->
+   	<select id="dogNewList" parameterType="Pager" resultMap="selectResult">
+		select P.*, F.*
+		from
+		(select * from
+			 (select N.*, rownum R from 
+				(select * from product 
+				 where 
+				  <choose>
+					<when test="kind == 'pc'">
+						Contents
+					</when>
+					
+					<when test="kind=='pn'">
+						productName
+					</when>
+					<otherwise>
+						productNum
+					</otherwise>
+				</choose>
+				like '%'||#{search}||'%' and productNum>=1 order by regDate desc) N )
+				where R between #{startRow} and #{lastRow}) P  left join productFile F
+				on (P.productNum=F.num) order by F.firstFile asc
+	</select>  
+ 
+<!--dogBestList-->
+   	<select id="dogBestList" parameterType="Pager" resultMap="selectResult">
+		select P.*, F.*
+		from
+		(select * from
+			 (select N.*, rownum R from 
+				(select * from product 
+				 where 
+				  <choose>
+					<when test="kind == 'pc'">
+						Contents
+					</when>
+					
+					<when test="kind=='pn'">
+						productName
+					</when>
+					<otherwise>
+						productNum
+					</otherwise>
+				</choose>
+				like '%'||#{search}||'%' and productNum>=1 order by hit desc) N )
+				where R between #{startRow} and #{lastRow})P  left join productFile F
+				on (P.productNum=F.num) order by F.firstFile asc
+	</select>  
+  
+<!-- dogTimeSale --> 
+	<select id="dogTimeSale" parameterType="Pager" resultMap="selectResult">
+		select P.*, F.* 
+		    from
+		        (select * from
+		            (select N.*, rownum R from
+		                (select * from product 
+		                where
+		                 <choose>
+							<when test="kind == 'pc'">
+								Contents
+							</when>
+							
+							<when test="kind=='pn'">
+								productName
+							</when>
+							<otherwise>
+								productNum
+							</otherwise>
+						</choose> 
+		                like '%'||#{search}||'%' and  productNum>=1 order by hit asc) N) 
+		                    where rowNum between 1 and 9)P left join productFile F 
+		                        on (P.productNum=F.num) order by F.firstFile asc
+	
+	</select>
+ 
+ 
+ 
+ 
+ <!-- select --> 		
+  	<select id="dogSelect" parameterType="Long" resultMap="selectResult">		
+			select N.*,F.*
+			from product N left join productFile F
+			ON (N.productNum=F.num)
+			WHERE N.productNum=#{productNum} 
+  	</select> 
+  	
+ 
+
+<!-- num 가상테이블 dual -->
+	<select id="dogNum" resultType="Long">
+  			select product_seq.nextval from dual
+  		<!-- inset 하기 전에 가상의 테이블에서 먼저 시퀀스 번호를 가져온다 -->
+  	</select>
+	
+	
+<!-- WRITE -->
+	<insert id="dogWrite" parameterType="DogVO">
+	INSERT INTO product
+	VALUES (#{productNum},#{productName},#{price},#{contents},0,1,SYSDATE,#{point})
+	</insert>
+
+
+<!-- update -->
+ 	<update id="dogUpdate" parameterType="DogVO">
+  		UPDATE product set productName =#{productName}, price=#{price},contents=#{contents} where productNum=#{productNum}
+  	</update>
+
+
+<!-- hitupdate -->
+	 <update id="hitUpdate" parameterType="Long">
+	  	UPDATE product set hit=hit+1 where productNum=#{productNum}
+	</update> 
+	
+<!-- delete -->
+	<delete id="dogDelete" parameterType="Long"> 
+		delete product where productNum=#{productNum}
+	</delete>
+		
+
+</mapper>

@@ -48,8 +48,8 @@
 
 
 	<div class="container-fulid  mt-5">
-	<c:import url="./memberSide.jsp"></c:import>
 		<div class="row ">
+			<c:import url="./memberSide.jsp"></c:import>
 
 			<div class="col ">
 				<div class="row ">

@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pet.p1.product.DogService;
 
 import com.pet.p1.util.Pager;
@@ -158,40 +160,33 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
-	//-- ID 찾기
-	@GetMapping("memberID")
-	public void memberID()throws Exception{
-		
-	}
-	//-- Phone 중복검사/찾기
-	@PostMapping("memberPhoneCheck")
-	public ModelAndView findEmail(MemberVO memberVO)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		
-		return mv;
-	}
-	
 	
 	//-- email 중복검사/찾기
 	@PostMapping("memberEmailCheck")
 	public ModelAndView memberEMCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
+
 		memberVO = memberService.memberEMCheck(memberVO);
-		int result = 0;
-		if(memberVO == null) {
-			result = 1;
-		}
 		
+		/*
+		 * ObjectMapper mapper = new ObjectMapper(); String membervo =
+		 * mapper.writeValueAsString(memberVO);
+		 */
+		
+		 int result = 0; 
+		 if(memberVO == null){ 
+			 result = 1;
+			 };
+		 
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
-
 	
 	//-- id 중복검사
 	@PostMapping("memberIdCheck")
 	public ModelAndView memberIdCheck(MemberVO memberVO)throws Exception{
+		System.out.println("in");
 		ModelAndView mv = new ModelAndView();
 		memberVO = memberService.memberIdCheck(memberVO);
 		//null -> 가입 가능 1
@@ -206,6 +201,55 @@ public class MemberController {
 	}
 	
 	//-- id 중복검사 끝
+	
+
+	//-- ID 찾기
+	@GetMapping("memberID")
+	public void memberID()throws Exception{
+		
+	}
+	
+	//-- PW 찾기
+	@GetMapping("memberPW")
+	public void memberPW()throws Exception{
+		
+	}
+	
+	//-- ID/PW 찾기 성공
+	@GetMapping("findSuccess")
+	public ModelAndView findSuccess(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user", memberVO);
+		return mv;
+	}
+	
+	//-- ID/PW 찾기 실패
+	@GetMapping("findFail")
+	public void findFail()throws Exception{
+		
+	}
+	
+	//-- email메일로 찾기
+	
+	@PostMapping("findEmail")
+	@ResponseBody
+	public MemberVO findEmail(MemberVO memberVO)throws Exception{
+
+		memberVO = memberService.memberEMCheck(memberVO);
+		
+		return memberVO;
+	}
+	
+	@PostMapping("findPhone")
+	@ResponseBody
+	public MemberVO findPhone(MemberVO memberVO)throws Exception{
+		
+		memberVO = memberService.findPhone(memberVO);
+		
+		return memberVO;
+	}
+
+	
 	
 	//-- memberPayment
 	

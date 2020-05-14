@@ -19,9 +19,8 @@
 		</ol>
 	</div>
 
-<div style="border-bottom: 3px solid black; margin-top: 100px; text-align: center;">
-<h1 style=" margin-bottom: 30px; font-weight: bold; font-size: 36px;">로그인</h1>
-
+<div style="margin-top: 100px; text-align: center;display: block; border-bottom: 3px solid black;">
+<h1 style=" margin-top: 100px; font-weight: bold; font-size: 36px; margin-bottom: 30px;">로그인</h1>
 </div>
 
 <div class="row" style=" margin-top: 50px;">
@@ -52,7 +51,7 @@
 	<div class="text-center" style="background-color: #ffffff; border: 1px solid #d7d5d5; font-size:medium; height: 50px; margin-top: 15px;">
 		<a href="${pageContext.request.contextPath}/member/memberJoin" class="member">회원가입</a> |
 		<a href="${pageContext.request.contextPath}/member/memberID">아이디 찾기</a> |
-		<a>비밀번호 찾기</a>
+		<a href="${pageContext.request.contextPath}/member/memberPW">비밀번호 찾기</a>
 	</div>
 	
 </form>

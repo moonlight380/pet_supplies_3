@@ -28,11 +28,17 @@
 	font-size: 20px;
 	border: 1px solid gray;
 }
+.sum_text{
+	color:red;
+	font-weight: bold;
+
+}
+
 </style>
 </head>
 
 
-<body>
+<body id="result">
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container-fulid  mt-5" id="step" title="step1">
@@ -61,8 +67,16 @@
 								</div>
 							</div>
 						</div>
-						<div> check</div>
-						<div class="row" style="padding: 15px;">
+						
+						
+						
+			
+						
+						
+						
+						
+					<div>
+						<div class="row" style="padding: 0px 15px 15px 15px;" >
 							<table>
 								<colgroup>
 									<col style="width: 27px" />
@@ -79,9 +93,9 @@
 
 								</colgroup>
 								<thead>
-									<tr class="table_title">
-										<th scope="col"><input type="checkbox" id="check_all"
-											title="checkbox" hidden="hidden"> <label
+									<tr class="table_title"  style="text-align: center;   line-height: 60px;">
+										<th scope="col" ><input type="checkbox" id="check_all"
+											title="checkbox" hidden="hidden"><div class="row" style="height: 10px;"></div><label style="margin: 0 auto;"
 											for="check_all" class="material-icons checkbox"
 											title="check_all"> check </label></th>
 										<th scope="col">이미지</th>
@@ -97,117 +111,49 @@
 									</tr>
 								</thead>
 
-								<tbody>
-									<tr class="table_title">
-										<td><input type="checkbox" class="check"
-											id="${member.id}1_check" hidden="hidden"
-											title="${member.id}1"> <label
-											for="${member.id}1_check" class="material-icons checkbox"
-											title="${member.id}1_check">check</label></td>
-										<td>img</td>
-										<td>info</td>
-										<td id="${member.id}1_price" class="price">35000</td>
-										<td>
-										
-										
-										
-								<%-- 		<input type="button"
-											style="width: 20px; height: 20px;" value="-" class="minus"
-											title="${member.id}1"> 
-											
-											
-											<input type="text"
-											style="width: 30px; height: 20px;" value="1"
-											title="${member.id }1" class="in" id="${member.id}1_amount"
-											onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-											
-											
-											
-											<input type="button" style="width: 20px; height: 20px;"
-											value="+" class="plus" title="${member.id}1"> --%>
-											
-											
-											
-											
-										<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
-											<button class="minus" title="${member.id }1"
-												style="width: 20px; border: 1px solid #d9dde0;">-</button>
-											<input class="text-center in" id="${member.id}1_amount" title="${member.id }1"
-												style="color: #333; width: 40px; border: 1px solid #d9dde0;"
-												value="1"
-												onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-											<button class="plus" title="${member.id}1"
-												style="width: 20px; border: 1px solid #d9dde0;">+</button>
 
-										</div>
-											
-											
+
+
+								<c:forEach items="${cart }" var="cart">
+								
+									<tbody>
+										<tr class="table_title">
+											<td>
+												<input type="checkbox" class="check" id="${cart.id}${cart.cnum}_check" hidden="hidden" title="${cart.id}${cart.cnum}" name="${cart.cnum}">
+												 <label	for="${cart.id}${cart.cnum}_check" class="material-icons checkbox"title="${cart.id}${cart.cnum}_check">check</label>
+												 
+											</td>
+											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
+											<td>${cart.productName }</td>
+											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
+											<td>
+												<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
+													<button class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
+													<input class="text-center in" id="${cart.id}${cart.cnum}_amount"	title="${cart.id}${cart.cnum}" 
+														style="color: #333; width: 40px; border: 1px solid #d9dde0;"
+														value="${cart.cAmount }"
+														onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+													<button class="plus" title="${cart.id}${cart.cnum}"style="width: 20px; border: 1px solid #d9dde0;">+</button>
+												</div>
 											</td>
 
-										<td>a</td>
+											<td>${cart.point }</td>
 
-										<td><span id="${member.id}1_total" class="sum_text"></span>
-										</td>
-
-
-
-
-
-
-									</tr>
-
-
-								</tbody>
-								<tbody>
-									<tr class="table_title">
-										<td><input type="checkbox" class="check"
-											id="${member.id}2_check" hidden="hidden"
-											title="${member.id}2"> <label
-											for="${member.id}2_check" class="material-icons checkbox"
-											title="${member.id}2_check">check</label></td>
-										<td>img</td>
-										<td>info</td>
-										<td id="${member.id}2_price" class="price">42000</td>
-										<td>
-										
-										
-										<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
-											<button class="minus" title="${member.id }2"
-												style="width: 20px; border: 1px solid #d9dde0;">-</button>
-											<input class="text-center in" id="${member.id}2_amount" title="${member.id }2"
-												style="color: #333; width: 40px; border: 1px solid #d9dde0;"
-												value="1"
-												onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-											<button class="plus" title="${member.id}2"
-												style="width: 20px; border: 1px solid #d9dde0;">+</button>
-
-										</div>
-											
-											
+											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
 											</td>
-										<td>a</td>
 
-										<td><span id="${member.id}2_total" class="sum_text"></span>
-										</td>
-
+										</tr>
+									</tbody>
 
 
 
-
-
-									</tr>
-
-
-								</tbody>
-
-
-
+								</c:forEach>
 							</table>
 
 						</div>
 						<div class="row">
 							<div class="col">
-								<button class="btn"
+								<button class="btn" id="del"
 									style="border: 1px solid gray; padding: 3px 7px 3px 7px; font-size: 12px;">선택
 									상품 삭제</button>
 							</div>
@@ -220,7 +166,7 @@
 
 		
 									<div class="row">
-										<div class="col-sm-4 border">
+										<div class="col-sm-4">
 											<div>총 상품금액</div>
 											<div id="all_sum">0원</div>
 										</div>
@@ -251,15 +197,10 @@
 									<div>결제 금액</div>
 									<div style="color: #FF324D;" id="payment">0원</div>
 
-
-
-
 								</div>
-
-
-							
-
 						</div>
+					</div>
+						
 						<div class="row">
 							<div class="col-sm-8" style="padding-right: 7.5px;">
 								<a href="${pageContext.request.contextPath}"
@@ -293,6 +234,45 @@
 </body>
 
 <script type="text/javascript">
+//--------------------선택상품삭제---------------
+
+$("#result").on("click","#del",function() {
+	var ids = [];
+	$(".check").each(function() {
+		if($(this).prop("checked")){
+			
+			
+			ids.push($(this).attr("name"));
+		}
+	});
+	console.log(ids);
+	
+	
+	$.ajax({
+		type:"get",
+		traditional:true,
+		url:"./cartDelete",
+		data:{
+			ids:ids
+		},
+		success:function(data){
+			$.get("./memberCartRefresh",function(data){
+				
+				$("#result").html(data.trim());
+				reset();
+			});
+		}
+		
+		
+		
+	});
+	
+	
+	
+});
+
+
+
 	//-------------------------Function------------------------
 
 	function check(name) {
@@ -311,7 +291,7 @@
 	}
 	//-----------------------All check--------------------------
 
-	$("#check_all").click(function() {
+	$("#result").on("click","#check_all",function() {
 		$(".check").prop("checked", $(this).prop("checked"));
 
 		var name = ('.' + $("#check_all").prop("title"));
@@ -331,7 +311,7 @@
 
 	//-----------------------Select Check---------------------------
 
-	$(".check").click(function() {
+	$("#result").on("click",".check",function() {
 		var result = true;
 		var name = "[title=" + $(this).attr("id") + "]";
 		var title = $(this).attr("title");
@@ -375,7 +355,8 @@
 	});
 
 	//-------------------------Cursor---------------------------------
-	$(".material-icons").mouseover(function() {
+	$("#result").on("mouseover",".material-icons",function(){
+	
 		$(".material-icons").css({
 			'cursor' : 'pointer'
 		});
@@ -384,7 +365,7 @@
 	//---------------------------------------------------------------------------------------------
 
 	//--------------------minus--------------------------------
-	$(".minus").click(function() {
+	$("#result").on("click",".minus",function() {
 		var title = $(this).attr("title");
 		var num = $("#" + title + "_amount").val();
 		num--;
@@ -425,7 +406,7 @@
 
 	//-----------------plus--------------------------------------	
 
-	$(".plus").click(function() {
+	$("#result").on("click",".plus",function() {
 		var title = $(this).attr("title");
 		var num = $("#" + title + "_amount").val();
 		num++;
@@ -439,7 +420,8 @@
 	});
 
 	//--------------첫 화면 뿌리기---------------------------------------
-	$(document).ready(function() {
+	
+	function reset() {
 		$(".price").each(function() {
 			var id = $(this).attr("id");
 			var price = parseInt($(this).text());
@@ -448,8 +430,14 @@
 			$("#" + id).text(text);
 
 		});
-
+		
+		inout();  //--blur함수 적용
 		set();
+	}
+	
+	$(document).ready(function(){
+	
+		reset();
 
 	});
 
@@ -467,7 +455,12 @@
 
 			price = removeCommas(price) * 1;
 			var set = (price * amount);
-			sum = sum + set;
+			var check = $("#"+title+"_check").prop("checked");
+			
+			if(check){
+				
+				sum = sum + set;
+			}
 			var text = addCommas(set); // set은 각각의 합계 , sum은 모든 합계
 			text = text + "원";
 
@@ -508,7 +501,7 @@
 		$("#deli").text(text);
 		//------------쿠폰 적립금 사용시-----------------------
 		if (sum > 0) {
-			var discount = 5000; //나중에 값 받아올곳 
+			var discount = 0; //나중에 값 받아올곳 
 		} else {
 			discount = 0;
 		}
@@ -524,19 +517,21 @@
 	}
 
 	//-------------직접 입력하고 빠져 나올 때---------------------------------
-
-	$(".in").each(function() {
-		$(this).blur(function() {
-
-			var sum = set();
-			var title = $(this).attr("title");
-			var check = $("#" + title + "_check").prop("checked");
-			if (check) {
-
-				final_set(sum);
-			}
+	function inout() {
+		$(".in").each(function() {
+			$(this).blur(function() {
+				
+				var sum = set();
+				var title = $(this).attr("title");
+				var check = $("#" + title + "_check").prop("checked");
+				if (check) {
+	
+					final_set(sum);
+				}
+			});
 		});
-	});
+		
+	}
 
 	//----------------숫자 콤마 생성--------------------------------------------
 	function addCommas(x) {
@@ -561,9 +556,6 @@
 	}
 
 	//-------------------------------
-	$(".sum_text").css({
-		'color' : 'red',
-		'font-weight' : 'bold'
-	});
+	
 </script>
 </html>

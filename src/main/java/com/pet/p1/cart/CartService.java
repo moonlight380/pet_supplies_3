@@ -16,4 +16,7 @@ public class CartService {
 		return cartDAO.cartList(memberVO);
 	}
 	
+	public int cartDelete(List<Long> list) throws Exception{
+		return cartDAO.cartDelete(list);
+	}
 }

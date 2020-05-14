@@ -18,5 +18,9 @@ public class CartDAO {
 	public List<CartVO> cartList(MemberVO memberVO) throws Exception{
 		return sqlSessions.selectList(NAMESPACE+"cartList",memberVO);
 	}
+	
+	public int cartDelete(List<Long> list) throws Exception{
+		return sqlSessions.delete(NAMESPACE+"cartDelete", list);
+	}
 
 }

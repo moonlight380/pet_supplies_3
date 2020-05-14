@@ -8,14 +8,23 @@
 
 
 	<!-- cartList -->
-	<select id="cartList">
+ 	<select id="cartList" parameterType="MemberVO" resultType="CartVO">
 	
-		select id,cnum,cart.productnum,camount,productname,price,point
-		from cart inner join product on(cart.productnum = product.productnum)
-		where id=#{id}
+		select id,cnum,cart.productnum,camount,productname,price,point,productfile.filename
+		from cart
+		inner join product on(cart.productnum = product.productnum)
+		inner join productfile on(cart.productnum=productfile.num)
+		where id=#{id} and productfile.firstfile=0
+		order by cnum desc
 	
-	</select>
+	</select> 
 
-
+	<delete id="cartDelete" parameterType="List">
+		delete from cart where cnum in
+		<foreach collection="list" item="cnum" open="(" close=")" separator=",">
+			#{cnum}
+		</foreach>
+	
+	</delete>
 
 </mapper>

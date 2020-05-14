@@ -48,23 +48,50 @@ public class MemberController {
 		
 	}
 	
+	@GetMapping("cartDelete")
+	public ModelAndView cartDelete(Long [] ids)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<Long> list = Arrays.asList(ids);
+		int result = cartService.cartDelete(list);
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@GetMapping("memberCartRefresh")
+	public ModelAndView memberCartRefresh(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		ModelAndView mv = new ModelAndView();
+		List<CartVO> ar = cartService.cartList(memberVO);
+		mv.addObject("cart",ar);
+		mv.setViewName("member/memberCartRefresh");
+		long count = memberService.memberCart(memberVO);
+		 session.setAttribute("cartCount", count);
+		return mv;
+	}
 	
 	
 	//--장바구니
 	
 	
 	@GetMapping("memberCart")
-	public void cartList(HttpSession session)throws Exception {
+	public ModelAndView cartList(HttpSession session)throws Exception {
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		List<CartVO> ar = cartService.cartList(memberVO);
-		
-
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("cart",ar);
+		if (memberVO == null) {
+			mv.addObject("result", "로그인을 해주세요.");
+			mv.addObject("path", "./memberLogin");
+			mv.setViewName("common/result");
+
+		} else {
+			
+			List<CartVO> ar = cartService.cartList(memberVO);
+			mv.addObject("cart",ar);
+			mv.setViewName("member/memberCart");
 		
-//		mv.addObject("dog", dogVO);
-		mv.setViewName("member/memberCart");
-		System.out.println("check");
+		}
+		
+		return mv;
 		
 		
 	}

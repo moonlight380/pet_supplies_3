@@ -3,6 +3,7 @@ package com.pet.p1.review;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ import com.pet.p1.board.BoardVO;
 import com.pet.p1.util.Pager;
 
 @Controller
-@RequestMapping("/product/**")
+@RequestMapping("/review/**")
 public class ReviewController {
 
 	@Autowired
@@ -104,7 +105,7 @@ public class ReviewController {
 		return mv;
 	}
 
-	@GetMapping("dogList")
+	@GetMapping("reviewList")
 	public ModelAndView boardList(Pager pager, ModelAndView mv) throws Exception {
 		List<BoardVO> ar = reviewService.boardList(pager);
 		mv.addObject("list", ar);

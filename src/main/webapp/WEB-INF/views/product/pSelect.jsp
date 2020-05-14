@@ -257,7 +257,7 @@ float: right;
                        (<span id="quantityNum_amount">1</span>)
                        </span>
                        </div>
-                       
+  <!-- ---------------------------------------------------------------------------------------------------------------- -->     
 	               		<script type="text/javascript">
 	               		var perPrice='${vo.price}';
 	               		var num =1;
@@ -447,10 +447,12 @@ float: right;
 						      주문시 입력한&nbsp;입금자명과 실제입금자의 성명이 반드시 일치하여야 하며, 7일 이내로 입금을 하셔야 하며&nbsp;입금되지
 						      않은 주문은 자동취소 됩니다. <br>
 						 </div>
- 
- 
-                                
+       
                       	</div>
+                      	
+   <!-- 상품후기 -->              
+   
+   						<%-- <span class="price">${}</span>    --%> 	
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
                             	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>

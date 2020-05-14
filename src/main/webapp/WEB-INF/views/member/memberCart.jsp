@@ -49,11 +49,19 @@
 							<div class="row" style="vertical-align: middle;">
 
 								<div style="padding-top: -2px; margin-left: 3px;">장바구니 목록</div>
-								<div class='cart_count'
-									style="margin-left: 4px; top: 0px; margin-top: 1px;">${cartCount }</div>
+								<div class='cart_count'	style="margin-left: 4px; top: 0px; margin-top: 1px;">
+									
+									<c:if test="${not empty member}">
+										${cartCount }
+									</c:if>
+									<c:if test="${empty member }">		<!-- 로그인했을 때만 들어올수 있어서 지워도 괜찮 -->
+										0
+									</c:if>						
+									
+								</div>
 							</div>
 						</div>
-
+						<div> check</div>
 						<div class="row" style="padding: 15px;">
 							<table>
 								<colgroup>
@@ -269,19 +277,7 @@
 
 
 					<div class="col-sm-2">
-						asdasd
-						<div class="row " style="height: 27px; width: 112px;">
-							<button class=" text-center	"
-								style="width: 28px; border: 1px solid #d9dde0;">-</button>
-							<input class="text-center"
-								style="color: #333; width: 51px; border: 1px solid #d9dde0;"
-								value="125">
-							<div class=" text-center"
-								style="width: 28px; border: 1px solid #d9dde0;">+</div>
-
-
-						</div>
-
+						
 					</div>
 				</div>
 			</div>

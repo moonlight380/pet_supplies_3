@@ -5,6 +5,29 @@ public class CartVO {
 	private long cnum;
 	private long productNum;
 	private long cAmount;
+	private String productName;
+	private long price;
+	
+	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public long getPrice() {
+		return price;
+	}
+	public void setPrice(long price) {
+		this.price = price;
+	}
+	public long getPoint() {
+		return point;
+	}
+	public void setPoint(long point) {
+		this.point = point;
+	}
+	private long point;
 	public String getId() {
 		return id;
 	}

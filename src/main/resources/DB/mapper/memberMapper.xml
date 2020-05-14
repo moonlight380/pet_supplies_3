@@ -6,8 +6,8 @@
   
   <mapper namespace="com.pet.p1.member.MemberDAO">
  	
- 	<select id="memberCart" resultType="MemberVO" parameterType="MemberVO">
- 		select * from product where productNum = #{productNum}
+ 	<select id="memberCart" resultType="Long" parameterType="MemberVO">
+ 		select count(*) from cart where id=#{id}
  	</select>
   	
   	<select id="memberIdCheck" resultType="MemberVO" parameterType="MemberVO">

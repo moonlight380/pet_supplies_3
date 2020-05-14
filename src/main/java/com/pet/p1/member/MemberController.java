@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pet.p1.cart.CartService;
+import com.pet.p1.cart.CartVO;
 import com.pet.p1.product.DogService;
 
 import com.pet.p1.util.Pager;
@@ -34,26 +36,37 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private DogService dogService;
+	@Autowired
+	private CartService cartService;
 	
 	
 //--------------------------------------------------------------------------------------------------------------
 
+	
+	@GetMapping("memberOrder")
+	public void memberOrder()throws Exception{
+		
+	}
+	
 	
 	
 	//--장바구니
 	
 	
 	@GetMapping("memberCart")
-	public ModelAndView productList(Long productNum)throws Exception {
+	public void cartList(HttpSession session)throws Exception {
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		List<CartVO> ar = cartService.cartList(memberVO);
 		
-	//	List<DogVO> ar = memberService.productList(dogVO);
 
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("cart",ar);
 		
 //		mv.addObject("dog", dogVO);
 		mv.setViewName("member/memberCart");
+		System.out.println("check");
 		
-		return mv;
+		
 	}
 	
 	//--장바구니 끝
@@ -107,6 +120,8 @@ public class MemberController {
 
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
+			 long count = memberService.memberCart(memberVO);
+			 session.setAttribute("cartCount", count);
 			 mv.setViewName("redirect:../");
 		 }else {
 			 mv.addObject("result", "Login Fail");

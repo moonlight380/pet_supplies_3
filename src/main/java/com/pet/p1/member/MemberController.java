@@ -141,6 +141,7 @@ public class MemberController {
 		 * }
 		 */
 		session.setAttribute("access_Token", access_Token);
+		session.setAttribute("member", memberInfo);
 		mv.addObject("result", "로그인 성공!");
 		mv.addObject("path", "../");
 		mv.setViewName("common/result");

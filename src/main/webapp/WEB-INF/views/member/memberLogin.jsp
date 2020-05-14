@@ -13,11 +13,14 @@
 
 <div class="container">
 
-	<div class="path" style="display: block; float: right; position: relative; height: auto;">
-		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
-			<li style="display: inline;" title="현재 위치"><strong>로그인</strong></li>
-		</ol>
-	</div>
+
+<div class="path" style="display: block; float: right; position: relative; height: auto;">
+	<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
+		<li style="display: inline;"><a href="${pageContext.request.contextPath}/member/memberLogin">로그인 > </a></li>
+		<li style="display: inline;" title="현재 위치"><strong>아이디 찾기</strong></li>
+	</ol>
+</div>
+
 
 <div style="margin-top: 100px; text-align: center;display: block; border-bottom: 3px solid black;">
 <h1 style=" margin-top: 100px; font-weight: bold; font-size: 36px; margin-bottom: 30px;">로그인</h1>
@@ -59,7 +62,7 @@
  <form action="./kakaoLogin" method="get">
 	<div class="kakaoLogin" style="margin-top: 50px; width: 400px; margin: 0 auto;">
 	
-	<c:if test="${member.id eq null}">
+	<c:if test="${member.nickname eq null}">
 	<a 		href="https://kauth.kakao.com/oauth/authorize?
 			client_id=ccfe4411fa1bfc86a27222555a4dba8c
 			&redirect_uri=http://localhost:8080/p1/member/kakaoLogin

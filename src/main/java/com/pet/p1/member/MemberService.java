@@ -128,7 +128,6 @@ public class MemberService {
 			
 			memberInfo.put("nickname", nickname);
 			memberInfo.put("birthday", birthday);
-			
 	
 
 			

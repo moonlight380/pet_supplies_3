@@ -19,7 +19,7 @@ import com.pet.p1.board.BoardVO;
 import com.pet.p1.util.Pager;
 
 @Controller
-@RequestMapping("/review/**")
+@RequestMapping("/product/**")
 public class ReviewController {
 
 	@Autowired
@@ -104,7 +104,7 @@ public class ReviewController {
 		return mv;
 	}
 
-	@GetMapping("reviewList")
+	@GetMapping("dogList")
 	public ModelAndView boardList(Pager pager, ModelAndView mv) throws Exception {
 		List<BoardVO> ar = reviewService.boardList(pager);
 		mv.addObject("list", ar);

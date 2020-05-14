@@ -105,8 +105,9 @@
 					<c:if test="${not empty member}">
 						<li><a class="nav-link"
 							href="${pageContext.request.contextPath}/member/memberCart"><i
-								class="linearicons-cart"></i><span class="cart_count">0</span></a></li>
+								class="linearicons-cart"></i><span class="cart_count">${cartCount}</span></a></li>
 					</c:if>
+					
 					<c:if test="${empty member}">
 						<li><a class="nav-link"
 							href="${pageContext.request.contextPath}/member/memberLogin"><i

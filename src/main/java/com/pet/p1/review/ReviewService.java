@@ -1,8 +1,9 @@
-package com.pet.p1.qna;
+package com.pet.p1.review;
 
 import java.util.List;
 
 import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,10 +16,10 @@ import com.pet.p1.util.FileSaver;
 import com.pet.p1.util.Pager;
 
 @Service
-public class QnaService implements BoardService {
+public class ReviewService implements BoardService {
 
 	@Autowired
-	private QnaDAO qnaDAO;
+	private ReviewDAO reviewDAO;
 	@Autowired
 	private FileSaver fileSaver;
 	@Autowired
@@ -27,8 +28,8 @@ public class QnaService implements BoardService {
 	private ServletContext servletContext;
 
 	public int boardReply(BoardVO boardVO) throws Exception {
-		int result = qnaDAO.boardReplyUpdate(boardVO);
-		result = qnaDAO.boardReply(boardVO);
+		int result = reviewDAO.boardReplyUpdate(boardVO);
+		result = reviewDAO.boardReply(boardVO);
 		return result;
 	}
 
@@ -37,24 +38,24 @@ public class QnaService implements BoardService {
 
 		pager.makeRow();
 
-		pager.makePage(qnaDAO.boardCount(pager));
+		pager.makePage(reviewDAO.boardCount(pager));
 
-		return qnaDAO.boardList(pager);
+		return reviewDAO.boardList(pager);
 	}
 
 	@Override
 	public BoardVO boardSelect(long num) throws Exception {
-		qnaDAO.hitUpdate(num);
-		return qnaDAO.boardSelect(num);
+		reviewDAO.hitUpdate(num);
+		return reviewDAO.boardSelect(num);
 	}
 
 	@Override
 	public int boardWrite(BoardVO boardVO, MultipartFile[] files) throws Exception {
 		// 1. sequnce num qna table insert
-		int result = qnaDAO.boardWrite(boardVO);
+		int result = reviewDAO.boardWrite(boardVO);
 
 		// 3. HDD에 파일저장하고 boardFile table insert
-		String path = servletContext.getRealPath("/resources/qnaUpload");
+		String path = servletContext.getRealPath("/resources/reviewUpload");
 
 		for (MultipartFile file : files) {
 			BoardFileVO boardFileVO = new BoardFileVO();
@@ -62,7 +63,7 @@ public class QnaService implements BoardService {
 			boardFileVO.setNum(boardVO.getNum());
 			boardFileVO.setFileName(fileName);
 			boardFileVO.setOriName(file.getOriginalFilename());
-			boardFileVO.setBoard(2);
+			boardFileVO.setBoard(3);
 			boardFileDAO.fileInsert(boardFileVO);
 		}
 
@@ -72,9 +73,9 @@ public class QnaService implements BoardService {
 	@Override
 	public int boardUpdate(BoardVO boardVO, MultipartFile[] files) throws Exception {
 		// TODO Auto-generated method stub
-		String path = servletContext.getRealPath("/resources/qnaUpload");
+		String path = servletContext.getRealPath("/resources/reviewUpload");
 		System.out.println(path);
-		int result = qnaDAO.boardUpdate(boardVO);
+		int result = reviewDAO.boardUpdate(boardVO);
 
 		for (MultipartFile multipartFile : files) {
 
@@ -84,7 +85,7 @@ public class QnaService implements BoardService {
 				boardFileVO.setNum(boardVO.getNum());
 				boardFileVO.setFileName(fileName);
 				boardFileVO.setOriName(multipartFile.getOriginalFilename());
-				boardFileVO.setBoard(2);
+				boardFileVO.setBoard(3);
 				result = boardFileDAO.fileInsert(boardFileVO);
 
 				if (result < 1) {
@@ -101,14 +102,14 @@ public class QnaService implements BoardService {
 		// TODO Auto-generated method stub
 		List<BoardFileVO> list = boardFileDAO.fileList(num);
 
-		String path = servletContext.getRealPath("/resources/qnaUpload");
+		String path = servletContext.getRealPath("/resources/reviewUpload");
 		System.out.println(path);
 		for (BoardFileVO boardFileVO : list) {
 			fileSaver.deleteFile(boardFileVO.getFileName(), path);
 		}
 
 		boardFileDAO.fileDeleteAll(num);
-		return qnaDAO.boardDelete(num);
+		return reviewDAO.boardDelete(num);
 	}
 
 }

@@ -23,11 +23,12 @@
   	</insert> 
   	
   	<select id="memberEMCheck" resultType="MemberVO" parameterType="MemberVO">
-  		select email,name from member where email = #{email}
+  		select * from member where email = #{email}
   	</select>
   	
-  	
-  	
+  	<select id="findPhone" resultType="MemberVO" parameterType="MemberVO">
+  		select * from member where phone = #{phone}
+  	</select>
   	
   	<sql id="search">
 		like '%'||#{search}||'%'
@@ -68,7 +69,6 @@
 		
 	</select>
 	
-
   	
   	<delete id="memberDelete" parameterType="Long">
   		delete member where id = #{id}

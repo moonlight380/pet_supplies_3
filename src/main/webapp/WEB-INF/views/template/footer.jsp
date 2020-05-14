@@ -10,8 +10,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="widget">
 						<div class="footer_logo">
-							<a href="#"><img src=""
-								alt="logo" /></a>
+							<a href="#"><img src="" alt="logo" /></a>
 						</div>
 						<p>
 							회사명 : (주)펫샵 <br> 대표 : 김쌍용 <br>전화 : 1234-5678 <br>사업자등록번호
@@ -33,9 +32,9 @@
 					<div class="widget">
 						<h6 class="widget_title">사이트 링크</h6>
 						<ul class="widget_links">
-							<li><a href="#">회사소개</a></li>
-							<li><a href="#">QnA</a></li>
-							<li><a href="#">오시는길</a></li>
+							<li><a href="${pageContext.request.contextPath}/review/reviewList">리뷰 테스트</a></li>
+							<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
+							<li><a href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
 						</ul>
 					</div>
 				</div>
@@ -43,9 +42,11 @@
 					<div class="widget">
 						<h6 class="widget_title">카테고리</h6>
 						<ul class="widget_links">
-							<li><a href="#">강아지</a></li>
-							<li><a href="#">고양이</a></li>
-							<li><a href="#">기타</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/product/dogBestList">강아지</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/product/catBestList">고양이</a></li>
+							<li><a href="${pageContext.request.contextPath}/product/dogTimeSale">기타</a></li>
 						</ul>
 					</div>
 				</div>

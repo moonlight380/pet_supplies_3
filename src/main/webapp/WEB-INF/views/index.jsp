@@ -13,11 +13,12 @@
 .footersubbtn {
 	height: 100%;
 }
+
 </style>
 
 
 </head>
-<body>
+<body style="background-color: #fffff0">
 
 	<c:import url="./template/header.jsp"></c:import>
 
@@ -66,10 +67,10 @@
 								src="${pageContext.request.contextPath}/resources/images/singleb1.png"
 								alt="shop_banner_img1" />
 							<div class="single_banner_info">
-								<h5 class="single_bn_title1">Super Sale</h5>
+<!-- 								<h5 class="single_bn_title1">Super Sale</h5>
 								<h3 class="single_bn_title">New Collection</h3>
 								<a href="shop-left-sidebar.html" class="single_bn_link">Shop
-									Now</a>
+									Now</a> -->
 							</div>
 						</div>
 					</div>
@@ -79,10 +80,10 @@
 								src="${pageContext.request.contextPath}/resources/images/singleb2.png"
 								alt="shop_banner_img2" />
 							<div class="single_banner_info">
-								<h3 class="single_bn_title">New Season</h3>
+<!-- 								<h3 class="single_bn_title">New Season</h3>
 								<h4 class="single_bn_title1">Sale 40% Off</h4>
 								<a href="shop-left-sidebar.html" class="single_bn_link">Shop
-									Now</a>
+									Now</a> -->
 							</div>
 						</div>
 					</div>
@@ -110,8 +111,7 @@
 									aria-controls="arrival" aria-selected="true">신상품</a></li>
 								<li class="nav-item"><a class="nav-link" id="sellers-tab"
 									data-toggle="tab" href="#sellers" role="tab"
-									aria-controls="sellers" aria-selected="false">베스트 셀러</a>
-								</li>
+									aria-controls="sellers" aria-selected="false">베스트 셀러</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -142,28 +142,18 @@
 													<a href="shop-product-detail.html">상품1</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">$45.00</span>
-													<del>$55.25</del>
+													<span class="price">650원</span>
+													<del>1000원</del>
 													<div class="on_sale">
 														<span>35% Off</span>
 													</div>
 												</div>
 												<div class="rating_wrap">
-													<div class="rating">
-														<div class="product_rate" style="width: 80%"></div>
-													</div>
-													<span class="rating_num">(21)</span>
 												</div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
-												</div>
-												<div class="pr_switch_wrap">
-													<div class="product_color_switch">
-														<span class="active" data-color="#87554B"></span> <span
-															data-color="#333333"></span> <span data-color="#DA323F"></span>
-													</div>
 												</div>
 											</div>
 										</div>
@@ -187,34 +177,26 @@
 													</ul>
 												</div>
 											</div>
+											
 											<div class="product_info">
 												<h6 class="product_title">
 													<a href="shop-product-detail.html">상품2</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">$45.00</span>
-													<del>$55.25</del>
+													<span class="price">650원</span>
+													<del>1000원</del>
 													<div class="on_sale">
 														<span>35% Off</span>
 													</div>
 												</div>
 												<div class="rating_wrap">
-													<div class="rating">
-														<div class="product_rate" style="width: 80%"></div>
-													</div>
-													<span class="rating_num">(21)</span>
 												</div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												<div class="pr_switch_wrap">
-													<div class="product_color_switch">
-														<span class="active" data-color="#87554B"></span> <span
-															data-color="#333333"></span> <span data-color="#DA323F"></span>
-													</div>
-												</div>
+											
 											</div>
 										</div>
 									</div>
@@ -242,29 +224,20 @@
 													<a href="shop-product-detail.html">상품3</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">$45.00</span>
-													<del>$55.25</del>
+													<span class="price">650원</span>
+													<del>1000원</del>
 													<div class="on_sale">
 														<span>35% Off</span>
 													</div>
 												</div>
 												<div class="rating_wrap">
-													<div class="rating">
-														<div class="product_rate" style="width: 80%"></div>
-													</div>
-													<span class="rating_num">(21)</span>
 												</div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												<div class="pr_switch_wrap">
-													<div class="product_color_switch">
-														<span class="active" data-color="#87554B"></span> <span
-															data-color="#333333"></span> <span data-color="#DA323F"></span>
-													</div>
-												</div>
+
 											</div>
 										</div>
 									</div>
@@ -292,29 +265,20 @@
 													<a href="shop-product-detail.html">상품4</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">$45.00</span>
-													<del>$55.25</del>
+													<span class="price">650원</span>
+													<del>1000원</del>
 													<div class="on_sale">
 														<span>35% Off</span>
 													</div>
 												</div>
 												<div class="rating_wrap">
-													<div class="rating">
-														<div class="product_rate" style="width: 80%"></div>
-													</div>
-													<span class="rating_num">(21)</span>
 												</div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												<div class="pr_switch_wrap">
-													<div class="product_color_switch">
-														<span class="active" data-color="#87554B"></span> <span
-															data-color="#333333"></span> <span data-color="#DA323F"></span>
-													</div>
-												</div>
+						
 											</div>
 										</div>
 									</div>
@@ -342,29 +306,20 @@
 													<a href="shop-product-detail.html">상품5</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">$45.00</span>
-													<del>$55.25</del>
+													<span class="price">650원</span>
+													<del>1000원</del>
 													<div class="on_sale">
 														<span>35% Off</span>
 													</div>
 												</div>
 												<div class="rating_wrap">
-													<div class="rating">
-														<div class="product_rate" style="width: 80%"></div>
-													</div>
-													<span class="rating_num">(21)</span>
 												</div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												<div class="pr_switch_wrap">
-													<div class="product_color_switch">
-														<span class="active" data-color="#87554B"></span> <span
-															data-color="#333333"></span> <span data-color="#DA323F"></span>
-													</div>
-												</div>
+											
 											</div>
 										</div>
 									</div>
@@ -392,29 +347,20 @@
 													<a href="shop-product-detail.html">상품6</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">$45.00</span>
-													<del>$55.25</del>
+													<span class="price">650원</span>
+													<del>1000원</del>
 													<div class="on_sale">
 														<span>35% Off</span>
 													</div>
 												</div>
 												<div class="rating_wrap">
-													<div class="rating">
-														<div class="product_rate" style="width: 80%"></div>
-													</div>
-													<span class="rating_num">(21)</span>
 												</div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												<div class="pr_switch_wrap">
-													<div class="product_color_switch">
-														<span class="active" data-color="#87554B"></span> <span
-															data-color="#333333"></span> <span data-color="#DA323F"></span>
-													</div>
-												</div>
+												
 											</div>
 										</div>
 									</div>
@@ -442,29 +388,20 @@
 													<a href="shop-product-detail.html">상품7</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">$45.00</span>
-													<del>$55.25</del>
+													<span class="price">650원</span>
+													<del>1000원</del>
 													<div class="on_sale">
 														<span>35% Off</span>
 													</div>
 												</div>
 												<div class="rating_wrap">
-													<div class="rating">
-														<div class="product_rate" style="width: 80%"></div>
-													</div>
-													<span class="rating_num">(21)</span>
 												</div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												<div class="pr_switch_wrap">
-													<div class="product_color_switch">
-														<span class="active" data-color="#87554B"></span> <span
-															data-color="#333333"></span> <span data-color="#DA323F"></span>
-													</div>
-												</div>
+												
 											</div>
 										</div>
 									</div>
@@ -492,29 +429,20 @@
 													<a href="shop-product-detail.html">상품8</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">$45.00</span>
-													<del>$55.25</del>
+													<span class="price">650원</span>
+													<del>1000원</del>
 													<div class="on_sale">
 														<span>35% Off</span>
 													</div>
 												</div>
 												<div class="rating_wrap">
-													<div class="rating">
-														<div class="product_rate" style="width: 80%"></div>
-													</div>
-													<span class="rating_num">(21)</span>
 												</div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												<div class="pr_switch_wrap">
-													<div class="product_color_switch">
-														<span class="active" data-color="#87554B"></span> <span
-															data-color="#333333"></span> <span data-color="#DA323F"></span>
-													</div>
-												</div>
+												
 											</div>
 										</div>
 									</div>
@@ -540,7 +468,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<div class="heading_s1 text-center">
-						<h2> 이주의 우수 리뷰</h2>
+						<h2>이주의 우수 리뷰</h2>
 					</div>
 				</div>
 			</div>

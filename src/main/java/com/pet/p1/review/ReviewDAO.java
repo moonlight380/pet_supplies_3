@@ -1,4 +1,4 @@
-package com.pet.p1.qna;
+package com.pet.p1.review;
 
 import java.util.List;
 
@@ -11,11 +11,11 @@ import com.pet.p1.board.BoardVO;
 import com.pet.p1.util.Pager;
 
 @Repository
-public class QnaDAO implements BoardDAO {
+public class ReviewDAO implements BoardDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.pet.p1.qna.QnaDAO."; // mapper namespace 경로랑 똑같아야함.
+	private final String NAMESPACE = "com.pet.p1.review.ReviewDAO.";
 
 	public int boardReplyUpdate(BoardVO boardVO) throws Exception {
 		return sqlSession.update(NAMESPACE + "boardReplyUpdate", boardVO);
@@ -59,4 +59,5 @@ public class QnaDAO implements BoardDAO {
 	public int hitUpdate(long num) throws Exception {
 		return sqlSession.update(NAMESPACE + "hitUpdate", num);
 	}
+
 }

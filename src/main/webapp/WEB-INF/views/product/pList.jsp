@@ -102,11 +102,30 @@
 </div>
 <!-- END SECTION BREADCRUMB -->
 
+<!-- 검색 -->
+	<form class="col-xs-6" action="./${p}List">
+    <div class="input-group container">
+ 
+    <select class="form-control" id="sel1" name="kind">
+		    <option value="pn">productName</option>
+		    <option value="pc">Contents</option>
+			<option value="pnum">productNum</option>
+			
+		</select>
+		<input type="text" class="form-control" placeholder="Search" name="search">
+		
+		<div class="input-group-btn">
+       		 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+     	 </div>
+	</div>
+ 	 </form>
+
+<!-- END MAIN CONTENT -->
 
 
 <!-- START MAIN CONTENT -->
 <div class="main_content">
-
+</div>
 <!-- START SECTION SHOP -->
  
 <div class="section">
@@ -247,8 +266,7 @@
 </div>
 <!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
-</div>
-<!-- END MAIN CONTENT -->
+
 
 
 

@@ -3,6 +3,7 @@ package com.pet.p1.product;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pet.p1.member.MemberVO;
 import com.pet.p1.util.Pager;
 
 @Controller
@@ -27,19 +29,24 @@ private DogService dogService;
 public String getBoard()throws Exception{
 	return "dog";
 }
+
+//dogkakaoPay
 @RequestMapping(value = "dogkakaoPay",method = RequestMethod.GET)
-public ModelAndView dogkakaoPay (ModelAndView mv) throws Exception{
-	mv.setViewName("product/pkakaoPay");
+public ModelAndView dogkakaoPay (ModelAndView mv,DogVO dogVO,HttpSession session) throws Exception{
 	
+	mv.addObject("vo",dogVO);
+	mv.setViewName("product/pkakaoPay");	
 	return mv;
 }
 
+//kakao
 @RequestMapping(value = "kakao",method = RequestMethod.GET)
 public ModelAndView kakao (ModelAndView mv) throws Exception{
 	mv.setViewName("product/kakao");
 	
 	return mv;
 }
+
 //List
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
 	public ModelAndView dogList (ModelAndView mv,Pager pager)throws Exception {
@@ -143,12 +150,15 @@ public ModelAndView kakao (ModelAndView mv) throws Exception{
 	
 //Select
 	@GetMapping("dogSelect") 
-		public ModelAndView dogSelect(long productNum) throws Exception{
-		
+		public ModelAndView dogSelect(long productNum, HttpSession session) throws Exception{
 			DogVO dogVO=dogService.dogSelect(productNum);
 			ModelAndView mv= new ModelAndView();
-			mv.addObject("vo",dogVO);		
+			
+
+			mv.addObject("vo",dogVO);
+		
 			mv.setViewName("product/pSelect");
+			
 			
 			
 			return mv;

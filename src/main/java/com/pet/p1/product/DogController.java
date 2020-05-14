@@ -27,6 +27,19 @@ private DogService dogService;
 public String getBoard()throws Exception{
 	return "dog";
 }
+@RequestMapping(value = "dogkakaoPay",method = RequestMethod.GET)
+public ModelAndView dogkakaoPay (ModelAndView mv) throws Exception{
+	mv.setViewName("product/pkakaoPay");
+	
+	return mv;
+}
+
+@RequestMapping(value = "kakao",method = RequestMethod.GET)
+public ModelAndView kakao (ModelAndView mv) throws Exception{
+	mv.setViewName("product/kakao");
+	
+	return mv;
+}
 //List
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
 	public ModelAndView dogList (ModelAndView mv,Pager pager)throws Exception {

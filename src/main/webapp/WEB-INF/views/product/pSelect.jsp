@@ -259,9 +259,9 @@ float: right;
                         <span class="direct_purchase">
                         	<button class="btn btn-fill-out btn-addtocart direct_purchase" type="button"><i class='fas fa-dollar-sign'></i> Add to purchase</button>
                         </span>
-                      
+                   <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i>kakao pay</button>
+                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/product/dogkakaoPay">kakao pay</a></button>
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
                    

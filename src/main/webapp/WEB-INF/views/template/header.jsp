@@ -10,6 +10,8 @@
 .product_search_form {
 	width: 50%;
 }
+
+
 </style>
 
 <!-- START HEADER -->

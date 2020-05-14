@@ -102,6 +102,7 @@ float: right;
 }
 
 
+
 </style>
 
 
@@ -192,7 +193,7 @@ float: right;
                 </div> <!--  END class="product-image" -->
             </div> <!-- END class="col-lg-6 col-md-6 mb-4 mb-md-0" -->
             
-            
+        
             <div class="col-lg-6 col-md-6">
                 <div class="pr_detail ">
                     <div class="product_description">
@@ -215,7 +216,7 @@ float: right;
                     </div> <!-- END "product_description" -->
                     <hr />
                 
-                  
+           <!-- ------------------------------------------------------------------------------------------------------------ -->            
                   
                       <div class="product_price">
                             <span class="price">${vo.price}</span>
@@ -227,16 +228,20 @@ float: right;
                    
 
                      
-                    <div class="cart-product-quantity">
-                     
+                       
+                       
                         <div class="cart-product-quantity">
+                        <!-- 수량 버튼 시작 -->
                             <div class="quantity">
-                                <input type="button" value="-" class="minus">
+                                <input type="button" value="-"  class="minus">
                                 <input type="text" id="quantityNum" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                <input type="button" value="+" class="plus">
+                                <input type="button"  value="+" class="plus" >
                             </div> <!-- class="quantity" -->
                             
-                        </div><!--END class="cart-product-quantity" -->
+                        </div><!--END class="cart-product-quantity" 수량 끝-->
+                       
+                    <div class="cart-product-quantity">
+                     
                        
                        <div class="line"></div>
                        
@@ -245,13 +250,57 @@ float: right;
                        (수량) 
                        
                        <span class="sum">
-                       <strong>
-                       <em>${vo.price}</em> 
-                       </strong>
-                       (1개)
+                       <strong><!-- 총가격 -->
+                       <span  id="sum_price">${vo.price}</span> 
+                       </strong> <!-- 수량 -->
+                       
+                       (<span id="quantityNum_amount">1</span>)
                        </span>
                        </div>
                        
+	               		<script type="text/javascript">
+	               		var perPrice='${vo.price}';
+	               		var num =1;
+	               		$(".minus").click(function(){
+	               			num = $("#quantityNum").val();
+	               			num=num*1;
+	               			
+	               			num--;
+	               			alert("minus :"+num);
+	               			$("#quantityNum").val(num);
+	               			
+	               			
+	               			/* alert("#quantityNum_amount".text()); */
+	               			$("#quantityNum_amount").text(num); 
+	               			
+	               				
+	               			$("#sum_price").text(num*perPrice);
+	               			/* $("sum_price").text(num);  */
+	               			
+	               		});/*minus*/
+	               		
+	               		
+	               		
+						/*plus*/
+						
+	               		$(".plus").click(function(){
+	               			num = $("#quantityNum").val();
+	               			num=num*1;
+	               			alert(num);
+	               			num++;
+	               			alert("plus:"+num);
+	               			//$("#quantityNum").val(num);
+
+	               			$("#quantityNum_amount").text(num); 
+
+	               			$("#sum_price").text(num*perPrice);
+	               			
+	               		});/*plus*/
+	
+	               		
+	               		</script>
+                       
+      <!-- ------------------------------------------------------------------------------------------------------------ -->                     
                        <span class="cart_btn">
                             <button class="btn btn-fill-out btn-addtocart cart_margin" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
                         </span> <!-- "cart_btn" -->
@@ -259,9 +308,10 @@ float: right;
                         <span class="direct_purchase">
                         	<button class="btn btn-fill-out btn-addtocart direct_purchase" type="button"><i class='fas fa-dollar-sign'></i> Add to purchase</button>
                         </span>
-                      
+                   <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i>kakao pay</button>
+                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/product/dogkakaoPay?productName=${vo.productName}&amount=${vo.amount}&phone=${member.phone}">kakao pay</a></button>
+                         
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
                    
@@ -477,7 +527,7 @@ float: right;
                 </div>
             </div>
         </div>
-        
+    <!-- ---------------------------------------------------------------------------------------------------- -->    
         
 <!--         <div class="row">
         	<div class="col-12">

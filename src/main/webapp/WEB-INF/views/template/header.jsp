@@ -8,7 +8,7 @@
 }
 
 .product_search_form {
-	width: 51%;
+	width: 42%;
 }
 
 @media ( min-width :1200px) {
@@ -21,7 +21,7 @@
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
 	<div class="bottom_header dark_skin main_menu_uppercase">
-		<div class="container">
+		<div class="container conmod">
 			<nav class="navbar navbar-expand-lg">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}">
 					<img class="logo_light"

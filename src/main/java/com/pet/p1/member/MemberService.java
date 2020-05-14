@@ -205,6 +205,10 @@ public class MemberService {
 		return memberDAO.memberIdCheck(memberVO);
 	}
 	
+	public MemberVO findPhone(MemberVO memberVO)throws Exception{
+		return memberDAO.findPhone(memberVO);
+	}
+	
 	public int memberDeletes(List<String> list)throws Exception{
 		return memberDAO.memberDeletes(list);
 	}

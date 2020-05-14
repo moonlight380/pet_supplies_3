@@ -175,16 +175,19 @@
                                 <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
 				
 								<!-- 타이머기능 -->
-                 				<input type="button" value="타이머 정지" onclick="clearInterval(timer)">
-      							  <div class="test"></div>
-
+                 			
+                 				<div class='notice'></div>
+                 	
+								<script id="notice" type="text/javascript" src="../resources/script/timeSale.js"> </script> 
+								
+ 
              
                                 </div>
                                 <div class="product_price">
 		                              <span class="price">${vo.price}</span>
-                                    <del>$55.25</del>
+                                    <del>${vo.price*0.7}</del>
                                     <div class="on_sale">
-                                        <span>35% Off</span>
+                                        <span>30% Off</span>
                                     </div>
                                 </div>
                                 
@@ -303,7 +306,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 
 
-<script type="text/javascript" src="../resources/script/timeSale.js"> </script> 
+
 
 
 

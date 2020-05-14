@@ -30,6 +30,8 @@ public class BoardFileService {
 		String board = "noticeUpload";
 		if (boardFileVO.getBoard() == 2) {
 			board = "qnaUpload";
+		} else if (boardFileVO.getBoard()==3) {
+			board = "reviewUpload";
 		}
 		String path = servletContext.getRealPath("/resources/" + board);
 		fileSaver.deleteFile(boardFileVO.getFileName(), path);

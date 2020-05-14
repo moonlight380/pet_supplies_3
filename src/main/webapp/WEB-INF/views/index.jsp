@@ -13,11 +13,12 @@
 .footersubbtn {
 	height: 100%;
 }
+
 </style>
 
 
 </head>
-<body>
+<body style="background-color: #fffff0">
 
 	<c:import url="./template/header.jsp"></c:import>
 
@@ -110,8 +111,7 @@
 									aria-controls="arrival" aria-selected="true">신상품</a></li>
 								<li class="nav-item"><a class="nav-link" id="sellers-tab"
 									data-toggle="tab" href="#sellers" role="tab"
-									aria-controls="sellers" aria-selected="false">베스트 셀러</a>
-								</li>
+									aria-controls="sellers" aria-selected="false">베스트 셀러</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -540,7 +540,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<div class="heading_s1 text-center">
-						<h2> 이주의 우수 리뷰</h2>
+						<h2>이주의 우수 리뷰</h2>
 					</div>
 				</div>
 			</div>

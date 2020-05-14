@@ -153,9 +153,10 @@
                     
                     <c:forEach items="${list}" var="vo" varStatus="status" begin="0" end="300"> 
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
+                        
                         <div class="product">
                             <div class="product_img">
-                                <a href="shop-product-detail.html">                             
+                                <a href="./${p}Select?productNum=${vo.productNum}">                            
                                     <img src="${pageContext.request.contextPath}/resources/dogUpload/${vo.productFileVOs['0'].fileName}" alt="X">
                               <!--  첫번째 이미지 가져오기 -->
                                 </a>
@@ -174,12 +175,17 @@
                                 
                                 <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>                             
                                 </div>
+                                
+                                
                                 <div class="product_price">
-		                              <span class="price">${vo.price}</span>
-                                    <del>$55.25</del>
+		                              <a href="./${p}Select?productNum=${vo.productNum}">   
+			                              <span class="price">${vo.price}</span>
+	                                    	<del>$55.25</del>
+                                    </a>
                                     <div class="on_sale">
                                         <span>35% Off</span>
                                     </div>
+                                    
                                 </div>
                                 <div class="rating_wrap">
                                     <div class="rating">

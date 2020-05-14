@@ -124,5 +124,6 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/java,windows,eclipse
 *.properties
-*.properties
+target/m2e-wtp/web-resources/META-INF/maven/com.pet/p1/pom.properties
+src/main/resources/DB/config/db.properties
 target/classes/DB/config/db.properties

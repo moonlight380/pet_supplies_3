@@ -8,10 +8,14 @@
 }
 
 .product_search_form {
-	width: 50%;
+	width: 51%;
 }
 
-
+@media ( min-width :1200px) {
+	.container {
+		max-width: 1300px
+	}
+}
 </style>
 
 <!-- START HEADER -->
@@ -68,7 +72,8 @@
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item"
-										href="about.html">회사 소개</a></li>
+										href="${pageContext.request.contextPath}/review/reviewList">리뷰
+											TEST</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
 										href="${pageContext.request.contextPath}/notice/noticeList">공지
 											사항</a></li>
@@ -96,6 +101,17 @@
 				</div>
 
 				<ul class="navbar-nav attr-nav align-items-center">
+
+					<c:if test="${not empty member}">
+						<li><a class="nav-link"
+							href="${pageContext.request.contextPath}/member/memberCart"><i
+								class="linearicons-cart"></i><span class="cart_count">0</span></a></li>
+					</c:if>
+					<c:if test="${empty member}">
+						<li><a class="nav-link"
+							href="${pageContext.request.contextPath}/member/memberLogin"><i
+								class="linearicons-cart"></i><span class="cart_count">0</span></a></li>
+					</c:if>
 
 					<c:if test="${empty member}">
 						<li><a href="#" class="nav-link"><i
@@ -130,16 +146,10 @@
 					</c:if>
 
 					<c:if test="${not empty member}">
-						<li><a class="nav-link"
-							href="${pageContext.request.contextPath}/member/memberCart"><i
-								class="linearicons-cart"></i><span class="cart_count">0</span></a></li>
+						<li><h6
+								style="font-size: 14px; padding-top: 6px; padding-left: 6px;">${member.id}님
+								환영합니다.</h6></li>
 					</c:if>
-					<c:if test="${empty member}">
-						<li><a class="nav-link"
-							href="${pageContext.request.contextPath}/member/memberLogin"><i
-								class="linearicons-cart"></i><span class="cart_count">0</span></a></li>
-					</c:if>
-
 				</ul>
 			</nav>
 		</div>

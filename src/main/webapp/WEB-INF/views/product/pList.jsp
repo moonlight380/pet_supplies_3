@@ -13,19 +13,53 @@
 <meta name="description" content="Shopwise is Powerful features and You Can Use The Perfect Build this Template For Any eCommerce Website. The template is built for sell Fashion Products, Shoes, Bags, Cosmetics, Clothes, Sunglasses, Furniture, Kids Products, Electronics, Stationery Products and Sporting Goods.">
 <meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
 
-
-
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 
-
-
-
 </head>
-
+<!-- --------------------------------------------------바디시작--------------------------------------------- -->
 <body>
+
+
 <c:import url="../template/header.jsp"></c:import>
+
+
+
+<!-- =============================================================================================== -->
+<div  class="container"> <!-- address 팝업창 -->
+<input id="address_management" type="button" value="주소록 보기">
+
+    <form name="extendHDD" method="Post">
+        배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
+        성명: <input type="text" id="name" name="name"/> <br/>
+        주소: <input type="text" name="productname"/> <br/>
+        일반전화: <input type="tel" name="warranty"/> <br/>
+         휴대전화: <input type="tel" name="warranty"/>
+    </form>
+     
+</div>	
+
+
+<!-- 팝업창  띄우기 -->
+<script type="text/javascript">
+	
+$("#address_management").click(function(){
+	var popUrl = "./address";	//팝업창에 출력될 페이지 URL
+
+	var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
+	//크롬에서는 속성값이 먹지 않음
+	window.open(popUrl ,"address_management",popOption);s
+		
+});
+
+
+	
+</script>
+
+<!--주소록팝업창띄우기끝 =============================================================================================== -->
+
+
 
 <!-- LOADER -->
 <div class="preloader">
@@ -150,7 +184,7 @@
                             <div class="product_header_right">
                             	<div class="products_view">
                             	 <a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>		
-<!-- ------------------------------------------------------------------------------------------------------------------------ -->
+<!--admin 계정만 write 버튼이 보일 수 있도록// css 깨짐 ------------------------------------------------------------------------------------------------------------------------ -->
 							
 <%-- 					 	<c:catch>
 								<c:if test="${member.id eq 'admin' }">

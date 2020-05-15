@@ -9,19 +9,19 @@
 
 <style type="text/css">
 #popClose_btn{
-margin-left: 640px;
+margin-left: 650px;
 }
 </style>
 
 </head>
 <body>
 
- 
+ <div class="container">
 <img alt="popup" src="${pageContext.request.contextPath}/resources/images/goPopup.jpg">
 
 
-<input id="popClose_btn" type='BUTTON' value="닫기x" onClick='self.close()'>
-
+<input id="popClose_btn" type='BUTTON' value="닫기x" onClick="self.close()">
+</div>
 
 </body>
 </html>

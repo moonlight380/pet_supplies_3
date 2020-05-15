@@ -29,6 +29,20 @@ private DogService dogService;
 public String getBoard()throws Exception{
 	return "dog";
 }
+//address
+@RequestMapping(value = "address",method = RequestMethod.GET)
+public ModelAndView address (ModelAndView mv) throws Exception{
+	mv.setViewName("product/address");	
+	System.out.println("address/get");
+	return mv;
+}
+
+
+//@RequestMapping(value = "address",method = RequestMethod.POST)
+//public String address () throws Exception{
+//		System.out.println("adress post");
+//	return"product/pList";
+//}
 
 //dogkakaoPay
 @RequestMapping(value = "dogkakaoPay",method = RequestMethod.GET)

@@ -228,8 +228,7 @@ public class MemberController {
 		
 	}
 	
-	//-- email메일로 찾기
-	
+	//-- email로 찾기
 	@PostMapping("findEmail")
 	@ResponseBody
 	public MemberVO findEmail(MemberVO memberVO)throws Exception{
@@ -239,6 +238,7 @@ public class MemberController {
 		return memberVO;
 	}
 	
+	//-- Phone으로 찾기
 	@PostMapping("findPhone")
 	@ResponseBody
 	public MemberVO findPhone(MemberVO memberVO)throws Exception{
@@ -249,13 +249,13 @@ public class MemberController {
 	}
 
 	
-	
 	//-- memberPayment
 	
 	@GetMapping("memberPayment")
 	public void memberPayment()throws Exception{
 		
 	}
+	
 	
 //-------------------------------------------------------------------------------------------------------	
 	

@@ -42,7 +42,7 @@
 </div>
 
  <p id="name" class="name" ><strong style="font-size: small;">이름</strong>
-  <input id="check_name" name="name" class="ec check_name pc" placeholder="" value="김수경" type="text" style="margin-left: 80px;">
+  <input id="check_name" name="name" class="ec check_name pc" placeholder="" value="" type="text" style="margin-left: 80px;">
   <span id = "nameContents"></span></p>
   
 <div id="find_email">

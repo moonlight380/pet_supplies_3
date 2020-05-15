@@ -1,1322 +1,605 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<!-- Meta -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Anil z" name="author">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Shopwise is Powerful features and You Can Use The Perfect Build this Template For Any eCommerce Website. The template is built for sell Fashion Products, Shoes, Bags, Cosmetics, Clothes, Sunglasses, Furniture, Kids Products, Electronics, Stationery Products and Sporting Goods.">
-<meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
-
-<!-- SITE TITLE -->
-<title>Shopwise - eCommerce Bootstrap 4 HTML Template</title>
-<!-- Favicon Icon -->
-<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
-<!-- Animation CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.css">	
-<!-- Latest Bootstrap min CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css">
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
-<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
-<!-- Icon Font CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/all.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/ionicons.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/themify-icons.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/linearicons.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/flaticon.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/simple-line-icons.css">
-<!--- owl carousel CSS-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/owlcarousel/css/owl.carousel.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/owlcarousel/css/owl.theme.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/owlcarousel/css/owl.theme.default.min.css">
-<!-- Magnific Popup CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
-<!-- jquery-ui CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery-ui.css">
-<!-- Slick CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick-theme.css">
-<!-- Style CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/responsive.css">
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<c:import url="../template/boot.jsp"></c:import>
+<c:import url="../template/css.jsp"></c:import>
 </head>
-
 <body>
+<c:import url="../template/header.jsp"></c:import>
 
-<!-- LOADER -->
-<div class="preloader">
-    <div class="lds-ellipsis">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+	<div class="path" style="display: block; float: right; position: relative; height: auto; margin-top: 50px; margin-right: 200px;">
+		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home ></a></li>
+			<li style="display: inline;"><a href="${pageContext.request.contextPath}">장바구니 ></a></li>
+			<li style="display: inline;" title="현재 위치"><strong>주문결제 ></strong></li>
+			<li style="display: inline;">주문완료</li>
+		</ol>
+	</div>
+
+<div class="container" style="margin-top: 100px; border: 1px solid red; height: 3000px;">
+
+<div class="orderListArea">
+	<div class="title line_base">
+		<h3>주문내역</h3>
+	</div>
+
+<!-- 기본배송 -->
+<div class="ec-base-table typeList gBorder" style=" border-bottom: 1px solid black; ">
+<div style="border-top: 1px solid black;text-align: center;">
+<table class="table table-hover" style="border-top: 1px solid black;">
+<caption>기본배송</caption>
+<colgroup>
+<col style="width:27px" class="">
+<col style="width:92px">
+<col style="width:auto">
+<col style="width:98px">
+<col style="width:75px">
+<col style="width:98px">
+<col style="width:98px">
+<col style="width:85px">
+<col style="width:98px">
+</colgroup>
+<thead><tr>
+<th scope="col" class="">
+<input type="checkbox" onclick=""></th>
+	<th scope="col">이미지</th>
+	<th scope="col">상품정보</th>
+	<th scope="col">판매가</th>
+	<th scope="col">수량</th>
+	<th scope="col">적립금</th>
+	<th scope="col">배송구분</th>
+	<th scope="col">배송비</th>
+	<th scope="col">합계</th>
+</tr></thead>
+
+<tfoot class="right">
+<tr>
+<td class=""></td>
+<td colspan="8">
+<span class="gLeft" style="float: left;">[기본배송]</span><span class="displaynone" style="float: right;"> 상품구매금액 <strong>28,900 (0)</strong> + 배송비 3,000  - 상품할인금액 0  = 합계 : <strong class="txtEm gIndent10">31,900원</strong></span>
+</td>
+</tr></tfoot>
+
+<tbody class="xans-element- xans-order xans-order-normallist center">
+
+<tr class="xans-record-">
+<td class="">
+	<input id="chk_order_cancel_list0" name="chk_order_cancel_list_basic0" value="22292:000A:F:406633" type="checkbox">
+</td>
+<td class="thumb gClearLine"><a href="/product/detail.html?product_no=22292&amp;cate_no=1140"><img src="//gang2yang2.cafe24.com/web/product/tiny/201901/31523b8ad62931f9f062951d7bb8b9f9.jpg" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
+<td class="left gClearLine">
+	<a href="/product/detail.html?product_no=22292&amp;cate_no=1140"><strong>♡ 2+2 ♡ 동물농장 껌씹는하루 (블루베리) 12P</strong></a>
+	<div class="option displaynone"></div>
+	<p class="gBlank5 displaynone">무이자할부 상품</p>
+	<p class="gBlank5 displaynone">유효기간 : </p>
+</td>
+<td class="right">
+	<div class="">
+	<strong>7,900원</strong><p class="displaynone"></p>
+	</div>
+	<div class="displaynone">
+	<strong>7,900원</strong><p class="displaynone"></p>
+	</div>
+</td>
+<td>1</td>
+<td><span class="txtInfo"><input id="product_mileage_all_22292_000A" name="product_mileage_all" value="150" type="hidden"><img src="/web/upload/icon_201312240915061500.gif"> 150원</span></td>
+<td><div class="txtInfo">기본배송<br></div></td>
+<td rowspan="1" class="">[조건]</td>
+<td class="right">
+	<strong>7,900원</strong><div class="displaynone"></div>
+</td>
+</tr>
+
+<tr class="xans-record-">
+<td class=""><input id="chk_order_cancel_list1" name="chk_order_cancel_list_basic1" value="23021:000A:F:406632" type="checkbox"></td>
+<td class="thumb gClearLine"><a href="/product/detail.html?product_no=23021&amp;cate_no=1"><img src="//gang2yang2.cafe24.com/web/product/tiny/20200428/7f28e11bb8b0d9fc9415d0ddc613313a.jpg" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
+<td class="left gClearLine">
+	<a href="/product/detail.html?product_no=23021&amp;cate_no=1"><strong>버츠비 케어플러스 하이드레이팅컨디셔너(코코넛오일)</strong></a>
+	<div class="option displaynone"></div>
+	<p class="gBlank5 displaynone">무이자할부 상품</p>
+	<p class="gBlank5 displaynone">유효기간 : </p>
+</td>
+<td class="right">
+	<div class="">
+	<strong>18,000원</strong><p class="displaynone"></p>
+	</div>
+	<div class="displaynone">
+	<strong>18,000원</strong><p class="displaynone"></p>
+	</div>
+</td>
+
+<td>1</td>
+<td><span class="txtInfo"><input id="product_mileage_all_23021_000A" name="product_mileage_all" value="360" type="hidden"><img src="/web/upload/icon_201312240915061500.gif"> 360원</span></td>
+<td><div class="txtInfo">기본배송<br></div></td>
+<td rowspan="1" class="">[조건]</td>
+<td class="right">
+	<strong>18,000원</strong><div class="displaynone"></div>
+</td>
+</tr>
+
+<tr class="xans-record-">
+<td class=""><input id="chk_order_cancel_list2" name="chk_order_cancel_list_basic2" value="18337:000A:F:405563" type="checkbox"></td>
+<td class="thumb gClearLine"><a href="/product/detail.html?product_no=18337&amp;cate_no=1134"><img src="//gang2yang2.cafe24.com/web/product/tiny/201802/18337_shop1_336781.jpg" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
+<td class="left gClearLine">
+	<a href="/product/detail.html?product_no=18337&amp;cate_no=1134"><strong>킷캣 갸르릉퓨레 닭가슴살 가다랑어 60g [KC-898]</strong></a>
+	<div class="option displaynone"></div>
+	<p class="gBlank5 displaynone">무이자할부 상품</p>
+	<p class="gBlank5 displaynone">유효기간 : </p>
+</td>
+<td class="right">
+	<div class="">
+	<strong>3,000원</strong><p class="displaynone"></p>
+	</div>
+	<div class="displaynone">
+	<strong>3,000원</strong><p class="displaynone"></p>
+	</div>
+</td>
+<td>1</td>
+<td><span class="txtInfo"><input id="product_mileage_all_18337_000A" name="product_mileage_all" value="60" type="hidden"><img src="/web/upload/icon_201312240915061500.gif"> 60원</span></td>
+<td><div class="txtInfo">기본배송<br></div></td>
+<td rowspan="1" class="">[조건]</td>
+<td class="right">
+	<strong>3,000원</strong><div class="displaynone"></div>
+</td>
+</tr>
+
+</tbody>
+</table>
 </div>
-<!-- END LOADER -->
-
-<!-- Home Popup Section -->
-<div class="modal fade subscribe_popup" id="onload-popup" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="ion-ios-close-empty"></i></span>
-                </button>
-                <div class="row no-gutters">
-                    <div class="col-sm-5">
-                    	<div class="background_bg h-100" data-img-src="${pageContext.request.contextPath}/resources/images/popup_img.jpg"></div>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="popup_content">
-                            <div class="popup-text">
-                                <div class="heading_s4">
-                                    <h4>Subscribe and Get 25% Discount!</h4>
-                                </div>
-                                <p>Subscribe to the newsletter to receive updates about new products.</p>
-                            </div>
-                            <form method="post">
-                            	<div class="form-group">
-                                	<input name="email" required type="email" class="form-control rounded-0" placeholder="Enter Your Email">
-                                </div>
-                                <div class="form-group">
-                                	<button class="btn btn-fill-line btn-block text-uppercase rounded-0" title="Subscribe" type="submit">Subscribe</button>
-                                </div>
-                            </form>
-                            <div class="chek-form">
-                                <div class="custome-checkbox">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
-                                    <label class="form-check-label" for="exampleCheckbox3"><span>Don't show this popup again!</span></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    	</div>
-    </div>
+<ul class="ec-base-help controlInfo typeBtm">
+<li class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</li>
+</ul>
 </div>
-<!-- End Screen Load Popup Section --> 
 
-<!-- START HEADER -->
-<header class="header_wrap fixed-top header_with_topbar">
-	<div class="top-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                	<div class="d-flex align-items-center justify-content-center justify-content-md-start">
-                        <div class="lng_dropdown mr-2">
-                            <select name="countries" class="custome_select">
-                                <option value='en' data-image="${pageContext.request.contextPath}/resources/images/eng.png" data-title="English">English</option>
-                                <option value='fn' data-image="${pageContext.request.contextPath}/resources/images/fn.png" data-title="France">France</option>
-                                <option value='us' data-image="${pageContext.request.contextPath}/resources/images/us.png" data-title="United States">United States</option>
-                            </select>
-                        </div>
-                        <div class="mr-3">
-                            <select name="countries" class="custome_select">
-                                <option value='USD' data-title="USD">USD</option>
-                                <option value='EUR' data-title="EUR">EUR</option>
-                                <option value='GBR' data-title="GBR">GBR</option>
-                            </select>
-                        </div>
-                        <ul class="contact_detail text-center text-lg-left">
-                            <li><i class="ti-mobile"></i><span>123-456-7890</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                	<div class="text-center text-md-right">
-                       	<ul class="header_list">
-                        	<li><a href="#"><i class="ti-control-shuffle"></i><span>Compare</span></a></li>
-                            <li><a href="#"><i class="ti-heart"></i><span>Wishlist</span></a></li>
-                            <li><a href="#"><i class="ti-user"></i><span>Login</span></a></li>
-						</ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bottom_header dark_skin main_menu_uppercase">
-    	<div class="container">
-            <nav class="navbar navbar-expand-lg"> 
-                <a class="navbar-brand" href="index.html">
-                    <img class="logo_light" src="${pageContext.request.contextPath}/resources/images/logo_light.png" alt="logo" />
-                    <img class="logo_dark" src="${pageContext.request.contextPath}/resources/images/logo_dark.png" alt="logo" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> 
-                    <span class="ion-android-menu"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="dropdown">
-                            <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Home</a>
-                            <div class="dropdown-menu">
-                                <ul> 
-                                    <li><a class="dropdown-item nav-link nav_item" href="index.html">Fashion 1</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="index-2.html">Fashion 2</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="index-3.html">Furniture 1</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="index-4.html">Furniture 2</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="index-5.html">Electronics 1</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="index-6.html">Electronics 2</a></li>
-                                </ul>
-                            </div>   
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu">
-                                <ul> 
-                                    <li><a class="dropdown-item nav-link nav_item" href="about.html">About Us</a></li> 
-                                    <li><a class="dropdown-item nav-link nav_item" href="contact.html">Contact Us</a></li> 
-                                    <li><a class="dropdown-item nav-link nav_item" href="faq.html">Faq</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="404.html">404 Error Page</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="login.html">Login</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="signup.html">Register</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="term-condition.html">Terms and Conditions</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown dropdown-mega-menu">
-                            <a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">Products</a>
-                            <div class="dropdown-menu">
-                                <ul class="mega-menu d-lg-flex">
-                                    <li class="mega-menu-col col-lg-3">
-                                        <ul> 
-                                            <li class="dropdown-header">Woman's</li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-three-columns.html">Vestibulum sed</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-four-columns.html">Donec porttitor</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-grid-view.html">Donec vitae facilisis</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-list-view.html">Curabitur tempus</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-left-sidebar.html">Vivamus in tortor</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-menu-col col-lg-3">
-                                        <ul>
-                                            <li class="dropdown-header">Men's</li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-cart.html">Donec vitae ante ante</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="checkout.html">Etiam ac rutrum</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="wishlist.html">Quisque condimentum</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="compare.html">Curabitur laoreet</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="cart-empty.html">Vivamus in tortor</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-menu-col col-lg-3">
-                                        <ul>
-                                            <li class="dropdown-header">Kid's</li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail.html">Donec vitae facilisis</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-left-sidebar.html">Quisque condimentum</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-right-sidebar.html">Etiam ac rutrum</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-thumbnails-left.html">Donec vitae ante ante</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-accordion-style.html">Donec porttitor</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-menu-col col-lg-3">
-                                        <ul>
-                                            <li class="dropdown-header">Accessories</li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail.html">Curabitur tempus</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-left-sidebar.html">Quisque condimentum</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-right-sidebar.html">Vivamus in tortor</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-thumbnails-left.html">Donec vitae facilisis</a></li>
-                                            <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-accordion-style.html">Donec porttitor</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="d-lg-flex menu_banners">
-                                    <div class="col-sm-4">
-                                        <div class="header-banner">
-                                            <img src="${pageContext.request.contextPath}/resources/images/menu_banner1.jpg" alt="menu_banner1">
-                                            <div class="banne_info">
-                                                <h6>10% Off</h6>
-                                                <h4>New Arrival</h4>
-                                                <a href="#">Shop now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="header-banner">
-                                            <img src="${pageContext.request.contextPath}/resources/images/menu_banner2.jpg" alt="menu_banner2">
-                                            <div class="banne_info">
-                                                <h6>15% Off</h6>
-                                                <h4>Men's Fashion</h4>
-                                                <a href="#">Shop now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="header-banner">
-                                            <img src="${pageContext.request.contextPath}/resources/images/menu_banner3.jpg" alt="menu_banner3">
-                                            <div class="banne_info">
-                                                <h6>23% Off</h6>
-                                                <h4>Kids Fashion</h4>
-                                                <a href="#">Shop now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">Blog</a>
-                            <div class="dropdown-menu dropdown-reverse">
-                                <ul>
-                                    <li>
-                                        <a class="dropdown-item menu-link dropdown-toggler" href="#">Grids</a>
-                                        <div class="dropdown-menu">
-                                            <ul> 
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-three-columns.html">3 columns</a></li>
-                                            	<li><a class="dropdown-item nav-link nav_item" href="blog-four-columns.html">4 columns</a></li> 
-                                            	<li><a class="dropdown-item nav-link nav_item" href="blog-left-sidebar.html">Left Sidebar</a></li> 
-                                            	<li><a class="dropdown-item nav-link nav_item" href="blog-right-sidebar.html">right Sidebar</a></li>
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-standard-left-sidebar.html">Standard Left Sidebar</a></li> 
-                                            	<li><a class="dropdown-item nav-link nav_item" href="blog-standard-right-sidebar.html">Standard right Sidebar</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item menu-link dropdown-toggler" href="#">Masonry</a>
-                                        <div class="dropdown-menu">
-                                            <ul> 
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-masonry-three-columns.html">3 columns</a></li>
-                                           		<li><a class="dropdown-item nav-link nav_item" href="blog-masonry-four-columns.html">4 columns</a></li> 
-                                            	<li><a class="dropdown-item nav-link nav_item" href="blog-masonry-left-sidebar.html">Left Sidebar</a></li> 
-                                            	<li><a class="dropdown-item nav-link nav_item" href="blog-masonry-right-sidebar.html">right Sidebar</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item menu-link dropdown-toggler" href="#">Single Post</a>
-                                        <div class="dropdown-menu">
-                                            <ul> 
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-single.html">Default</a></li>
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-single-left-sidebar.html">left sidebar</a></li>
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-single-slider.html">slider post</a></li> 
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-single-video.html">video post</a></li> 
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-single-audio.html">audio post</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item menu-link dropdown-toggler" href="#">List</a>
-                                        <div class="dropdown-menu">
-                                            <ul> 
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-list-left-sidebar.html">left sidebar</a></li>
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-list-right-sidebar.html">right sidebar</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown dropdown-mega-menu">
-                            <a class="dropdown-toggle nav-link active" href="#" data-toggle="dropdown">Shop</a>
-                            <div class="dropdown-menu">
-                                <ul class="mega-menu d-lg-flex">
-                                    <li class="mega-menu-col col-lg-9">
-                                        <ul class="d-lg-flex">
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul> 
-                                                    <li class="dropdown-header">Shop Page Layout</li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-list.html">shop List view</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-list-left-sidebar.html">shop List Left Sidebar</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-list-right-sidebar.html">shop List Right Sidebar</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-left-sidebar.html">Left Sidebar</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-right-sidebar.html">Right Sidebar</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-load-more.html">Shop Load More</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul>
-                                                    <li class="dropdown-header">Other Pages</li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-cart.html">Cart</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item active" href="checkout.html">Checkout</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="wishlist.html">Wishlist</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="compare.html">compare</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="order-completed.html">Order Completed</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul>
-                                                    <li class="dropdown-header">Product Pages</li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail.html">Default</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-left-sidebar.html">Left Sidebar</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-right-sidebar.html">Right Sidebar</a></li>
-                                                    <li><a class="dropdown-item nav-link nav_item" href="shop-product-detail-thumbnails-left.html">Thumbnails Left</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-menu-col col-lg-3">
-                                        <div class="header_banner">
-                                            <div class="header_banner_content">
-                                                <div class="shop_banner">
-                                                    <div class="banner_img overlay_bg_40">
-                                                        <img src="${pageContext.request.contextPath}/resources/images/shop_banner.jpg" alt="shop_banner"/>
-                                                    </div> 
-                                                    <div class="shop_bn_content">
-                                                        <h5 class="text-uppercase shop_subtitle">New Collection</h5>
-                                                        <h3 class="text-uppercase shop_title">Sale 30% Off</h3>
-                                                        <a href="#" class="btn btn-white rounded-0 btn-sm text-uppercase">Shop Now</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> 
-                    </ul>
-                </div>
-                <ul class="navbar-nav attr-nav align-items-center">
-                    <li><a href="javascript:void(0);" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
-                        <div class="search_wrap">
-                            <span class="close-search"><i class="ion-ios-close-empty"></i></span>
-                            <form>
-                                <input type="text" placeholder="Search" class="form-control" id="search_input">
-                                <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
-                            </form>
-                        </div><div class="search_overlay"></div>
-                    </li>
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">2</span></a>
-                        <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
-                                <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="${pageContext.request.contextPath}/resources/images/cart_thamb1.jpg" alt="cart_thumb1">Variable product 001</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>78.00</span>
-                                </li>
-                                <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="${pageContext.request.contextPath}/resources/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
-                                </li>
-                            </ul>
-                            <div class="cart_footer">
-                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span class="price_symbole">$</span></span>159.00</p>
-                                <p class="cart_buttons"><a href="#" class="btn btn-fill-line view-cart">View Cart</a><a href="#" class="btn btn-fill-out checkout">Checkout</a></p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
-<!-- END HEADER -->
-
-<!-- START SECTION BREADCRUMB -->
-<div class="breadcrumb_section bg_gray page-title-mini">
-    <div class="container"><!-- STRART CONTAINER -->
-        <div class="row align-items-center">
-        	<div class="col-md-6">
-                <div class="page-title">
-            		<h1>Checkout</h1>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active">Checkout</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- END CONTAINER-->
+<div class="ec-base-button" style="margin-top: 10px;">
+<span class="gLeft " >
+<strong class="text">선택상품을</strong>
+<a href="#none" id="btn_product_delete" class="btn_function btncolor_etc"><span class="ico_delete_w">삭제하기</span></a>
+</span>
 </div>
-<!-- END SECTION BREADCRUMB -->
-
-<!-- START MAIN CONTENT -->
-<div class="main_content">
-
-<!-- START SECTION SHOP -->
-<div class="section">
-	<div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-            	<div class="toggle_info">
-                	<span><i class="fas fa-user"></i>Returning customer? <a href="#loginform" data-toggle="collapse" class="collapsed" aria-expanded="false">Click here to login</a></span>
-                </div>
-                <div class="panel-collapse collapse login_form" id="loginform">
-                    <div class="panel-body">
-                    	<p>If you have shopped with us before, please enter your details below. If you are a new customer, please proceed to the Billing &amp; Shipping section.</p>
-                    	<form method="post">
-                            <div class="form-group">
-                                <input type="text" required="" class="form-control" name="email" placeholder="Username Or Email">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" required="" type="password" name="password" placeholder="Password">
-                            </div>
-                            <div class="login_footer form-group">
-                                <div class="chek-form">
-                                    <div class="custome-checkbox">
-                                        <input class="form-check-input" type="checkbox" name="checkbox" id="remember" value="">
-                                        <label class="form-check-label" for="remember"><span>Remember me</span></label>
-                                    </div>
-                                </div>
-                                <a href="#">Forgot password?</a>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-fill-out btn-block" name="login">Log in</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-            	<div class="toggle_info">
-            		<span><i class="fas fa-tag"></i>Have a coupon? <a href="#coupon" data-toggle="collapse" class="collapsed" aria-expanded="false">Click here to enter your code</a></span>
-                </div>
-                <div class="panel-collapse collapse coupon_form" id="coupon">
-                    <div class="panel-body">
-                    	<p>If you have a coupon code, please apply it below.</p>
-                        <div class="coupon field_form input-group">
-                            <input type="text" value="" class="form-control" placeholder="Enter Coupon Code..">
-                            <div class="input-group-append">
-                                <button class="btn btn-fill-out btn-sm" type="submit">Apply Coupon</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-            	<div class="medium_divider"></div>
-            	<div class="divider center_icon"><i class="linearicons-credit-card"></i></div>
-            	<div class="medium_divider"></div>
-            </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-6">
-            	<div class="heading_s1">
-            		<h4>Billing Details</h4>
-                </div>
-                <form method="post">
-                    <div class="form-group">
-                        <input type="text" required class="form-control" name="fname" placeholder="First name *">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" required class="form-control" name="lname" placeholder="Last name *">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="text" name="cname" placeholder="Company Name">
-                    </div>
-                    <div class="form-group">
-                        <div class="custom_select">
-                            <select class="form-control">
-                                <option value="">Select an option...</option>
-                                <option value="AX">Aland Islands</option>
-                                <option value="AF">Afghanistan</option>
-                                <option value="AL">Albania</option>
-                                <option value="DZ">Algeria</option>
-                                <option value="AD">Andorra</option>
-                                <option value="AO">Angola</option>
-                                <option value="AI">Anguilla</option>
-                                <option value="AQ">Antarctica</option>
-                                <option value="AG">Antigua and Barbuda</option>
-                                <option value="AR">Argentina</option>
-                                <option value="AM">Armenia</option>
-                                <option value="AW">Aruba</option>
-                                <option value="AU">Australia</option>
-                                <option value="AT">Austria</option>
-                                <option value="AZ">Azerbaijan</option>
-                                <option value="BS">Bahamas</option>
-                                <option value="BH">Bahrain</option>
-                                <option value="BD">Bangladesh</option>
-                                <option value="BB">Barbados</option>
-                                <option value="BY">Belarus</option>
-                                <option value="PW">Belau</option>
-                                <option value="BE">Belgium</option>
-                                <option value="BZ">Belize</option>
-                                <option value="BJ">Benin</option>
-                                <option value="BM">Bermuda</option>
-                                <option value="BT">Bhutan</option>
-                                <option value="BO">Bolivia</option>
-                                <option value="BQ">Bonaire, Saint Eustatius and Saba</option>
-                                <option value="BA">Bosnia and Herzegovina</option>
-                                <option value="BW">Botswana</option>
-                                <option value="BV">Bouvet Island</option>
-                                <option value="BR">Brazil</option>
-                                <option value="IO">British Indian Ocean Territory</option>
-                                <option value="VG">British Virgin Islands</option>
-                                <option value="BN">Brunei</option>
-                                <option value="BG">Bulgaria</option>
-                                <option value="BF">Burkina Faso</option>
-                                <option value="BI">Burundi</option>
-                                <option value="KH">Cambodia</option>
-                                <option value="CM">Cameroon</option>
-                                <option value="CA">Canada</option>
-                                <option value="CV">Cape Verde</option>
-                                <option value="KY">Cayman Islands</option>
-                                <option value="CF">Central African Republic</option>
-                                <option value="TD">Chad</option>
-                                <option value="CL">Chile</option>
-                                <option value="CN">China</option>
-                                <option value="CX">Christmas Island</option>
-                                <option value="CC">Cocos (Keeling) Islands</option>
-                                <option value="CO">Colombia</option>
-                                <option value="KM">Comoros</option>
-                                <option value="CG">Congo (Brazzaville)</option>
-                                <option value="CD">Congo (Kinshasa)</option>
-                                <option value="CK">Cook Islands</option>
-                                <option value="CR">Costa Rica</option>
-                                <option value="HR">Croatia</option>
-                                <option value="CU">Cuba</option>
-                                <option value="CW">Cura�ao</option>
-                                <option value="CY">Cyprus</option>
-                                <option value="CZ">Czech Republic</option>
-                                <option value="DK">Denmark</option>
-                                <option value="DJ">Djibouti</option>
-                                <option value="DM">Dominica</option>
-                                <option value="DO">Dominican Republic</option>
-                                <option value="EC">Ecuador</option>
-                                <option value="EG">Egypt</option>
-                                <option value="SV">El Salvador</option>
-                                <option value="GQ">Equatorial Guinea</option>
-                                <option value="ER">Eritrea</option>
-                                <option value="EE">Estonia</option>
-                                <option value="ET">Ethiopia</option>
-                                <option value="FK">Falkland Islands</option>
-                                <option value="FO">Faroe Islands</option>
-                                <option value="FJ">Fiji</option>
-                                <option value="FI">Finland</option>
-                                <option value="FR">France</option>
-                                <option value="GF">French Guiana</option>
-                                <option value="PF">French Polynesia</option>
-                                <option value="TF">French Southern Territories</option>
-                                <option value="GA">Gabon</option>
-                                <option value="GM">Gambia</option>
-                                <option value="GE">Georgia</option>
-                                <option value="DE">Germany</option>
-                                <option value="GH">Ghana</option>
-                                <option value="GI">Gibraltar</option>
-                                <option value="GR">Greece</option>
-                                <option value="GL">Greenland</option>
-                                <option value="GD">Grenada</option>
-                                <option value="GP">Guadeloupe</option>
-                                <option value="GT">Guatemala</option>
-                                <option value="GG">Guernsey</option>
-                                <option value="GN">Guinea</option>
-                                <option value="GW">Guinea-Bissau</option>
-                                <option value="GY">Guyana</option>
-                                <option value="HT">Haiti</option>
-                                <option value="HM">Heard Island and McDonald Islands</option>
-                                <option value="HN">Honduras</option>
-                                <option value="HK">Hong Kong</option>
-                                <option value="HU">Hungary</option>
-                                <option value="IS">Iceland</option>
-                                <option value="IN">India</option>
-                                <option value="ID">Indonesia</option>
-                                <option value="IR">Iran</option>
-                                <option value="IQ">Iraq</option>
-                                <option value="IM">Isle of Man</option>
-                                <option value="IL">Israel</option>
-                                <option value="IT">Italy</option>
-                                <option value="CI">Ivory Coast</option>
-                                <option value="JM">Jamaica</option>
-                                <option value="JP">Japan</option>
-                                <option value="JE">Jersey</option>
-                                <option value="JO">Jordan</option>
-                                <option value="KZ">Kazakhstan</option>
-                                <option value="KE">Kenya</option>
-                                <option value="KI">Kiribati</option>
-                                <option value="KW">Kuwait</option>
-                                <option value="KG">Kyrgyzstan</option>
-                                <option value="LA">Laos</option>
-                                <option value="LV">Latvia</option>
-                                <option value="LB">Lebanon</option>
-                                <option value="LS">Lesotho</option>
-                                <option value="LR">Liberia</option>
-                                <option value="LY">Libya</option>
-                                <option value="LI">Liechtenstein</option>
-                                <option value="LT">Lithuania</option>
-                                <option value="LU">Luxembourg</option>
-                                <option value="MO">Macao S.A.R., China</option>
-                                <option value="MK">Macedonia</option>
-                                <option value="MG">Madagascar</option>
-                                <option value="MW">Malawi</option>
-                                <option value="MY">Malaysia</option>
-                                <option value="MV">Maldives</option>
-                                <option value="ML">Mali</option>
-                                <option value="MT">Malta</option>
-                                <option value="MH">Marshall Islands</option>
-                                <option value="MQ">Martinique</option>
-                                <option value="MR">Mauritania</option>
-                                <option value="MU">Mauritius</option>
-                                <option value="YT">Mayotte</option>
-                                <option value="MX">Mexico</option>
-                                <option value="FM">Micronesia</option>
-                                <option value="MD">Moldova</option>
-                                <option value="MC">Monaco</option>
-                                <option value="MN">Mongolia</option>
-                                <option value="ME">Montenegro</option>
-                                <option value="MS">Montserrat</option>
-                                <option value="MA">Morocco</option>
-                                <option value="MZ">Mozambique</option>
-                                <option value="MM">Myanmar</option>
-                                <option value="NA">Namibia</option>
-                                <option value="NR">Nauru</option>
-                                <option value="NP">Nepal</option>
-                                <option value="NL">Netherlands</option>
-                                <option value="AN">Netherlands Antilles</option>
-                                <option value="NC">New Caledonia</option>
-                                <option value="NZ">New Zealand</option>
-                                <option value="NI">Nicaragua</option>
-                                <option value="NE">Niger</option>
-                                <option value="NG">Nigeria</option>
-                                <option value="NU">Niue</option>
-                                <option value="NF">Norfolk Island</option>
-                                <option value="KP">North Korea</option>
-                                <option value="NO">Norway</option>
-                                <option value="OM">Oman</option>
-                                <option value="PK">Pakistan</option>
-                                <option value="PS">Palestinian Territory</option>
-                                <option value="PA">Panama</option>
-                                <option value="PG">Papua New Guinea</option>
-                                <option value="PY">Paraguay</option>
-                                <option value="PE">Peru</option>
-                                <option value="PH">Philippines</option>
-                                <option value="PN">Pitcairn</option>
-                                <option value="PL">Poland</option>
-                                <option value="PT">Portugal</option>
-                                <option value="QA">Qatar</option>
-                                <option value="IE">Republic of Ireland</option>
-                                <option value="RE">Reunion</option>
-                                <option value="RO">Romania</option>
-                                <option value="RU">Russia</option>
-                                <option value="RW">Rwanda</option>
-                                <option value="ST">S�o Tom� and Pr�ncipe</option>
-                                <option value="BL">Saint Barth�lemy</option>
-                                <option value="SH">Saint Helena</option>
-                                <option value="KN">Saint Kitts and Nevis</option>
-                                <option value="LC">Saint Lucia</option>
-                                <option value="SX">Saint Martin (Dutch part)</option>
-                                <option value="MF">Saint Martin (French part)</option>
-                                <option value="PM">Saint Pierre and Miquelon</option>
-                                <option value="VC">Saint Vincent and the Grenadines</option>
-                                <option value="SM">San Marino</option>
-                                <option value="SA">Saudi Arabia</option>
-                                <option value="SN">Senegal</option>
-                                <option value="RS">Serbia</option>
-                                <option value="SC">Seychelles</option>
-                                <option value="SL">Sierra Leone</option>
-                                <option value="SG">Singapore</option>
-                                <option value="SK">Slovakia</option>
-                                <option value="SI">Slovenia</option>
-                                <option value="SB">Solomon Islands</option>
-                                <option value="SO">Somalia</option>
-                                <option value="ZA">South Africa</option>
-                                <option value="GS">South Georgia/Sandwich Islands</option>
-                                <option value="KR">South Korea</option>
-                                <option value="SS">South Sudan</option>
-                                <option value="ES">Spain</option>
-                                <option value="LK">Sri Lanka</option>
-                                <option value="SD">Sudan</option>
-                                <option value="SR">Suriname</option>
-                                <option value="SJ">Svalbard and Jan Mayen</option>
-                                <option value="SZ">Swaziland</option>
-                                <option value="SE">Sweden</option>
-                                <option value="CH">Switzerland</option>
-                                <option value="SY">Syria</option>
-                                <option value="TW">Taiwan</option>
-                                <option value="TJ">Tajikistan</option>
-                                <option value="TZ">Tanzania</option>
-                                <option value="TH">Thailand</option>
-                                <option value="TL">Timor-Leste</option>
-                                <option value="TG">Togo</option>
-                                <option value="TK">Tokelau</option>
-                                <option value="TO">Tonga</option>
-                                <option value="TT">Trinidad and Tobago</option>
-                                <option value="TN">Tunisia</option>
-                                <option value="TR">Turkey</option>
-                                <option value="TM">Turkmenistan</option>
-                                <option value="TC">Turks and Caicos Islands</option>
-                                <option value="TV">Tuvalu</option>
-                                <option value="UG">Uganda</option>
-                                <option value="UA">Ukraine</option>
-                                <option value="AE">United Arab Emirates</option>
-                                <option value="GB">United Kingdom (UK)</option>
-                                <option value="US">USA (US)</option>
-                                <option value="UY">Uruguay</option>
-                                <option value="UZ">Uzbekistan</option>
-                                <option value="VU">Vanuatu</option>
-                                <option value="VA">Vatican</option>
-                                <option value="VE">Venezuela</option>
-                                <option value="VN">Vietnam</option>
-                                <option value="WF">Wallis and Futuna</option>
-                                <option value="EH">Western Sahara</option>
-                                <option value="WS">Western Samoa</option>
-                                <option value="YE">Yemen</option>
-                                <option value="ZM">Zambia</option>
-                                <option value="ZW">Zimbabwe</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="billing_address" required="" placeholder="Address *">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="billing_address2" required="" placeholder="Address line2">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="text" name="city" placeholder="City / Town *">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="text" name="state" placeholder="State / County *">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="text" name="zipcode" placeholder="Postcode / ZIP *">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="text" name="phone" placeholder="Phone *">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="text" name="email" placeholder="Email address *">
-                    </div>
-                    <div class="form-group">
-                        <div class="chek-form">
-                            <div class="custome-checkbox">
-                                <input class="form-check-input" type="checkbox" name="checkbox" id="createaccount">
-                                <label class="form-check-label label_info" for="createaccount"><span>Create an account?</span></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group create-account">
-                        <input class="form-control" required type="password" placeholder="Password" name="password" >
-                    </div>
-                    <div class="ship_detail">
-                    	<div class="form-group">
-                    	<div class="chek-form">
-                            <div class="custome-checkbox">
-                                <input class="form-check-input" type="checkbox" name="checkbox" id="differentaddress">
-                                <label class="form-check-label label_info" for="differentaddress"><span>Ship to a different address?</span></label>
-                            </div>
-                        </div>
-                    </div>
-                    	<div class="different_address">
-                        <div class="form-group">
-                            <input type="text" required class="form-control" name="fname" placeholder="First name *">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" required class="form-control" name="lname" placeholder="Last name *">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" required type="text" name="cname" placeholder="Company Name">
-                        </div>
-                        <div class="form-group">
-                            <div class="custom_select">
-                                <select class="form-control">
-                                    <option value="">Select an option...</option>
-                                    <option value="AX">Aland Islands</option>
-                                    <option value="AF">Afghanistan</option>
-                                    <option value="AL">Albania</option>
-                                    <option value="DZ">Algeria</option>
-                                    <option value="AD">Andorra</option>
-                                    <option value="AO">Angola</option>
-                                    <option value="AI">Anguilla</option>
-                                    <option value="AQ">Antarctica</option>
-                                    <option value="AG">Antigua and Barbuda</option>
-                                    <option value="AR">Argentina</option>
-                                    <option value="AM">Armenia</option>
-                                    <option value="AW">Aruba</option>
-                                    <option value="AU">Australia</option>
-                                    <option value="AT">Austria</option>
-                                    <option value="AZ">Azerbaijan</option>
-                                    <option value="BS">Bahamas</option>
-                                    <option value="BH">Bahrain</option>
-                                    <option value="BD">Bangladesh</option>
-                                    <option value="BB">Barbados</option>
-                                    <option value="BY">Belarus</option>
-                                    <option value="PW">Belau</option>
-                                    <option value="BE">Belgium</option>
-                                    <option value="BZ">Belize</option>
-                                    <option value="BJ">Benin</option>
-                                    <option value="BM">Bermuda</option>
-                                    <option value="BT">Bhutan</option>
-                                    <option value="BO">Bolivia</option>
-                                    <option value="BQ">Bonaire, Saint Eustatius and Saba</option>
-                                    <option value="BA">Bosnia and Herzegovina</option>
-                                    <option value="BW">Botswana</option>
-                                    <option value="BV">Bouvet Island</option>
-                                    <option value="BR">Brazil</option>
-                                    <option value="IO">British Indian Ocean Territory</option>
-                                    <option value="VG">British Virgin Islands</option>
-                                    <option value="BN">Brunei</option>
-                                    <option value="BG">Bulgaria</option>
-                                    <option value="BF">Burkina Faso</option>
-                                    <option value="BI">Burundi</option>
-                                    <option value="KH">Cambodia</option>
-                                    <option value="CM">Cameroon</option>
-                                    <option value="CA">Canada</option>
-                                    <option value="CV">Cape Verde</option>
-                                    <option value="KY">Cayman Islands</option>
-                                    <option value="CF">Central African Republic</option>
-                                    <option value="TD">Chad</option>
-                                    <option value="CL">Chile</option>
-                                    <option value="CN">China</option>
-                                    <option value="CX">Christmas Island</option>
-                                    <option value="CC">Cocos (Keeling) Islands</option>
-                                    <option value="CO">Colombia</option>
-                                    <option value="KM">Comoros</option>
-                                    <option value="CG">Congo (Brazzaville)</option>
-                                    <option value="CD">Congo (Kinshasa)</option>
-                                    <option value="CK">Cook Islands</option>
-                                    <option value="CR">Costa Rica</option>
-                                    <option value="HR">Croatia</option>
-                                    <option value="CU">Cuba</option>
-                                    <option value="CW">Cura�ao</option>
-                                    <option value="CY">Cyprus</option>
-                                    <option value="CZ">Czech Republic</option>
-                                    <option value="DK">Denmark</option>
-                                    <option value="DJ">Djibouti</option>
-                                    <option value="DM">Dominica</option>
-                                    <option value="DO">Dominican Republic</option>
-                                    <option value="EC">Ecuador</option>
-                                    <option value="EG">Egypt</option>
-                                    <option value="SV">El Salvador</option>
-                                    <option value="GQ">Equatorial Guinea</option>
-                                    <option value="ER">Eritrea</option>
-                                    <option value="EE">Estonia</option>
-                                    <option value="ET">Ethiopia</option>
-                                    <option value="FK">Falkland Islands</option>
-                                    <option value="FO">Faroe Islands</option>
-                                    <option value="FJ">Fiji</option>
-                                    <option value="FI">Finland</option>
-                                    <option value="FR">France</option>
-                                    <option value="GF">French Guiana</option>
-                                    <option value="PF">French Polynesia</option>
-                                    <option value="TF">French Southern Territories</option>
-                                    <option value="GA">Gabon</option>
-                                    <option value="GM">Gambia</option>
-                                    <option value="GE">Georgia</option>
-                                    <option value="DE">Germany</option>
-                                    <option value="GH">Ghana</option>
-                                    <option value="GI">Gibraltar</option>
-                                    <option value="GR">Greece</option>
-                                    <option value="GL">Greenland</option>
-                                    <option value="GD">Grenada</option>
-                                    <option value="GP">Guadeloupe</option>
-                                    <option value="GT">Guatemala</option>
-                                    <option value="GG">Guernsey</option>
-                                    <option value="GN">Guinea</option>
-                                    <option value="GW">Guinea-Bissau</option>
-                                    <option value="GY">Guyana</option>
-                                    <option value="HT">Haiti</option>
-                                    <option value="HM">Heard Island and McDonald Islands</option>
-                                    <option value="HN">Honduras</option>
-                                    <option value="HK">Hong Kong</option>
-                                    <option value="HU">Hungary</option>
-                                    <option value="IS">Iceland</option>
-                                    <option value="IN">India</option>
-                                    <option value="ID">Indonesia</option>
-                                    <option value="IR">Iran</option>
-                                    <option value="IQ">Iraq</option>
-                                    <option value="IM">Isle of Man</option>
-                                    <option value="IL">Israel</option>
-                                    <option value="IT">Italy</option>
-                                    <option value="CI">Ivory Coast</option>
-                                    <option value="JM">Jamaica</option>
-                                    <option value="JP">Japan</option>
-                                    <option value="JE">Jersey</option>
-                                    <option value="JO">Jordan</option>
-                                    <option value="KZ">Kazakhstan</option>
-                                    <option value="KE">Kenya</option>
-                                    <option value="KI">Kiribati</option>
-                                    <option value="KW">Kuwait</option>
-                                    <option value="KG">Kyrgyzstan</option>
-                                    <option value="LA">Laos</option>
-                                    <option value="LV">Latvia</option>
-                                    <option value="LB">Lebanon</option>
-                                    <option value="LS">Lesotho</option>
-                                    <option value="LR">Liberia</option>
-                                    <option value="LY">Libya</option>
-                                    <option value="LI">Liechtenstein</option>
-                                    <option value="LT">Lithuania</option>
-                                    <option value="LU">Luxembourg</option>
-                                    <option value="MO">Macao S.A.R., China</option>
-                                    <option value="MK">Macedonia</option>
-                                    <option value="MG">Madagascar</option>
-                                    <option value="MW">Malawi</option>
-                                    <option value="MY">Malaysia</option>
-                                    <option value="MV">Maldives</option>
-                                    <option value="ML">Mali</option>
-                                    <option value="MT">Malta</option>
-                                    <option value="MH">Marshall Islands</option>
-                                    <option value="MQ">Martinique</option>
-                                    <option value="MR">Mauritania</option>
-                                    <option value="MU">Mauritius</option>
-                                    <option value="YT">Mayotte</option>
-                                    <option value="MX">Mexico</option>
-                                    <option value="FM">Micronesia</option>
-                                    <option value="MD">Moldova</option>
-                                    <option value="MC">Monaco</option>
-                                    <option value="MN">Mongolia</option>
-                                    <option value="ME">Montenegro</option>
-                                    <option value="MS">Montserrat</option>
-                                    <option value="MA">Morocco</option>
-                                    <option value="MZ">Mozambique</option>
-                                    <option value="MM">Myanmar</option>
-                                    <option value="NA">Namibia</option>
-                                    <option value="NR">Nauru</option>
-                                    <option value="NP">Nepal</option>
-                                    <option value="NL">Netherlands</option>
-                                    <option value="AN">Netherlands Antilles</option>
-                                    <option value="NC">New Caledonia</option>
-                                    <option value="NZ">New Zealand</option>
-                                    <option value="NI">Nicaragua</option>
-                                    <option value="NE">Niger</option>
-                                    <option value="NG">Nigeria</option>
-                                    <option value="NU">Niue</option>
-                                    <option value="NF">Norfolk Island</option>
-                                    <option value="KP">North Korea</option>
-                                    <option value="NO">Norway</option>
-                                    <option value="OM">Oman</option>
-                                    <option value="PK">Pakistan</option>
-                                    <option value="PS">Palestinian Territory</option>
-                                    <option value="PA">Panama</option>
-                                    <option value="PG">Papua New Guinea</option>
-                                    <option value="PY">Paraguay</option>
-                                    <option value="PE">Peru</option>
-                                    <option value="PH">Philippines</option>
-                                    <option value="PN">Pitcairn</option>
-                                    <option value="PL">Poland</option>
-                                    <option value="PT">Portugal</option>
-                                    <option value="QA">Qatar</option>
-                                    <option value="IE">Republic of Ireland</option>
-                                    <option value="RE">Reunion</option>
-                                    <option value="RO">Romania</option>
-                                    <option value="RU">Russia</option>
-                                    <option value="RW">Rwanda</option>
-                                    <option value="ST">S�o Tom� and Pr�ncipe</option>
-                                    <option value="BL">Saint Barth�lemy</option>
-                                    <option value="SH">Saint Helena</option>
-                                    <option value="KN">Saint Kitts and Nevis</option>
-                                    <option value="LC">Saint Lucia</option>
-                                    <option value="SX">Saint Martin (Dutch part)</option>
-                                    <option value="MF">Saint Martin (French part)</option>
-                                    <option value="PM">Saint Pierre and Miquelon</option>
-                                    <option value="VC">Saint Vincent and the Grenadines</option>
-                                    <option value="SM">San Marino</option>
-                                    <option value="SA">Saudi Arabia</option>
-                                    <option value="SN">Senegal</option>
-                                    <option value="RS">Serbia</option>
-                                    <option value="SC">Seychelles</option>
-                                    <option value="SL">Sierra Leone</option>
-                                    <option value="SG">Singapore</option>
-                                    <option value="SK">Slovakia</option>
-                                    <option value="SI">Slovenia</option>
-                                    <option value="SB">Solomon Islands</option>
-                                    <option value="SO">Somalia</option>
-                                    <option value="ZA">South Africa</option>
-                                    <option value="GS">South Georgia/Sandwich Islands</option>
-                                    <option value="KR">South Korea</option>
-                                    <option value="SS">South Sudan</option>
-                                    <option value="ES">Spain</option>
-                                    <option value="LK">Sri Lanka</option>
-                                    <option value="SD">Sudan</option>
-                                    <option value="SR">Suriname</option>
-                                    <option value="SJ">Svalbard and Jan Mayen</option>
-                                    <option value="SZ">Swaziland</option>
-                                    <option value="SE">Sweden</option>
-                                    <option value="CH">Switzerland</option>
-                                    <option value="SY">Syria</option>
-                                    <option value="TW">Taiwan</option>
-                                    <option value="TJ">Tajikistan</option>
-                                    <option value="TZ">Tanzania</option>
-                                    <option value="TH">Thailand</option>
-                                    <option value="TL">Timor-Leste</option>
-                                    <option value="TG">Togo</option>
-                                    <option value="TK">Tokelau</option>
-                                    <option value="TO">Tonga</option>
-                                    <option value="TT">Trinidad and Tobago</option>
-                                    <option value="TN">Tunisia</option>
-                                    <option value="TR">Turkey</option>
-                                    <option value="TM">Turkmenistan</option>
-                                    <option value="TC">Turks and Caicos Islands</option>
-                                    <option value="TV">Tuvalu</option>
-                                    <option value="UG">Uganda</option>
-                                    <option value="UA">Ukraine</option>
-                                    <option value="AE">United Arab Emirates</option>
-                                    <option value="GB">United Kingdom (UK)</option>
-                                    <option value="US">USA (US)</option>
-                                    <option value="UY">Uruguay</option>
-                                    <option value="UZ">Uzbekistan</option>
-                                    <option value="VU">Vanuatu</option>
-                                    <option value="VA">Vatican</option>
-                                    <option value="VE">Venezuela</option>
-                                    <option value="VN">Vietnam</option>
-                                    <option value="WF">Wallis and Futuna</option>
-                                    <option value="EH">Western Sahara</option>
-                                    <option value="WS">Western Samoa</option>
-
-                                    <option value="YE">Yemen</option>
-                                    <option value="ZM">Zambia</option>
-                                    <option value="ZW">Zimbabwe</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="billing_address" required="" placeholder="Address *">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="billing_address2" required="" placeholder="Address line2">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" required type="text" name="city" placeholder="City / Town *">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" required type="text" name="state" placeholder="State / County *">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" required type="text" name="zipcode" placeholder="Postcode / ZIP *">
-                        </div>
-                    </div>
-                    </div>
-                    <div class="heading_s1">
-                        <h4>Additional information</h4>
-                    </div>
-                    <div class="form-group mb-0">
-                        <textarea rows="5" class="form-control" placeholder="Order notes"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <div class="order_review">
-                    <div class="heading_s1">
-                        <h4>Your Orders</h4>
-                    </div>
-                    <div class="table-responsive order_table">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Blue Dress For Woman <span class="product-qty">x 2</span></td>
-                                    <td>$90.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Lether Gray Tuxedo <span class="product-qty">x 1</span></td>
-                                    <td>$55.00</td>
-                                </tr>
-                                <tr>
-                                    <td>woman full sliv dress <span class="product-qty">x 3</span></td>
-                                    <td>$204.00</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>SubTotal</th>
-                                    <td class="product-subtotal">$349.00</td>
-                                </tr>
-                                <tr>
-                                    <th>Shipping</th>
-                                    <td>Free Shipping</td>
-                                </tr>
-                                <tr>
-                                    <th>Total</th>
-                                    <td class="product-subtotal">$349.00</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <div class="payment_method">
-                        <div class="heading_s1">
-                            <h4>Payment</h4>
-                        </div>
-                        <div class="payment_option">
-                            <div class="custome-radio">
-                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3" value="option3" checked="">
-                                <label class="form-check-label" for="exampleRadios3">Direct Bank Transfer</label>
-                                <p data-method="option3" class="payment-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration. </p>
-                            </div>
-                            <div class="custome-radio">
-                                <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios4" value="option4">
-                                <label class="form-check-label" for="exampleRadios4">Check Payment</label>
-                                <p data-method="option4" class="payment-text">Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                            </div>
-                            <div class="custome-radio">
-                                <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios5" value="option5">
-                                <label class="form-check-label" for="exampleRadios5">Paypal</label>
-                                <p data-method="option5" class="payment-text">Pay via PayPal; you can pay with your credit card if you don't have a PayPal account.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-fill-out btn-block">Place Order</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END SECTION SHOP -->
-
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-<div class="section bg_default small_pt small_pb">
-	<div class="container">	
-    	<div class="row align-items-center">	
-            <div class="col-md-6">
-                <div class="heading_s1 mb-md-0 heading_light">
-                    <h3>Subscribe Our Newsletter</h3>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="newsletter_form">
-                    <form>
-                        <input type="text" required="" class="form-control rounded-0" placeholder="Enter Email Address">
-                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
 </div>
-<!-- END MAIN CONTENT -->
 
-<!-- START FOOTER -->
-<footer class="footer_dark">
-	<div class="footer_top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                	<div class="widget">
-                        <div class="footer_logo">
-                            <a href="#"><img src="${pageContext.request.contextPath}/resources/images/logo_light.png" alt="logo"/></a>
-                        </div>
-                        <p>If you are going to use of Lorem Ipsum need to be sure there isn't hidden of text</p>
-                    </div>
-                    <div class="widget">
-                        <ul class="social_icons social_white">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                        </ul>
-                    </div>
-        		</div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                	<div class="widget">
-                        <h6 class="widget_title">Useful Links</h6>
-                        <ul class="widget_links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Location</a></li>
-                            <li><a href="#">Affiliates</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                	<div class="widget">
-                        <h6 class="widget_title">Category</h6>
-                        <ul class="widget_links">
-                            <li><a href="#">Men</a></li>
-                            <li><a href="#">Woman</a></li>
-                            <li><a href="#">Kids</a></li>
-                            <li><a href="#">Best Saller</a></li>
-                            <li><a href="#">New Arrivals</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                	<div class="widget">
-                        <h6 class="widget_title">My Account</h6>
-                        <ul class="widget_links">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Discount</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Orders History</a></li>
-                            <li><a href="#">Order Tracking</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                	<div class="widget">
-                        <h6 class="widget_title">Contact Info</h6>
-                        <ul class="contact_info contact_info_light">
-                            <li>
-                                <i class="ti-location-pin"></i>
-                                <p>123 Street, Old Trafford, New South London , UK</p>
-                            </li>
-                            <li>
-                                <i class="ti-email"></i>
-                                <a href="mailto:info@sitename.com">info@sitename.com</a>
-                            </li>
-                            <li>
-                                <i class="ti-mobile"></i>
-                                <p>+ 457 789 789 65</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bottom_footer border-top-tran">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="mb-md-0 text-center text-md-left">� 2020 All Rights Reserved by Bestwebcreator</p>
-                </div>
-                <div class="col-md-6">
-                    <ul class="footer_payment text-center text-lg-right">
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/visa.png" alt="visa"></a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/discover.png" alt="discover"></a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/master_card.png" alt="master_card"></a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/paypal.png" alt="paypal"></a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/amarican_express.png" alt="amarican_express"></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- END FOOTER -->
+<!-- 주문정보 -->
 
-<a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
+<div class="orderArea  ec-shop-ordererForm" style="margin-top: 20px; border: 1px solid black;">
+<div class="title" style="float: left; width: 100%; height: 25px;">
+	<p class="required" style="float: right;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</p>
+	<h3 style="font-size: medium; font-weight: bold;">주문 정보</h3>
+</div>
 
-<!-- Latest jQuery --> 
-<script src="${pageContext.request.contextPath}/resources/js/jquery-1.12.4.min.js"></script> 
-<!-- jquery-ui --> 
-<script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>
-<!-- popper min js -->
-<script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
-<!-- Latest compiled and minified Bootstrap --> 
-<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script> 
-<!-- owl-carousel min js  --> 
-<script src="${pageContext.request.contextPath}/resources/owlcarousel/js/owl.carousel.min.js"></script> 
-<!-- magnific-popup min js  --> 
-<script src="${pageContext.request.contextPath}/resources/js/magnific-popup.min.js"></script> 
-<!-- waypoints min js  --> 
-<script src="${pageContext.request.contextPath}/resources/js/waypoints.min.js"></script> 
-<!-- parallax js  --> 
-<script src="${pageContext.request.contextPath}/resources/js/parallax.js"></script> 
-<!-- countdown js  --> 
-<script src="${pageContext.request.contextPath}/resources/js/jquery.countdown.min.js"></script> 
-<!-- fit video  -->
-<script src="${pageContext.request.contextPath}/resources/js/Hoverparallax.min.js"></script>
-<!-- imagesloaded js --> 
-<script src="${pageContext.request.contextPath}/resources/js/imagesloaded.pkgd.min.js"></script>
-<!-- isotope min js --> 
-<script src="${pageContext.request.contextPath}/resources/js/isotope.min.js"></script>
-<!-- jquery.appear js  -->
-<script src="${pageContext.request.contextPath}/resources/js/jquery.appear.js"></script>
-<!-- jquery.dd.min js -->
-<script src="${pageContext.request.contextPath}/resources/js/jquery.dd.min.js"></script>
-<!-- slick js -->
-<script src="${pageContext.request.contextPath}/resources/js/slick.min.js"></script>
-<!-- elevatezoom js -->
-<script src="${pageContext.request.contextPath}/resources/js/jquery.elevatezoom.js"></script>
-<!-- Google Map Js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7TypZFTl4Z3gVtikNOdGSfNTpnmq-ahQ&amp;callback=initMap"></script>
-<!-- scripts js --> 
-<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+<div class="ec-base-table typeWrite" style=" margin-top: 10px;">
+<table class="table table-condensed" style="border-left: none; border-right: none;">
+<colgroup>
+<col style="width:139px;">
+<col style="width:auto;">
+</colgroup>
+
+<!-- 국내 쇼핑몰 -->
+<tbody class="address_form">
+<tr>
+<th scope="row">주문하시는 분<img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
+<td><input id="oname" name="oname" class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+</tr>
+<tr class="">
+<th scope="row">주소 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
+<td>
+	<input id="ozipcode1" name="ozipcode1"  class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="" type="text"><a href="#none" id="btn_search_ozipcode" class="btn_function btncolor_basic"><span class="ico_arrow_r">우편번호</span></a><br>
+	<input id="oaddr1" name="oaddr1" class="inputTypeText" placeholder="" size="40" readonly="1" value="" type="text"> <span class="txtInfo">기본주소</span><br>
+	<input id="oaddr2" name="oaddr2"  class="inputTypeText" placeholder="" size="40" value="" type="text"> <span class="txtInfo">나머지주소</span><span class="grid ">(선택입력가능)</span>
+</td>
+</tr>
+<tr class="">
+<th scope="row">휴대전화 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
+</th>
+<td><select id="ophone2_1" name="ophone2_[]">
+<option value="010">010</option>
+<option value="011">011</option>
+<option value="016">016</option>
+<option value="017">017</option>
+<option value="018">018</option>
+<option value="019">019</option>
+</select>-<input id="ophone2_2" name="ophone2_[]" maxlength="4" size="4" value="" type="text">-<input id="ophone2_3" name="ophone2_[]" maxlength="4" size="4" value="" type="text"></td>
+</tr>
+
+<tr>
+<th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
+<td>
+<input id="oemail1" name="oemail1" class="mailId" value="" type="text">@<input id="oemail2" name="oemail2" class="mailAddress" readonly="readonly" value="" type="text"><select id="oemail3">
+<option value="" selected="selected">- 이메일 선택 -</option>
+<option value="naver.com">naver.com</option>
+<option value="daum.net">daum.net</option>
+<option value="nate.com">nate.com</option>
+<option value="hotmail.com">hotmail.com</option>
+<option value="yahoo.com">yahoo.com</option>
+<option value="empas.com">empas.com</option>
+<option value="korea.com">korea.com</option>
+<option value="dreamwiz.com">dreamwiz.com</option>
+<option value="gmail.com">gmail.com</option>
+<option value="etc">직접입력</option>
+</select><ul class="gBlank5 txtInfo">
+<li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
+<li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
+</ul>
+</td>
+</tr>
+
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<!-- 배송정보 -->
+
+<div class="orderArea">
+
+<div class="title">
+<h3>배송 정보</h3>
+<p class="required"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"> 필수입력사항</p>
+</div>
+
+<div class="ec-base-table typeWrite">
+<table class="table table-condensed">
+<colgroup>
+<col style="width:139px;">
+<col style="width:auto;">
+</colgroup>
+
+<!-- 국내 배송지 정보 --><tbody class="">
+<tr class="">
+<th scope="row">배송지 선택</th>
+<td>
+<div class="address">
+<input id="sameaddr0" name="sameaddr"  value="T" type="radio"><label for="sameaddr0">주문자 정보와 동일</label>
+<input id="sameaddr1" name="sameaddr"  value="F" type="radio"><label for="sameaddr1">새로운배송지</label>								<span class="recent ec-shop-RecentDelivery displaynone">
+</span>
+<a href="#none" id="btn_shipp_addr" class="btn_function btncolor_basic" style="border: 1px solid gray;"><span class="ico_arrow_r">주소록 보기</span></a>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row">받으시는 분 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
+<td><input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+</tr>
+<tr class="">
+<th scope="row">주소 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
+ <td>
+   <input style="width: 80px;" id="postcode1" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" type="text">
+   <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
+   <input style="width: 300px;" id="addr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" type="text" ><span>기본주소</span> <br>
+   <input style="width: 300px;" id="addr2" name="addr2" class="input_Join" placeholder="" type="text"><span>나머지 주소</span>
+ 
+</tr>
+
+<tr class="">
+<th scope="row">휴대전화 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
+</th>
+<td><select id="rphone2_1" name="rphone2_[]">
+<option value="010">010</option>
+<option value="011">011</option>
+<option value="016">016</option>
+<option value="017">017</option>
+<option value="018">018</option>
+<option value="019">019</option>
+</select>-<input id="rphone2_2" name="rphone2_[]" maxlength="4"size="4" value="" type="text">-<input id="rphone2_3" name="rphone2_[]" maxlength="4"size="4" value="" type="text"></td>
+</tr>
+
+</tbody>
+
+<!-- 국내 배송관련 정보 --><tbody class="delivery ">
+<tr class="">
+<th scope="row">배송메시지 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
+</th>
+<td>
+<textarea id="omessage" name="omessage" maxlength="255" cols="70"></textarea>							<div class="devMessage ">
+<ul class="gIndent5">
+<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주십시오.</li>
+<li>게시글은 비밀글로 저장되며 비밀번호는 주문번호 뒷자리로 자동 저장됩니다.</li>
+</ul>
+</div>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- 결제예정금액  -->
+
+
+<div class="totalArea" style="border-bottom: 1px solid black; border-top: 1px solid black;">
+
+<div class="title">
+	<h3 style="font-size: medium;">결제 예정 금액</h3>
+</div>
+<div class="ec-base-table typeList gBorder total">
+<table class="table">
+<colgroup>
+<col style="width:33.33%">
+<col style="width:33.33%" class="">
+<col style="width:33.33%">
+</colgroup>
+<tr class="table-danger">
+<th scope="col">
+<strong>총 주문 금액</strong> <a href="#none" onclick="EC_SHOP_FRONT_ORDERFORM_DISPLAY.onDiv('order_layer_detail', event);" class="more btn_function btncolor_basic"><span class="ico_arrow_r">내역보기</span></a>
+</th>
+<th scope="col" class="">
+<strong>총 </strong><strong id="total_addsale_text" class="">할인</strong><strong id="plus_mark" class=""> + </strong><strong id="total_addpay_text" class="">부가결제</strong><strong> 금액</strong>
+</th>
+<th scope="col"><strong>총 결제예정 금액</strong></th>
+</tr>
+
+<tbody class="center"><tr>
+<td class="price"><div class="box txt16">
+<strong><span id="total_order_price_view" class="txt23">31,900</span>원</strong> <span class="displaynone"><span id="total_order_price_ref_view"></span></span>
+</div></td>
+<td class="option "><div class="box txt16">
+<strong>-</strong> <strong><span id="total_sale_price_view" class="txt23">1,400</span>원</strong> <span class="displaynone"><span id="total_sale_price_ref_view"></span></span>
+</div></td>
+<td><div class="box txtEm txt16">
+<strong>=</strong> <strong><span id="total_order_sale_price_view" class="txt23">30,500</span>원</strong> <span class="displaynone"><span id="total_order_sale_price_ref_view"></span></span>
+</div></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+
+<div class="detail">
+<div class="ec-base-table gMerge ">
+
+<table class="table">
+
+<colgroup>
+<col style="width:139px">
+<col style="width:auto">
+</colgroup>
+
+<tbody>
+<tr class="table-danger">
+<th scope="row"><strong>총 할인금액</strong></th>
+<td><strong id="total_addsale_price_view">1,400</strong>원</td>
+</tr>
+<tr class=" mCouponSelect">
+<th scope="row">쿠폰할인</th>
+<td><a href="#none" id="btn_coupon_select" class="btn_function btncolor_subordinate"><span>쿠폰적용</span></a></td>
+</tr>
+<!-- 참고 : 쿠폰적용 후 --><tr class="mCouponModify" style="display: none;">
+<th scope="row">쿠폰할인</th>
+<td>
+<span class="mTotalCouponDiscount">0원</span>
+								<a id="eCouponModify" href="#none" class="btn_function btncolor_subordinate"><span>수정</span></a>
+								<div id="divCpnView" style="display:none" class="coupon">
+									<span id="txt_cpn_contents"></span>
+									<span id="txt_cpn_price"></span>
+									<span id="txt_cpn_attr_D"></span>
+									<span id="txt_cpn_attr_M"></span>
+									<span id="txt_cpn_attr_C"></span>
+								</div>
+								<div id="divCpn" style="display:none" class="couponArea"></div>
+							</td>
+						</tr>
+<!-- //참고 --><tr class="" id="ec-shop-orderfom-total-benefit-view-id">
+<th scope="row">추가할인금액</th>
+	<td>
+	<span class="gSpace20"><span id="total_benefit_price_view">1,400</span>원</span>
+<a href="#none" onclick="EC_SHOP_FRONT_ORDERFORM_DISPLAY.onDiv('order_layer_addsale', event);" class="btn_function btncolor_basic"><span class="ico_arrow_r">내역보기</span></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="ec-base-table gMerge ">
+<table class="table">
+
+<colgroup>
+<col style="width:139px">
+<col style="width:auto">
+</colgroup>
+
+<tbody><tr class="table-danger">
+<th scope="row"><strong>총 부가결제금액</strong></th>
+<td><strong id="total_addpay_price_view">0</strong>원</td>
+</tr></tbody>
+
+<!-- 적립금 --><tbody class=""><tr>
+<th scope="row">적립금</th>
+<td>
+<p> <input id="input_mile" name="input_mile" class="inputTypeText" placeholder="" size="10" value="" type="text"> 원 (총 사용가능 적립금 : <strong class="txtWarn">0</strong>원)</p>
+<ul class="info">
+<li>적립금은 최소 0 이상일 때 결제가 가능합니다.</li>
+<li id="mileage_max_unlimit" class="">최대 사용금액은 제한이 없습니다.</li>
+<li id="mileage_max_limit" class="">1회 구매시 적립금 최대 사용금액은 0입니다.</li>
+<li>적립금으로만 결제할 경우, 결제금액이 0으로 보여지는 것은 정상이며 [결제하기] 버튼을 누르면 주문이 완료됩니다.</li>
+<li id="mileage_shipfee" class="displaynone">적립금 사용 시 배송비는 적립금으로 사용 할 수 없습니다.</li>
+<li id="mileage_exception" class="displaynone">적립금 사용 시 해당 상품에 대한 적립금은 적립되지 않습니다.</li>
+</ul>
+</td>
+</tr></tbody>
+
+</table>
+</div>
+</div>
+
+<!-- 결제수단 -->
+<div class="container" style="border: 1px solid black; height: 700px;">
+<div class="title">
+	<h3>결제수단</h3>
+<span class="txtEm gIndent20 ">
+<input type="checkbox" id="save_paymethod" name="save_paymethod" value=""><label for="save_paymethod">지금 선택한 결제수단을 다음에도 사용</label>
+</span>
+</div>
+
+<div class="payment" style="border: 1px solid black; width: 70%; height: 500px; float: left;">
+<h4>결제수단선택</h4>
+<div class="payBtn" style="border: 1px solid black; width: 100%; height: 150px; text-align: center;">
+<button id="credit" style="width: 40%; height: 50px;" >신용카드</button>
+<button id="phonpay" style="width: 40%; height: 50px;">핸드폰결제</button>
+<button id="account" style="width: 40%; height: 50px;">무통장입금</button>
+<button id="kakaopay" style="width: 40%; height: 50px;"><img src="${pageContext.request.contextPath}/resources/images/payment_text_small.png"></button>
+</div>
+
+<div class="payContents" style="border: 1px solid black; width: 100%; height: 200px; text-align: center;">
+
+<div id="credit_box" style="display: none;">
+<p>소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
+<p>최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
+</div>
+
+<div id="phonpay_box" style="display: none;">
+<p>소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
+</div>
+
+<div id="account_box" style="display: none;">
+<p>소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
+</div>
+
+<div id="kakaopay_box" style="display: none;">
+<p>카카오페이</p>
+</div>
+
+
+</div>
+
+</div>
+
+<!-- 최종결제금액 -->
+
+<div class="total" style="border: 1px solid red; width: 300px; height: 500px; float: right; margin-right: 40px;">
+<h4>
+<strong id="current_pay_name">무통장 입금</strong> <span>최종결제 금액</span>
+</h4>
+<p class="price fontcolor_point"><span></span><input id="total_price" name="total_price" class="inputTypeText" placeholder="" style="text-align:right;ime-mode:disabled;clear:none;border:0px;float:none;" size="10" value="30500" type="text"><span>원</span></p>
+<p class="paymentAgree" id="chk_purchase_agreement" style="display: block;">
+<input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; border: 1px solid red;"><label for="chk_purchase_agreement0">결제정보를 확인하였으며, 구매진행에 동의합니다.</label></p>
+<div class="button"><a href="#none" class="btn_submit btncolor_dominant" id="btn_payment"><span>결제하기</span></a></div>
+<div class="mileage ">
+<dl class="ec-base-desc gLarge right">
+<dt><strong>총 적립예정금액</strong></dt>
+<dd id="mAllMileageSum" class="txtWarn" style="display: block;">570원</dd>
+</dl>
+<dl class="ec-base-desc gLarge right">
+<dt>상품별 적립금</dt>
+<dd id="mProductMileage">570원</dd>
+<dt>회원 적립금</dt>
+<dd id="mMemberMileage">0원</dd>
+<dt>쿠폰 적립금</dt>
+<dd id="mCouponMileage">0원</dd>
+</dl>
+</div>
+</div>
+
+
+
+</div>
+
+</div>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script>
+
+	$("#credit").click(function() {
+		 $("#credit_box").show(); 
+		 $("#phonpay_box").hide(); 
+		 $("#account_box").hide(); 
+		 $("#kakaopay_box").hide(); 
+	});
+	
+	$("#phonpay").click(function() {
+		 $("#phonpay_box").show(); 
+		 $("#credit_box").hide(); 
+		 $("#account_box").hide(); 
+		 $("#kakaopay_box").hide(); 
+	});
+	
+	$("#account").click(function() {
+		 $("#account_box").show(); 
+		 $("#phonpay_box").hide(); 
+		 $("#credit_box").hide(); 
+		 $("#kakaopay_box").hide(); 
+	});
+	
+	$("#kakaopay").click(function() {
+		 $("#kakaopay_box").show(); 
+		 $("#phonpay_box").hide(); 
+		 $("#account_box").hide(); 
+		 $("#credit_box").hide(); 
+	});
+	
+	
+
+
+
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            
+            
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+            if(data.userSelectedType === 'R'){
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraAddr !== ''){
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+                // 조합된 참고항목을 해당 필드에 넣는다.
+                $("#addr2").val(extraAddr);
+            
+            } else {
+            	 $("#addr2").val(''); 
+          /*       document.getElementById("sample6_extraAddress").value = ''; */
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+			$("#postcode1").val(data.zonecode);
+
+			$("#addr1").val(data.address);
+			
+			$("#addr2").focus();
+
+			console.log(data);
+        }
+    }).open();
+
+    }
+
+
+
+
+</script>
+
+
 
 </body>
 </html>

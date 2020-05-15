@@ -115,7 +115,7 @@
    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
    <input style="width: 400px;" id="addr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" value="기본주소" type="text" ><br>
    <input style="width: 250px;" id="addr2" name="addr2" class="input_Join" placeholder="" value="상세주소" type="text">
-   <input style="width: 150px;" id="addr3" name="addr2" class="input_Join" placeholder="" value="참고사항" type="text"></td>
+ 
 </tr>
 <tr class="">
 <th scope="row">휴대전화 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>

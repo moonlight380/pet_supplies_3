@@ -101,7 +101,20 @@ float: right;
 	padding: 30px;
 }
 
-
+#page_free{
+z-index:99;
+position:absolute;
+top:10px;
+left:10px;
+text-align:left;
+border:1px solid #000;
+width: 720px;
+height: 850px;
+margin: 300px 1000px;
+padding: 10px;
+}
+#page_free img{border:10px soild #FFF;}
+#page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
 
 </style>
 
@@ -109,19 +122,46 @@ float: right;
 
 <script type="text/javascript">
 	
-function popup(){
-		var popUrl = "../popup.jsp";	//팝업창에 출력될 페이지 URL
+function goPopup(){
+		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
 
 		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
-		
-		window.open( popUrl ,"popup name",popOption);
+		//크롬에서는 속성값이 먹지 않음
+		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
 	}
 	
 </script>
+
+<!-- 레이어팝업 -->
+<script type="text/javascript">
+$(document).ready(function(){
+//오늘 하루 팝업 열지 않기
+$('#close_popup').click(function(){
+	$.cookie('page_free','ck',{expires:1,path:'/'});
+	$("#page_free").hide();
+});
+//팝업 닫기
+$('#close_popup2').click(function(){
+	$("#page_free").hide();
+});
+});
+</script>
 </head>
 
-<body onload="popup()">
+<!-- ------------------------------------body 시작---------------------------------- -->
 
+<body onload="goPopup()">
+
+
+<!-- 레이어팝업 시작 -->
+<div style="" id="page_free">
+	<img src="${pageContext.request.contextPath}/resources/images/goPopup.jpg">
+	<div class="new_btn">오늘 하루 열지 않기 <input type="checkbox" name="close_popup" id="close_popup"> &nbsp; &nbsp; &nbsp; &nbsp;닫기
+	<input type="checkbox" name="close_popup2" id="close_popup2">
+	</div>
+</div>
+
+<!--레이어팝업  끝-->
 
 
 
@@ -161,6 +201,8 @@ function popup(){
 
 <!-- START MAIN CONTENT -->
 <div class="main_content">
+
+
 
 <!-- select 시작 -->
 <!-- START SECTION SHOP -->

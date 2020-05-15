@@ -112,7 +112,7 @@ float: right;
 function popup(){
 		var popUrl = "../popup.jsp";	//팝업창에 출력될 페이지 URL
 
-		var popOption = "width=800, height=900"  
+		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
 		
 		window.open( popUrl ,"popup name",popOption);
 	}

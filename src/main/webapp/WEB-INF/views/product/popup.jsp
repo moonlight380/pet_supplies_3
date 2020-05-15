@@ -7,28 +7,17 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-.popup-footer{
-width: auto;
-height: 15px;
-}
 
 </style>
 
 </head>
 <body>
 
+<%-- 
+<img alt="popup" src="${pageContext.request.contextPath}/resources/images/popup.jpg"> --%>
 
-<img alt="popup" src="${pageContext.request.contextPath}/resources/images/popup.jpg">
 
 
-
-<script type="text/javascript">
-$(document).ready(function() {
-	$("#popupClose").click(function() { 
-		self.close();
-	}); 
-});
-</script>
 
 
 

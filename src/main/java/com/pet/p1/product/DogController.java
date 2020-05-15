@@ -49,7 +49,7 @@ public ModelAndView kakao (ModelAndView mv) throws Exception{
 
 //List
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
-	public ModelAndView dogList (ModelAndView mv,Pager pager)throws Exception {
+	public ModelAndView dogList (ModelAndView mv,Pager pager,HttpSession session)throws Exception {
 		
 		System.out.println("kind:"+pager.getKind());
 		System.out.println("search:"+pager.getSearch());

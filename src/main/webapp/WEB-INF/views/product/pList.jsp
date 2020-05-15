@@ -149,7 +149,21 @@
                             
                             <div class="product_header_right">
                             	<div class="products_view">
-                            	 	<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+                            	 <a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>		
+<!-- ------------------------------------------------------------------------------------------------------------------------ -->
+							
+<%-- 					 	<c:catch>
+								<c:if test="${member.id eq 'admin' }">
+								<div>
+									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+									</div>
+								</c:if>
+						</c:catch>
+						</div> 
+							  --%>
+					                                   
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->                                  
+
                                     <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
                                     <a href="javascript:Void(0);" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>
                                 </div>

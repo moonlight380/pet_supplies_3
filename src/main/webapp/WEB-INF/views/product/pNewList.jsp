@@ -92,8 +92,7 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item">Pages</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>                    
                     <li class="breadcrumb-item active">Shop Load More</li>
                 </ol>
             </div>

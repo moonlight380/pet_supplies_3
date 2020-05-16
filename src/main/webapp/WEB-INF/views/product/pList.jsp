@@ -17,17 +17,38 @@
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 
+    <script type="text/javascript">
+    
+        function openAddress()
+        {
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            window.open("./address",
+                    "childForm", "width=570, height=350, resizable = no, scrollbars = no");    
+        }
+ 
+   </script>
 </head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
 <body>
 
+    <br>
+    <b><font size="5" color="gray">부모창</font></b>
+    <br><br>
+       배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
+       성명: <input type="text" id="name" name="name"/> <br/>
+       주소: <input type="text" id="adressInput" name="adressInput"/> <br/>
+       일반전화: <input type="tel" id="homePhone" name="homePhone"/> <br/>
+        휴대전화: <input type="tel" id="phone" name="phone"/>
+    <input type="button" value="자식창 열기" onclick="openAddress()"><br>
 
 <c:import url="../template/header.jsp"></c:import>
 
 
 
 <!-- =============================================================================================== -->
-<div  class="container"> <!-- address 팝업창 -->
+<!-- <div  class="container"> address 팝업창
 <input id="address_management" type="button" value="주소록 보기">
 
     <form name="extendHDD" method="Post">
@@ -41,23 +62,24 @@
 </div>	
 
 
-<!-- 팝업창  띄우기 -->
+팝업창  띄우기
 <script type="text/javascript">
-	
+	var openWin;
 $("#address_management").click(function(){
 	var popUrl = "./address";	//팝업창에 출력될 페이지 URL
 
 	var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
 	//크롬에서는 속성값이 먹지 않음
-	window.open(popUrl ,"address_management",popOption);s
+	openWin=window.open(popUrl ,"address_management",popOption);
 		
 });
 
 
 	
-</script>
+</script> -->
 
 <!--주소록팝업창띄우기끝 =============================================================================================== -->
+
 
 
 

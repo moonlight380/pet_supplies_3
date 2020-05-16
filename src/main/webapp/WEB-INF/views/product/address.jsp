@@ -14,9 +14,36 @@ margin-left: 650px;
 }
 </style>
 
+
+
 </head>
 <body>
-<h1>주소록</h1>
+    <br>
+    <b><font size="5" color="gray">자식창</font></b>
+    <br><br>
+ 
+       배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
+       성명: <input type="text" id="name" name="name"/> <br/>
+       주소: <input type="text" id="adressInput" name="adressInput"/> <br/>
+       일반전화: <input type="tel" id="homePhone" name="homePhone"/> <br/>
+       휴대전화: <input type="tel"  id="phone" name="phone"/>
+    <input type="button" value="전달하기" onclick="setParentText()">
+    
+    <br><br>
+    <input type="button" value="창닫기" onclick="window.close()">
+    
+    <script type="text/javascript">
+        function setParentText(){
+             opener.document.getElementById("addressName").value = document.getElementById("addressName").value
+             opener.document.getElementById("name").value = document.getElementById("name").value
+             opener.document.getElementById("adressInput").value = document.getElementById("adressInput").value
+             opener.document.getElementById("homePhone").value = document.getElementById("homePhone").value
+             opener.document.getElementById("phone").value = document.getElementById("phone").value
+             
+        }
+   </script>
+    
+<!-- <h1>주소록</h1>
     <form name="extendHDD" method="Post">
         배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
         성명: <input type="text" id="name" name="name"/> <br/>
@@ -48,7 +75,7 @@ margin-left: 650px;
         
         $("#address",opener.document).val(name); */
         
-    </script>
+    </script> -->
 
 
 

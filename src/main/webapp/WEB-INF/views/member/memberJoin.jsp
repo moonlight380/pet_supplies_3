@@ -33,8 +33,8 @@
 
 <div class="path"  style="margin-top: 80px;" >
 
-<div style="border-bottom: 3px solid black; margin-top: 100px; text-align: center;">
-<h3 style="margin-bottom: 30px; font-weight: bold; font-size: 36px;">회원가입</h3>
+<div style="margin-top: 100px; text-align: center;display: block; border-bottom: 3px solid black;">
+<h1 style=" margin-top: 50px; font-weight: bold; font-size: 36px; margin-bottom: 30px;">회원 가입</h1>
 </div>
 
 <%-- <div class="row" style="display: block; margin-right: 30px;">
@@ -119,15 +119,16 @@
 </tr>
 <tr class="">
 <th scope="row">휴대전화 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
- <td><select id="mobile1" name="phone" id="mobile1" class="input_Join tel">
+ <td><select id="mobile1" id="mobile1" class="input_Join tel">
 <option value="010">010</option>
 <option value="011">011</option>
 <option value="016">016</option>
 <option value="017">017</option>
 <option value="018">018</option>
 <option value="019">019</option>
-</select>-<input style="width: 50px;" id="mobile2" name="phone" class="input_Join tel" maxlength="4" value="" type="text">-<input style="width: 50px;" id="mobile3" class="input_Join tel" name="phone" maxlength="4" value="" type="text">
-<span id="mobile"></span></td>
+</select>-<input style="width: 50px;" id="mobile2"class="input_Join tel" maxlength="4" value="" type="text">-<input style="width: 50px;" id="mobile3" class="input_Join tel"  maxlength="4" value="" type="text">
+<span id="mobile"></span>
+<input id="phoneAll" type="text" hidden="" value="" name="phone"></td>
 </tr>
 
 
@@ -497,6 +498,7 @@ function sample6_execDaumPostcode() {
    	/* 핸드폰 유효성검사 */
    	
    	var phoneCheck = true;
+   	
    	$(".tel").blur(function() {
    	var phoneNum1 = $("#mobile1").val(); 
    	var phoneNum2 = $("#mobile2").val(); 
@@ -513,10 +515,11 @@ function sample6_execDaumPostcode() {
    		phoneCheck = false;
    	}else{
    		$("#mobile").html(" ");
+   		var phoneAll = $("#mobile1").val()+$("#mobile2").val()+$("#mobile3").val();
+   		$("#phoneAll").val(phoneAll);
    		phoneCheck = true;
    	}
 	});
-  	
 
  	 
  	/* 생년월일 유효성검사 */

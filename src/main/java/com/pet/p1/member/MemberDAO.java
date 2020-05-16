@@ -55,6 +55,10 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"memberIdCheck",memberVO);
 	}
 	
+	public MemberVO findPhone(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"findPhone", memberVO);
+	}
+	
 	public int memberDeletes(List<String> list)throws Exception{
 		return sqlSession.delete(NAMESPACE+"memberDeletes", list);
 	}

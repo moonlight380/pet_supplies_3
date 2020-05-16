@@ -92,8 +92,7 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item">Pages</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>                    
                     <li class="breadcrumb-item active">Shop Load More</li>
                 </ol>
             </div>
@@ -172,19 +171,18 @@
                                 <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
                                 <div class="product_contents">
                                 
-                                <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
-				
-								<!-- 타이머기능 -->
-                 				<input type="button" value="타이머 정지" onclick="clearInterval(timer)">
-      							  <div class="test"></div>
-
-             
+                                <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>				
+								<!-- 타이머기능 -->                 			
+                 				<div class='notice'></div>                 	
+								<script id="notice" type="text/javascript" src="../resources/script/timeSale.js"> </script> 
+								
+  
                                 </div>
                                 <div class="product_price">
 		                              <span class="price">${vo.price}</span>
-                                    <del>$55.25</del>
+                                    <del>${vo.price*0.7}</del>
                                     <div class="on_sale">
-                                        <span>35% Off</span>
+                                        <span>30% Off</span>
                                     </div>
                                 </div>
                                 
@@ -303,7 +301,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 
 
-<script type="text/javascript" src="../resources/script/timeSale.js"> </script> 
+
 
 
 

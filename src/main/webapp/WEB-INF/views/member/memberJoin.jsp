@@ -104,7 +104,7 @@
 
 <tr>
 <th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
- <td><input style="widows: 350px;" id="email" name="email" class="input_Join" value="" type="email"><span id="emailCheck"></span>
+ <td><input style="width: 250px;" id="email" name="email" class="input_Join" value="" type="email"><span id="emailCheck"></span>
  </td>
 </tr>
 
@@ -119,16 +119,16 @@
 </tr>
 <tr class="">
 <th scope="row">휴대전화 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
- <td><select id="mobile1" id="mobile1" class="input_Join tel">
+ <td><select id="mobile1" id="phone" class="input_Join tel" name="phone">
 <option value="010">010</option>
 <option value="011">011</option>
 <option value="016">016</option>
 <option value="017">017</option>
 <option value="018">018</option>
 <option value="019">019</option>
-</select>-<input style="width: 50px;" id="mobile2"class="input_Join tel" maxlength="4" value="" type="text">-<input style="width: 50px;" id="mobile3" class="input_Join tel"  maxlength="4" value="" type="text">
+</select>-<input style="width: 50px;" name="phone1" id="mobile2"class="input_Join tel" maxlength="4" value="" type="text">-<input style="width: 50px;"name="phone2" id="mobile3" class="input_Join tel"  maxlength="4" value="" type="text">
 <span id="mobile"></span>
-<input id="phoneAll" type="text" hidden="" value="" name="phone"></td>
+</td>
 </tr>
 
 

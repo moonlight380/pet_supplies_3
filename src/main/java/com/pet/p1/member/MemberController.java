@@ -89,8 +89,7 @@ public class MemberController {
 	//--로그인/로그아웃
 	@RequestMapping(value= "memberLogin")
 	public void memberLogin(@CookieValue(value = "cId", required = false)String cId, Model model) {
-		//model.addAttribute("cId", cId);
-		System.out.println(cId);
+		model.addAttribute("cId", cId);
 	}
 	
 	@RequestMapping(value= "memberLogin", method = RequestMethod.POST)
@@ -252,7 +251,7 @@ public class MemberController {
 	//-- memberPayment
 	
 	@GetMapping("memberPayment")
-	public void memberPayment()throws Exception{
+	public void memberPayment(MemberVO memberVO)throws Exception{
 		
 	}
 	

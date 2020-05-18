@@ -170,10 +170,10 @@
 <div class="orderArea  ec-shop-ordererForm" style="margin-top: 20px; border: 1px solid black;">
 <div class="title" style="float: left; width: 100%; height: 25px;">
 	<p class="required" style="float: right;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</p>
-	<h3 style="font-size: medium; font-weight: bold;">주문 정보</h3>
+	<h3 style=" font-weight: bold; font-size: medium;">주문 정보</h3>
 </div>
 
-<div class="ec-base-table typeWrite" style=" margin-top: 10px;">
+<div class="ec-base-table typeWrite" style=" margin-top: 50px;">
 <table class="table table-condensed" style="border-left: none; border-right: none;">
 <colgroup>
 <col style="width:139px;">
@@ -184,45 +184,35 @@
 <tbody class="address_form">
 <tr>
 <th scope="row">주문하시는 분<img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td><input id="oname" name="oname" class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+<td><input id="oname" name="oname" class="inputTypeText" placeholder="" size="15" value="${member.name}" type="text"></td>
 </tr>
 <tr class="">
 <th scope="row">주소 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td>
-	<input id="ozipcode1" name="ozipcode1"  class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="" type="text"><a href="#none" id="btn_search_ozipcode" class="btn_function btncolor_basic"><span class="ico_arrow_r">우편번호</span></a><br>
-	<input id="oaddr1" name="oaddr1" class="inputTypeText" placeholder="" size="40" readonly="1" value="" type="text"> <span class="txtInfo">기본주소</span><br>
-	<input id="oaddr2" name="oaddr2"  class="inputTypeText" placeholder="" size="40" value="" type="text"> <span class="txtInfo">나머지주소</span><span class="grid ">(선택입력가능)</span>
+<td>   
+	<input id="oaddress" name="ozipcode1"  class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="${member.address}" type="text">
+	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
+	<input id="oaddr1" name="addr1" class="inputTypeText" placeholder="" size="40" readonly="1" value="${member.addr1}" type="text"> <span class="txtInfo">기본주소</span><br>
+	<input id="oaddr2" name="addr2"  class="inputTypeText" placeholder="" size="40" value="${member.addr2}" type="text"> <span class="txtInfo">나머지주소</span><span class="grid ">(선택입력가능)</span>
 </td>
 </tr>
 <tr class="">
 <th scope="row">휴대전화 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
 </th>
-<td><select id="ophone2_1" name="ophone2_[]">
+<td><select id="ophone" name="phone">
 <option value="010">010</option>
 <option value="011">011</option>
 <option value="016">016</option>
 <option value="017">017</option>
 <option value="018">018</option>
 <option value="019">019</option>
-</select>-<input id="ophone2_2" name="ophone2_[]" maxlength="4" size="4" value="" type="text">-<input id="ophone2_3" name="ophone2_[]" maxlength="4" size="4" value="" type="text"></td>
+</select>-<input id="ophone1" name="phone1" maxlength="4" size="4" value="${member.phone1}" type="text">-<input id="ophone2" name="phone2" maxlength="4" size="4" value="${member.phone2}" type="text"></td>
 </tr>
 
 <tr>
 <th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
 <td>
-<input id="oemail1" name="oemail1" class="mailId" value="" type="text">@<input id="oemail2" name="oemail2" class="mailAddress" readonly="readonly" value="" type="text"><select id="oemail3">
-<option value="" selected="selected">- 이메일 선택 -</option>
-<option value="naver.com">naver.com</option>
-<option value="daum.net">daum.net</option>
-<option value="nate.com">nate.com</option>
-<option value="hotmail.com">hotmail.com</option>
-<option value="yahoo.com">yahoo.com</option>
-<option value="empas.com">empas.com</option>
-<option value="korea.com">korea.com</option>
-<option value="dreamwiz.com">dreamwiz.com</option>
-<option value="gmail.com">gmail.com</option>
-<option value="etc">직접입력</option>
-</select><ul class="gBlank5 txtInfo">
+<input id="oemail1" name="email" class="mailId" value="${member.email}" type="text">
+<ul>
 <li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
 <li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
 </ul>
@@ -241,8 +231,8 @@
 <div class="orderArea">
 
 <div class="title">
-<h3>배송 정보</h3>
-<p class="required"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"> 필수입력사항</p>
+<h3 style="font-size: medium; font-weight: bold; display: inline;">배송 정보</h3>
+<p class="required" style="float: right;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"> 필수입력사항</p>
 </div>
 
 <div class="ec-base-table typeWrite">
@@ -258,7 +248,7 @@
 <td>
 <div class="address">
 <input id="sameaddr0" name="sameaddr"  value="T" type="radio"><label for="sameaddr0">주문자 정보와 동일</label>
-<input id="sameaddr1" name="sameaddr"  value="F" type="radio"><label for="sameaddr1">새로운배송지</label>								<span class="recent ec-shop-RecentDelivery displaynone">
+<input id="sameaddr1" name="sameaddr"  value="F" type="radio"><label for="sameaddr1">새로운배송지</label><span class="recent ec-shop-RecentDelivery displaynone">
 </span>
 <a href="#none" id="btn_shipp_addr" class="btn_function btncolor_basic" style="border: 1px solid gray;"><span class="ico_arrow_r">주소록 보기</span></a>
 </div>
@@ -266,29 +256,29 @@
 </tr>
 <tr>
 <th scope="row">받으시는 분 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td><input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+<td><input class="input_Join" id="rname" name="rname" class="inputTypeText" placeholder="" size="15"  type="text"></td>
 </tr>
 <tr class="">
 <th scope="row">주소 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
  <td>
-   <input style="width: 80px;" id="postcode1" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" type="text">
+   <input style="width: 80px;" id="raddress" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" type="text">
    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
-   <input style="width: 300px;" id="addr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" type="text" ><span>기본주소</span> <br>
-   <input style="width: 300px;" id="addr2" name="addr2" class="input_Join" placeholder="" type="text"><span>나머지 주소</span>
+   <input style="width: 300px;" id="raddr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" type="text" ><span>기본주소</span> <br>
+   <input style="width: 300px;" id="raddr2" name="addr2" class="input_Join" placeholder="" type="text"><span>나머지 주소</span>
  
 </tr>
 
 <tr class="">
 <th scope="row">휴대전화 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
 </th>
-<td><select id="rphone2_1" name="rphone2_[]">
+<td><select id="rphone" name="rphone2_[]">
 <option value="010">010</option>
 <option value="011">011</option>
 <option value="016">016</option>
 <option value="017">017</option>
 <option value="018">018</option>
 <option value="019">019</option>
-</select>-<input id="rphone2_2" name="rphone2_[]" maxlength="4"size="4" value="" type="text">-<input id="rphone2_3" name="rphone2_[]" maxlength="4"size="4" value="" type="text"></td>
+</select>-<input class="input_Join" id="rphone1" name="rphone2_[]" maxlength="4"size="4" type="text">-<input class="input_Join" id="rphone2" name="rphone2_[]" maxlength="4"size="4"type="text"></td>
 </tr>
 
 </tbody>
@@ -298,7 +288,8 @@
 <th scope="row">배송메시지 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
 </th>
 <td>
-<textarea id="omessage" name="omessage" maxlength="255" cols="70"></textarea>							<div class="devMessage ">
+<textarea class="input_Join" id="omessage" name="omessage" maxlength="255" cols="70"></textarea>
+<div class="devMessage">
 <ul class="gIndent5">
 <li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주십시오.</li>
 <li>게시글은 비밀글로 저장되며 비밀번호는 주문번호 뒷자리로 자동 저장됩니다.</li>
@@ -317,8 +308,8 @@
 
 <div class="totalArea" style="border-bottom: 1px solid black; border-top: 1px solid black;">
 
-<div class="title">
-	<h3 style="font-size: medium;">결제 예정 금액</h3>
+<div class="title" style="margin-top: 20px;">
+	<h3 style="font-size: medium; font-weight: bold;">결제 예정 금액</h3>
 </div>
 <div class="ec-base-table typeList gBorder total">
 <table class="table">
@@ -568,7 +559,7 @@
 </div>
 
 <div class="button" style="margin-top: 10px; margin-left: 20px;">
-<input type="button" style="background-color: red;color: white; width: 250px; height: 50px; " class="btn_submit btncolor_dominant" id="btn_payment" value="결제하기"></div>
+<button style="background-color: red;color: white; width: 250px; height: 50px; " class="btn_submit btncolor_dominant" id="btn_payment">결제하기</button></div>
 
 <div class="mileage" style="margin-top: 20px; ">
 <dl class="ec-base-desc gLarge right" style="height:50px; font-size: small; border-bottom: 1px solid gray; border-top: 1px solid gray;">
@@ -595,6 +586,112 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 <script>
+	/* 배송정보 유효성검사 */
+	//-- 이름
+	var nameCheck = true;
+	$("#rname").blur(function() {
+		var name = $(this).val();
+		if(name.length<=0){
+			alert("이름이 입력되지않았습니다");
+			nameCheck = false;
+		}
+	});
+	
+	//-- 주소
+	var addrCheck = true;
+	$("#raddr1").blur(function() {
+		if($(this).val().length<=0){
+			alert("주소가 입력되지않았습니다");
+			addrCheck = false;
+		}
+			
+	});
+	//-- 번호
+	var phoneCheck = true;
+	$("#rphone1").blur(function() {
+		if($(this).val().length<=0){
+			alert("번호가 입력되지않았습니다");
+			phoneCheck = false;
+		}
+	});
+	$("#rphone2").blur(function() {
+		if($(this).val().length<=0){
+			alert("번호가 입력되지않았습니다");
+			phoneCheck = false;
+		}
+	});
+	
+	//-- 배송메세지
+	var msgCheck = true;
+	$("#omessage").blur(function() {
+		if($(this).val().length<=0){
+			alert("배송메세지 입력은 필수 입니다");
+			msgCheck = false;
+		}
+	});
+	
+
+ 	
+	/* 결제버튼 */
+	
+	$("#btn_payment").click(function() {
+ 		var c = true;
+		var check = $(".input_Join");
+		var agree = $("#chk_purchase_agreement0").prop("checked"); 
+		
+		
+	 	for(i=0;i<check.length;i++){
+			if(check[i].value.length<=0){
+				c=false;
+				break;
+			}
+		}
+			if(!(nameCheck && addrCheck && phoneCheck && msgCheck && c)){
+				alert("배송정보는 필수 입력입니다");
+			}else if(!agree){
+				alert("필수 약관에 동의해주세요");
+				e.preventDefault();
+			}
+			else{
+				frm.submit();
+			} 
+
+	});
+
+	/* 배송지입력 주문자정보와동일/새로운배송지 선택 */
+	$("#sameaddr0").click(function() {
+		var name = $("#oname").val();
+		var address = $("#oaddress").val();
+		var addr1 = $("#oaddr1").val();
+		var addr2 = $("#oaddr2").val();
+		var phone = $("#ophone").val();
+		var phone1 = $("#ophone1").val();
+		var phone2 = $("#ophone2").val();
+		
+		$("#rname").val(name);
+		$("#raddress").val(address);
+		$("#raddr1").val(addr1);
+		$("#raddr2").val(addr2);
+		$("#rphone").val(phone);
+		$("#rphone1").val(phone1);
+		$("#rphone2").val(phone2);
+
+	});
+	
+	$("#sameaddr1").click(function() {
+		$("#rname").val("");
+		$("#raddress").val("");
+		$("#raddr1").val("");
+		$("#raddr2").val("");
+		$("#rphone").val("");
+		$("#rphone1").val("");
+		$("#rphone2").val("");
+
+	});
+	
+	
+
+
 
 	$("#credit").click(function() {
 		 $("#credit_box").show(); 

@@ -7,6 +7,7 @@
 
 
 <h1>　</h1>
+
 <div class="col-sm-2 border">
 	<div class="row">
 		<div class="col-sm-2"></div>
@@ -49,6 +50,7 @@
 	
 	</div>
 </div>
+
 
 <script type="text/javascript">
 	$("#update").click(function() {

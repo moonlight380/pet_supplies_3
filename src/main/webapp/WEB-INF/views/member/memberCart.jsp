@@ -55,7 +55,7 @@
 							<div class="row" style="vertical-align: middle;">
 
 								<div style="padding-top: -2px; margin-left: 3px;">장바구니 목록</div>
-								<div class='cart_count'	style="margin-left: 4px; top: 0px; margin-top: 1px;">
+								<div class='cart_count'	id="id" title="${member.id}" style="margin-left: 4px; top: 0px; margin-top: 1px;">
 									
 									<c:if test="${not empty member}">
 										${cartCount }
@@ -94,8 +94,8 @@
 								</colgroup>
 								<thead>
 									<tr class="table_title"  style="text-align: center;   line-height: 60px;">
-										<th scope="col" ><input type="checkbox" id="check_all"
-											title="checkbox" hidden="hidden"><div class="row" style="height: 10px;"></div><label style="margin: 0 auto;"
+										<th scope="col" ><input type="checkbox" id="check_all" hidden="hidden"
+											title="checkbox" ><div class="row" style="height: 10px;"></div><label style="margin: 0 auto;"
 											for="check_all" class="material-icons checkbox"
 											title="check_all"> check </label></th>
 										<th scope="col">이미지</th>
@@ -131,7 +131,7 @@
 													<button class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
 													<input class="text-center in" id="${cart.id}${cart.cnum}_amount"	title="${cart.id}${cart.cnum}" 
 														style="color: #333; width: 40px; border: 1px solid #d9dde0;"
-														value="${cart.cAmount }"
+														value="${cart.cAmount }" name="${cart.cnum }"
 														onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 													<button class="plus" title="${cart.id}${cart.cnum}"style="width: 20px; border: 1px solid #d9dde0;">+</button>
 												</div>
@@ -208,8 +208,9 @@
 									홈 가기</a>
 							</div>
 							<div class="col-sm-4" style="padding-left: 0px;">
-								<a href="./memberPayment" class="btn btn-danger"
-									style="font-size: 16px;">결제 하기</a>
+								<!-- <a href="./memberPayment" class="btn btn-danger" id="payClick"
+									style="font-size: 16px;">결제 하기</a> -->
+								<button class="btn btn-danger" id="payClick">결asd제asdasd</button>
 							</div>
 
 						</div>
@@ -234,7 +235,59 @@
 </body>
 
 <script type="text/javascript">
+
+
+
+$("#result").on("click","#payClick",function(){
+	
+		var priceAll = $("#payment").text();
+		priceAll = removeCommas(priceAll);
+		var charge = $("#deli").text();
+		charge = removeCommas(charge);
+		var discount = $("#discount").text();
+		discount = removeCommas(discount); 
+		var id =$("#id").attr("title");
+	 	$.ajax({
+			type:"post",
+			traditional : true,
+			url:"./memberPayment",
+			data:{
+				priceAll:priceAll,
+				charge:charge,
+				id:id
+			}, 
+			success:function(data){
+				var ids=[];
+				$(".plus").each(function(){						//오더인포에 정보 보낼떄 사용
+					var title =$(this).attr("title");
+					var check = $("#"+title+"_check").prop("checked");
+					var cnum = $("#"+title+"_amount").attr("name");
+					if(check){
+						console.log(cnum);
+						ids.push(cnum);
+					}
+					
+				});
+				 $.ajax({
+					type:"post",
+					traditional : true,
+					url:"./memberPaymentList",
+					data:{
+						ids:ids
+					},
+					success:function(data){
+						location.href="./memberPayment";
+					}
+				});
+				
+			}
+		}); 
+		
+});
+
+
 //--------------------선택상품삭제---------------
+
 
 $("#result").on("click","#del",function() {
 	var ids = [];
@@ -248,30 +301,26 @@ $("#result").on("click","#del",function() {
 	console.log(ids);
 	
 	
+
 	$.ajax({
-		type:"get",
-		traditional:true,
-		url:"./cartDelete",
-		data:{
-			ids:ids
-		},
-		success:function(data){
-			$.get("./memberCartRefresh",function(data){
-				
-				$("#result").html(data.trim());
-				reset();
+					type : "get",
+					traditional : true,
+					url : "./cartDelete",
+					data : {
+						ids : ids
+					},
+					success : function(data) {
+						$.get("./memberCartRefresh", function(data) {
+
+							$("#result").html(data.trim());
+							reset();
+						});
+					}
+					
+
+				});
+
 			});
-		}
-		
-		
-		
-	});
-	
-	
-	
-});
-
-
 
 	//-------------------------Function------------------------
 
@@ -291,7 +340,7 @@ $("#result").on("click","#del",function() {
 	}
 	//-----------------------All check--------------------------
 
-	$("#result").on("click","#check_all",function() {
+	$("#result").on("click", "#check_all", function() {
 		$(".check").prop("checked", $(this).prop("checked"));
 
 		var name = ('.' + $("#check_all").prop("title"));
@@ -311,16 +360,11 @@ $("#result").on("click","#del",function() {
 
 	//-----------------------Select Check---------------------------
 
-	$("#result").on("click",".check",function() {
+	$("#result").on("click", ".check", function() {
 		var result = true;
 		var name = "[title=" + $(this).attr("id") + "]";
 		var title = $(this).attr("title");
 
-		/* 	var amount = $("#" + title + "_amount").val();
-		 var price = parseInt($("#" + title + "_price").text());
-		 var set = (price * amount); */
-
-		//낼 다시할것
 		var eachsum = each_sum(title);
 		var allsum = $("#all_sum").text();
 		allsum = removeCommas(allsum) * 1;
@@ -355,8 +399,8 @@ $("#result").on("click","#del",function() {
 	});
 
 	//-------------------------Cursor---------------------------------
-	$("#result").on("mouseover",".material-icons",function(){
-	
+	$("#result").on("mouseover", ".material-icons", function() {
+
 		$(".material-icons").css({
 			'cursor' : 'pointer'
 		});
@@ -365,18 +409,20 @@ $("#result").on("click","#del",function() {
 	//---------------------------------------------------------------------------------------------
 
 	//--------------------minus--------------------------------
-	$("#result").on("click",".minus",function() {
+	$("#result").on("click", ".minus", function() {
 		var title = $(this).attr("title");
 		var num = $("#" + title + "_amount").val();
 		num--;
 		if (num < 1) {
-			num = 0;
+			num = 1;
 		} else {
 
 			$("#" + title + "_amount").val(num);
 			set();
 
 		}
+
+		cartUpdate(title);
 
 		var check = $("#" + title + "_check").prop("checked");
 		var name = $(this).attr("class");
@@ -406,11 +452,12 @@ $("#result").on("click","#del",function() {
 
 	//-----------------plus--------------------------------------	
 
-	$("#result").on("click",".plus",function() {
+	$("#result").on("click", ".plus", function() {
 		var title = $(this).attr("title");
 		var num = $("#" + title + "_amount").val();
 		num++;
 		$("#" + title + "_amount").val(num);
+		cartUpdate(title);
 		set();
 		var check = $("#" + title + "_check").prop("checked");
 		var name = $(this).attr("class");
@@ -420,7 +467,7 @@ $("#result").on("click","#del",function() {
 	});
 
 	//--------------첫 화면 뿌리기---------------------------------------
-	
+
 	function reset() {
 		$(".price").each(function() {
 			var id = $(this).attr("id");
@@ -430,13 +477,18 @@ $("#result").on("click","#del",function() {
 			$("#" + id).text(text);
 
 		});
-		
-		inout();  //--blur함수 적용
+		$("#check_all").prop("checked", true);
+		$(".check").prop("checked", $("#check_all").prop("checked"));
+		var name = ('.' + $("#check_all").prop("title"));
+		var sum = set();
+		check(name);
+		final_set(sum);
+		inout(); //--blur함수 적용
 		set();
 	}
-	
-	$(document).ready(function(){
-	
+
+	$(document).ready(function() {
+
 		reset();
 
 	});
@@ -455,10 +507,10 @@ $("#result").on("click","#del",function() {
 
 			price = removeCommas(price) * 1;
 			var set = (price * amount);
-			var check = $("#"+title+"_check").prop("checked");
-			
-			if(check){
-				
+			var check = $("#" + title + "_check").prop("checked");
+
+			if (check) {
+
 				sum = sum + set;
 			}
 			var text = addCommas(set); // set은 각각의 합계 , sum은 모든 합계
@@ -520,17 +572,19 @@ $("#result").on("click","#del",function() {
 	function inout() {
 		$(".in").each(function() {
 			$(this).blur(function() {
-				
+
 				var sum = set();
 				var title = $(this).attr("title");
 				var check = $("#" + title + "_check").prop("checked");
+
+				cartUpdate(title);
 				if (check) {
-	
+
 					final_set(sum);
 				}
 			});
 		});
-		
+
 	}
 
 	//----------------숫자 콤마 생성--------------------------------------------
@@ -556,6 +610,31 @@ $("#result").on("click","#del",function() {
 	}
 
 	//-------------------------------
+
+	//-----------------수량 변경시 DB Update--------------------
+
+	function cartUpdate(title) {
+		var cnum = $("#" + title + "_amount").attr("name");
+		var cAmount = $("#" + title + "_amount").val();
+		$.ajax({
+			type : "post",
+			url : "./cartUpdate",
+			traditional : true,
+			data : {
+				cnum : cnum,
+				cAmount : cAmount
+			}
+
+		});
+
+	}
 	
+/*	에러코드확인
+ 	error : function(request, status, error) {
+		alert("code = " + request.status + " message = "
+				+ request.responseText + " error = " + error);
+	}
+	
+	*/
 </script>
 </html>

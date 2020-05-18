@@ -15,8 +15,15 @@ public class CartService {
 	public List<CartVO> cartList(MemberVO memberVO) throws Exception{
 		return cartDAO.cartList(memberVO);
 	}
+	public List<CartVO> cartSelect(List<Long> list)throws Exception{
+		return cartDAO.cartSelect(list);
+	}
 	
 	public int cartDelete(List<Long> list) throws Exception{
 		return cartDAO.cartDelete(list);
+	}
+
+	public int cartUpdate(CartVO cartVO)throws Exception{
+		return cartDAO.cartUpdate(cartVO);
 	}
 }

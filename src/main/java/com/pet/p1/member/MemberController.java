@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.cart.CartService;
 import com.pet.p1.cart.CartVO;
+import com.pet.p1.order.OrderService;
+import com.pet.p1.order.OrderVO;
 import com.pet.p1.product.DogService;
 
 import com.pet.p1.util.Pager;
@@ -38,6 +40,8 @@ public class MemberController {
 	private DogService dogService;
 	@Autowired
 	private CartService cartService;
+	@Autowired
+	private OrderService orderService;
 	
 	
 //--------------------------------------------------------------------------------------------------------------
@@ -47,6 +51,55 @@ public class MemberController {
 	public void memberOrder()throws Exception{
 		
 	}
+	
+	@GetMapping("memberPayment")
+	public void memberPayment()throws Exception{
+		
+	}
+	
+	
+	
+	@PostMapping("memberPaymentList")
+	@ResponseBody
+	public void memberPaymentList(Long[] ids,HttpSession session)throws Exception{
+		List<Long> list = Arrays.asList(ids);
+		
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i));
+		}
+		List<CartVO> ar = cartService.cartSelect(list);
+		session.setAttribute("cartSelect", ar); 
+		System.out.println("check");
+		
+	}
+	
+
+	
+	@PostMapping("memberPayment")
+	@ResponseBody
+	public int memberPayment(OrderVO orderVO,HttpSession session)throws Exception{
+		session.setAttribute("order", orderVO); 
+		/* session.setAttribute("order", null); */
+		
+		
+		
+		int result = orderService.orderCart(orderVO);
+		return result;
+	}
+	
+
+	@PostMapping("cartUpdate")
+	@ResponseBody   				//ajax실행시 return으로 jsp를 찾는데 그것 대신 data형태로 찾는것
+	public int cartUpdate(CartVO cartVO)throws Exception{
+	
+		int result = cartService.cartUpdate(cartVO);
+		
+		return result;
+	}
+	
+	
+	
+	
 	
 	@GetMapping("cartDelete")
 	public ModelAndView cartDelete(Long [] ids)throws Exception{

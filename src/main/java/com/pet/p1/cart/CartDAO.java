@@ -5,8 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.pet.p1.member.MemberVO;
+
 
 @Repository
 public class CartDAO {
@@ -15,12 +15,23 @@ public class CartDAO {
 	
 	private final String NAMESPACE="com.pet.p1.cart.CartDAO.";
 	
+	public List<CartVO> cartSelect(List<Long> list) throws Exception{
+		return sqlSessions.selectList(NAMESPACE+"cartSelect",list);
+	}
+	
 	public List<CartVO> cartList(MemberVO memberVO) throws Exception{
 		return sqlSessions.selectList(NAMESPACE+"cartList",memberVO);
 	}
 	
 	public int cartDelete(List<Long> list) throws Exception{
 		return sqlSessions.delete(NAMESPACE+"cartDelete", list);
+	}
+	
+	public int cartUpdateP(Long cnum) throws Exception{
+		return sqlSessions.update(NAMESPACE+"cartUpdateP",cnum);
+	}
+	public int cartUpdate(CartVO cartVO) throws Exception{
+		return sqlSessions.update(NAMESPACE+"cartUpdate",cartVO);
 	}
 
 }

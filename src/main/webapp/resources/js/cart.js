@@ -314,6 +314,9 @@ $("#result").on("click","#del",function() {
 		//--------합계 금액-----------------
 		var text = addCommas(sum);
 		text = text + "원";
+		$(".all_sum").each(function(){
+			$(this).text(text);
+		});
 		$("#all_sum").text(text);
 
 		//--------------배송비----------------------------
@@ -336,6 +339,11 @@ $("#result").on("click","#del",function() {
 		//-----------최종 결제 금액------------------
 		var payment = sum + deli - discount;
 		text = addCommas(payment) + "원";
+		$(".paymentPrice").each(function(){
+			console.log("a");
+			$(this).text(text);
+			
+		});
 		$("#payment").text(text);
 
 	}

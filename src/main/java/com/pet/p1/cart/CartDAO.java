@@ -33,5 +33,9 @@ public class CartDAO {
 	public int cartUpdate(CartVO cartVO) throws Exception{
 		return sqlSessions.update(NAMESPACE+"cartUpdate",cartVO);
 	}
+	
+	public int cartInsert(CartVO cartVO)throws Exception{
+		return sqlSessions.insert(NAMESPACE+"cartInsert",cartVO);
+	}
 
 }

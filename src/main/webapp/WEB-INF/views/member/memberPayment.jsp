@@ -13,144 +13,155 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-	<div class="path" style="display: block; float: right; position: relative; height: auto; margin-top: 50px; margin-right: 200px;">
+<%-- 	<div class="path" style="display: block; float: right; position: relative; height: auto; margin-top: 50px; margin-right: 200px;">
 		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home ></a></li>
 			<li style="display: inline;"><a href="${pageContext.request.contextPath}">장바구니 ></a></li>
 			<li style="display: inline;" title="현재 위치"><strong>주문결제 ></strong></li>
 			<li style="display: inline;">주문완료</li>
 		</ol>
-	</div>
+	</div> --%>
 
-<div class="container" style="margin-top: 100px;  height: 3000px;">
-
+<!-- <div class="container" style="margin-top: 100px;  height: 3000px;"> -->
+<div class="container-fulid mt-5"id="step" title="step2">
+	<div class="row">
+		
+			<div class="col">
+				<c:import url="./cartStep.jsp"></c:import>
+					<div class="row">
+<div class="col-sm-1"></div>
+<div class="col">
 <div class="orderListArea">
-	<div class="title line_base">
-		<h3>주문내역</h3>
-	</div>
+	
 
 <!-- 기본배송 -->
-<div class="ec-base-table typeList gBorder" style=" border-bottom: 1px solid black; ">
-<div style="border-top: 1px solid black;text-align: center;">
-<table class="table table-hover" style="border-top: 1px solid black;">
-<caption>기본배송</caption>
-<colgroup>
-<col style="width:27px" class="">
-<col style="width:92px">
-<col style="width:auto">
-<col style="width:98px">
-<col style="width:75px">
-<col style="width:98px">
-<col style="width:98px">
-<col style="width:85px">
-<col style="width:98px">
-</colgroup>
-<thead><tr>
-<th scope="col" class="">
-<input type="checkbox" onclick=""></th>
-	<th scope="col">이미지</th>
-	<th scope="col">상품정보</th>
-	<th scope="col">판매가</th>
-	<th scope="col">수량</th>
-	<th scope="col">적립금</th>
-	<th scope="col">배송구분</th>
-	<th scope="col">배송비</th>
-	<th scope="col">합계</th>
-</tr></thead>
+<div class="ec-base-table typeList gBorder">
+<div style="text-align: center;">
+<div>
+						<div class="row" style="padding: 0px 15px 15px 15px;" >
+							<table>
+								<colgroup>
+									<col style="width: 27px" />
 
-<tfoot class="right">
-<tr>
-<td class=""></td>
-<td colspan="8">
-<span class="gLeft" style="float: left;">[기본배송]</span><span class="displaynone" style="float: right;"> 상품구매금액 <strong>28,900 (0)</strong> + 배송비 3,000  - 상품할인금액 0  = 합계 : <strong class="txtEm gIndent10">31,900원</strong></span>
-</td>
-</tr></tfoot>
+									<col style="width: 250px" />
+									<col style="width: 400px" />
+									<col style="width: 150px" />
+									<col style="width: 120px" />
+									<col style="width: 100px" />
 
-<tbody class="xans-element- xans-order xans-order-normallist center">
+									<col style="width: 130px" />
 
-<tr class="xans-record-">
-<td class="">
-	<input id="chk_order_cancel_list0" name="chk_order_cancel_list_basic0" value="22292:000A:F:406633" type="checkbox">
-</td>
-<td class="thumb gClearLine"><a href="/product/detail.html?product_no=22292&amp;cate_no=1140"><img src="//gang2yang2.cafe24.com/web/product/tiny/201901/31523b8ad62931f9f062951d7bb8b9f9.jpg" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
-<td class="left gClearLine">
-	<a href="/product/detail.html?product_no=22292&amp;cate_no=1140"><strong>♡ 2+2 ♡ 동물농장 껌씹는하루 (블루베리) 12P</strong></a>
-	<div class="option displaynone"></div>
-	<p class="gBlank5 displaynone">무이자할부 상품</p>
-	<p class="gBlank5 displaynone">유효기간 : </p>
-</td>
-<td class="right">
-	<div class="">
-	<strong>7,900원</strong><p class="displaynone"></p>
-	</div>
-	<div class="displaynone">
-	<strong>7,900원</strong><p class="displaynone"></p>
-	</div>
-</td>
-<td>1</td>
-<td><span class="txtInfo"><input id="product_mileage_all_22292_000A" name="product_mileage_all" value="150" type="hidden"><img src="/web/upload/icon_201312240915061500.gif"> 150원</span></td>
-<td><div class="txtInfo">기본배송<br></div></td>
-<td rowspan="1" class="">[조건]</td>
-<td class="right">
-	<strong>7,900원</strong><div class="displaynone"></div>
-</td>
-</tr>
 
-<tr class="xans-record-">
-<td class=""><input id="chk_order_cancel_list1" name="chk_order_cancel_list_basic1" value="23021:000A:F:406632" type="checkbox"></td>
-<td class="thumb gClearLine"><a href="/product/detail.html?product_no=23021&amp;cate_no=1"><img src="//gang2yang2.cafe24.com/web/product/tiny/20200428/7f28e11bb8b0d9fc9415d0ddc613313a.jpg" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
-<td class="left gClearLine">
-	<a href="/product/detail.html?product_no=23021&amp;cate_no=1"><strong>버츠비 케어플러스 하이드레이팅컨디셔너(코코넛오일)</strong></a>
-	<div class="option displaynone"></div>
-	<p class="gBlank5 displaynone">무이자할부 상품</p>
-	<p class="gBlank5 displaynone">유효기간 : </p>
-</td>
-<td class="right">
-	<div class="">
-	<strong>18,000원</strong><p class="displaynone"></p>
-	</div>
-	<div class="displaynone">
-	<strong>18,000원</strong><p class="displaynone"></p>
-	</div>
-</td>
 
-<td>1</td>
-<td><span class="txtInfo"><input id="product_mileage_all_23021_000A" name="product_mileage_all" value="360" type="hidden"><img src="/web/upload/icon_201312240915061500.gif"> 360원</span></td>
-<td><div class="txtInfo">기본배송<br></div></td>
-<td rowspan="1" class="">[조건]</td>
-<td class="right">
-	<strong>18,000원</strong><div class="displaynone"></div>
-</td>
-</tr>
+								</colgroup>
+								<thead>
+									<tr class="table_title"  style="text-align: center;   line-height: 60px;">
+										<th scope="col" ><input type="checkbox" id="check_all" hidden="hidden"
+											title="checkbox" ><div class="row" style="height: 10px;"></div><label style="margin: 0 auto;"
+											for="check_all" class="material-icons checkbox"
+											title="check_all"> check </label></th>
+										<th scope="col">이미지</th>
+										<th scope="col">상품정보</th>
+										<th scope="col">판매가</th>
+										<th scope="col">수량</th>
+										<th scope="col">적립금</th>
 
-<tr class="xans-record-">
-<td class=""><input id="chk_order_cancel_list2" name="chk_order_cancel_list_basic2" value="18337:000A:F:405563" type="checkbox"></td>
-<td class="thumb gClearLine"><a href="/product/detail.html?product_no=18337&amp;cate_no=1134"><img src="//gang2yang2.cafe24.com/web/product/tiny/201802/18337_shop1_336781.jpg" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
-<td class="left gClearLine">
-	<a href="/product/detail.html?product_no=18337&amp;cate_no=1134"><strong>킷캣 갸르릉퓨레 닭가슴살 가다랑어 60g [KC-898]</strong></a>
-	<div class="option displaynone"></div>
-	<p class="gBlank5 displaynone">무이자할부 상품</p>
-	<p class="gBlank5 displaynone">유효기간 : </p>
-</td>
-<td class="right">
-	<div class="">
-	<strong>3,000원</strong><p class="displaynone"></p>
-	</div>
-	<div class="displaynone">
-	<strong>3,000원</strong><p class="displaynone"></p>
-	</div>
-</td>
-<td>1</td>
-<td><span class="txtInfo"><input id="product_mileage_all_18337_000A" name="product_mileage_all" value="60" type="hidden"><img src="/web/upload/icon_201312240915061500.gif"> 60원</span></td>
-<td><div class="txtInfo">기본배송<br></div></td>
-<td rowspan="1" class="">[조건]</td>
-<td class="right">
-	<strong>3,000원</strong><div class="displaynone"></div>
-</td>
-</tr>
 
-</tbody>
-</table>
-</div>
+										<th scope="col">합계</th>
+
+
+									</tr>
+								</thead>
+
+
+
+
+								<c:forEach items="${cartSelect }" var="cart">
+								
+									<tbody>
+										<tr class="table_title">
+											<td>
+												<input type="checkbox" class="check" id="${cart.id}${cart.cnum}_check" hidden="hidden" title="${cart.id}${cart.cnum}" name="${cart.cnum}">
+												 <label	for="${cart.id}${cart.cnum}_check" class="material-icons checkbox"title="${cart.id}${cart.cnum}_check">check</label>
+												 
+											</td>
+											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
+											<td>${cart.productName }</td>
+											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
+											<td>
+												<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
+													<button class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
+													<input class="text-center in" id="${cart.id}${cart.cnum}_amount"	title="${cart.id}${cart.cnum}" 
+														style="color: #333; width: 40px; border: 1px solid #d9dde0;"
+														value="${cart.cAmount }" name="${cart.cnum }"
+														onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+													<button class="plus" title="${cart.id}${cart.cnum}"style="width: 20px; border: 1px solid #d9dde0;">+</button>
+												</div>
+											</td>
+
+											<td id="${cart.id}${cart.cnum}_point" name="${cart.point }"></td>
+
+											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+											</td>
+
+										</tr>
+									</tbody>
+
+
+
+								</c:forEach>
+							</table>
+
+						</div>
+						<div class="row">
+							<div class="col">
+								
+							</div>
+						</div>
+
+						<div class="row"
+							style="margin:15px 0 15px 0; padding: 15px; text-align: center; font-weight: bold; color: black; border: 1px solid #9ca0aa;">
+							
+								<div class="col-sm-8" style="border-right: 1px solid gray;">
+
+		
+									<div class="row">
+										<div class="col-sm-4">
+											<div>총 상품금액</div>
+											<div id="all_sum" class="all_sum">0원</div>
+										</div>
+										<div class="col-sm-1">
+											<div>&nbsp;</div>
+											<div style="color: gray;">+</div>
+										</div>
+										<div class="col-sm-3">
+											<div>배송비</div>
+											<div id="deli">0원</div>
+										</div>
+										<div class="col-sm-1">
+											<div>&nbsp;</div>
+											<div style="color: gray;">-</div>
+										</div>
+										<div class="col-sm-3">
+											<div>할인금액</div>
+											<div id="discount">0원</div>
+
+
+										</div>
+
+
+									</div>
+									
+								</div>
+								<div class="col-sm-3">
+									<div>결제 금액</div>
+									<div style="color: #FF324D;" id="payment" class="paymentPrice">0원</div>
+
+								</div>
+						</div>
+					</div>
+
+
+
 <ul class="ec-base-help controlInfo typeBtm">
 <li class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</li>
 </ul>
@@ -329,14 +340,15 @@
 </tr>
 
 <tbody class="center"><tr>
-<td class="price"><div class="box txt16">
-<strong><span id="total_order_price_view" class="txt23">31,900</span>원</strong> <span class="displaynone"><span id="total_order_price_ref_view"></span></span>
+<td><div class="box txt16">
+<!-- <strong><span id="total_order_price_view" class="txt23">31,900</span>원</strong> <span class="displaynone"><span id="total_order_price_ref_view"></span></span> -->
+	<div style="color: black; font-weight: bold;" class="all_sum">0원</div>
 </div></td>
 <td class="option "><div class="box txt16">
 <strong>-</strong> <strong><span id="total_sale_price_view" class="txt23">1,400</span>원</strong> <span class="displaynone"><span id="total_sale_price_ref_view"></span></span>
 </div></td>
 <td><div class="box txtEm txt16">
-<strong>=</strong> <strong><span id="total_order_sale_price_view" class="txt23">30,500</span>원</strong> <span class="displaynone"><span id="total_order_sale_price_ref_view"></span></span>
+<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="paymentPrice">0원</span><span class="displaynone"><span id="total_order_sale_price_ref_view"></span></span>
 </div></td>
 </tr></tbody>
 </table>
@@ -552,7 +564,7 @@
 <h4>
 <strong id="current_pay_name"></strong> <span>최종결제 금액</span>
 </h4>
-<p class="price fontcolor_point"><span></span><input id="total_price" name="total_price" class="inputTypeText" placeholder="" style="text-align:right;ime-mode:disabled;clear:none;border:0px;float:none;" size="10" value="30500" type="text"><span>원</span></p>
+<div style="color: #FF324D; font-weight: bold;" class="paymentPrice text-center">0원</div>
 
 <div class="paymentAgree" id="chk_purchase_agreement" style="margin-left: 10px;">
 <input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; float: left; width: 30px;"><label for="chk_purchase_agreement0" style="font-size: small;   width: 230px;">결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
@@ -578,14 +590,17 @@
 </dl>
 </div>
 </div>
-
-
+<div class="col-sm-2"></div>
 
 </div>
-
+</div>
+</div>
+<div class="col-sm-2"></div>
+</div>
+</div>
 </div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
+<script type="text/javascript" src="../resources/js/cart.js"></script>
 <script>
 	/* 배송정보 유효성검사 */
 	//-- 이름

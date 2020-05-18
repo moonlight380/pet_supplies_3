@@ -29,7 +29,11 @@
 		where id=#{id} and productfile.firstfile=0
 		order by cnum desc
 	
-	</select> 
+	</select>
+	
+	<insert id="cartInsert" parameterType="CartVO">
+		insert into cart values(#{id},cart_seq.nextval,#{productNum},1)
+	</insert>
 	
 	
 

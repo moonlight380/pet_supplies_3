@@ -26,4 +26,8 @@ public class CartService {
 	public int cartUpdate(CartVO cartVO)throws Exception{
 		return cartDAO.cartUpdate(cartVO);
 	}
+	
+	public int cartInsert(CartVO cartVO) throws Exception{
+		return cartDAO.cartInsert(cartVO);
+	}
 }

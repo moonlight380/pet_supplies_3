@@ -1,5 +1,6 @@
 package com.pet.p1.echoHandler;
 
+
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ public class EchoHandlerController {
 	@GetMapping("socket")
 	public ModelAndView socket(ModelAndView mv) throws Exception {
 		mv.setViewName("echo/socket");
+		
 		return mv;
 	}
 

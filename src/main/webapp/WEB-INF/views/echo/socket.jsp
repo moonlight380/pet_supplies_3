@@ -10,73 +10,15 @@
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
+<style type="text/css">
+</style>
 </head>
 <body>
 
-	<div class="col-12 row justify-content-center align-items-center my-5 ">
-		<a href=""><img
-			src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
-			alt="Almom Logo" width="180px" class="img-fluid" /></a>
-	</div>
-	<div class="col-12">
-		<div class="col-2" style="float: left">
-			<span> 목록 </span>
-		</div>
-		<div class="col-2" style="float: right">
-			<span> 닫기 </span>
-		</div>
-
-
-
-	</div>
-	<div class="col-12" style="margin-top: 40px; clear: both;">
-		<div class="col-10"
-			style="margin: 20px auto; text-align: center; color: white; background-color: #01D1FE; border: 1px solid #01D1FE; padding: 10px 10px; border-radius: 8px;">
-			쇼핑몰의 궁금한 점에 대해 문의해보세요.</div>
-
-	</div>
-	<!-- 채팅 내용 -->
-	<div class="col-12">
-		<div class="col-11"
-			style="margin: 0 auto; border: 1px solid #01D1FE; height: 400px; border-radius: 10px; overflow: scroll"
-			id="chatArea">
-
-			<div id="chatMessageArea"
-				style="margin-top: 10px; margin-left: 10px;"></div>
-
-		</div>
-	</div>
-
-	<!-- 채팅 입력창 -->
-	<div class="col-12" style="margin-top: 20px; margin-bottom: 15px;">
-		<div class="col-12" style="float: left">
-			<textarea class="form-control"
-				style="border: 1px solid #01D1FE; height: 65px; float: left; width: 80%"
-				placeholder="Enter ..." id="message">
-
-
-				</textarea>
-			<span
-				style="float: right; width: 18%; height: 65px; text-align: center; background-color: #01D1FE; border-radius: 5px;">
-				<a
-				style="margin-top: 30px; text-align: center; color: white; font-weight: bold;"
-				id="sendBtn"><br>전송</a>
-			</span>
-		</div>
-
-	</div>
-
-
-	<img id="profileImg" class="img-fluid"
-		src="/displayFile?fileName=${userImage}&directory=profile"
-		style="display: none">
-	<input type="text" id="nickname" value="${user_name }"
-		style="display: none">
-
-	<input type="text" id="id" readonly="readonly" value="client" />
+	<%-- 	<input type="text" id="id" readonly="readonly" value="${member.id}" />
 	<input type="text" id="message" />
 	<input type="button" id="sendBtn" value="submit" />
-	<div id="messageArea"></div>
+	<div id="messageArea"></div> --%>
 
 	<script type="text/javascript">
 		$("#sendBtn").click(function() {
@@ -89,7 +31,7 @@
 		sock.onclose = onClose;
 		// 메시지 전송
 		function sendMessage() {
-			sock.send($("#message").val());
+			sock.send($("#id").val() + "  :  " + $("#message").val());
 		}
 		// 서버로부터 메시지를 받았을 때
 		function onMessage(msg) {
@@ -101,6 +43,7 @@
 			$("#messageArea").append("연결 끊김");
 
 		}
+
 	</script>
 
 	<!-- 	<script type="text/javascript">

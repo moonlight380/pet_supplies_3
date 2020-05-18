@@ -119,7 +119,7 @@ public class MemberController {
 		mv.addObject("cart",ar);
 		mv.setViewName("member/memberCartRefresh");
 		long count = memberService.memberCart(memberVO);
-		 session.setAttribute("cartCount", count);
+		session.setAttribute("cartCount", count);
 		return mv;
 	}
 	
@@ -132,9 +132,11 @@ public class MemberController {
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		ModelAndView mv = new ModelAndView();
 		if (memberVO == null) {
-			mv.addObject("result", "로그인을 해주세요.");
-			mv.addObject("path", "./memberLogin");
-			mv.setViewName("common/result");
+			/*
+			 * mv.addObject("result", "로그인을 해주세요."); mv.addObject("path", "./memberLogin");
+			 * mv.setViewName("common/result");
+			 */
+			
 
 		} else {
 			

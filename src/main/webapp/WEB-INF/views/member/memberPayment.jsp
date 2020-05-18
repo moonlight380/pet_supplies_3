@@ -21,7 +21,7 @@
 		</ol>
 	</div>
 
-<div class="container" style="margin-top: 100px; border: 1px solid red; height: 3000px;">
+<div class="container" style="margin-top: 100px;  height: 3000px;">
 
 <div class="orderListArea">
 	<div class="title line_base">
@@ -434,15 +434,15 @@
 <div class="container" style="border: 1px solid black; height: 700px;">
 <div class="title">
 	<h3>결제수단</h3>
-<span class="txtEm gIndent20 ">
+<!-- <span class="txtEm gIndent20 ">
 <input type="checkbox" id="save_paymethod" name="save_paymethod" value=""><label for="save_paymethod">지금 선택한 결제수단을 다음에도 사용</label>
-</span>
+</span> -->
 </div>
 
-<div class="payment" style="border: 1px solid black; width: 70%; height: 500px; float: left;">
+<div class="payment" style="border: 1px solid black; width: 70%; height: 600px; float: left; margin-left: 30px;">
 <h4>결제수단선택</h4>
-<div class="payBtn" style="border: 1px solid black; width: 100%; height: 150px; text-align: center;">
-<button id="credit" style="width: 40%; height: 50px;" >신용카드</button>
+<div class="payBtn" style="border: 1px solid black; width: 100%; height: 150px; text-align: center; margin-top: 10px;">
+<button id="credit" style="width: 40%; height: 50px; margin-top: 20px;" >신용카드</button>
 <button id="phonpay" style="width: 40%; height: 50px;">핸드폰결제</button>
 <button id="account" style="width: 40%; height: 50px;">무통장입금</button>
 <button id="kakaopay" style="width: 40%; height: 50px;"><img src="${pageContext.request.contextPath}/resources/images/payment_text_small.png"></button>
@@ -450,21 +450,104 @@
 
 <div class="payContents" style="border: 1px solid black; width: 100%; height: 200px; text-align: center;">
 
-<div id="credit_box" style="display: none;">
-<p>소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
-<p>최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
+
+<div id="credit_box" style="display: none; font-size: small; text-align: left; margin-left: 70px; margin-top: 20px;">
+<i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
+<p style="display: inline;">소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p><br>
+<i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
+<p style="display: inline;">최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
 </div>
 
-<div id="phonpay_box" style="display: none;">
-<p>소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
+<div id="phonpay_box" style="display: none; font-size: small; text-align: left; margin-left: 70px; margin-top: 20px;">
+<i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
+<p style="display: inline;">소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
 </div>
 
 <div id="account_box" style="display: none;">
-<p>소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
+<!-- 무통장입금 -->
+<table class="table table-bordered" id="payment_input_cash" style="float: left; text-align: left; font-size:small; height: 80px;">
+<tbody>
+<tr>
+<th scope="row">입금자명</th>
+<td><input id="pname" name="pname" class="inputTypeText" size="15" maxlength="20" value="" type="text"></td>
+</tr>
+<tr>
+<th scope="row">입금은행</th>
+<td>
+<select id="bankaccount" name="bankaccount" >
+<option value="-1">::: 선택해 주세요. :::</option>
+<option value="bank_13:000-0000-0000-11:(주)펫코리아:농협:banking.nonghyup.com">농협:000-0000-0000-11 (주)펫코리아</option>
+</select><p class="gBlank5 "><a href="#none" id="btn_bank_go" class="btn_function btncolor_basic"><span class="ico_arrow_r">은행사이트 바로가기</span></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div id="pg_paymethod_info" class="payHelp" style="display: block; font-size: small; height: 250px;">
+<i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
+<p id="pg_paymethod_info_shipfee" class="ec-base-help" style="display: inline;">최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.<br><b><font size="3" color="red">★ 무통장입금 시 <u>주문완료 문자(카톡)을 꼭 확인 후</u> 해당 계좌로 입금 부탁드립니다. ★</font><b></b></b></p>
+<p id="pg_paymethod_info_pg" class="ec-base-help" style="display: none;">소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
 </div>
 
-<div id="kakaopay_box" style="display: none;">
-<p>카카오페이</p>
+
+<div class="agree">
+<table class="table table-condensed" style="float: left; text-align: left; font-size:small; height: 50px;">
+
+<tbody class="receipt">
+<tr id="cashreceipt_display_area">
+<th style="width: 180px;">현금영수증 신청</th>
+<td>
+
+<div class="methods">
+<input id="cashreceipt_regist0" name="cashreceipt_regist"  value="1" type="radio" onclick="setDisplay()"><label for="cashreceipt_regist0">현금영수증 신청</label>
+<input id="cashreceipt_regist1" name="cashreceipt_regist"  value="99" type="radio" onclick="setDisplay()" checked="checked"><label for="cashreceipt_regist1">신청안함</label>
+</div>
+
+<div id="cashreceipt_form_area" class="ec-base-table cash" style="display: none;font-size: small; height: 10px;">
+<table class="table table-condensed">
+<tbody>
+<tr>
+<th>구분</th>
+<td>
+<input id="cashreceipt_user_type20" name="cashreceipt_user_type2"value="0" type="radio" checked="checked" onclick="setDisplay1()"><label for="cashreceipt_user_type20">개인</label>
+<input id="cashreceipt_user_type21" name="cashreceipt_user_type2" value="1" type="radio" onclick="setDisplay1()"><label for="cashreceipt_user_type21">사업자</label></td>
+</tr>
+<tr class="mobile" id="cashreceipt_mobile_display_area">
+<th scope="row">핸드폰 번호</th>
+<td><select id="cashreceipt_user_mobile1" name="cashreceipt_user_mobile[]">
+<option value="010">010</option>
+<option value="011">011</option>
+<option value="016">016</option>
+<option value="017">017</option>
+<option value="018">018</option>
+<option value="019">019</option>
+</select>-<input id="cashreceipt_user_mobile2" name="cashreceipt_user_mobile[]" maxlength="4" type="text" style="width: 50px;">-<input id="cashreceipt_user_mobile3" name="cashreceipt_user_mobile[]" maxlength="4"type="text"style="width: 50px;"></td>
+</tr>
+<tr class="regno" id="cashreceipt_regno_display_area" style="display: none;">
+<th>사업자 번호</th>
+<td><input id="cashreceipt_reg_no" name="cashreceipt_reg_no" placeholder="사업자번호" value="" type="text" style="width: 200px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</div>
+
+<div id="kakaopay_box" style="display: none; font-size: small; text-align: left; margin-left: 70px; margin-top: 20px;">
+<i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
+<p class="ec-base-help" style="display: inline;">휴대폰에 설치된 카카오톡 앱에서 비밀번호 입력만으로 빠르고 안전하게 결제가 가능한 서비스 입니다.</p><br>
+<i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
+<p class="ec-base-help" style="display: inline;">안드로이드의 경우 구글 플레이, 아이폰의 경우 앱 스토어에서 카카오톡 앱을 설치 한 후,<br>
+						최초 1회 카드 및 계좌 정보를 등록하셔야 사용 가능합니다.</p><br>
+<i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
+<p class="ec-base-help" style="display: inline;">인터넷 익스플로러의 경우 8 이상에서만 결제 가능합니다.</p><br>
+<i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
+<p class="ec-base-help" style="display: inline;">BC카드 중 신한, 하나, 국민카드는 결제가 불가능합니다.</p>
+				
 </div>
 
 
@@ -474,26 +557,32 @@
 
 <!-- 최종결제금액 -->
 
-<div class="total" style="border: 1px solid red; width: 300px; height: 500px; float: right; margin-right: 40px;">
+<div class="total" style="border: 1px solid red; width: 300px; height: 600px; float: right; margin-right: 40px;">
 <h4>
-<strong id="current_pay_name">무통장 입금</strong> <span>최종결제 금액</span>
+<strong id="current_pay_name"></strong> <span>최종결제 금액</span>
 </h4>
 <p class="price fontcolor_point"><span></span><input id="total_price" name="total_price" class="inputTypeText" placeholder="" style="text-align:right;ime-mode:disabled;clear:none;border:0px;float:none;" size="10" value="30500" type="text"><span>원</span></p>
-<p class="paymentAgree" id="chk_purchase_agreement" style="display: block;">
-<input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; border: 1px solid red;"><label for="chk_purchase_agreement0">결제정보를 확인하였으며, 구매진행에 동의합니다.</label></p>
-<div class="button"><a href="#none" class="btn_submit btncolor_dominant" id="btn_payment"><span>결제하기</span></a></div>
-<div class="mileage ">
-<dl class="ec-base-desc gLarge right">
-<dt><strong>총 적립예정금액</strong></dt>
-<dd id="mAllMileageSum" class="txtWarn" style="display: block;">570원</dd>
+
+<div class="paymentAgree" id="chk_purchase_agreement" style="margin-left: 10px;">
+<input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; float: left; width: 30px;"><label for="chk_purchase_agreement0" style="font-size: small;   width: 230px;">결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
+</div>
+
+<div class="button" style="margin-top: 10px; margin-left: 20px;">
+<input type="button" style="background-color: red;color: white; width: 250px; height: 50px; " class="btn_submit btncolor_dominant" id="btn_payment" value="결제하기"></div>
+
+<div class="mileage" style="margin-top: 20px; ">
+<dl class="ec-base-desc gLarge right" style="height:50px; font-size: small; border-bottom: 1px solid gray; border-top: 1px solid gray;">
+<dt style=" float: left; margin-left: 20px;margin-top: 12px;"><strong>총 적립예정금액</strong></dt>
+<dd id="mAllMileageSum" class="txtWarn" style=" float: right; margin-top: 12px; margin-right: 20px;">570원</dd>
 </dl>
-<dl class="ec-base-desc gLarge right">
-<dt>상품별 적립금</dt>
-<dd id="mProductMileage">570원</dd>
-<dt>회원 적립금</dt>
-<dd id="mMemberMileage">0원</dd>
-<dt>쿠폰 적립금</dt>
-<dd id="mCouponMileage">0원</dd>
+
+<dl class="ec-base-desc gLarge right" style="font-size: small;">
+<dt style=" float: left; margin-left: 20px;">상품별 적립금</dt>
+<dd id="mProductMileage" style="text-align: right; margin-right: 20px;">570원</dd>
+<dt style=" float: left; margin-left: 20px;">회원 적립금</dt>
+<dd id="mMemberMileage" style="text-align: right; margin-right: 20px;">0원</dd>
+<dt style="float: left; margin-left: 20px;">쿠폰 적립금</dt>
+<dd id="mCouponMileage" style="text-align: right; margin-right: 20px;">0원</dd>
 </dl>
 </div>
 </div>
@@ -512,6 +601,7 @@
 		 $("#phonpay_box").hide(); 
 		 $("#account_box").hide(); 
 		 $("#kakaopay_box").hide(); 
+		 $("#current_pay_name").text("신용카드");
 	});
 	
 	$("#phonpay").click(function() {
@@ -519,6 +609,7 @@
 		 $("#credit_box").hide(); 
 		 $("#account_box").hide(); 
 		 $("#kakaopay_box").hide(); 
+		 $("#current_pay_name").text("핸드폰 결제");
 	});
 	
 	$("#account").click(function() {
@@ -526,6 +617,7 @@
 		 $("#phonpay_box").hide(); 
 		 $("#credit_box").hide(); 
 		 $("#kakaopay_box").hide(); 
+		 $("#current_pay_name").text("무통장 입금");
 	});
 	
 	$("#kakaopay").click(function() {
@@ -533,7 +625,30 @@
 		 $("#phonpay_box").hide(); 
 		 $("#account_box").hide(); 
 		 $("#credit_box").hide(); 
+		 $("#current_pay_name").text("카카오페이");
 	});
+	
+	//-- 현금영수증 선택
+	function setDisplay(){
+	    if($('input:radio[id=cashreceipt_regist0]').is(':checked')){
+	        $('#cashreceipt_form_area').show();
+	    }else if($('input:radio[id=cashreceipt_regist1]').is(':checked')){
+	    	$('#cashreceipt_form_area').hide();
+	    }
+	}
+	//-- 현금영수증 개인/사업자 선택
+	function setDisplay1(){
+	    if($('input:radio[id=cashreceipt_user_type20]').is(':checked')){
+	        $('#cashreceipt_mobile_display_area').show();
+	        $('#cashreceipt_regno_display_area').hide();
+	    }else if($('input:radio[id=cashreceipt_user_type21]').is(':checked')){
+	        $('#cashreceipt_regno_display_area').show();
+	        $('#cashreceipt_mobile_display_area').hide();
+	    }
+	}
+	
+	
+	
 	
 	
 

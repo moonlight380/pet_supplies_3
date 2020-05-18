@@ -41,11 +41,12 @@
 <input id="check_phone" name="check_find" type="radio" value="2" onclick="setDisplay()"><label for="check_phone">휴대폰 번호</label>
 </div>
 
+<div style="height: 57px;">
  <p id="name" class="name" ><strong style="font-size: small;">이름</strong>
   <input id="check_name" name="name" class="ec check_name pc" placeholder="" value="" type="text" style="margin-left: 80px;">
-  <span id = "nameContents"></span></p>
-  
-<div id="find_email">
+  <span id = "nameContents" style="margin-left: 110px; font-size: xx-small;"></span></p>
+ </div>
+<div id="find_email" style="margin-top: 1px;">
  <p id="email_view" class="email" ><strong style="font-size: small;">이메일 입력</strong> 
  <input id="email" name="email"class="ec" placeholder="" value="" type="email" style="margin-left: 37px;"></p>
  <div class="ec-base-button gColumn">

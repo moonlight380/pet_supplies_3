@@ -8,7 +8,7 @@
 }
 
 .product_search_form {
-	width: 51%;
+	width: 42%;
 }
 
 @media ( min-width :1200px) {
@@ -21,7 +21,7 @@
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
 	<div class="bottom_header dark_skin main_menu_uppercase">
-		<div class="container">
+		<div class="container conmod">
 			<nav class="navbar navbar-expand-lg">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}">
 					<img class="logo_light"
@@ -105,8 +105,9 @@
 					<c:if test="${not empty member}">
 						<li><a class="nav-link"
 							href="${pageContext.request.contextPath}/member/memberCart"><i
-								class="linearicons-cart"></i><span class="cart_count">0</span></a></li>
+								class="linearicons-cart"></i><span class="cart_count">${cartCount}</span></a></li>
 					</c:if>
+					
 					<c:if test="${empty member}">
 						<li><a class="nav-link"
 							href="${pageContext.request.contextPath}/member/memberLogin"><i

@@ -40,7 +40,7 @@ float: right;
 }
 
 .cart_margin{
-	margin-left: 90px;
+	margin-left: 160px;
 	margin-bottom: 20px;
 }
 .direct_purchase{
@@ -101,13 +101,71 @@ float: right;
 	padding: 30px;
 }
 
+#page_free{
+z-index:99;
+position:absolute;
+top:10px;
+left:10px;
+text-align:left;
+border:1px solid #000;
+width: 720px;
+height: 850px;
+margin: 300px 1000px;
+padding: 10px;
+}
+#page_free img{border:10px soild #FFF;}
+#page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
 
 </style>
 
+<!-- 팝업창띄우기 -->
 
+<script type="text/javascript">
+	
+function goPopup(){
+		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
+
+		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
+		//크롬에서는 속성값이 먹지 않음
+		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
+	}
+	
+</script>
+
+<!-- 레이어팝업 -->
+<script type="text/javascript">
+$(document).ready(function(){
+//오늘 하루 팝업 열지 않기
+$('#close_popup').click(function(){
+	$.cookie('page_free','ck',{expires:1,path:'/'});
+	$("#page_free").hide();
+});
+//팝업 닫기
+$('#close_popup2').click(function(){
+	$("#page_free").hide();
+});
+});
+</script>
 </head>
 
-<body>
+<!-- ------------------------------------body 시작---------------------------------- -->
+
+<body onload="goPopup()">
+
+
+<!-- 레이어팝업 시작 -->
+<div style="" id="page_free">
+	<img src="${pageContext.request.contextPath}/resources/images/goPopup.jpg">
+	<div class="new_btn">오늘 하루 열지 않기 <input type="checkbox" name="close_popup" id="close_popup"> &nbsp; &nbsp; &nbsp; &nbsp;닫기
+	<input type="checkbox" name="close_popup2" id="close_popup2">
+	</div>
+</div>
+
+<!--레이어팝업  끝-->
+
+
+
+
 <c:import url="../template/header.jsp"></c:import>
 <!-- LOADER -->
 <div class="preloader">
@@ -132,8 +190,7 @@ float: right;
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item"><a href="../">Home</a></li>  
                     <li class="breadcrumb-item active">Product Detail</li>
                 </ol>
             </div>
@@ -144,6 +201,8 @@ float: right;
 
 <!-- START MAIN CONTENT -->
 <div class="main_content">
+
+
 
 <!-- select 시작 -->
 <!-- START SECTION SHOP -->
@@ -164,35 +223,17 @@ float: right;
                     
                     <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4" data-slides-to-scroll="1" data-infinite="false">
                       
-                        <div class="item"><!-- 밑에 작은 박스 -->
+<%--                         <div class="item"><!-- 밑에 작은 박스 -->
                             <a href="#" class="product_gallery_item active" data-image="${pageContext.request.contextPath}/resources/images/product_img1.jpg" data-zoom-image="${pageContext.request.contextPath}/resources/images/product_zoom_img1.jpg">
                                 <img src="${pageContext.request.contextPath}/resources/images/product_small_img1.jpg" alt="product_small_img1" />
                             </a>
-                        </div>
-                        
-                        <div class="item"><!-- 밑에 작은 박스 -->
-                            <a href="#" class="product_gallery_item" data-image="${pageContext.request.contextPath}/resources/images/product_img1-2.jpg" data-zoom-image="${pageContext.request.contextPath}/resources/images/product_zoom_img2.jpg">
-                                <img src="${pageContext.request.contextPath}/resources/images/product_small_img2.jpg" alt="product_small_img2" />
-                            </a>
-                        </div>
-                        
-                        <div class="item"><!-- 밑에 작은 박스 -->
-                            <a href="#" class="product_gallery_item" data-image="${pageContext.request.contextPath}/resources/images/product_img1-3.jpg" data-zoom-image="${pageContext.request.contextPath}/resources/images/product_zoom_img3.jpg">
-                                <img src="${pageContext.request.contextPath}/resources/images/product_small_img3.jpg" alt="product_small_img3" />
-                            </a>
-                        </div>
-                        
-                        <div class="item"><!-- 밑에 작은 박스 -->
-                            <a href="#" class="product_gallery_item" data-image="${pageContext.request.contextPath}/resources/images/product_img1-4.jpg" data-zoom-image="${pageContext.request.contextPath}/resources/images/product_zoom_img4.jpg">
-                                <img src="${pageContext.request.contextPath}/resources/images/product_small_img4.jpg" alt="product_small_img4" />
-                            </a>
-                        </div> <!-- END  class="item" -->
+                        </div>   --%>
                         
                     </div> <!-- END  class="product_gallery_item slick_slider" -->
                 </div> <!--  END class="product-image" -->
             </div> <!-- END class="col-lg-6 col-md-6 mb-4 mb-md-0" -->
             
-            
+        
             <div class="col-lg-6 col-md-6">
                 <div class="pr_detail ">
                     <div class="product_description">
@@ -215,7 +256,7 @@ float: right;
                     </div> <!-- END "product_description" -->
                     <hr />
                 
-                  
+           <!-- ------------------------------------------------------------------------------------------------------------ -->            
                   
                       <div class="product_price">
                             <span class="price">${vo.price}</span>
@@ -227,16 +268,20 @@ float: right;
                    
 
                      
-                    <div class="cart-product-quantity">
-                     
+                       
+                       
                         <div class="cart-product-quantity">
+                        <!-- 수량 버튼 시작 -->
                             <div class="quantity">
-                                <input type="button" value="-" class="minus">
+                                <input type="button" value="-"  class="minus">
                                 <input type="text" id="quantityNum" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                <input type="button" value="+" class="plus">
+                                <input type="button"  value="+" class="plus" >
                             </div> <!-- class="quantity" -->
                             
-                        </div><!--END class="cart-product-quantity" -->
+                        </div><!--END class="cart-product-quantity" 수량 끝-->
+                       
+                    <div class="cart-product-quantity">
+                     
                        
                        <div class="line"></div>
                        
@@ -245,13 +290,60 @@ float: right;
                        (수량) 
                        
                        <span class="sum">
-                       <strong>
-                       <em>${vo.price}</em> 
-                       </strong>
-                       (1개)
+                       <strong><!-- 총가격 -->
+                       <span  id="sum_price">${vo.price}</span> 
+                       </strong> <!-- 수량 -->
+                       
+                       (<span id="quantityNum_amount">1</span>)
                        </span>
                        </div>
+  <!--마이너스 플러스 스크립트---------------------------------------------------------------------------------------------------------------- -->     
+	               		<script type="text/javascript">
+	               		var perPrice='${vo.price}';
+	               		var num =1;
+	               		$(".minus").click(function(){
+	               			if(num==1){
+	               				alert("최소수량은 1개 입니다.")
+	               			}else{
+	               			num = $("#quantityNum").val();
+	               			num=num*1;
+	               			
+	               			num--;
+	               			alert("minus :"+num);
+	               			$("#quantityNum").val(num);
+	               			
+	               			
+	               			/* alert("#quantityNum_amount".text()); */
+	               			$("#quantityNum_amount").text(num); 
+	               			
+	               				
+	               			$("#sum_price").text(num*perPrice);
+	               			/* $("sum_price").text(num);  */
+	               			}
+	               		});/*minus*/
+	               		
+	               		
+	               		
+						/*plus*/
+						
+	               		$(".plus").click(function(){
+	               			num = $("#quantityNum").val();
+	               			num=num*1;
+	               			alert(num);
+	               			num++;
+	               			alert("plus:"+num);
+	               			//$("#quantityNum").val(num);
+
+	               			$("#quantityNum_amount").text(num); 
+
+	               			$("#sum_price").text(num*perPrice);
+	               			
+	               		});/*plus*/
+	
+	               		
+	               		</script>
                        
+ <!--마이너스 플러스 스클립트 끝 ------------------------------------------------------------------------------------------------------------ -->                     
                        <span class="cart_btn">
                             <button class="btn btn-fill-out btn-addtocart cart_margin" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
                         </span> <!-- "cart_btn" -->
@@ -259,9 +351,10 @@ float: right;
                         <span class="direct_purchase">
                         	<button class="btn btn-fill-out btn-addtocart direct_purchase" type="button"><i class='fas fa-dollar-sign'></i> Add to purchase</button>
                         </span>
-                      
+                   <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i>kakao pay</button>
+                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/product/dogkakaoPay?productName=${vo.productName}&amount=${vo.amount}&phone=${member.phone}">kakao pay</a></button>
+                         
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
                    
@@ -397,10 +490,12 @@ float: right;
 						      주문시 입력한&nbsp;입금자명과 실제입금자의 성명이 반드시 일치하여야 하며, 7일 이내로 입금을 하셔야 하며&nbsp;입금되지
 						      않은 주문은 자동취소 됩니다. <br>
 						 </div>
- 
- 
-                                
+       
                       	</div>
+                      	
+   <!-- 상품후기 -->              
+   
+   						<%-- <span class="price">${}</span>    --%> 	
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
                             	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>
@@ -477,7 +572,7 @@ float: right;
                 </div>
             </div>
         </div>
-        
+    <!-- ---------------------------------------------------------------------------------------------------- -->    
         
 <!--         <div class="row">
         	<div class="col-12">
@@ -487,271 +582,7 @@ float: right;
             </div>
         </div> -->
         
-<!-- 관련상품 -->        
-<%--         <div class="row">
-        	<div class="col-12">
-            	<div class="heading_s1">
-                	<h3>Releted Products</h3>
-                </div> <!-- END "heading_s1" -->
-                
-            	<div class="releted_product_slider carousel_slider owl-carousel owl-theme" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
-                	<div class="item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="${pageContext.request.contextPath}/resources/images/product_img1.jpg" alt="product_img1">
-                                </a>
-                                <div class="product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title"><a href="shop-product-detail.html">Blue Dress For Woman</a></h6>
-                                <div class="product_price">
-                                    <span class="price">$45.00</span>
-                                    <del>$55.25</del>
-                                    <div class="on_sale">
-                                        <span>35% Off</span>
-                                    </div>
-                                </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:80%"></div>
-                                    </div>
-                                    <span class="rating_num">(21)</span>
-                                </div>
-                                <div class="pr_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                                </div>
-                                <div class="pr_switch_wrap">
-                                    <div class="product_color_switch">
-                                        <span class="active" data-color="#87554B"></span>
-                                        <span data-color="#333333"></span>
-                                        <span data-color="#DA323F"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- END class="item" -->
-                    
-                    
-                    <div class="item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="${pageContext.request.contextPath}/resources/images/product_img2.jpg" alt="product_img2">
-                                </a>
-                                <div class="product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-                                    </ul>
-                                </div> <!-- END class="product_action_box" -->
-                            </div> <!-- END class="product_img" -->
-                            
-                            <div class="product_info">
-                                <h6 class="product_title"><a href="shop-product-detail.html">Lether Gray Tuxedo</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price">$55.00</span>
-                                    <del>$95.00</del>
-                                    <div class="on_sale">
-                                        <span>25% Off</span>
-                                    </div>
-                                </div> <!-- END class="product_price" -->
-                                 
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:68%"></div>
-                                    </div>
-                                    <span class="rating_num">(15)</span>
-                                </div> <!-- END class="rating_wrap" -->
-                                
-                                <div class="pr_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                                </div>
-                                
-                                <div class="pr_switch_wrap">
-                                    <div class="product_color_switch">
-                                        <span class="active" data-color="#847764"></span>
-                                        <span data-color="#0393B5"></span>
-                                        <span data-color="#DA323F"></span>
-                                    </div>
-                                    
-                                </div> <!-- END class="pr_switch_wrap" -->
-                            </div> <!--  END class="product_info" -->
-                        </div> <!--  END class="product" -->
-                    </div> <!-- END class="item" -->
-                    
-                    
-                    <div class="item">
-                        <div class="product">
-                            <span class="pr_flash">New</span>
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="${pageContext.request.contextPath}/resources/images/product_img3.jpg" alt="product_img3">
-                                </a>
-                                <div class="product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-                                    </ul>
-                                </div> <!--  END class="product_action_box" -->
-                            </div> <!-- END class="product_img" -->
-                            
-                            <div class="product_info">
-                                <h6 class="product_title"><a href="shop-product-detail.html">woman full sliv dress</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price">$68.00</span>
-                                    <del>$99.00</del>
-                                </div>
-                                
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:87%"></div>
-                                    </div>
-                                    <span class="rating_num">(25)</span>
-                                </div> <!--  END class="rating_wrap" -->
-                                
-                                <div class="pr_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                                </div>
-                                
-                                <div class="pr_switch_wrap">
-                                    <div class="product_color_switch">
-                                        <span class="active" data-color="#333333"></span>
-                                        <span data-color="#7C502F"></span>
-                                        <span data-color="#2F366C"></span>
-                                        <span data-color="#874A3D"></span>
-                                    </div>
-                                </div> <!--  END class="pr_switch_wrap" -->
-                                
-                            </div> <!--  END class="product_info" -->
-                        </div> <!-- END class="product" -->
-                    </div> <!-- END class="item" -->
-                    
-                    
-                    <div class="item">
-                        <div class="product">
-                            
-                            <div class="product_img">
-                                
-                                <a href="shop-product-detail.html">
-                                    <img src="${pageContext.request.contextPath}/resources/images/product_img4.jpg" alt="product_img4">
-                                </a>
-                                
-                                <div class="product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-                                    </ul>
-                                </div> <!-- class="product_action_box" -->
-                                
-                            </div> <!-- END class="product_img" -->
-                            
-                            <div class="product_info">
-                                <h6 class="product_title"><a href="shop-product-detail.html">light blue Shirt</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price">$69.00</span>
-                                    <del>$89.00</del>
-                                    <div class="on_sale">
-                                        <span>20% Off</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:70%"></div>
-                                    </div>
-                                    <span class="rating_num">(22)</span>
-                                </div> <!-- END class="rating_wrap" -->
-                                
-                                <div class="pr_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                                </div>
-                                
-                                <div class="pr_switch_wrap">
-                                    <div class="product_color_switch">
-                                        <span class="active" data-color="#333333"></span>
-                                        <span data-color="#A92534"></span>
-                                        <span data-color="#B9C2DF"></span>
-                                    </div>
-                                </div> <!-- END lass="pr_switch_wrap" -->
-                                
-                            </div> <!-- class="product_info" -->
-                        </div> <!-- class="product" -->
-                    </div> <!-- END class="item" -->
-                    
-                    
-                    <div class="item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="${pageContext.request.contextPath}/resources/images/product_img5.jpg" alt="product_img5">
-                                </a>
-                                <div class="product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-                                    </ul>
-                                </div> <!-- class="product_action_box" -->
-                            </div> <!-- class="product_img" -->
-                            
-                            <div class="product_info">
-                                <h6 class="product_title"><a href="shop-product-detail.html">blue dress for woman</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price">$45.00</span>
-                                    <del>$55.25</del>
-                                    <div class="on_sale">
-                                        <span>35% Off</span>
-                                    </div>
-                                </div> <!-- class="product_price" -->
-                                
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:80%"></div>
-                                    </div>
-                                    <span class="rating_num">(21)</span>
-                                </div> <!-- class="rating_wrap" -->
-                                
-                                <div class="pr_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                                </div>
-                                
-                                <div class="pr_switch_wrap">
-                                    <div class="product_color_switch">
-                                        <span class="active" data-color="#87554B"></span>
-                                        <span data-color="#333333"></span>
-                                        <span data-color="#5FB7D4"></span>
-                                    </div>
-                                </div> <!-- class="pr_switch_wrap"> -->
-                                
-                                
-                            </div> <!-- class="product_info" -->
-                        </div> <!-- class="product" -->
-                    </div> <!-- END class="item" -->
-                    
-                    
-                    
-                </div> <!-- END class="releted_product_slider carousel_slider owl-carousel owl-theme"  -->
-            </div> <!-- END class="col-12" -->
-        </div><!-- END class="row" --> --%>
+   
     </div><!-- END class="container" -->
 </div>  <!-- END class="section" -->
 
@@ -828,6 +659,11 @@ float: right;
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7TypZFTl4Z3gVtikNOdGSfNTpnmq-ahQ&amp;callback=initMap"></script>
 <!-- scripts js --> 
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+
+
+
+
+
 
 </body>
 </html>

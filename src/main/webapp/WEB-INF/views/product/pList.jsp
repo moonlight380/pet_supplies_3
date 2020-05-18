@@ -13,19 +13,75 @@
 <meta name="description" content="Shopwise is Powerful features and You Can Use The Perfect Build this Template For Any eCommerce Website. The template is built for sell Fashion Products, Shoes, Bags, Cosmetics, Clothes, Sunglasses, Furniture, Kids Products, Electronics, Stationery Products and Sporting Goods.">
 <meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
 
-
-
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 
-
-
-
+    <script type="text/javascript">
+    
+        function openAddress()
+        {
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            window.open("./address",
+                    "childForm", "width=570, height=350, resizable = no, scrollbars = no");    
+        }
+ 
+   </script>
 </head>
-
+<!-- --------------------------------------------------바디시작--------------------------------------------- -->
 <body>
+
+    <br>
+    <b><font size="5" color="gray">부모창</font></b>
+    <br><br>
+       배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
+       성명: <input type="text" id="name" name="name"/> <br/>
+       주소: <input type="text" id="adressInput" name="adressInput"/> <br/>
+       일반전화: <input type="tel" id="homePhone" name="homePhone"/> <br/>
+        휴대전화: <input type="tel" id="phone" name="phone"/>
+    <input type="button" value="자식창 열기" onclick="openAddress()"><br>
+
 <c:import url="../template/header.jsp"></c:import>
+
+
+
+<!-- =============================================================================================== -->
+<!-- <div  class="container"> address 팝업창
+<input id="address_management" type="button" value="주소록 보기">
+
+    <form name="extendHDD" method="Post">
+        배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
+        성명: <input type="text" id="name" name="name"/> <br/>
+        주소: <input type="text" name="productname"/> <br/>
+        일반전화: <input type="tel" name="warranty"/> <br/>
+         휴대전화: <input type="tel" name="warranty"/>
+    </form>
+     
+</div>	
+
+
+팝업창  띄우기
+<script type="text/javascript">
+	var openWin;
+$("#address_management").click(function(){
+	var popUrl = "./address";	//팝업창에 출력될 페이지 URL
+
+	var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
+	//크롬에서는 속성값이 먹지 않음
+	openWin=window.open(popUrl ,"address_management",popOption);
+		
+});
+
+
+	
+</script> -->
+
+<!--주소록팝업창띄우기끝 =============================================================================================== -->
+
+
+
 
 <!-- LOADER -->
 <div class="preloader">
@@ -102,11 +158,30 @@
 </div>
 <!-- END SECTION BREADCRUMB -->
 
+<!-- 검색 -->
+	<form class="col-xs-6" action="./${p}List">
+    <div class="input-group container">
+ 
+    <select class="form-control" id="sel1" name="kind">
+		    <option value="pn">productName</option>
+		    <option value="pc">Contents</option>
+			<option value="pnum">productNum</option>
+			
+		</select>
+		<input type="text" class="form-control" placeholder="Search" name="search">
+		
+		<div class="input-group-btn">
+       		 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+     	 </div>
+	</div>
+ 	 </form>
+
+<!-- END MAIN CONTENT -->
 
 
 <!-- START MAIN CONTENT -->
 <div class="main_content">
-
+</div>
 <!-- START SECTION SHOP -->
  
 <div class="section">
@@ -130,7 +205,21 @@
                             
                             <div class="product_header_right">
                             	<div class="products_view">
-                            	 	<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+                            	 <a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>		
+<!--admin 계정만 write 버튼이 보일 수 있도록// css 깨짐 ------------------------------------------------------------------------------------------------------------------------ -->
+							
+<%-- 					 	<c:catch>
+								<c:if test="${member.id eq 'admin' }">
+								<div>
+									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+									</div>
+								</c:if>
+						</c:catch>
+						</div> 
+							  --%>
+					                                   
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->                                  
+
                                     <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
                                     <a href="javascript:Void(0);" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>
                                 </div>
@@ -247,8 +336,7 @@
 </div>
 <!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
-</div>
-<!-- END MAIN CONTENT -->
+
 
 
 

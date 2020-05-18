@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.pet.p1.address.AddressDAO">
+  
+  <!-- address_insert -->
+  <insert id="address_insert" parameterType="AddressVO">
+  insert into Address VALUES
+  (address_seq.nextval,#{id},#{addr_name},#{rname},#{rzipcode1},#{raddr1},#{raddr2},#{rphone1_1},#{rphone1_2},#{rphone1_3},
+  #{rphone2_1},#{rphone2_2},#{rphone2_3},0)
+  </insert>
+  </mapper>

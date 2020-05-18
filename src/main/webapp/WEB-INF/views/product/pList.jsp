@@ -16,24 +16,175 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
-
+<style type="text/css">
+.addr_button{
+	color: #323232;
+    background: #ffffff;
+    border: 1px solid #cbcbcb;
+    min-width: 20px;
+    height: 26px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+</style>
     <script type="text/javascript">
     
-        function openAddress()
+        function openAddressList()
         {
             // window.name = "부모창 이름"; 
             window.name = "parentForm";
             // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-            window.open("./address",
-                    "childForm", "width=570, height=350, resizable = no, scrollbars = no");    
+            window.open("./address_list",
+                    "childForm", "width=700, height=700, resizable = no, scrollbars = no");    
         }
  
    </script>
 </head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
-<body>
+ <body>
+ <!-- 배송지시작 -->
+<div class="orderArea">
+	<div class="title">
+		<h3>배송 정보</h3>
+				<p class="required"><img src="/p1/resources/images/ico_required.gif" alt="필수"> 필수입력사항</p>
+	</div>
+<div class="ec-base-table typeWrite">
+	<table border="1" summary="">
+		<caption>배송 정보 입력</caption>
+		<colgroup>
+			<col style="width:139px;">
+			<col style="width:auto;">
+		</colgroup>
+		
 
-    <br>
+<!-- 국내 배송지 정보 -->
+<tbody class="">
+<tr class="">
+	<th scope="row">배송지 선택</th>
+		<td>
+			<div class="address">
+				<input id="sameaddr0" name="sameaddr" fw-filter="" fw-label="1" fw-msg="" value="T" type="radio"><label for="sameaddr0">주문자 정보와 동일</label>
+				<input id="sameaddr1" name="sameaddr" fw-filter="" fw-label="1" fw-msg="" value="F" type="radio"><label for="sameaddr1">새로운배송지</label>	
+					<span class="recent ec-shop-RecentDelivery ">
+					최근 배송지 : <input id="recent_delivery_info0" name="recent_delivery_info" fw-filter="" fw-label="배송지" fw-msg="" value="50533" type="radio">
+						
+					</span>
+
+					<input type="button" id="btn_shipp_addr" class="btn addr_button" onclick="openAddressList()" value="주소록보기">
+			</div>
+		</td>
+</tr>
+
+<!-- 성명 -->
+<tr>
+<th scope="row">받으시는 분 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
+	<td><input id="rname" name="rname" fw-filter="isFill" fw-label="수취자 성명" fw-msg="" class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+</tr>
+
+<!-- 주소 -->
+<tr>
+<th scope="row">주소 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
+	<td>
+		<input id="rzipcode1" name="rzipcode1" fw-filter="isFill" fw-label="수취자 우편번호1" fw-msg="" class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="" type="text">							
+		<a href="#none" id="btn_search_rzipcode" class="btn_function btncolor_basic"><span class="btn addr_button">우편번호</span></a><br>
+		<input id="raddr1" name="raddr1" fw-filter="isFill" fw-label="수취자 주소1" fw-msg="" class="inputTypeText" placeholder="" size="40" readonly="1" value="" type="text"> <span class="grid">기본주소</span><br>
+		<input id="raddr2" name="raddr2" fw-filter="" fw-label="수취자 주소2" fw-msg="" class="inputTypeText" placeholder="" size="40" value="" type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
+	</td>
+</tr>
+
+<!-- 일반전화 -->
+<tr class="">
+<th scope="row">일반전화 <span class="displaynone"></span>
+</th>
+	<td>
+		<select id="rphone1_1" name="rphone1_[]" fw-filter="isNumber" fw-label="수취자 전화번호" fw-alone="N" fw-msg="">
+			<option value="02">02</option>
+			<option value="031">031</option>
+			<option value="032">032</option>
+			<option value="033">033</option>
+			<option value="041">041</option>
+			<option value="042">042</option>
+			<option value="043">043</option>
+			<option value="044">044</option>
+			<option value="051">051</option>
+			<option value="052">052</option>
+			<option value="053">053</option>
+			<option value="054">054</option>
+			<option value="055">055</option>
+			<option value="061">061</option>
+			<option value="062">062</option>
+			<option value="063">063</option>
+			<option value="064">064</option>
+			<option value="0502">0502</option>
+			<option value="0503">0503</option>
+			<option value="0504">0504</option>
+			<option value="0505">0505</option>
+			<option value="0506">0506</option>
+			<option value="0507">0507</option>
+			<option value="070">070</option>
+			<option value="010">010</option>
+			<option value="011">011</option>
+			<option value="016">016</option>
+			<option value="017">017</option>
+			<option value="018">018</option>
+			<option value="019">019</option>
+			<option value="0508">0508</option>
+	</select>-<input id="rphone1_2" name="rphone1_[]" maxlength="4" fw-filter="isNumber" fw-label="수취자 전화번호" fw-alone="N" fw-msg="" size="4" value="" type="text">-<input id="rphone1_3" name="rphone1_[]" maxlength="4" fw-filter="isNumber" fw-label="수취자 전화번호" fw-alone="N" fw-msg="" size="4" value="" type="text">
+	</td>
+</tr>
+
+<!-- 휴대전화 -->
+<tr class="">
+<th scope="row">휴대전화 <span class=""><img src="/p1/resources/images/ico_required.gif" alt="필수"></span>
+</th>
+	<td><select id="rphone2_1" name="rphone2_[]" fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="">
+		<option value="010">010</option>
+		<option value="011">011</option>
+		<option value="016">016</option>
+		<option value="017">017</option>
+		<option value="018">018</option>
+		<option value="019">019</option>
+		</select>
+			-<input id="rphone2_2" name="rphone2_[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="" size="4" value="" type="text">
+			-<input id="rphone2_3" name="rphone2_[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="" size="4" value="" type="text">
+	</td>
+</tr>
+</tbody>
+
+
+<!-- 국내 배송관련 정보 -->
+<tbody class="delivery ">
+<tr class="">
+<th scope="row">배송메시지 <span class=""><img src="/p1/resources/images/ico_required.gif" alt="필수"></span>
+</th>
+
+	<td>
+		<textarea id="omessage" name="omessage" fw-filter="isFill" fw-label="배송 메세지" fw-msg="" maxlength="255" cols="70"></textarea>							
+		<div class="devMessage ">
+			<label><input id="omessage_autosave0" name="omessage_autosave[]" fw-filter="" fw-label="배송 메세지 저장" fw-msg="" value="T" type="checkbox"><label for="omessage_autosave0"></label>Q&amp;A 자동저장</label>
+				<ul class="gIndent5">
+					<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주십시오.</li>
+					<li>게시글은 비밀글로 저장되며 비밀번호는 주문번호 뒷자리로 자동 저장됩니다.</li>
+				</ul>
+		</div>
+	</td>
+</tr>
+
+</tbody>
+
+				
+</table> <!-- END border="1" summary="" -->
+</div> <!-- eEND class="ec-base-table typeWrite" -->
+		</div> <!-- END class="orderArea" -->
+
+<!-- 배송지 끝 -->
+
+<!--    <br>
     <b><font size="5" color="gray">부모창</font></b>
     <br><br>
        배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
@@ -43,23 +194,7 @@
         휴대전화: <input type="tel" id="phone" name="phone"/>
     <input type="button" value="자식창 열기" onclick="openAddress()"><br>
 
-<c:import url="../template/header.jsp"></c:import>
 
-
-
-<!-- =============================================================================================== -->
-<!-- <div  class="container"> address 팝업창
-<input id="address_management" type="button" value="주소록 보기">
-
-    <form name="extendHDD" method="Post">
-        배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
-        성명: <input type="text" id="name" name="name"/> <br/>
-        주소: <input type="text" name="productname"/> <br/>
-        일반전화: <input type="tel" name="warranty"/> <br/>
-         휴대전화: <input type="tel" name="warranty"/>
-    </form>
-     
-</div>	
 
 
 팝업창  띄우기

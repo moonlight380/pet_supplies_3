@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,20 +30,25 @@ private DogService dogService;
 public String getBoard()throws Exception{
 	return "dog";
 }
-//address
-@RequestMapping(value = "address",method = RequestMethod.GET)
-public ModelAndView address (ModelAndView mv) throws Exception{
-	mv.setViewName("product/address");	
-	System.out.println("address/get");
-	return mv;
-}
-
-
-//@RequestMapping(value = "address",method = RequestMethod.POST)
-//public String address () throws Exception{
-//		System.out.println("adress post");
-//	return"product/pList";
-//}
+/*
+ * //address
+ * 
+ * @RequestMapping(value = "address",method = RequestMethod.GET) public
+ * ModelAndView address (ModelAndView mv) throws Exception{
+ * mv.setViewName("product/address"); System.out.println("address/get"); return
+ * mv; }
+ * 
+ * //address_list
+ * 
+ * @RequestMapping(value = "address_list",method = RequestMethod.GET) public
+ * ModelAndView address_list (ModelAndView mv) throws Exception{
+ * mv.setViewName("product/address_list");
+ * System.out.println("addressList/get"); return mv; } //address_list(post)
+ * 
+ * @PostMapping("address_list") public String address_list () throws Exception{
+ * String path="product/address_list"; System.out.println("addressList/post");
+ * return path; }
+ */
 
 //dogkakaoPay
 @RequestMapping(value = "dogkakaoPay",method = RequestMethod.GET)
@@ -155,7 +161,7 @@ public ModelAndView kakao (ModelAndView mv) throws Exception{
 			mv.setViewName("redirect:./dogList");
 		}else {
 			mv.addObject("result","WRITER FAIL");
-			mv.addObject("path","./noticeList");
+			mv.addObject("path","./dogList");
 			mv.setViewName("common/result");
 		}
 		

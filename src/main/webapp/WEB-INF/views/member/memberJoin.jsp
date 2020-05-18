@@ -589,7 +589,7 @@ function sample6_execDaumPostcode() {
 				e.preventDefault();
 			}
 			else{
-				frm.submit();
+				$("#frm").submit();
 			}
 	
 	});

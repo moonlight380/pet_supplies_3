@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>  <!-- 제이쿼리 --> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <!DOCTYPE html>
 <html>
 <!--위치는 WEBAPP 밑에 //보안으로 하려면 web-inf 우선은 테스트-->
@@ -122,7 +122,7 @@ input ,.addr_interval{
 <!--///////////////////////// 바디시작 ///////////////////////////////-->
 <body>
  <!-- 배송지시작 -->
-<form action="./address" method="post" id="frm" >
+<form action="./address" method="post" id="tel" >
 <div class="orderArea">
 	 <div class="header">
         <h1>배송 주소록 관리</h1>
@@ -255,7 +255,7 @@ input ,.addr_interval{
 <br>
 <br>
 
-<input type="button" class="button tel" id="validationBtn" value="전송">
+<input type="button" class="button" id="validationBtn" value="전송">
 </form>
 <a href="./address_list"><input type="button" class="button"value="취소"></a>  
 <input type="button" class="button" value="창닫기" onclick="window.close()"> 
@@ -292,6 +292,9 @@ input ,.addr_interval{
 <script type="text/javascript">
 
 
+
+
+/* 
 function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -332,10 +335,10 @@ function sample6_execDaumPostcode() {
             } else {
             	 $("#addr2").val(''); 
           /*       document.getElementById("sample6_extraAddress").value = ''; */
-             } 
+            /* } */
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
- 			$("#postcode1").val(data.zonecode);
+/* 			$("#postcode1").val(data.zonecode);
 
 			$("#addr1").val(data.address);
 			
@@ -345,11 +348,12 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 
-    } 
+    } */
 
+/* <script type="text/javascript"> */
 /* 핸드폰 유효성검사 */
 	
- 	var phoneCheck = true;
+/* 	var phoneCheck = true;
 	
 	$(".tel").blur(function() {
 	var rphone2_1 = $("#rphone2_1").val(); 
@@ -372,26 +376,40 @@ function sample6_execDaumPostcode() {
 		phoneCheck = true;
 	}
 });
- 
+ */
 	
 /*빈칸 유효성 검사*/
+ 
+/*  $("#validationBtn").click(function(){
+	// 배송지명의 value null 체크
+	if(vali($("#addr_name").val())){
+		alert("배송지명을 입력해 주세요.");
+		consol.log("배송지명을 입력해 주세요");
+	}if(vali($("#rname").val())){
+		alert("성명을 입력해 주세요.");
+	}if(vali($("#rzipcode1").val())||vali($("#raddr1").val())||vali($("#raddr2").val())){
+		alert("주소를 입력해 주세요.");
+	}if(vali($("#rphone1_1").val())||vali($("#rphone1_2").val())||vali($("#rphone1_3").val())){
+		alert("일반번호를 입력해 주세요.");
+	}
+	
+ });
+ 
+ // null 체크 함수(custom)
+ function vali(val){
 
+     if (value === null) return true; 
+     if (typeof value === '') return true;
+     if (typeof value === 'undefined') return true;
+     
+     return false;
+
+ }
+   */
+   
  $("#validationBtn").click(function(){
- if ($("#addr_name").val() == "") {
- 	alert("배송지명을 정확히 입력해주세요");
- 	return;
- }else if($("#rname").val() == "") {
-	 	alert("성명을 정확히 입력해주세요");
-	return;
-}else if(($("#rzipcode1").val() == "")||($("#raddr1").val() == "") || ($("#raddr2").val() == "")) {
-	 	alert("주소를 정확히 입력해주세요");
-	return;
-}else{
-	frm.submit();
-}
-
- }); 
-
+	alert("alert"); 
+ });
  </script>
 
 

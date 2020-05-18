@@ -18,28 +18,27 @@
 }
 </style>
 
-<c:if test="${not empty member}">
-	<div
-		style="position: fixed; bottom: 120px; left: 50%; margin-left: 400px; z-index: 10001;">
+<div
+	style="position: fixed; bottom: 120px; left: 50%; margin-left: 400px; z-index: 10001;">
 
-		<div>
-			<a id="chatBotBtn"
-				href="${pageContext.request.contextPath}/echo/socket"
-				style="display: block; width: 229px; height: 115px; text-align: right;">
-				<img
-				src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
-				alt="상담챗봇 창 열림" id="chatBotBtFloating"
-				style="bottom: 20px; display: block; width: 229px; height: 199px">
-			</a>
-		</div>
-
-		<iframe name="cbIframe" id="cbIframe" src="" scrolling="no"
-			frameborder="0"
-			style="display: none; height: 650px; width: 400px; position: fixed; bottom: 20px; right: 120px; z-index: 9998; background: #fff;"
-			title="상담챗봇 창"></iframe>
-
+	<div>
+		<a id="chatBotBtn"
+			href="${pageContext.request.contextPath}/echo/socket"
+			style="display: block; width: 229px; height: 115px; text-align: right;">
+			<img
+			src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
+			alt="상담챗봇 창 열림" id="chatBotBtFloating"
+			style="bottom: 20px; display: block; width: 229px; height: 199px">
+		</a>
 	</div>
-</c:if>
+
+	<iframe name="cbIframe" id="cbIframe" src="" scrolling="no"
+		frameborder="0"
+		style="display: none; height: 650px; width: 400px; position: fixed; bottom: 20px; right: 120px; z-index: 9998; background: #fff;"
+		title="상담챗봇 창"></iframe>
+
+</div>
+
 
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
@@ -108,6 +107,8 @@
 							href="#" data-toggle="dropdown">제품</a>
 							<div class="dropdown-menu">
 								<ul>
+									<li><a class="dropdown-item nav-link nav_item"
+										href="${pageContext.request.contextPath}/product/dogList">상품 리스트</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
 										href="${pageContext.request.contextPath}/product/dogBestList">베스트</a></li>
 									<li><a class="dropdown-item nav-link nav_item"

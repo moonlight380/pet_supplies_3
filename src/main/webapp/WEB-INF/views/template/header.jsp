@@ -18,6 +18,29 @@
 }
 </style>
 
+<c:if test="${not empty member}">
+	<div
+		style="position: fixed; bottom: 120px; left: 50%; margin-left: 400px; z-index: 10001;">
+
+		<div>
+			<a id="chatBotBtn"
+				href="${pageContext.request.contextPath}/echo/socket"
+				style="display: block; width: 229px; height: 115px; text-align: right;">
+				<img
+				src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
+				alt="상담챗봇 창 열림" id="chatBotBtFloating"
+				style="bottom: 20px; display: block; width: 229px; height: 199px">
+			</a>
+		</div>
+
+		<iframe name="cbIframe" id="cbIframe" src="" scrolling="no"
+			frameborder="0"
+			style="display: none; height: 650px; width: 400px; position: fixed; bottom: 20px; right: 120px; z-index: 9998; background: #fff;"
+			title="상담챗봇 창"></iframe>
+
+	</div>
+</c:if>
+
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
 	<div class="bottom_header dark_skin main_menu_uppercase">
@@ -107,7 +130,7 @@
 							href="${pageContext.request.contextPath}/member/memberCart"><i
 								class="linearicons-cart"></i><span class="cart_count">${cartCount}</span></a></li>
 					</c:if>
-					
+
 					<c:if test="${empty member}">
 						<li><a class="nav-link"
 							href="${pageContext.request.contextPath}/member/memberLogin"><i

@@ -351,8 +351,9 @@ public class MemberController {
 	
 	@GetMapping("memberPayment")
 	public void memberPayment(MemberVO memberVO)throws Exception{
-		
+	
 	}
+	
 	
 	
 //-------------------------------------------------------------------------------------------------------	

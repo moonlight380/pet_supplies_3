@@ -360,23 +360,25 @@
 </tr>
 <tr class=" mCouponSelect">
 <th scope="row">쿠폰할인</th>
-<td><a href="#none" id="btn_coupon_select" class="btn_function btncolor_subordinate"><span>쿠폰적용</span></a></td>
+<td><a href="javascript:popup()" id="btn_coupon_select" class="btn_function btncolor_subordinate"><span>쿠폰적용</span></a></td>
 </tr>
+
 <!-- 참고 : 쿠폰적용 후 --><tr class="mCouponModify" style="display: none;">
 <th scope="row">쿠폰할인</th>
 <td>
 <span class="mTotalCouponDiscount">0원</span>
-								<a id="eCouponModify" href="#none" class="btn_function btncolor_subordinate"><span>수정</span></a>
-								<div id="divCpnView" style="display:none" class="coupon">
-									<span id="txt_cpn_contents"></span>
-									<span id="txt_cpn_price"></span>
-									<span id="txt_cpn_attr_D"></span>
-									<span id="txt_cpn_attr_M"></span>
-									<span id="txt_cpn_attr_C"></span>
-								</div>
-								<div id="divCpn" style="display:none" class="couponArea"></div>
-							</td>
-						</tr>
+<a id="eCouponModify" href="#none" class="btn_function btncolor_subordinate"><span>수정</span></a>
+<div id="divCpnView" style="display:none" class="coupon">
+<span id="txt_cpn_contents"></span>
+<span id="txt_cpn_price"></span>
+<span id="txt_cpn_attr_D"></span>
+<span id="txt_cpn_attr_M"></span>
+<span id="txt_cpn_attr_C"></span>
+</div>
+<div id="divCpn" style="display:none" class="couponArea"></div>
+</td>
+</tr>
+
 <!-- //참고 --><tr class="" id="ec-shop-orderfom-total-benefit-view-id">
 <th scope="row">추가할인금액</th>
 	<td>
@@ -697,8 +699,6 @@
 	
 	
 
-
-
 	$("#credit").click(function() {
 		 $("#credit_box").show(); 
 		 $("#phonpay_box").hide(); 
@@ -750,7 +750,14 @@
 	    }
 	}
 	
-	
+	//-- 쿠폰창 
+
+ 	function popup(){
+            var url = "../coupon/couponList";
+            var name = "coupon";
+            var option = "width = 1050, height = 900, top = 0, left = 0, location = no"
+            window.open(url, name, option);
+        } 
 	
 	
 	

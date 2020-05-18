@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 
+<mapper namespace="com.pet.p1.cart.CartDAO">
+
+
+	
+	<select id="cartSelect" parameterType="List" resultType="CartVO">
+		select id,cnum,cart.productnum,camount,productname,price,point,productfile.filename
+		from cart
+		inner join product on(cart.productnum = product.productnum)
+		inner join productfile on(cart.productnum=productfile.num)
+		where productfile.firstfile=0 and cnum in 
+		<foreach collection="list" item="cnum" open="(" close=")" separator=",">
+			#{cnum}
+		</foreach>
+		order by cnum desc
+	</select>
+	<!-- cartList -->
+ 	<select id="cartList" parameterType="MemberVO" resultType="CartVO">
+	
+		select id,cnum,cart.productnum,camount,productname,price,point,productfile.filename
+		from cart
+		inner join product on(cart.productnum = product.productnum)
+		inner join productfile on(cart.productnum=productfile.num)
+		where id=#{id} and productfile.firstfile=0
+		order by cnum desc
+	
+	</select> 
+	
+	
+
+	<delete id="cartDelete" parameterType="List">
+		delete from cart where cnum in
+		<foreach collection="list" item="cnum" open="(" close=")" separator=",">
+			#{cnum}
+		</foreach>
+	
+	</delete>
+	
+	
+	<update id="cartUpdate" parameterType="CartVO">
+		update cart set camount=#{cAmount} where cnum=#{cnum}
+	
+	
+	</update>
+	
+</mapper>

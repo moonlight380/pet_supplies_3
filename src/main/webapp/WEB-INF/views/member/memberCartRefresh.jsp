@@ -1,41 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-<c:import url="../template/boot.jsp"></c:import>
-<c:import url="../template/css.jsp"></c:import>
-
-<style type="text/css">
-.table_title {
-	font: 0.75em "Malgun Gothic", "Gulim", "Tahoma", "Verdana", "Arial",
-		"sans-serif", Verdana, Dotum, AppleGothic, sans-serif;
-	padding: 13px 0px 15px;
-	vertical-align: middle;
-	font-weight: normal;
-	color: black;
-	text-align: center;
-	border-bottom: 1px solid #9ca0aa;
-}
-
-.material-icons {
-	background-color: white;
-	color: gray;
-	font-size: 20px;
-	border: 1px solid gray;
-}
-.sum_text{
-	color:red;
-	font-weight: bold;
-
-}
-
-</style>
-</head>
 
 
 <body id="result">
@@ -55,7 +21,7 @@
 							<div class="row" style="vertical-align: middle;">
 
 								<div style="padding-top: -2px; margin-left: 3px;">장바구니 목록</div>
-								<div class='cart_count'	id="id" title="${member.id}" style="margin-left: 4px; top: 0px; margin-top: 1px;">
+								<div class='cart_count'	style="margin-left: 4px; top: 0px; margin-top: 1px;">
 									
 									<c:if test="${not empty member}">
 										${cartCount }
@@ -72,31 +38,9 @@
 						
 			
 						
-					<c:if test="${empty cart}">
-						<div class="row mt-5 mb-5" >
-							<div class="col text-center">
-								<i class="linearicons-cart" style="font-size: 50px"></i>
-							</div>
-						
-						</div>
 						
 						
-						<div class="row mb-5">
-							<div class="col text-center" style="font-weight: 2px; color: black;">
-								장바구니가 담긴 상품이 없습니다.
-							</div>
-						</div>
-					
-						<div class="row">
-							<div class="col text-center">
-									<a href="${pageContext.request.contextPath}"
-										class="btn btn-danger" style="font-size: 16px;">쇼핑
-										홈 가기</a>
-							</div>
-						</div>
-					</c:if>	
 						
-					<c:if test="${not empty cart}">
 					<div>
 						<div class="row" style="padding: 0px 15px 15px 15px;" >
 							<table>
@@ -116,8 +60,8 @@
 								</colgroup>
 								<thead>
 									<tr class="table_title"  style="text-align: center;   line-height: 60px;">
-										<th scope="col" ><input type="checkbox" id="check_all" hidden="hidden"
-											title="checkbox" ><div class="row" style="height: 10px;"></div><label style="margin: 0 auto;"
+										<th scope="col" ><input type="checkbox" id="check_all"
+											title="checkbox" hidden="hidden"><div class="row" style="height: 10px;"></div><label style="margin: 0 auto;"
 											for="check_all" class="material-icons checkbox"
 											title="check_all"> check </label></th>
 										<th scope="col">이미지</th>
@@ -159,7 +103,7 @@
 												</div>
 											</td>
 
-											<td id="${cart.id}${cart.cnum}_point" name="${cart.point }"></td>
+											<td>${cart.point }</td>
 
 											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
 											</td>
@@ -230,13 +174,11 @@
 									홈 가기</a>
 							</div>
 							<div class="col-sm-4" style="padding-left: 0px;">
-								<!-- <a href="./memberPayment" class="btn btn-danger" id="payClick"
-									style="font-size: 16px;">결제 하기</a> -->
-								<button class="btn btn-danger" id="payClick">결제 하기</button>
+								<a href="./memberPayment" class="btn btn-danger"
+									style="font-size: 16px;">결제 하기</a>
 							</div>
 
 						</div>
-					</c:if>	
 
 					</div>
 
@@ -256,6 +198,3 @@
 
 
 </body>
-
-<script type="text/javascript" src="../resources/js/cart.js"></script>
-</html>

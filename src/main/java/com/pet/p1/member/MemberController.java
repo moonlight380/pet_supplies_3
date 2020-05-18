@@ -22,7 +22,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler;
 
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.pet.p1.cart.CartService;
+import com.pet.p1.cart.CartVO;
+import com.pet.p1.order.OrderService;
+import com.pet.p1.order.OrderVO;
+
 import com.pet.p1.product.DogService;
 
 import com.pet.p1.util.Pager;
@@ -34,26 +41,120 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-	
+
+	@Autowired
+	private DogService dogService;
+	@Autowired
+	private CartService cartService;
+	@Autowired
+	private OrderService orderService;
+
 	
 //--------------------------------------------------------------------------------------------------------------
 
+	
+	@GetMapping("memberOrder")
+	public void memberOrder()throws Exception{
+		
+	}
+	
+	@GetMapping("memberPayment")
+	public void memberPayment()throws Exception{
+		
+	}
+	
+	
+	
+	@PostMapping("memberPaymentList")
+	@ResponseBody
+	public void memberPaymentList(Long[] ids,HttpSession session)throws Exception{
+		List<Long> list = Arrays.asList(ids);
+		
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i));
+		}
+		List<CartVO> ar = cartService.cartSelect(list);
+		session.setAttribute("cartSelect", ar); 
+		System.out.println("check");
+		
+	}
+	
+
+	
+	@PostMapping("memberPayment")
+	@ResponseBody
+	public int memberPayment(OrderVO orderVO,HttpSession session)throws Exception{
+		session.setAttribute("order", orderVO); 
+		/* session.setAttribute("order", null); */
+		
+		
+		
+		int result = orderService.orderCart(orderVO);
+		return result;
+	}
+	
+
+	@PostMapping("cartUpdate")
+	@ResponseBody   				//ajax실행시 return으로 jsp를 찾는데 그것 대신 data형태로 찾는것
+	public int cartUpdate(CartVO cartVO)throws Exception{
+	
+		int result = cartService.cartUpdate(cartVO);
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	@GetMapping("cartDelete")
+	public ModelAndView cartDelete(Long [] ids)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<Long> list = Arrays.asList(ids);
+		int result = cartService.cartDelete(list);
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@GetMapping("memberCartRefresh")
+	public ModelAndView memberCartRefresh(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		ModelAndView mv = new ModelAndView();
+		List<CartVO> ar = cartService.cartList(memberVO);
+		mv.addObject("cart",ar);
+		mv.setViewName("member/memberCartRefresh");
+		long count = memberService.memberCart(memberVO);
+		session.setAttribute("cartCount", count);
+		return mv;
+	}
 	
 	
 	//--장바구니
 	
 	
 	@GetMapping("memberCart")
-	public ModelAndView productList(Long productNum)throws Exception {
-		
-	//	List<DogVO> ar = memberService.productList(dogVO);
-
+	public ModelAndView cartList(HttpSession session)throws Exception {
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		ModelAndView mv = new ModelAndView();
+		if (memberVO == null) {
+			/*
+			 * mv.addObject("result", "로그인을 해주세요."); mv.addObject("path", "./memberLogin");
+			 * mv.setViewName("common/result");
+			 */
+			
+
+		} else {
+			
+			List<CartVO> ar = cartService.cartList(memberVO);
+			mv.addObject("cart",ar);
+			mv.setViewName("member/memberCart");
 		
-//		mv.addObject("dog", dogVO);
-		mv.setViewName("member/memberCart");
+		}
 		
 		return mv;
+		
+		
 	}
 	
 	//--장바구니 끝
@@ -106,6 +207,8 @@ public class MemberController {
 
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
+			 long count = memberService.memberCart(memberVO);
+			 session.setAttribute("cartCount", count);
 			 mv.setViewName("redirect:../");
 		 }else {
 			 mv.addObject("result", "Login Fail");

@@ -16,8 +16,13 @@
 
   		
   		<typeAlias type="com.pet.p1.notice.NoticeVO" alias="NoticeVO"/>
+
   		<typeAlias type="com.pet.p1.qna.QnaVO" alias="QnaVO"/>
   		<typeAlias type="com.pet.p1.review.ReviewVO" alias="ReviewVO"/>
+
+  		<typeAlias type="com.pet.p1.cart.CartVO" alias="CartVO"/>
+  		
+
   		
   		<typeAlias type="com.pet.p1.product.file.ProductFileVO" alias="ProductFileVO"/>
 		<typeAlias type="com.pet.p1.member.MemberVO" alias="MemberVO"/>

@@ -14,8 +14,8 @@
 
 
 	<div class="container-fulid  mt-5">
-		<c:import url="./memberSide.jsp"></c:import>
 		<div class="row">
+		<c:import url="./memberSide.jsp"></c:import>
 			<div class="col-sm-2 ">
 				<b style="margin-left: 40px; font-weight: bold; color: #FF324D; font-size: 16.5px;">회원 정보 수정</b>
 				<hr size="5" color="#FF324D">
@@ -96,7 +96,7 @@
 
 				
 				</div>
-			<div class="col-sm-6 "></div>
+			<div class="col-sm-2 "></div>
 		
 		
 		</div>

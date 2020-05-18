@@ -58,11 +58,6 @@ public class MemberController {
 		
 	}
 	
-	@GetMapping("memberPayment")
-	public void memberPayment()throws Exception{
-		
-	}
-	
 	
 	
 	@PostMapping("memberPaymentList")
@@ -147,6 +142,7 @@ public class MemberController {
 		} else {
 			
 			List<CartVO> ar = cartService.cartList(memberVO);
+			System.out.println("aas");
 			mv.addObject("cart",ar);
 			mv.setViewName("member/memberCart");
 		

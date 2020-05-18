@@ -559,7 +559,8 @@
 </div>
 
 <div class="button" style="margin-top: 10px; margin-left: 20px;">
-<button style="background-color: red;color: white; width: 250px; height: 50px; " class="btn_submit btncolor_dominant" id="btn_payment">결제하기</button></div>
+<input type="button" style="background-color: red;color: white; width: 250px; height: 50px; " class="btn_submit btncolor_dominant" id="btn_payment" value="결제하기">
+</div>
 
 <div class="mileage" style="margin-top: 20px; ">
 <dl class="ec-base-desc gLarge right" style="height:50px; font-size: small; border-bottom: 1px solid gray; border-top: 1px solid gray;">
@@ -634,7 +635,7 @@
  	
 	/* 결제버튼 */
 	
-	$("#btn_payment").click(function() {
+	$("#btn_payment").click(function(a) {
  		var c = true;
 		var check = $(".input_Join");
 		var agree = $("#chk_purchase_agreement0").prop("checked"); 
@@ -650,10 +651,15 @@
 				alert("배송정보는 필수 입력입니다");
 			}else if(!agree){
 				alert("필수 약관에 동의해주세요");
-				e.preventDefault();
-			}
-			else{
-				frm.submit();
+				a.preventDefault();
+			}else{
+				var pay = $("#current_pay_name").text();
+				var payname = $("#kakaopay").attr("id");
+		 		 if(pay == payname){
+					location.href="../product/dogkakaoPay";	
+				}else if(pay.length<=0){
+					alert("결제방식을 선택해주세요");
+				} 
 			} 
 
 	});
@@ -722,7 +728,7 @@
 		 $("#phonpay_box").hide(); 
 		 $("#account_box").hide(); 
 		 $("#credit_box").hide(); 
-		 $("#current_pay_name").text("카카오페이");
+		 $("#current_pay_name").text("kakaopay");
 	});
 	
 	//-- 현금영수증 선택

@@ -16,14 +16,14 @@ public class EchoHandler extends TextWebSocketHandler {
 	private List<WebSocketSession> sessionList = new ArrayList<WebSocketSession>();
 	private static Logger logger = LoggerFactory.getLogger(EchoHandler.class);
 
-	// 클라이언트가 연결 되었을 때
+	// 클라이언트 연결 
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		sessionList.add(session);
 		logger.info("{} 연결됨", session.getId());
 	}
 
-	// 클라이언트가 웹 소켓 서버로 메세지를 전송했을 때
+	// 클라이언트가 웹 소켓 서버로 메세지를 전송했을 시
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		logger.info("{}로 부터 {} 받음", session.getId(), message.getPayload());

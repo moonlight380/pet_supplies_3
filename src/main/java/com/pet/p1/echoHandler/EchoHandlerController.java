@@ -24,9 +24,9 @@ public class EchoHandlerController {
 		return mv;
 	}
 
-	@GetMapping("chatmodal")
+	@GetMapping("chatWindow")
 	public ModelAndView chatModal(ModelAndView mv) throws Exception {
-		mv.setViewName("echo/chatmodal");
+		mv.setViewName("echo/chatWindow");
 		return mv;
 	}
 

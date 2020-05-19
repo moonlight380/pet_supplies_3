@@ -152,7 +152,7 @@ $('#close_popup2').click(function(){
 
 <body onload="goPopup()">
 
-
+<%-- 
 <!-- 레이어팝업 시작 -->
 <div style="" id="page_free">
 	<img src="${pageContext.request.contextPath}/resources/images/goPopup.jpg">
@@ -161,7 +161,7 @@ $('#close_popup2').click(function(){
 	</div>
 </div>
 
-<!--레이어팝업  끝-->
+<!--레이어팝업  끝--> --%>
 
 
 
@@ -411,6 +411,7 @@ $('#close_popup2').click(function(){
                       	</li>
                       	<li class="nav-item">
                         	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 후기</a>
+                        	
                       	</li>
                       	<li class="nav-item">
                         	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 문의</a>
@@ -500,10 +501,17 @@ $('#close_popup2').click(function(){
                         	<div class="comments">
                             	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>
                                 <ul class="list_none comment_list mt-4">
+                                    <c:forEach items="${list}" var="review">                                 
                                     <li>
-                                        <div class="comment_img">
-                                            <img src="${pageContext.request.contextPath}/resources/images/user1.jpg" alt="user1"/>
-                                        </div>
+	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
+	                                        <div class="comment_img">
+	                                            <%-- <img src="${pageContext.request.contextPath}/resources/images/user1.jpg" alt="user1"/> --%>
+	                                            						  	<!-- 이미지가 여러개 이므로 반복문 -->		
+											 										 
+													 	<img alt="" src="../resources/${board}Upload/${review2.fileName}">			
+											
+	                                        </div>
+	                                        </c:forEach>
                                         <div class="comment_block">
                                             <div class="rating_wrap">
                                                 <div class="rating">
@@ -511,33 +519,17 @@ $('#close_popup2').click(function(){
                                                 </div>
                                             </div>
                                             <p class="customer_meta">
-                                                <span class="review_author">Alea Brooks</span>
-                                                <span class="comment-date">March 5, 2018</span>
+                                                <span class="review_author">${review.id}</span>
+                                                <span class="comment-date">${review.regDate}</span>
                                             </p>
                                             <div class="description">
-                                                <p>Lorem Ipsumin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate</p>
+                                                <p>${review.contents}</p>
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="comment_img">
-                                            <img src="${pageContext.request.contextPath}/resources/images/user2.jpg" alt="user2"/>
-                                        </div>
-                                        <div class="comment_block">
-                                            <div class="rating_wrap">
-                                                <div class="rating">
-                                                    <div class="product_rate" style="width:60%"></div>
-                                                </div>
-                                            </div>
-                                            <p class="customer_meta">
-                                                <span class="review_author">Grace Wong</span>
-                                                <span class="comment-date">June 17, 2018</span>
-                                            </p>
-                                            <div class="description">
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                            </div>
-                                        </div>
-                                    </li>
+  									</c:forEach>
+  
+  
                                 </ul>
                         	</div>
                             <div class="review_form field_form">

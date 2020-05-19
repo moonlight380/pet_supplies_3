@@ -83,17 +83,17 @@
 <!-- 성명 -->
 <tr>
 <th scope="row">받으시는 분 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
-	<td><input id="rname" name="rname" class="inputTypeText"  size="15" type="text"></td>
+	<td><input id="rname" name="rname" class="inputTypeText" size="15" type="text"></td>
 </tr>
 
 <!-- 주소 -->
 <tr>
 <th scope="row">주소 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
 	<td>
-		<input id="rzipcode1" name="rzipcode1"  class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" type="text">							
+		<input id="rzipcode1" name="rzipcode1"  class="inputTypeText" size="6" maxlength="6" readonly="1" type="text">							
 		<a href="#none" id="btn_search_rzipcode" class="btn_function btncolor_basic"><span class="btn addr_button">우편번호</span></a><br>
-		<input id="raddr1" name="raddr1" class="inputTypeText" placeholder="" size="40" readonly="1" type="text"> <span class="grid">기본주소</span><br>
-		<input id="raddr2" name="raddr2" class="inputTypeText" placeholder="" size="40" type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
+		<input id="raddr1" name="raddr1" class="inputTypeText" size="40" type="text"> <span class="grid">기본주소</span><br>
+		<input id="raddr2" name="raddr2" class="inputTypeText" size="40" type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
 	</td>
 </tr>
 

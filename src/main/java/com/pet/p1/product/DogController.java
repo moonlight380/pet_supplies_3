@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pet.p1.board.BoardVO;
 import com.pet.p1.member.MemberVO;
+import com.pet.p1.review.ReviewService;
 import com.pet.p1.util.Pager;
 
 @Controller
@@ -24,6 +26,8 @@ import com.pet.p1.util.Pager;
 public class DogController {
 @Autowired
 private DogService dogService;
+@Autowired
+private ReviewService reviewService;
 
 
 @ModelAttribute("p")
@@ -172,11 +176,13 @@ public ModelAndView kakao (ModelAndView mv) throws Exception{
 	@GetMapping("dogSelect") 
 		public ModelAndView dogSelect(long productNum, HttpSession session) throws Exception{
 			DogVO dogVO=dogService.dogSelect(productNum);
+			List<BoardVO>ar = reviewService.pboardList(productNum);
+			
 			ModelAndView mv= new ModelAndView();
 			
 
 			mv.addObject("vo",dogVO);
-		
+			mv.addObject("list", ar);
 			mv.setViewName("product/pSelect");
 			
 			

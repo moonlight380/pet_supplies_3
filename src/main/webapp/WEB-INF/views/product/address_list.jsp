@@ -270,7 +270,7 @@ h2, h1{
                         -<span id="rphone1_3${i.index}">${vo.rphone1_3}</span>
                         
                         </td>
-                        <td scope="col"><span id="rphone2_1${i.index}">${vo.rphone2_1}</span>
+                        <td scope="col" id="rphone2_1${i.index}"><span>${vo.rphone2_1}</span>
                         
                         -<span id="rphone2_2${i.index}">${vo.rphone2_2}</span>
                         
@@ -278,9 +278,9 @@ h2, h1{
                         
                         <td scope="col">
                         (<span id="rzipcode1${i.index}">${vo.rzipcode1}</span>)
-                        <span id="rddr1${i.index}">${vo.raddr1}</span>
+                        <span id="raddr1${i.index}">${vo.raddr1}</span>
                         
-                        <span id="rddr2${i.index}">${vo.raddr2}</span></td>
+                        <span id="raddr2${i.index}">${vo.raddr2}</span></td>
                         
                         <td scope="col"><a href="./address_update?addressNum=${vo.addressNum}"><input type="button" class="button addr_button updateBtn" title="${vo.addressNum}" value="수정"></a>
                         <input type="button" class="button addr_button" value="삭제">
@@ -298,14 +298,17 @@ h2, h1{
      
 <script type="text/javascript">
         function setParentText(num){
-             opener.document.getElementById("rname").value = document.getElementById("rname"+num).innerText//$("").text()        
+             opener.document.getElementById("rname").value = document.getElementById("rname"+num).innerText //$("").text()        
              opener.document.getElementById("rzipcode1").value = document.getElementById("rzipcode1"+num).innerText
-             opener.document.getElementById("raddr1").value = document.getElementById("raddr1"+num).innerText
+             alert(document.getElementById("raddr1"+num).innerText);
+              opener.document.getElementById("raddr1").value = document.getElementById("raddr1"+num).innerText
              opener.document.getElementById("raddr2").value = document.getElementById("raddr2"+num).innerText
-             opener.document.getElementById("rphone1_1").value = document.getElementById("rphone1_1"+num).innerText
+             
+             opener.document.getElementById("rphone1_1").innerText = document.getElementById("rphone1_1"+num).innerText
              opener.document.getElementById("rphone1_2").value = document.getElementById("rphone1_2"+num).innerText
              opener.document.getElementById("rphone1_3").value = document.getElementById("rphone1_3"+num).innerText
-             opener.document.getElementById("rphone2_1").value = document.getElementById("rphone2_1"+num).innerText
+             
+             opener.document.getElementById("rphone2_1").innerText = document.getElementById("rphone2_1"+num).innerText
              opener.document.getElementById("rphone2_2").value = document.getElementById("rphone2_2"+num).innerText 
              opener.document.getElementById("rphone2_3").value = document.getElementById("rphone2_3"+num).innerText
         

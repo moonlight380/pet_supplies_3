@@ -40,6 +40,10 @@ public class ReviewDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE + "boardSelect", num);
 	}
 
+	public BoardVO pboardSelect(long productNum) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "pboardSelect", productNum);
+	}
+
 	@Override
 	public int boardWrite(BoardVO boardVO) throws Exception {
 		return sqlSession.insert(NAMESPACE + "boardWrite", boardVO);

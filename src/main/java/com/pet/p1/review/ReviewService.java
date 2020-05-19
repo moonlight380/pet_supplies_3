@@ -49,6 +49,10 @@ public class ReviewService implements BoardService {
 		return reviewDAO.boardSelect(num);
 	}
 
+	public BoardVO pboardSelect(long productNum) throws Exception {
+		return reviewDAO.pboardSelect(productNum);
+	}
+
 	@Override
 	public int boardWrite(BoardVO boardVO, MultipartFile[] files) throws Exception {
 		// 1. sequnce num qna table insert

@@ -36,8 +36,7 @@ public class CouponController {
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		List<CouponVO> ar = couponService.couponList(memberVO);
 		List<CartVO> ar1 = cartService.cartList(memberVO);
-		System.out.println(ar);
-		System.out.println(ar1);
+
 		if(memberVO != null) {
 			mv.addObject("coupon", ar);
 			mv.addObject("cart", ar1);

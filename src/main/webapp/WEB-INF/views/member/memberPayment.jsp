@@ -342,10 +342,10 @@
 <tbody class="center"><tr>
 <td><div class="box txt16">
 <!-- <strong><span id="total_order_price_view" class="txt23">31,900</span>원</strong> <span class="displaynone"><span id="total_order_price_ref_view"></span></span> -->
-	<div style="color: black; font-weight: bold;" class="all_sum">0원</div>
+<div style="color: black; font-weight: bold;" class="all_sum">0원</div>
 </div></td>
 <td class="option "><div class="box txt16">
-<strong>-</strong> <strong><span id="total_sale_price_view" class="txt23">1,400</span>원</strong> <span class="displaynone"><span id="total_sale_price_ref_view"></span></span>
+<strong>-</strong> <span id="total_sale_price_view" class="txt23"><strong>0원</strong></span> <span class="displaynone"><span id="total_sale_price_ref_view"></span></span>
 </div></td>
 <td><div class="box txtEm txt16">
 <strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="paymentPrice">0원</span><span class="displaynone"><span id="total_order_sale_price_ref_view"></span></span>
@@ -368,36 +368,16 @@
 <tbody>
 <tr class="table-danger">
 <th scope="row"><strong>총 할인금액</strong></th>
-<td><strong id="total_addsale_price_view">1,400</strong>원</td>
+<td id="total_addsale_price_view"><strong>0원</strong></td>
 </tr>
 <tr class=" mCouponSelect">
 <th scope="row">쿠폰할인</th>
-<td><a href="javascript:popup()" id="btn_coupon_select" class="btn_function btncolor_subordinate"><span>쿠폰적용</span></a></td>
-</tr>
 
-<!-- 참고 : 쿠폰적용 후 --><tr class="mCouponModify" style="display: none;">
-<th scope="row">쿠폰할인</th>
-<td>
-<span class="mTotalCouponDiscount">0원</span>
-<a id="eCouponModify" href="#none" class="btn_function btncolor_subordinate"><span>수정</span></a>
-<div id="divCpnView" style="display:none" class="coupon">
-<span id="txt_cpn_contents"></span>
-<span id="txt_cpn_price"></span>
-<span id="txt_cpn_attr_D"></span>
-<span id="txt_cpn_attr_M"></span>
-<span id="txt_cpn_attr_C"></span>
-</div>
-<div id="divCpn" style="display:none" class="couponArea"></div>
+<td><input id="c_in" readonly="readonly" style="width: 100px;" value="0">원  
+<a href="javascript:popup()" id="btn_coupon_select" class="btn_function btncolor_subordinate" style="background-color: red; width: 80px; height: 30px; text-align: center;" type="button"><span style="font-size: small; color: white;">쿠폰적용</span></a>
 </td>
 </tr>
 
-<!-- //참고 --><tr class="" id="ec-shop-orderfom-total-benefit-view-id">
-<th scope="row">추가할인금액</th>
-	<td>
-	<span class="gSpace20"><span id="total_benefit_price_view">1,400</span>원</span>
-<a href="#none" onclick="EC_SHOP_FRONT_ORDERFORM_DISPLAY.onDiv('order_layer_addsale', event);" class="btn_function btncolor_basic"><span class="ico_arrow_r">내역보기</span></a>
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -774,10 +754,10 @@
             window.open(url, name, option);
         } 
 	
-	
-	
-
-
+ 	window.onmessage = function(e){
+ 		$("#total_addsale_price_view").html("<strong>"+e.data+"원</strong>");
+ 		$("#total_sale_price_view").html("<strong>"+e.data+"원</strong>");;
+ 	  } 
 
 function sample6_execDaumPostcode() {
     new daum.Postcode({

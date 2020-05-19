@@ -16,7 +16,7 @@
   <h1 style="font-size: medium;">쿠폰 조회/적용</h1>
 <div class="content">
 
-<div class="ec-base-help" style="font-size: small; border: 1px solid gray;">
+<div class="ec-base-help" style="font-size: small; border: 1px solid gray;width:850px; height: 100px;">
 <h2 style="font-size: small;margin-left: 5px;">쿠폰 사용에 따른 유의사항</h2>
 <div class="inner" style=" border-top: 1px solid gray; ">
  <ul>
@@ -30,7 +30,7 @@
 <div class="title" style="font-size: small;">
 <h3>상품별 쿠폰 적용</h3>
 </div>
-<div class="ec-base-table gLayoutFixed typeList" style="font-size: small;">
+<div class="ec-base-table gLayoutFixed typeList" style="font-size: small;width:850px;">
 <table class="table table-hover" style="border-bottom: 1px solid black; border-top: 1px solid black;">
 <colgroup>
 <col style="width:85px">
@@ -39,7 +39,7 @@
 <col style="width:100px">
 <col style="width:120px">
 <col style="width:100px">
-<col style="width:80px">
+<col style="width:90px">
 </colgroup>
 <thead><tr>
 <th scope="col">배송구분</th>
@@ -51,102 +51,46 @@
 <th scope="col">상품별<br> 쿠폰 할인액</th>
 </tr></thead>
 <tbody class="center">
-
-<tr class="xans-element- xans-coupon xans-coupon-aprd xans-record-"><td><span class="txtInfo">기본배송</span></td>
-<td class="thumb"><img src="../resources/dogUpload/${cart.fileName}"></td>
+<c:forEach items="${cart}" var="cart" varStatus="i">
+<tr class="xans-element- xans-coupon xans-coupon-aprd xans-record-"><td><span class="txtInfo count" name="txtCpnPrice${i.index}">기본배송</span></td>
+<td class="thumb"><img src="../resources/dogUpload/${cart.fileName}"  style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
 <td class="left txtBreak">
 <strong>${cart.productName}</strong>
 <div class="option"></div>
-<div class="type">
-<input name="ordPrice" id="ordPrice22292_1" value="7900" type="hidden">
-<input name="cpnDcPrice" id="cpnDcPrice22292_1" value="300" type="hidden">
-<input name="cpnDcPricecash" id="cpnDcPricecash22292_1" value="300" type="hidden">
-<input name="cpnDcPriceBasiccash" id="cpnDcPriceBasiccash22292_1" value="0" type="hidden">
-<input name="cpnDcPricecard" id="cpnDcPricecard22292_1" value="300" type="hidden">
-<input name="cpnDcPriceBasiccard" id="cpnDcPriceBasiccard22292_1" value="0" type="hidden">
-<input name="cpnDcPricetcash" id="cpnDcPricetcash22292_1" value="300" type="hidden">
-<input name="cpnDcPriceBasictcash" id="cpnDcPriceBasictcash22292_1" value="0" type="hidden">
-<input name="cpnDcPriceicash" id="cpnDcPriceicash22292_1" value="300" type="hidden">
-<input name="cpnDcPriceBasicicash" id="cpnDcPriceBasicicash22292_1" value="0" type="hidden">
-<input name="cpnDcPricecell" id="cpnDcPricecell22292_1" value="300" type="hidden">
-<input name="cpnDcPriceBasiccell" id="cpnDcPriceBasiccell22292_1" value="0" type="hidden">
-<input name="cpnDcPricekakaopay" id="cpnDcPricekakaopay22292_1" value="300" type="hidden">
-<input name="cpnDcPriceBasickakaopay" id="cpnDcPriceBasickakaopay22292_1" value="0" type="hidden">
-<input name="cpnDcPricepayco" id="cpnDcPricepayco22292_1" value="300" type="hidden">
-<input name="cpnDcPriceBasicpayco" id="cpnDcPriceBasicpayco22292_1" value="0" type="hidden">
-<input name="cpnDcPricedeposit" id="cpnDcPricedeposit22292_1" value="300" type="hidden">
-<input name="cpnDcPriceBasicdeposit" id="cpnDcPriceBasicdeposit22292_1" value="0" type="hidden">
-<input name="cpnDcPriceBasic" id="cpnDcPriceBasic22292_1" value="0" type="hidden">
-<input name="cpnSalePrice" id="cpnPrice22292_1" value="0" type="hidden">
-<input name="cpnMilePrice" id="cpnMilePrice22292_1" value="0" type="hidden">
-<input name="cpnRstPrice" id="cpnRstPrice22292_1" value="0" type="hidden"></div>
-</td>
 <td class="price right"><strong>${cart.price}</strong></td>
 <td class="right">2,800원</td>
 <td class="select"><span class="txtInfo">
-<select name="cpnPrdSelect" id="coupon_select" onchange="select()">
-<option value="">선택하세요</option>
+<select name="cpnPrdSelect" class="coupon_select coupon_s${i.index}" id="c_select" title="${i.index}">
+<option value="sel">선택하세요</option>
 <c:forEach items="${coupon}" var="coupon">
-<option value="coupon">${coupon.name} ${coupon.exdate}</option>
+<option value="coupon" title="${coupon.disc}" id="${i.index}" class="select" name="${coupon.num}">${coupon.name} ${coupon.exdate}</option>
 </c:forEach>
 </select></span></td>
-
-<td class="right"><strong><span id="txtCpnPrice">0</span>
-
+<td class="right"><strong><span id="txtCpnPrice${i.index}">0</span>
 </strong></td>
 </tr>
-
+</c:forEach>
 </tbody>
 </table>
 </div>
 </div>
 
 
-<div class="ec-base-table typeList total gBlank20" style="font-size: medium; border: 1px solid black;margin-top:20px;">
-<table class="table table-hover">
-<colgroup>
-<col style="width:33.33%">
-<col style="width:33.33%">
-<col style="width:33.33%">
-</colgroup>
-<thead><tr>
-<th scope="col"><strong>총 상품별 쿠폰 할인금액</strong></th>
-<th scope="col"><strong>총 주문별 쿠폰 할인금액</strong></th>
-<th scope="col"><strong>총 배송비 쿠폰 할인금액</strong></th>
-</tr></thead>
-<tfoot class="right"><tr>
-<td colspan="3">
-<strong>= 총 쿠폰 할인금액</strong>(적립금) : <span class="txtEm gIndent10"><strong id="mTotalCouponDiscount" class="txt23">0</strong><strong>원</strong> (<img src="/web/upload/icon_201312240915061500.gif" alt=""> &nbsp;<span id="mTotalCouponMileage">0원</span>)</span>
-</td>
-                    </tr></tfoot>
-<tbody class="center"><tr>
-<td><div class="box txt16"><strong id="mProductCouponDiscount" class="txt23">0</strong><strong>원</strong> <span class="txt12 txtInfo">(<img src="/web/upload/icon_201312240915061500.gif" alt=""> &nbsp;<span id="mProductCouponMileage">0원</span>)</span>
-</div></td>
-                        <td><div class="box txt16">
-<strong>- <strong id="mOrderCouponDiscount" class="txt23">0</strong>원</strong> <span class="txt12 txtInfo">(<img src="/web/upload/icon_201312240915061500.gif" alt=""> &nbsp;<span id="mOrderCouponMileage">0원</span>)</span>
-</div></td>
-                        <td><div class="box txt16"><strong>- <strong id="mDeliveryCouponDiscount" class="txt23">0</strong>원</strong></div></td>
-                    </tr></tbody>
-<tbody class="detail center"><tr>
-<td class="left">
-                            <ul id="mSelectedProductCoupon"></ul>
-</td>
-                        <td class="left">
-                            <ul id="mSelectedOrderCoupon" class="select">
-<li>사용가능한 쿠폰이 없습니다.</li>
-                            </ul>
-</td>
-                        <td class="left">
-                            <ul id="mSelectedDeliveryCoupon"></ul>
-</td>
-                    </tr></tbody>
-</table>
+<div class="ec-base-table typeList total gBlank20" style="font-size: medium; border: 1px solid black;margin-top:20px;  width:850px; height: 100px;">
+
+<div style="float: right;">
+<strong>= 총 쿠폰 할인금액</strong>(적립금) : <span class="txtEm gIndent10" style="color: red">
+<strong id="mTotalCouponDiscount" class="txt23" style="font-size: 32px;">0</strong><strong>원</strong> (<img src="/web/upload/icon_201312240915061500.gif" alt=""> &nbsp;<span id="mTotalCouponMileage">0원</span>)</span>
 </div>
-    </div>
+
+</div>
+
+</div>
+
 <div class="ec-base-button">
-		<a id="dd" href="#none" onclick="couponSelect.setCpnResult()" class="btn_pop btncolor_subordinate"><span>쿠폰 적용하기</span></a>
-		<a href="#none" onclick="couponSelect.initCpn()" class="btn_pop btncolor_basic"><span>적용 취소하기</span></a>
-    </div>
+	<a href="#none" onclick="couponSelect.setCpnResult()" id="btncolor_subordinate"><span>쿠폰 적용하기</span></a>
+	<a href="#none" onclick="couponSelect.initCpn()" id="btncolor_basic"><span>적용 취소하기</span></a>
+</div>
 
 </form>
 
@@ -155,15 +99,75 @@
 <script type="text/javascript">
 
 
- $("#coupon_select").change(function() {
-	 var ec = $("#coupon_select option:selected").text();
- 	 var result = ec.substring(10,15);
-	 $("#txtCpnPrice").text(result);
 	
-});  
- 
- 
- 
+	$(document).ready(function(){
+		
+	 var ar = new Array();
+	 $(".coupon_select").change(function() {
+		 var dc = $(this).attr('title');
+		 var ec = $(".coupon_s"+dc+" option:selected").attr('title');
+	 	 $("#txtCpnPrice"+dc).html(ec);  
+	 	 
+	 	 
+	 		var ac = $(".coupon_s"+dc+" option:selected").text();
+	 		var num = $(".coupon_s"+dc+" option:selected").attr("name");
+	 		
+	 		$(".coupon_s"+dc+" option:selected").val(num);
+	 		var val = $(".coupon_s"+dc+" option:selected").val();
+	 		for(var i = 0; i<ar.length;i++){
+	 			console.log("ar:"+ar[i]);
+	 			if(ar[i]==val){
+	 				alert("쿠폰은 중복사용이 안됩니다");
+	 				$("#txtCpnPrice"+dc).text("0"); 
+	 				val="";
+	 				$(this).val('sel');
+	 			}
+	 		}
+	 		
+	 		
+	 		$(".select").each(function(){
+	 			var val = $(this).val();
+	 			
+	 			
+	 			if(val!="coupon" && val!=""){
+				 		ar.push(val);
+	 			}
+	 	
+	 		});
+	 		
+	 		ar = ar.reduce(function(a,b){
+	 			if(a.indexOf(b)<0){
+	 				a.push(b);
+	 			}
+	 			return a;
+	 		},[]);
+
+	 	var sum = 0; 
+	 	var count=0;
+	 	$(".count").each(function(){
+	 		count++;
+	 		var id = $(this).attr("name");
+	 		var s=$("#"+id).text();
+	 		sum=sum+s*1;
+	 		
+	 	});
+	 
+			$("#mTotalCouponDiscount").text(sum);
+		 
+	}); 
+	 
+		 $("#btncolor_subordinate").click(function() {
+			 var result = $("#mTotalCouponDiscount").text();
+ 			 var cresult = opener.document.getElementById("c_in");
+			 cresult.value=result; 
+			 window.opener.postMessage(result, "http://localhost:8080/p1/member/memberPayment");
+			 close();
+			
+		});
+	 
+	});
+	
+
 </script>
 
 </body>

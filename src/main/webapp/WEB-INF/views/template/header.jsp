@@ -19,7 +19,7 @@
 </style>
 <c:if test="${empty member.id}">
 	<div
-		style="position: fixed; bottom: 120px; left: 50%; margin-left: 400px; z-index: 10001;">
+		style="position: fixed; bottom: 120px; left: 65%; margin-left: 400px; z-index: 10001;">
 
 
 		<div>
@@ -78,7 +78,7 @@
 
 				<div class="product_search_form rounded_input"
 					style="margin-left: 30px;">
-					<form action="./product/dogList" >
+					<form action="${pageContext.request.contextPath}/product/dogList" >
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<div class="custom_select">

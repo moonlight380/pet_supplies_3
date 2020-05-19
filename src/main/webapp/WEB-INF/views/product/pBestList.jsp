@@ -25,7 +25,9 @@
 </head>
 
 <body>
-<c:import url="../template/header.jsp"></c:import>
+<div id="header">
+	<c:import url="../template/header.jsp"></c:import>
+</div>
 
 <!-- LOADER -->
 <div class="preloader">
@@ -160,7 +162,12 @@
                                 </a>
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                        <li class="add-to-cart">
+	                                        <a>
+		                                        <i class="icon-basket-loaded cart" id="${vo.productNum}" title="${productNum}"></i>
+		                                         Add To Cart
+	                                         </a>
+                                         </li>
                                         <li><a href="//bestwebcreator.com/shopwise/demo/shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
                                         <li><a href="//bestwebcreator.com/shopwise/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
                                         <li><a href="#"><i class="icon-heart"></i></a></li>
@@ -244,7 +251,8 @@
 </div>
 <!-- END MAIN CONTENT -->
 
-
+<input type="text" hidden="hidden" value="${member.id}" id="memberId">
+<input type="text" hidden="hidden" value="${cartCount}" id="ccount">
 
 
 
@@ -294,7 +302,43 @@
 <!-- scripts js --> 
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 
+<script type="text/javascript">
+	$(".cart").mouseover(function(){
+		$(".cart").css({
+			'cursor':'pointer'
+		});
+	});
+	
+	$(".cart").each(function(){
+		$(this).click(function(){
+			var id = $("#memberId").val();
+			var productNum = $(this).attr("id");
+			if(confirm("장바구니에 추가하시겠습니까?")){
+				
+			$.ajax({
+					type:"post",
+					url:"../cart/cartInsert",
+					data:{
+						productNum:productNum,
+						id:id
+					},success : function(data){
+						$.get("../member/memberCartHeader",function(data){
+							$("#header").html(data.trim());
+						});
+						
+					}
+				});  
+				
+			} else{
+				alert("no");
+			}
+			
+		});
+	});
+	
 
+
+</script>
 
 </body>
 </html>

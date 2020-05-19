@@ -57,7 +57,10 @@ public class MemberController {
 	public void memberOrder()throws Exception{
 		
 	}
-	
+	@GetMapping("memberCartHeader")
+	public void memberCartHeader()throws Exception{
+		
+	}
 	
 	
 	@PostMapping("memberPaymentList")

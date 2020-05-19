@@ -39,10 +39,10 @@
 					name="contents"></textarea>
 			</div>
 
-			<input type="button" id="add" class="btn btn-info" value="AddFile">
+			<input type="button" id="add" class="btn btn-info" value="AddFile" style="margin-left: 88%;">
 			<div id="file"></div>
 
-			<div class="form-group">
+			<div class="form-group" style="margin-left: 88%;" >
 				<label for="contents">Files:</label>
 				<c:catch>
 					<c:forEach items="${vo.boardFileVOs}" var="fileVO">
@@ -55,8 +55,7 @@
 
 			</div>
 
-
-			<input type="submit" id="btn" class="btn btn-default" value="Write">
+			<input type="submit" id="btn" class="btn btn-danger" value="수정완료" style="margin-bottom: 3%; margin-left: 88%;">
 		</form>
 
 	</div>

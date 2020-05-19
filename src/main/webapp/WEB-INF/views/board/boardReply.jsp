@@ -23,7 +23,8 @@
 			</div>
 			<div class="form-group">
 				<label for="Writer">작성자:</label> <input type="text"
-					class="form-control" id="reply" name="id">
+					class="form-control" id="reply" name="id" value="${member.id}"
+					readonly="readonly">
 			</div>
 			<div class="form-group">
 				<label for="contents">내용:</label>
@@ -34,7 +35,7 @@
 
 
 
-			<input type="submit" id="btn" class="btn btn-default" value="작성하기">
+			<input type="submit" id="btn" class="btn btn-info" value="작성하기" style="margin-bottom: 3%;">
 		</form>
 
 	</div>

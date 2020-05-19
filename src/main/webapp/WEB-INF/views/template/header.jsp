@@ -17,6 +17,46 @@
 	}
 }
 </style>
+<c:if test="${empty member.id}">
+	<div
+		style="position: fixed; bottom: 120px; left: 65%; margin-left: 400px; z-index: 10001;">
+
+
+		<div>
+			<a id="chatBotBtn" href="${pageContext.request.contextPath}/member/memberLogin"
+				style="display: block; width: 229px; height: 115px; text-align: right;">
+				<img
+				src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
+				alt="상담챗봇 창 열림" id="chatBotBtFloating"
+				style="bottom: 20px; display: block; width: 229px; height: 199px">
+			</a>
+		</div>
+	</div>
+</c:if>
+
+<c:if test="${not empty member.id}">
+	<div
+		style="position: fixed; bottom: 120px; left: 65%; margin-left: 400px; z-index: 10001;">
+
+
+		<div>
+			<a id="chatBotBtn" href="#"
+				onclick="window.open('${pageContext.request.contextPath}/echo/chatWindow','window_name','width=510,height=890,location=no,status=no,scrollbars=yes');"
+				style="display: block; width: 229px; height: 115px; text-align: right;">
+				<img
+				src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
+				alt="상담챗봇 창 열림" id="chatBotBtFloating"
+				style="bottom: 20px; display: block; width: 230px; height: 199px">
+			</a>
+		</div>
+
+<!-- 		<iframe name="cbIframe" id="cbIframe" src="" scrolling="no"
+			frameborder="0"
+			style="display: none; height: 650px; width: 400px; position: fixed; bottom: 20px; right: 120px; z-index: 9998; background: #fff;"
+			title="상담챗봇 창"></iframe> -->
+	</div>
+</c:if>
+
 
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
@@ -38,20 +78,20 @@
 
 				<div class="product_search_form rounded_input"
 					style="margin-left: 30px;">
-					<form>
+					<form action="${pageContext.request.contextPath}/product/dogList" >
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<div class="custom_select">
-									<select class="first_null">
+									<select class="fom-control" id="sel1" name="kind">
 										<option value="">모든 카테고리</option>
-										<option value="dog">강아지</option>
-										<option value="cat">고양이</option>
-										<option value="etc">기타</option>
+										<option value="pn">제품이름</option>
+										<option value="pc">제품내용</option>
+										<option value="pnum">제품번호</option>
 									</select>
 								</div>
 							</div>
 							<input class="form-control" placeholder="검색어 입력" required=""
-								type="text">
+								type="text" name="search">
 							<button type="submit" class="search_btn2">
 								<i class="fa fa-search"></i>
 							</button>
@@ -86,6 +126,9 @@
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item"
+										href="${pageContext.request.contextPath}/product/dogList">상품
+											리스트</a></li>
+									<li><a class="dropdown-item nav-link nav_item"
 										href="${pageContext.request.contextPath}/product/dogBestList">베스트</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
 										href="${pageContext.request.contextPath}/product/dogNewList">신상품</a></li>
@@ -107,7 +150,7 @@
 							href="${pageContext.request.contextPath}/member/memberCart"><i
 								class="linearicons-cart"></i><span class="cart_count">${cartCount}</span></a></li>
 					</c:if>
-					
+
 					<c:if test="${empty member}">
 						<li><a class="nav-link"
 							href="${pageContext.request.contextPath}/member/memberLogin"><i
@@ -155,5 +198,7 @@
 			</nav>
 		</div>
 	</div>
+
+
 </header>
 <!-- END HEADER -->

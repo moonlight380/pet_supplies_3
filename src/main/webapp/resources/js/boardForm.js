@@ -12,19 +12,18 @@ $("#file").on("click", ".remove", function() {
 $("#add")
 		.click(
 				function() {
-					if (count < 6) {
+					if (count < 3) {
 						$("#file")
 								.append(
 										'<div class="form-group"> <label for="file"> File :</label> <input type="file" class="form-control files" name="files"> <i class="glyphicon glyphicon-remove remove"></i> </div> ');
 						count++;
 					} else {
-						alert("파일은 최대 5개 만 가능");
+						alert("파일은 최대 3개 만 가능");
 					}
 				});
 
 $("#contents").summernote({
 	height : 300,
-	width : 300,
 	callbacks : {
 		onImageUpload : function(files, editor) {
 

@@ -13,7 +13,6 @@
 .footersubbtn {
 	height: 100%;
 }
-
 </style>
 
 
@@ -21,6 +20,8 @@
 <body style="background-color: #fffff0">
 
 	<c:import url="./template/header.jsp"></c:import>
+
+
 
 	<!-- START SECTION BANNER -->
 	<div id="carouselExampleFade" class="carousel slide carousel-fade"
@@ -67,7 +68,7 @@
 								src="${pageContext.request.contextPath}/resources/images/singleb1.png"
 								alt="shop_banner_img1" />
 							<div class="single_banner_info">
-<!-- 								<h5 class="single_bn_title1">Super Sale</h5>
+								<!-- 								<h5 class="single_bn_title1">Super Sale</h5>
 								<h3 class="single_bn_title">New Collection</h3>
 								<a href="shop-left-sidebar.html" class="single_bn_link">Shop
 									Now</a> -->
@@ -80,7 +81,7 @@
 								src="${pageContext.request.contextPath}/resources/images/singleb2.png"
 								alt="shop_banner_img2" />
 							<div class="single_banner_info">
-<!-- 								<h3 class="single_bn_title">New Season</h3>
+								<!-- 								<h3 class="single_bn_title">New Season</h3>
 								<h4 class="single_bn_title1">Sale 40% Off</h4>
 								<a href="shop-left-sidebar.html" class="single_bn_link">Shop
 									Now</a> -->
@@ -148,8 +149,7 @@
 														<span>35% Off</span>
 													</div>
 												</div>
-												<div class="rating_wrap">
-												</div>
+												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
@@ -177,7 +177,7 @@
 													</ul>
 												</div>
 											</div>
-											
+
 											<div class="product_info">
 												<h6 class="product_title">
 													<a href="shop-product-detail.html">상품2</a>
@@ -189,14 +189,13 @@
 														<span>35% Off</span>
 													</div>
 												</div>
-												<div class="rating_wrap">
-												</div>
+												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-											
+
 											</div>
 										</div>
 									</div>
@@ -230,8 +229,7 @@
 														<span>35% Off</span>
 													</div>
 												</div>
-												<div class="rating_wrap">
-												</div>
+												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
@@ -271,14 +269,13 @@
 														<span>35% Off</span>
 													</div>
 												</div>
-												<div class="rating_wrap">
-												</div>
+												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-						
+
 											</div>
 										</div>
 									</div>
@@ -312,14 +309,13 @@
 														<span>35% Off</span>
 													</div>
 												</div>
-												<div class="rating_wrap">
-												</div>
+												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-											
+
 											</div>
 										</div>
 									</div>
@@ -353,14 +349,13 @@
 														<span>35% Off</span>
 													</div>
 												</div>
-												<div class="rating_wrap">
-												</div>
+												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -394,14 +389,13 @@
 														<span>35% Off</span>
 													</div>
 												</div>
-												<div class="rating_wrap">
-												</div>
+												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -435,14 +429,13 @@
 														<span>35% Off</span>
 													</div>
 												</div>
-												<div class="rating_wrap">
-												</div>
+												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>

@@ -43,6 +43,11 @@ public class ReviewService implements BoardService {
 		return reviewDAO.boardList(pager);
 	}
 
+	public List<BoardVO> pboardList(long productNum) throws Exception {
+
+		return reviewDAO.pboardList(productNum);
+	}
+
 	@Override
 	public BoardVO boardSelect(long num) throws Exception {
 		reviewDAO.hitUpdate(num);

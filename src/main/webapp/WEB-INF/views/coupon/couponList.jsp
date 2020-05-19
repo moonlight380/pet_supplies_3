@@ -12,7 +12,7 @@
 <body>
 
 <body id="popup">
-<form action="./couponSelect" method="post">
+<form action="./couponList" method="post">
   <h1 style="font-size: medium;">쿠폰 조회/적용</h1>
 <div class="content">
 
@@ -53,13 +53,35 @@
 <tbody class="center">
 
 <tr class="xans-element- xans-coupon xans-coupon-aprd xans-record-"><td><span class="txtInfo">기본배송</span></td>
-<td class="thumb"><img src="//www.gang2.co.kr/web/product/tiny/201901/31523b8ad62931f9f062951d7bb8b9f9.jpg" alt=""></td>
+<td class="thumb"><img src="../resources/dogUpload/${cart.fileName}"></td>
 <td class="left txtBreak">
-<strong>♡ 2+2 ♡ 동물농장 껌씹는하루 (블루베리) 12P</strong>
+<strong>${cart.productName}</strong>
 <div class="option"></div>
-<div class="type"><input name="ordPrice" id="ordPrice22292_1" value="7900" type="hidden"><input name="cpnDcPrice" id="cpnDcPrice22292_1" value="300" type="hidden"><input name="cpnDcPricecash" id="cpnDcPricecash22292_1" value="300" type="hidden"><input name="cpnDcPriceBasiccash" id="cpnDcPriceBasiccash22292_1" value="0" type="hidden"><input name="cpnDcPricecard" id="cpnDcPricecard22292_1" value="300" type="hidden"><input name="cpnDcPriceBasiccard" id="cpnDcPriceBasiccard22292_1" value="0" type="hidden"><input name="cpnDcPricetcash" id="cpnDcPricetcash22292_1" value="300" type="hidden"><input name="cpnDcPriceBasictcash" id="cpnDcPriceBasictcash22292_1" value="0" type="hidden"><input name="cpnDcPriceicash" id="cpnDcPriceicash22292_1" value="300" type="hidden"><input name="cpnDcPriceBasicicash" id="cpnDcPriceBasicicash22292_1" value="0" type="hidden"><input name="cpnDcPricecell" id="cpnDcPricecell22292_1" value="300" type="hidden"><input name="cpnDcPriceBasiccell" id="cpnDcPriceBasiccell22292_1" value="0" type="hidden"><input name="cpnDcPricekakaopay" id="cpnDcPricekakaopay22292_1" value="300" type="hidden"><input name="cpnDcPriceBasickakaopay" id="cpnDcPriceBasickakaopay22292_1" value="0" type="hidden"><input name="cpnDcPricepayco" id="cpnDcPricepayco22292_1" value="300" type="hidden"><input name="cpnDcPriceBasicpayco" id="cpnDcPriceBasicpayco22292_1" value="0" type="hidden"><input name="cpnDcPricedeposit" id="cpnDcPricedeposit22292_1" value="300" type="hidden"><input name="cpnDcPriceBasicdeposit" id="cpnDcPriceBasicdeposit22292_1" value="0" type="hidden"><input name="cpnDcPriceBasic" id="cpnDcPriceBasic22292_1" value="0" type="hidden"><input name="cpnSalePrice" id="cpnPrice22292_1" value="0" type="hidden"><input name="cpnMilePrice" id="cpnMilePrice22292_1" value="0" type="hidden"><input name="cpnRstPrice" id="cpnRstPrice22292_1" value="0" type="hidden"></div>
+<div class="type">
+<input name="ordPrice" id="ordPrice22292_1" value="7900" type="hidden">
+<input name="cpnDcPrice" id="cpnDcPrice22292_1" value="300" type="hidden">
+<input name="cpnDcPricecash" id="cpnDcPricecash22292_1" value="300" type="hidden">
+<input name="cpnDcPriceBasiccash" id="cpnDcPriceBasiccash22292_1" value="0" type="hidden">
+<input name="cpnDcPricecard" id="cpnDcPricecard22292_1" value="300" type="hidden">
+<input name="cpnDcPriceBasiccard" id="cpnDcPriceBasiccard22292_1" value="0" type="hidden">
+<input name="cpnDcPricetcash" id="cpnDcPricetcash22292_1" value="300" type="hidden">
+<input name="cpnDcPriceBasictcash" id="cpnDcPriceBasictcash22292_1" value="0" type="hidden">
+<input name="cpnDcPriceicash" id="cpnDcPriceicash22292_1" value="300" type="hidden">
+<input name="cpnDcPriceBasicicash" id="cpnDcPriceBasicicash22292_1" value="0" type="hidden">
+<input name="cpnDcPricecell" id="cpnDcPricecell22292_1" value="300" type="hidden">
+<input name="cpnDcPriceBasiccell" id="cpnDcPriceBasiccell22292_1" value="0" type="hidden">
+<input name="cpnDcPricekakaopay" id="cpnDcPricekakaopay22292_1" value="300" type="hidden">
+<input name="cpnDcPriceBasickakaopay" id="cpnDcPriceBasickakaopay22292_1" value="0" type="hidden">
+<input name="cpnDcPricepayco" id="cpnDcPricepayco22292_1" value="300" type="hidden">
+<input name="cpnDcPriceBasicpayco" id="cpnDcPriceBasicpayco22292_1" value="0" type="hidden">
+<input name="cpnDcPricedeposit" id="cpnDcPricedeposit22292_1" value="300" type="hidden">
+<input name="cpnDcPriceBasicdeposit" id="cpnDcPriceBasicdeposit22292_1" value="0" type="hidden">
+<input name="cpnDcPriceBasic" id="cpnDcPriceBasic22292_1" value="0" type="hidden">
+<input name="cpnSalePrice" id="cpnPrice22292_1" value="0" type="hidden">
+<input name="cpnMilePrice" id="cpnMilePrice22292_1" value="0" type="hidden">
+<input name="cpnRstPrice" id="cpnRstPrice22292_1" value="0" type="hidden"></div>
 </td>
-<td class="price right"><strong>7,900원</strong></td>
+<td class="price right"><strong>${cart.price}</strong></td>
 <td class="right">2,800원</td>
 <td class="select"><span class="txtInfo">
 <select name="cpnPrdSelect" id="coupon_select" onchange="select()">

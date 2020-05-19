@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pet.p1.cart.CartService;
+import com.pet.p1.cart.CartVO;
 import com.pet.p1.member.MemberVO;
 
 @Controller
@@ -19,6 +21,8 @@ public class CouponController {
 	
 	@Autowired
 	private CouponService couponService; 
+	@Autowired
+	private CartService cartService; 
 	
 	//-- coupon
 	@PostMapping("couponList")
@@ -30,13 +34,19 @@ public class CouponController {
 		 
 		ModelAndView mv = new ModelAndView();
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		System.out.println(memberVO.getId());
 		List<CouponVO> ar = couponService.couponList(memberVO);
+		List<CartVO> ar1 = cartService.cartList(memberVO);
 		System.out.println(ar);
+		System.out.println(ar1);
 		if(memberVO != null) {
 			mv.addObject("coupon", ar);
+			mv.addObject("cart", ar1);
 		}
 		return mv;
 	}
+	
+
+	
+	
 
 }

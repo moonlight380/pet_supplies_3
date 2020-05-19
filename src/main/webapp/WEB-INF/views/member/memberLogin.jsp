@@ -40,8 +40,8 @@
 	</a>
 	</div>
 	
-	<input style="width: 400px; margin: 0 auto;" type="text" id="id" name="id" class="form-control" placeholder="아이디 입력" required autofocus value="${cookie.cId.value}">
-	<input style="width: 400px; margin: 0 auto;" type="password" id="pw" name="pw" class="form-control mt-2 mb-2" placeholder="비밀번호 입력" required>
+	<input style="width: 400px; margin: 0 auto;" type="text" id="id" name="id" class="form-control" placeholder="아이디 입력" required autofocus value="testt0518">
+	<input style="width: 400px; margin: 0 auto;" type="password" id="pw" name="pw" class="form-control mt-2 mb-2" placeholder="비밀번호 입력" value="testt0518@@">
 		
 	<div style="margin-left: 50px;">		
 		<label class="ml-0" style="font-size: small; font-style: inherit;"> <input type="checkbox" value="remember-me">

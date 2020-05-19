@@ -35,15 +35,15 @@ public class ReviewDAO implements BoardDAO {
 		return sqlSession.selectList(NAMESPACE + "boardList", pager);
 	}
 
+	public List<BoardVO> pboardList(long productNum) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "pboardList", productNum);
+	}
+
 	@Override
 	public BoardVO boardSelect(long num) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "boardSelect", num);
 	}
-
-	public BoardVO pboardSelect(long productNum) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "pboardSelect", productNum);
-	}
-
+	
 	@Override
 	public int boardWrite(BoardVO boardVO) throws Exception {
 		return sqlSession.insert(NAMESPACE + "boardWrite", boardVO);

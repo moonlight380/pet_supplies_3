@@ -32,7 +32,7 @@
 	</select>
 	
 	<insert id="cartInsert" parameterType="CartVO">
-		insert into cart values(#{id},cart_seq.nextval,#{productNum},1)
+		insert into cart values(#{id},cart_seq.nextval,#{productNum},#{cAmount})
 	</insert>
 	
 	

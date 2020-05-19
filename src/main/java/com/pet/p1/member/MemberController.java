@@ -143,9 +143,8 @@ public class MemberController {
 			
 
 		} else {
-			
 			List<CartVO> ar = cartService.cartList(memberVO);
-			System.out.println("aas");
+			session.setAttribute("headerCart", ar);
 			mv.addObject("cart",ar);
 			mv.setViewName("member/memberCart");
 		

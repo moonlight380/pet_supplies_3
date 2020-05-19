@@ -147,6 +147,13 @@
 							</div></li>
 					</c:if>
 
+
+
+
+
+
+
+
 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
 							class="linearicons-cart"></i><span class="cart_count">
@@ -185,6 +192,11 @@
 								</p>
 							</div>
 						</div></li>
+
+
+
+
+
 
 
 					<c:if test="${not empty member}">

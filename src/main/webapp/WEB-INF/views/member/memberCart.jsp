@@ -145,8 +145,21 @@
 												 <label	for="${cart.id}${cart.cnum}_check" class="material-icons checkbox"title="${cart.id}${cart.cnum}_check">check</label>
 												 
 											</td>
-											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>${cart.productName }</td>
+											
+											
+											<td>
+												<a href="${pageContext.request.contextPath}/product/dogSelect?productNum=${cart.productNum}" target="_blank">
+													<img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;">
+												</a>
+											</td>
+											<td>
+												<a href="${pageContext.request.contextPath}/product/dogSelect?productNum=${cart.productNum}" target="_blank">
+													${cart.productName }
+												</a>
+											</td>
+											
+											
+											
 											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
 											<td>
 												<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
@@ -159,7 +172,7 @@
 												</div>
 											</td>
 
-											<td id="${cart.id}${cart.cnum}_point" name="${cart.point }"></td>
+											<td id="${cart.id}${cart.cnum}_point" name="${cart.point}"></td>
 
 											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
 											</td>

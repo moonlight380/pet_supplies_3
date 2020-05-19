@@ -25,7 +25,7 @@
 </head>
 
 <body>
-<div id="header">
+<div id="header"> <!-- 추가한부분  header reset -->
 	<c:import url="../template/header.jsp"></c:import>
 </div>
 
@@ -163,8 +163,8 @@
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
                                         <li class="add-to-cart">
-	                                        <a>
-		                                        <i class="icon-basket-loaded cart" id="${vo.productNum}" title="${productNum}"></i>
+	                                        <a>	<!-- 추가한부분 class에 cart id,data-toggle,data-target -->
+		                                        <i class="icon-basket-loaded cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal"></i>
 		                                         Add To Cart
 	                                         </a>
                                          </li>
@@ -251,9 +251,10 @@
 </div>
 <!-- END MAIN CONTENT -->
 
-<input type="text" hidden="hidden" value="${member.id}" id="memberId">
-<input type="text" hidden="hidden" value="${cartCount}" id="ccount">
 
+<!-- 추가한부분 div addCart -->
+<div id="quantityNum_amount"hidden="hidden">1</div>
+<c:import url="../cart/addCart.jsp"></c:import>
 
 
 
@@ -302,43 +303,7 @@
 <!-- scripts js --> 
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 
-<script type="text/javascript">
-	$(".cart").mouseover(function(){
-		$(".cart").css({
-			'cursor':'pointer'
-		});
-	});
-	
-	$(".cart").each(function(){
-		$(this).click(function(){
-			var id = $("#memberId").val();
-			var productNum = $(this).attr("id");
-			if(confirm("장바구니에 추가하시겠습니까?")){
-				
-			$.ajax({
-					type:"post",
-					url:"../cart/cartInsert",
-					data:{
-						productNum:productNum,
-						id:id
-					},success : function(data){
-						$.get("../member/memberCartHeader",function(data){
-							$("#header").html(data.trim());
-						});
-						
-					}
-				});  
-				
-			} else{
-				alert("no");
-			}
-			
-		});
-	});
-	
 
-
-</script>
 
 </body>
 </html>

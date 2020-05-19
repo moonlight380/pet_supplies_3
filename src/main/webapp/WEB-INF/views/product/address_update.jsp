@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
+
 <style type="text/css">
 #popClose_btn{
 margin-left: 650px;
@@ -113,6 +114,7 @@ input ,.addr_interval{
 	margin-left: 10px;
 }
 </style>
+
 <!--////////////////////////////// 스타일 끝/////////////////////// -->
 
 
@@ -122,7 +124,7 @@ input ,.addr_interval{
 <!--///////////////////////// 바디시작 ///////////////////////////////-->
 <body>
  <!-- 배송지시작 -->
-<form action="./address" method="post" id="frm" >
+<form action="./address_update" method="post" id="frm" >
 <div class="orderArea">
 	 <div class="header">
         <h1>배송 주소록 관리</h1>
@@ -141,9 +143,10 @@ input ,.addr_interval{
 			</div>
         </div>
 	</div>
-
+<!-- id -->
 <input id="id" name="id" value="${member.id}" type="hidden">
 
+<input name="addressNum" type="hidden" value="${vo.addressNum}">
 	
 	
 <div class="ec-base-table typeWrite">
@@ -156,23 +159,23 @@ input ,.addr_interval{
 <!-- 배송지명 -->
 <tr>
 <th scope="row">배송지명 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
-	<td><input id="addr_name" name="addr_name"class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+	<td><input id="addr_name" name="addr_name"class="inputTypeText" size="15" type="text" value="${vo.addr_name}"></td>
 </tr>
 
 <!-- 성명 -->
 <tr>
 <th scope="row">성명 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
-	<td><input id="rname" name="rname" class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+	<td><input id="rname" name="rname" class="inputTypeText"  size="15" type="text" value="${vo.rname}"></td>
 </tr>
 
 <!-- 주소 -->
 <tr>
 <th scope="row">주소 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
 	<td>
-		<input id="rzipcode1" name="rzipcode1" class="inputTypeText" placeholder="" size="6" maxlength="6"  value="" type="text">							
+		<input id="rzipcode1" name="rzipcode1" class="inputTypeText" size="6" maxlength="6" type="text" value="${vo.rzipcode1}">							
 		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
-		<input id="raddr1" name="raddr1" class="inputTypeText" placeholder="" size="40"  value="" type="text"> <span class="grid">기본주소</span><br>
-		<input id="raddr2" name="raddr2" class="inputTypeText" placeholder="" size="40" value="" type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
+		<input id="raddr1" name="raddr1" class="inputTypeText"  size="40" type="text" value="${vo.raddr1}"> <span class="grid">기본주소</span><br>
+		<input id="raddr2" name="raddr2" class="inputTypeText" size="40" type="text" value="${vo.raddr2}"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
 		
 <!-- 		   <input style="width: 80px;" id="postcode1" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" value="우편번호" type="text">
 			   <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
@@ -189,7 +192,7 @@ input ,.addr_interval{
 <th scope="row">일반전화 <span class="displaynone"></span>
 </th>
 	<td>
-		<select  class="addr_interval"id="rphone1_1" name="rphone1_1">
+		<select class="addr_interval"id="rphone1_1" name="rphone1_1" value="${vo.rphone1_1}">
 			<option value="02">02</option>
 			<option value="031">031</option>
 			<option value="032">032</option>
@@ -222,8 +225,8 @@ input ,.addr_interval{
 			<option value="019">019</option>
 			<option value="0508">0508</option>
 	</select>
-	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" value="" type="text">
-	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" value="" type="text">
+	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text" value="${vo.rphone1_2}">
+	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text" value="${vo.rphone1_3}">
 	</td>
 </tr>
 
@@ -231,7 +234,7 @@ input ,.addr_interval{
 <tr class="">
 <th scope="row">휴대전화 <span class=""><img src="/p1/resources/images/ico_required.gif" alt="필수"></span>
 </th>
-	<td><select  class="addr_interval tel" id="rphone2_1" name="rphone2_1">
+	<td><select  class="addr_interval tel" id="rphone2_1" name="rphone2_1" value="${vo.rphone2_1}">
 		<option value="010">010</option>
 		<option value="011">011</option>
 		<option value="016">016</option>
@@ -239,10 +242,10 @@ input ,.addr_interval{
 		<option value="018">018</option>
 		<option value="019">019</option>
 		</select>
-			-<input id="rphone2_2" name="rphone2_2" maxlength="4" size="4" value="" type="text">
-			-<input id="rphone2_3" name="rphone2_3" maxlength="4" size="4" value="" type="text">	
+			-<input id="rphone2_2" name="rphone2_2" maxlength="4" size="4" type="text" value="${vo.rphone2_2}">
+			-<input id="rphone2_3" name="rphone2_3" maxlength="4" size="4" type="text" value="${vo.rphone2_3}">	
 	<span id="mobile"></span>
-	<input id="phoneAll" type="text" hidden="" value="" name="phone"></td>
+	<input id="phoneAll" type="text" name="phone"></td>
 </tr>
 </tbody>
 			
@@ -255,31 +258,11 @@ input ,.addr_interval{
 <br>
 <br>
 
-<input type="button" class="button tel" id="validationBtn" value="전송">
+<input type="button" class="button tel validationBtn" value="전송">
 </form>
+
 <a href="./address_list"><input type="button" class="button"value="취소"></a>  
 <input type="button" class="button" value="창닫기" onclick="window.close()"> 
-
-
-    
-<!-- 스크립트 자식창->부모창으로 전달해줄 내용 -->   
-<script type="text/javascript">
-        function setParentText(){
-             opener.document.getElementById("addr_name").value = document.getElementById("addr_name").value
-             opener.document.getElementById("rname").value = document.getElementById("rname").value
-             opener.document.getElementById("rzipcode1").value = document.getElementById("rzipcode1").value
-             opener.document.getElementById("raddr1").value = document.getElementById("raddr1").value
-             opener.document.getElementById("raddr2").value = document.getElementById("raddr2").value
-             opener.document.getElementById("rphone1_1").value = document.getElementById("rphone1_1").value
-             opener.document.getElementById("rphone1_2").value = document.getElementById("rphone1_2").value
-             opener.document.getElementById("rphone1_3").value = document.getElementById("rphone1_3").value
-             opener.document.getElementById("rphone2_1").value = document.getElementById("rphone2_1").value
-             opener.document.getElementById("rphone2_2").value = document.getElementById("rphone2_2").value  
-             opener.document.getElementById("rphone2_3").value = document.getElementById("rphone2_3").value
-        }
-</script>
-
-
 
 
 
@@ -373,7 +356,7 @@ function sample6_execDaumPostcode() {
 	
 /*빈칸 유효성 검사*/
 
- $("#validationBtn").click(function(){
+ $(".validationBtn").click(function(){
  if ($("#addr_name").val() == "") {
  	alert("배송지명을 정확히 입력해주세요");
  	return;

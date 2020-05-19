@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/boot.jsp"></c:import>
 
 <style type="text/css">
 .button{
@@ -38,6 +41,9 @@
     padding: 0 8px;
     vertical-align: middle;
     font-weight: normal;
+}
+.gray{
+	color: gray;
 }
 .ec-base-layer .content {
     padding: 20px;
@@ -85,7 +91,6 @@ body, code {
     border-bottom: 1px solid #dedede;
     border-top: 1px solid #dedede;
     border-top: 0;
-
     line-height: 1.5;
 }
 
@@ -189,8 +194,9 @@ div.ec-base-help ul li {
 .div_line{
 	border: 1px solid #efefef;
 }
-h2{
+h2, h1{
 	margin-left: 20px;	
+	font-size: 20px;
 }
 
 </style>
@@ -198,37 +204,6 @@ h2{
 
 
 
-<!-- //////////////////////자바스크립트 시작/////////////////// -->
-    <script type="text/javascript">
-    
-        function openAddress()
-        {
-            // window.name = "부모창 이름"; 
-            window.name = "parentForm";
-            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-            window.open("./address",
-                    "childForm", "width=700, height=700, resizable = no, scrollbars = no");    
-        }
- 
-   </script>
-   
-<script type="text/javascript">
-        function setParentText(){
-             /* opener.document.getElementById("addr_name").value = document.getElementById("addr_name").value  */
-             opener.document.getElementById("rname").value = document.getElementById("rname").value
-            /*  opener.document.getElementById("rzipcode1").value = document.getElementById("rzipcode1").value
-             opener.document.getElementById("raddr1").value = document.getElementById("raddr1").value
-             opener.document.getElementById("raddr2").value = document.getElementById("raddr2").value
-             opener.document.getElementById("rphone1_1").value = document.getElementById("rphone1_1").value
-             opener.document.getElementById("rphone1_2").value = document.getElementById("rphone1_2").value
-             opener.document.getElementById("rphone1_3").value = document.getElementById("rphone1_3").value
-             opener.document.getElementById("rphone2_1").value = document.getElementById("rphone2_1").value
-             opener.document.getElementById("rphone2_2").value = document.getElementById("rphone2_2").value  
-             opener.document.getElementById("rphone2_3").value = document.getElementById("rphone2_3").value  */
-        }
-</script>
-
-<!-- //////////////////////자바스크립트 시작/////////////////// -->
 </head>
 
 <!-- 바디시작 -->
@@ -268,7 +243,9 @@ h2{
 					</colgroup>
 <tbody class="head">
 					<tr>
-<td scope="col"><span class=""><input id="allCheck" onclick="setParentText()" value="" type="checkbox"></span></td>
+<td scope="col">
+<!-- <span class=""><input id="allCheck" value="" type="checkbox"></span> -->
+</td>
                         <td scope="col">주소록 고정</td>
 						<td scope="col">배송지명</td>
                         <td scope="col">수령인</td>
@@ -278,42 +255,73 @@ h2{
                         <td scope="col">배송지관리</td>
                     </tr>
                     
-<tr><!-- 성명 테스트 -->
-<td><input id="rname" name="rname" fw-filter="isFill" fw-label="수취자 성명" fw-msg="" class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
-</tr>
+              <c:forEach items="${list}" var="vo" varStatus="i">   
+					<tr>
+						<td scope="col">
+						</td>
+                        <td scope="col"><input type="button" class="button addr_button gray" value="고정"></td>
+                        
+						<td scope="col">${vo.addr_name}</td>
+						
+                        <td scope="col" id="rname${i.index}">${vo.rname}</td>
+                        
+                        <td scope="col" ><span id="rphone1_1${i.index}">${vo.rphone1_1}</span>                        
+                        -<span id="rphone1_2${i.index}">${vo.rphone1_2}</span>                        
+                        -<span id="rphone1_3${i.index}">${vo.rphone1_3}</span>
+                        
+                        </td>
+                        <td scope="col"><span id="rphone2_1${i.index}">${vo.rphone2_1}</span>
+                        
+                        -<span id="rphone2_2${i.index}">${vo.rphone2_2}</span>
+                        
+                        -<span id="rphone2_3${i.index}">${vo.rphone2_3}</span></td>
+                        
+                        <td scope="col">
+                        (<span id="rzipcode1${i.index}">${vo.rzipcode1}</span>)
+                        <span id="rddr1${i.index}">${vo.raddr1}</span>
+                        
+                        <span id="rddr2${i.index}">${vo.raddr2}</span></td>
+                        
+                        <td scope="col"><a href="./address_update?addressNum=${vo.addressNum}"><input type="button" class="button addr_button updateBtn" title="${vo.addressNum}" value="수정"></a>
+                        <input type="button" class="button addr_button" value="삭제">
+                        <input type="button" class="button .attr_set_spacebtn" value="전송" onclick="setParentText(${i.index})"></td>
+                    </tr>
+                    
+               </c:forEach>
 
 </tbody>
 			</table>
-<div class="scroll">
-         <table border="1" summary="">
-			<colgroup>
-			<col style="width:27px">
-			<col style="width:80px">
-			<col style="width:100px">
-			<col style="width:90px">
-			<col style="width:100px">
-			<col style="width:100px">
-			<col style="width:auto">
-			<col style="width:70px">
-			</colgroup>
-			<tbody class=" center">
-			
-			</tbody>
-			<tbody class="displaynone"><tr>
-			<td colspan="8" class="message">등록된 주소가 없습니다.</td>
-			                        </tr>
-			</tbody>
-		</table>
-</div>
+
         </div>
     </div>
+<!-- //////////////////////자식->부모로 값전달하기 자바스크립트 시작/////////////////// -->
+     
+<script type="text/javascript">
+        function setParentText(num){
+             opener.document.getElementById("rname").value = document.getElementById("rname"+num).innerText//$("").text()        
+             opener.document.getElementById("rzipcode1").value = document.getElementById("rzipcode1"+num).innerText
+             opener.document.getElementById("raddr1").value = document.getElementById("raddr1"+num).innerText
+             opener.document.getElementById("raddr2").value = document.getElementById("raddr2"+num).innerText
+             opener.document.getElementById("rphone1_1").value = document.getElementById("rphone1_1"+num).innerText
+             opener.document.getElementById("rphone1_2").value = document.getElementById("rphone1_2"+num).innerText
+             opener.document.getElementById("rphone1_3").value = document.getElementById("rphone1_3"+num).innerText
+             opener.document.getElementById("rphone2_1").value = document.getElementById("rphone2_1"+num).innerText
+             opener.document.getElementById("rphone2_2").value = document.getElementById("rphone2_2"+num).innerText 
+             opener.document.getElementById("rphone2_3").value = document.getElementById("rphone2_3"+num).innerText
+        
+             close();
+        }
+        
+</script>
+
+<!-- //////////////////////자식->부모로 값전달하기 자바스크립트 끝/////////////////// -->
 <div class="ec-base-button">
 <!-- 		<a href="#none" onclick="myshopAddr.deleteAddress(); return false;" class="btn_pop btncolor_basic "><span>선택 주소록 삭제</span></a> -->
 		<br>
 		<a href="./address" class="btn_pop btncolor_subordinate .attr_set_spacebtn"><span>배송지 등록</span></a>
 		<br>
 		<br>
-		<input type="button" class="button .attr_set_spacebtn" value="전송" onclick="setParentText()">
+		
 		
 </div>
 
@@ -327,7 +335,13 @@ h2{
 
 <!-- External Script End -->
 
+<!-- <script type="text/javascript">
+$(".updateBtn").click(function(){
+	var input= $(this).attr("title");
+	location.href="./address_update?addressNum="+input;
+});
 
-<iframe src="/exec/front/eclog/main/?&amp;rloc=https%3A//gang2.co.kr/myshop/addr_popup/list.html&amp;rref=https%3A//gang2.co.kr/myshop/addr_popup/register.html&amp;udim=1920*1080&amp;rserv=eclog2-094.cafe24.com&amp;cid=CID05101aaccd477c6be539d17f474036f2&amp;role_path=MYSHOP_ADDR_LIST&amp;stype=e&amp;shop_no=1&amp;lang=ko_KR&amp;ver=2" id="log_realtime" style="display: none;"></iframe><script src="https://eclog2-094.cafe24.com/weblog_ubp.html?uid=gang2yang2&amp;udim=1920*1080&amp;uref=https://gang2.co.kr/myshop/addr_popup/register.html&amp;uname=gang2yang2&amp;url=https://gang2.co.kr/myshop/addr_popup/list.html&amp;r_ref=https://gang2.co.kr/myshop/addr_popup/register.html&amp;shop_no=1&amp;t=1589764749075"></script><script type="text/javascript" src="//eclog2-094.cafe24.com/weblog.js?uid=gang2yang2&amp;uname=gang2yang2&amp;r_ref=https://gang2.co.kr/myshop/addr_popup/register.html&amp;shop_no=1&amp;t=1589764749075" id="log_script"></script></body>
+
+</script> -->
 </body>
 </html>

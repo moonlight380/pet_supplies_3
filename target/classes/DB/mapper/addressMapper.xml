@@ -12,4 +12,29 @@
   (address_seq.nextval,#{id},#{addr_name},#{rname},#{rzipcode1},#{raddr1},#{raddr2},#{rphone1_1},#{rphone1_2},#{rphone1_3},
   #{rphone2_1},#{rphone2_2},#{rphone2_3},0)
   </insert>
+  
+  
+  
+  <!-- address_list -->
+  <select id="address_list" parameterType="AddressVO" resultType="AddressVO">
+	select * from address order by addressNum desc
+  </select>
+ 
+ 
+ 
+ <!-- address_select -->
+	 <select id="address_select" parameterType="Long" resultType="AddressVO">
+	 select * from address where addressNum=#{addressNum} 
+	 </select>
+ 
+ 
+  <!-- address_update -->
+  <update id="address_update" parameterType="AddressVO">
+  UPDATE address set addr_name=#{addr_name},rname=#{rname},rzipcode1=#{rzipcode1},raddr1=#{raddr1},raddr2=#{raddr2},
+  rphone1_1=#{rphone1_1},rphone1_2=#{rphone1_2},rphone1_3=#{rphone1_3},
+  rphone2_1=#{rphone2_1},rphone2_2=#{rphone2_2},rphone2_3=#{rphone2_3},id=#{id}
+  where addressNum=#{addressNum}
+  
+  </update>
+  
   </mapper>

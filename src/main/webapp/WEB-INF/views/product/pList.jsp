@@ -40,7 +40,7 @@
             window.name = "parentForm";
             // window.open("open할 window", "자식창 이름", "팝업창 옵션");
             window.open("./address_list",
-                    "childForm", "width=700, height=700, resizable = no, scrollbars = no");    
+                    "childForm", "width=1000, height=700, resizable = no, scrollbars = no");    
         }
  
    </script>
@@ -68,10 +68,10 @@
 	<th scope="row">배송지 선택</th>
 		<td>
 			<div class="address">
-				<input id="sameaddr0" name="sameaddr" fw-filter="" fw-label="1" fw-msg="" value="T" type="radio"><label for="sameaddr0">주문자 정보와 동일</label>
-				<input id="sameaddr1" name="sameaddr" fw-filter="" fw-label="1" fw-msg="" value="F" type="radio"><label for="sameaddr1">새로운배송지</label>	
+				<input id="sameaddr0" name="sameaddr" type="radio"><label for="sameaddr0">주문자 정보와 동일</label>
+				<input id="sameaddr1" name="sameaddr" type="radio"><label for="sameaddr1">새로운배송지</label>	
 					<span class="recent ec-shop-RecentDelivery ">
-					최근 배송지 : <input id="recent_delivery_info0" name="recent_delivery_info" fw-filter="" fw-label="배송지" fw-msg="" value="50533" type="radio">
+					최근 배송지 : <input id="recent_delivery_info0" name="recent_delivery_info" type="radio">
 						
 					</span>
 
@@ -83,17 +83,17 @@
 <!-- 성명 -->
 <tr>
 <th scope="row">받으시는 분 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
-	<td><input id="rname" name="rname" fw-filter="isFill" fw-label="수취자 성명" fw-msg="" class="inputTypeText" placeholder="" size="15" value="" type="text"></td>
+	<td><input id="rname" name="rname" class="inputTypeText"  size="15" type="text"></td>
 </tr>
 
 <!-- 주소 -->
 <tr>
 <th scope="row">주소 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
 	<td>
-		<input id="rzipcode1" name="rzipcode1" fw-filter="isFill" fw-label="수취자 우편번호1" fw-msg="" class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" value="" type="text">							
+		<input id="rzipcode1" name="rzipcode1"  class="inputTypeText" placeholder="" size="6" maxlength="6" readonly="1" type="text">							
 		<a href="#none" id="btn_search_rzipcode" class="btn_function btncolor_basic"><span class="btn addr_button">우편번호</span></a><br>
-		<input id="raddr1" name="raddr1" fw-filter="isFill" fw-label="수취자 주소1" fw-msg="" class="inputTypeText" placeholder="" size="40" readonly="1" value="" type="text"> <span class="grid">기본주소</span><br>
-		<input id="raddr2" name="raddr2" fw-filter="" fw-label="수취자 주소2" fw-msg="" class="inputTypeText" placeholder="" size="40" value="" type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
+		<input id="raddr1" name="raddr1" class="inputTypeText" placeholder="" size="40" readonly="1" type="text"> <span class="grid">기본주소</span><br>
+		<input id="raddr2" name="raddr2" class="inputTypeText" placeholder="" size="40" type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
 	</td>
 </tr>
 
@@ -102,7 +102,7 @@
 <th scope="row">일반전화 <span class="displaynone"></span>
 </th>
 	<td>
-		<select id="rphone1_1" name="rphone1_[]" fw-filter="isNumber" fw-label="수취자 전화번호" fw-alone="N" fw-msg="">
+		<select id="rphone1_1" name="rphone1_1" >
 			<option value="02">02</option>
 			<option value="031">031</option>
 			<option value="032">032</option>
@@ -134,7 +134,9 @@
 			<option value="018">018</option>
 			<option value="019">019</option>
 			<option value="0508">0508</option>
-	</select>-<input id="rphone1_2" name="rphone1_[]" maxlength="4" fw-filter="isNumber" fw-label="수취자 전화번호" fw-alone="N" fw-msg="" size="4" value="" type="text">-<input id="rphone1_3" name="rphone1_[]" maxlength="4" fw-filter="isNumber" fw-label="수취자 전화번호" fw-alone="N" fw-msg="" size="4" value="" type="text">
+	</select>
+	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text">
+	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text">
 	</td>
 </tr>
 
@@ -142,7 +144,7 @@
 <tr class="">
 <th scope="row">휴대전화 <span class=""><img src="/p1/resources/images/ico_required.gif" alt="필수"></span>
 </th>
-	<td><select id="rphone2_1" name="rphone2_[]" fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="">
+	<td><select id="rphone2_1" name="rphone2_1">
 		<option value="010">010</option>
 		<option value="011">011</option>
 		<option value="016">016</option>
@@ -150,8 +152,8 @@
 		<option value="018">018</option>
 		<option value="019">019</option>
 		</select>
-			-<input id="rphone2_2" name="rphone2_[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="" size="4" value="" type="text">
-			-<input id="rphone2_3" name="rphone2_[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="수취자 핸드폰번호" fw-alone="N" fw-msg="" size="4" value="" type="text">
+			-<input id="rphone2_2" name="rphone2_2" maxlength="4" size="4" type="text">
+			-<input id="rphone2_3" name="rphone2_3" maxlength="4" size="4"  type="text">
 	</td>
 </tr>
 </tbody>
@@ -164,9 +166,10 @@
 </th>
 
 	<td>
-		<textarea id="omessage" name="omessage" fw-filter="isFill" fw-label="배송 메세지" fw-msg="" maxlength="255" cols="70"></textarea>							
+		<textarea id="omessage" name="omessage" maxlength="255" cols="70"></textarea>							
 		<div class="devMessage ">
-			<label><input id="omessage_autosave0" name="omessage_autosave[]" fw-filter="" fw-label="배송 메세지 저장" fw-msg="" value="T" type="checkbox"><label for="omessage_autosave0"></label>Q&amp;A 자동저장</label>
+			<label><input id="omessage_autosave0" name="omessage_autosave[]"fw-label="배송 메세지 저장" fw-msg="" value="T" type="checkbox">
+			<label for="omessage_autosave0"></label>Q&amp;A 자동저장</label>
 				<ul class="gIndent5">
 					<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주십시오.</li>
 					<li>게시글은 비밀글로 저장되며 비밀번호는 주문번호 뒷자리로 자동 저장됩니다.</li>

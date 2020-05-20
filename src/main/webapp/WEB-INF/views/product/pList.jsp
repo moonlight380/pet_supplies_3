@@ -13,19 +13,213 @@
 <meta name="description" content="Shopwise is Powerful features and You Can Use The Perfect Build this Template For Any eCommerce Website. The template is built for sell Fashion Products, Shoes, Bags, Cosmetics, Clothes, Sunglasses, Furniture, Kids Products, Electronics, Stationery Products and Sporting Goods.">
 <meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
 
-
-
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
-
-
-
-
+<style type="text/css">
+.addr_button{
+	color: #323232;
+    background: #ffffff;
+    border: 1px solid #cbcbcb;
+    min-width: 20px;
+    height: 26px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+</style>
+    <script type="text/javascript">
+    
+        function openAddressList()
+        {
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            window.open("./address_list",
+                    "childForm", "width=1000, height=700, resizable = no, scrollbars = no");    
+        }
+ 
+   </script>
 </head>
+<!-- --------------------------------------------------바디시작--------------------------------------------- -->
+ <body>
+ <!-- 배송지시작 -->
+<div class="orderArea">
+	<div class="title">
+		<h3>배송 정보</h3>
+				<p class="required"><img src="/p1/resources/images/ico_required.gif" alt="필수"> 필수입력사항</p>
+	</div>
+<div class="ec-base-table typeWrite">
+	<table border="1" summary="">
+		<caption>배송 정보 입력</caption>
+		<colgroup>
+			<col style="width:139px;">
+			<col style="width:auto;">
+		</colgroup>
+		
 
-<body>
-<c:import url="../template/header.jsp"></c:import>
+<!-- 국내 배송지 정보 -->
+<tbody class="">
+<tr class="">
+	<th scope="row">배송지 선택</th>
+		<td>
+			<div class="address">
+				<input id="sameaddr0" name="sameaddr" type="radio"><label for="sameaddr0">주문자 정보와 동일</label>
+				<input id="sameaddr1" name="sameaddr" type="radio"><label for="sameaddr1">새로운배송지</label>	
+					<span class="recent ec-shop-RecentDelivery ">
+					최근 배송지 : <input id="recent_delivery_info0" name="recent_delivery_info" type="radio">
+						
+					</span>
+
+					<input type="button" id="btn_shipp_addr" class="btn addr_button" onclick="openAddressList()" value="주소록보기">
+			</div>
+		</td>
+</tr>
+
+<!-- 성명 -->
+<tr>
+<th scope="row">받으시는 분 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
+	<td><input id="rname" name="rname" class="inputTypeText" size="15" type="text"></td>
+</tr>
+
+<!-- 주소 -->
+<tr>
+<th scope="row">주소 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
+	<td>
+		<input id="rzipcode1" name="rzipcode1"  class="inputTypeText" size="6" maxlength="6" readonly="1" type="text">							
+		<a href="#none" id="btn_search_rzipcode" class="btn_function btncolor_basic"><span class="btn addr_button">우편번호</span></a><br>
+		<input id="raddr1" name="raddr1" class="inputTypeText" size="40" type="text"> <span class="grid">기본주소</span><br>
+		<input id="raddr2" name="raddr2" class="inputTypeText" size="40" type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
+	</td>
+</tr>
+
+<!-- 일반전화 -->
+<tr class="">
+<th scope="row">일반전화 <span class="displaynone"></span>
+</th>
+	<td>
+		<select id="rphone1_1" name="rphone1_1" >
+			<option value="02">02</option>
+			<option value="031">031</option>
+			<option value="032">032</option>
+			<option value="033">033</option>
+			<option value="041">041</option>
+			<option value="042">042</option>
+			<option value="043">043</option>
+			<option value="044">044</option>
+			<option value="051">051</option>
+			<option value="052">052</option>
+			<option value="053">053</option>
+			<option value="054">054</option>
+			<option value="055">055</option>
+			<option value="061">061</option>
+			<option value="062">062</option>
+			<option value="063">063</option>
+			<option value="064">064</option>
+			<option value="0502">0502</option>
+			<option value="0503">0503</option>
+			<option value="0504">0504</option>
+			<option value="0505">0505</option>
+			<option value="0506">0506</option>
+			<option value="0507">0507</option>
+			<option value="070">070</option>
+			<option value="010">010</option>
+			<option value="011">011</option>
+			<option value="016">016</option>
+			<option value="017">017</option>
+			<option value="018">018</option>
+			<option value="019">019</option>
+			<option value="0508">0508</option>
+	</select>
+	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text">
+	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text">
+	</td>
+</tr>
+
+<!-- 휴대전화 -->
+<tr class="">
+<th scope="row">휴대전화 <span class=""><img src="/p1/resources/images/ico_required.gif" alt="필수"></span>
+</th>
+	<td><select id="rphone2_1" name="rphone2_1">
+		<option value="010">010</option>
+		<option value="011">011</option>
+		<option value="016">016</option>
+		<option value="017">017</option>
+		<option value="018">018</option>
+		<option value="019">019</option>
+		</select>
+			-<input id="rphone2_2" name="rphone2_2" maxlength="4" size="4" type="text">
+			-<input id="rphone2_3" name="rphone2_3" maxlength="4" size="4"  type="text">
+	</td>
+</tr>
+</tbody>
+
+
+<!-- 국내 배송관련 정보 -->
+<tbody class="delivery ">
+<tr class="">
+<th scope="row">배송메시지 <span class=""><img src="/p1/resources/images/ico_required.gif" alt="필수"></span>
+</th>
+
+	<td>
+		<textarea id="omessage" name="omessage" maxlength="255" cols="70"></textarea>							
+		<div class="devMessage ">
+			<label><input id="omessage_autosave0" name="omessage_autosave[]"fw-label="배송 메세지 저장" fw-msg="" value="T" type="checkbox">
+			<label for="omessage_autosave0"></label>Q&amp;A 자동저장</label>
+				<ul class="gIndent5">
+					<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주십시오.</li>
+					<li>게시글은 비밀글로 저장되며 비밀번호는 주문번호 뒷자리로 자동 저장됩니다.</li>
+				</ul>
+		</div>
+	</td>
+</tr>
+
+</tbody>
+
+				
+</table> <!-- END border="1" summary="" -->
+</div> <!-- eEND class="ec-base-table typeWrite" -->
+		</div> <!-- END class="orderArea" -->
+
+<!-- 배송지 끝 -->
+
+<!--    <br>
+    <b><font size="5" color="gray">부모창</font></b>
+    <br><br>
+       배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
+       성명: <input type="text" id="name" name="name"/> <br/>
+       주소: <input type="text" id="adressInput" name="adressInput"/> <br/>
+       일반전화: <input type="tel" id="homePhone" name="homePhone"/> <br/>
+        휴대전화: <input type="tel" id="phone" name="phone"/>
+    <input type="button" value="자식창 열기" onclick="openAddress()"><br>
+
+
+
+
+팝업창  띄우기
+<script type="text/javascript">
+	var openWin;
+$("#address_management").click(function(){
+	var popUrl = "./address";	//팝업창에 출력될 페이지 URL
+
+	var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
+	//크롬에서는 속성값이 먹지 않음
+	openWin=window.open(popUrl ,"address_management",popOption);
+		
+});
+
+
+	
+</script> -->
+
+<!--주소록팝업창띄우기끝 =============================================================================================== -->
+
+
+
 
 <!-- LOADER -->
 <div class="preloader">
@@ -149,7 +343,21 @@
                             
                             <div class="product_header_right">
                             	<div class="products_view">
-                            	 	<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+                            	 <a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>		
+<!--admin 계정만 write 버튼이 보일 수 있도록// css 깨짐 ------------------------------------------------------------------------------------------------------------------------ -->
+							
+<%-- 					 	<c:catch>
+								<c:if test="${member.id eq 'admin' }">
+								<div>
+									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+									</div>
+								</c:if>
+						</c:catch>
+						</div> 
+							  --%>
+					                                   
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->                                  
+
                                     <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
                                     <a href="javascript:Void(0);" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>
                                 </div>

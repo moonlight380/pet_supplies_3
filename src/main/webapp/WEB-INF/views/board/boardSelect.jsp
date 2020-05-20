@@ -38,7 +38,7 @@
 
 								<blockquote class="blockquote_style3">
 									<p>${vo.contents}</p>
-									<c:forEach items="${vo.boardFileVOs}" var="boardfile">
+ 									<c:forEach items="${vo.boardFileVOs}" var="boardfile">
 										<div>
 											<img alt="" src="../resources/${board}Upload/${boardfile.fileName}">
 										</div>

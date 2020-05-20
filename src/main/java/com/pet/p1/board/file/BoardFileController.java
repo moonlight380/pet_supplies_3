@@ -18,7 +18,7 @@ public class BoardFileController {
 	private BoardFileService boardFileService;
 
 	@PostMapping("fileDelete")
-	@ResponseBody
+	//@ResponseBody
 	public int fileDelete(BoardFileVO boardFileVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = boardFileService.fileDelete(boardFileVO);

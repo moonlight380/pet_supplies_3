@@ -39,30 +39,30 @@
 					name="contents"></textarea>
 			</div>
 
-			<input type="button" id="add" class="btn btn-info" value="AddFile" style="margin-left: 88%;">
+			<input type="button" id="add" class="btn btn-info" value="AddFile">
 			<div id="file"></div>
 
-			<div class="form-group" style="margin-left: 88%;" >
+			<div class="form-group">
 				<label for="contents">Files:</label>
 				<c:catch>
 					<c:forEach items="${vo.boardFileVOs}" var="fileVO">
 						<p id="pdel">${fileVO.oriName}<i id="${fileVO.fileNum}"
 								title="${fileVO.board}"
-								class="glyphicon glyphicon-remove remove fileDelete"></i>
+								class="fas fa-paw remove fileDelete"></i>
 						</p>
 					</c:forEach>
 				</c:catch>
 
 			</div>
 
-			<input type="submit" id="btn" class="btn btn-danger" value="수정완료" style="margin-bottom: 3%; margin-left: 88%;">
+			<input type="submit" id="btn" class="btn btn-danger" value="수정완료" style="margin-bottom: 3%;">
 		</form>
 
 	</div>
 
 
-	<script type="text/javascript" src="../resources/js/boardForm.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="../resources/script/boardForm.js"></script>
+ 	<script type="text/javascript">
 	
 	var size = ${size};
 	size = ${vo.boardFileVOs.size()};

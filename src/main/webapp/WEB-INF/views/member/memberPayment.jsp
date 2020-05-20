@@ -67,6 +67,7 @@
 
 
 										<th scope="col">합계</th>
+										
 
 
 									</tr>

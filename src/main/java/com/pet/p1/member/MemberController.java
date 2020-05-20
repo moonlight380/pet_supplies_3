@@ -53,9 +53,22 @@ public class MemberController {
 
 	
 	@GetMapping("memberOrderInfo")
-	public void memberOrder()throws Exception{
+	public void memberOrderInfo()throws Exception{
 		
 	}
+	@GetMapping("memberOrder")
+	public ModelAndView memberOrder(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		ModelAndView mv = new ModelAndView();
+		OrderVO orderVO = new OrderVO();
+		
+		orderVO = orderService.orderSelectOne(memberVO);
+		
+		mv.addObject("order",orderVO);
+		mv.setViewName("member/memberOrder");
+		return mv;
+	}
+	
 	@GetMapping("memberCartHeader")
 	public void memberCartHeader()throws Exception{
 		
@@ -80,9 +93,7 @@ public class MemberController {
 	
 	@PostMapping("memberPayment")
 	@ResponseBody
-	public int memberPayment(OrderVO orderVO,HttpSession session)throws Exception{
-		session.setAttribute("order", orderVO); 
-		/* session.setAttribute("order", null); */
+	public int memberPayment(OrderVO orderVO)throws Exception{
 		
 		
 		

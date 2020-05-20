@@ -21,6 +21,7 @@
   		<typeAlias type="com.pet.p1.review.ReviewVO" alias="ReviewVO"/>
 
   		<typeAlias type="com.pet.p1.cart.CartVO" alias="CartVO"/>
+  		<typeAlias type="com.pet.p1.order.OrderVO" alias="OrderVO"/>
   		
 
   		

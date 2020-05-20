@@ -11,7 +11,7 @@ public class OrderVO {
 	private Date pDate;
 	private long coupon;
 	private String charge;
-	private long orNum;
+	
 	public long getOrderNum() {
 		return orderNum;
 	}
@@ -48,11 +48,6 @@ public class OrderVO {
 	public void setCharge(String charge) {
 		this.charge = charge;
 	}
-	public long getOrNum() {
-		return orNum;
-	}
-	public void setOrNum(long orNum) {
-		this.orNum = orNum;
-	}
+
 	
 }

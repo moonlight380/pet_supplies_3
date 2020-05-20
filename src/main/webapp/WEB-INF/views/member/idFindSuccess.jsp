@@ -15,7 +15,7 @@
 
 <div class="container">
 
-<div class="path" style="display: block; float: right; position: relative; height: auto;">
+<div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">
 	<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
 		<li style="display: inline;"><a href="${pageContext.request.contextPath}/member/memberLogin">로그인 > </a></li>
 		<li style="display: inline;" title="현재 위치"><strong>아이디 찾기</strong></li>
@@ -23,11 +23,11 @@
 </div>
 
 
-<div style="margin-top: 100px; text-align: center; border: 1px solid red; display: block; border-bottom: 3px solid black;">
+<div style="text-align: center; display: block; border-bottom: 3px solid black;height: 100px; margin-top: 50px;">
 <h1 style=" margin-top: 50px; font-weight: bold; font-size: 36px; margin-bottom: 15px;">아이디 찾기</h1>
 </div>
-<div style="border: 1px solid #d7d5d5; height: 400px;">
-<div style="border: 1px solid black; width: 400px; height:100%; margin: 0 auto; text-align: center;">
+<div style="height: 400px;">
+<div style=" width: 400px; height:100%; margin: 0 auto; text-align: center; margin-top: 50px">
 	<i class='fas fa-paw' style="font-size: 36px; margin-top: 30px;" ></i>
 	<div class="contensts" style="margin-top: 10px;">
 	<p>${user.name} 고객님의 <br>
@@ -39,7 +39,7 @@
 	
 	<div style="margin-top: 10px; font-size: small;">
 		<p style="display: inline;">비밀번호도 찾으시나요? </p>
-		<a href="${pageContext.request.contextPath}/member/memberJoin">비밀번호 찾기</a> 
+		<a href="${pageContext.request.contextPath}/member/memberPW">비밀번호 찾기</a> 
 	</div>
 </div>
 	
@@ -53,7 +53,6 @@
 function login() {
 	location.href="./memberLogin";
 };
-
 
 
 

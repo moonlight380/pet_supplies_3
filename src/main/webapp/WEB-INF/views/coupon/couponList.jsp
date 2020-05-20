@@ -16,7 +16,7 @@
   <h1 style="font-size: medium;">쿠폰 조회/적용</h1>
 <div class="content">
 
-<div class="ec-base-help" style="font-size: small; border: 1px solid gray;width:850px; height: 100px;">
+<div class="ec-base-help" style="font-size: small; border: 1px solid gray;width:820px; height: 100px;">
 <h2 style="font-size: small;margin-left: 5px;">쿠폰 사용에 따른 유의사항</h2>
 <div class="inner" style=" border-top: 1px solid gray; ">
  <ul>
@@ -50,8 +50,8 @@
 <th scope="col">상품별 쿠폰선택</th>
 <th scope="col">상품별<br> 쿠폰 할인액</th>
 </tr></thead>
-<tbody class="center">
-<c:forEach items="${cart}" var="cart" varStatus="i">
+<tbody class="center" style="font-size: small; text-align: center;">
+<c:forEach items="${cartSelect}" var="cart" varStatus="i">
 <tr class="xans-element- xans-coupon xans-coupon-aprd xans-record-"><td><span class="txtInfo count" name="txtCpnPrice${i.index}">기본배송</span></td>
 <td class="thumb"><img src="../resources/dogUpload/${cart.fileName}"  style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
 <td class="left txtBreak">
@@ -76,20 +76,20 @@
 </div>
 
 
-<div class="ec-base-table typeList total gBlank20" style="font-size: medium; border: 1px solid black;margin-top:20px;  width:850px; height: 100px;">
+<div class="ec-base-table typeList total gBlank20" style="font-size: medium;margin-top:20px;  width:800px; height: 80px;">
 
 <div style="float: right;">
 <strong>= 총 쿠폰 할인금액</strong>(적립금) : <span class="txtEm gIndent10" style="color: red">
-<strong id="mTotalCouponDiscount" class="txt23" style="font-size: 32px;">0</strong><strong>원</strong> (<img src="/web/upload/icon_201312240915061500.gif" alt=""> &nbsp;<span id="mTotalCouponMileage">0원</span>)</span>
+<strong id="mTotalCouponDiscount" class="txt23" style="font-size: 32px;">0</strong><strong>원</strong></span>
 </div>
 
 </div>
 
 </div>
 
-<div class="ec-base-button">
-	<a href="#none" onclick="couponSelect.setCpnResult()" id="btncolor_subordinate"><span>쿠폰 적용하기</span></a>
-	<a href="#none" onclick="couponSelect.initCpn()" id="btncolor_basic"><span>적용 취소하기</span></a>
+<div class="ec-base-button" style="text-align: center; word-spacing: 20px; height: 50px;">
+	<input type="button" onclick="couponSelect.setCpnResult()" id="btncolor_subordinate" value="쿠폰 적용하기" style="background-color: red; color: white; height: 40px; width: 120PX;">
+	<input type="button" onclick="couponSelect.initCpn()" id="btncolor_basic" value="적용 취소하기" style="height: 40px; width: 120PX;">
 </div>
 
 </form>
@@ -158,11 +158,17 @@
 	 
 		 $("#btncolor_subordinate").click(function() {
 			 var result = $("#mTotalCouponDiscount").text();
+			 
  			 var cresult = opener.document.getElementById("c_in");
 			 cresult.value=result; 
+			 
 			 window.opener.postMessage(result, "http://localhost:8080/p1/member/memberPayment");
 			 close();
 			
+		});
+		 
+		 $("#btncolor_basic").click(function() {
+			 window.location.reload()
 		});
 	 
 	});

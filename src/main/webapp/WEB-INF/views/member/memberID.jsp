@@ -15,7 +15,7 @@
 
 <div class="container">
 
-<div class="path" style="display: block; float: right; position: relative; height: auto;">
+<div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">
 	<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
 		<li style="display: inline;"><a href="${pageContext.request.contextPath}/member/memberLogin">로그인 > </a></li>
 		<li style="display: inline;" title="현재 위치"><strong>아이디 찾기</strong></li>
@@ -23,13 +23,13 @@
 </div>
 
 
-<div style="margin-top: 100px; text-align: center; border: 1px solid red; display: block; border-bottom: 3px solid black;">
+<div style="text-align: center; display: block; border-bottom: 3px solid black;height: 100px; margin-top: 50px;">
 <h1 style=" margin-top: 50px; font-weight: bold; font-size: 36px;">아이디 찾기</h1>
 </div>
 
-<div class="IDserch" style="border: 1px solid #d7d5d5; height: 400px;">
+<div class="IDserch" style="height: 400px;">
 
-<form action="./memberID" method="get" style="border: 1px solid black; width: 400px; height:100%; margin: 0 auto;">
+<form action="./memberID" method="get" style=" width: 400px; height:100%; margin: 0 auto; margin-top: 50px;">
  
 <fieldset>
 <div style="margin-top: 30px; text-align: center; font-size: 24px; font-weight: bold;">
@@ -159,9 +159,9 @@
 					success : function(data){
 			
 						if(data.email == null){
-							location.href="./findFail";
+							location.href="./idFindFail";
 						}else{
-						 	location.href="./findSuccess?id="+data.id+"&name="+data.name; 
+						 	location.href="./idFindSuccess?id="+data.id+"&name="+data.name; 
 						}
 							
 					},
@@ -179,7 +179,7 @@
 	$("#phone_btn").click(function() {
 		var c = true;
 		var check = $(".pc");
-		var phone = $("#mobile1").val()+$("#mobile2").val()+$("#mobile3").val();
+		var phone = $("#mobile2").val();
 		
 		console.log(phone);
 		
@@ -196,14 +196,13 @@
 						type: "post",	//method 형식 
 						url : "./findPhone", //URL 주소
 						data: {
-							phone:phone
+							phone1:phone
 						},	//parameter
 						success : function(data){
-						
-							if(data.phone == null){
-								location.href="./findFail";
+							if(data.id == null){
+								location.href="./idFindFail";
 							}else{
-								location.href="./findSuccess?id="+data.id+"&name="+data.name; 
+								location.href="./idFindSuccess?id="+data.id+"&name="+data.name; 
 							}
 								
 						},

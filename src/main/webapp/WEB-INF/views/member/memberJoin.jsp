@@ -22,8 +22,9 @@
 	
 <div class="container">
 
-	<div class="path" style="display: block; float: right; position: relative; height: auto;">
+	<div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">
 		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
+			<li style="display: inline;"><a href="${pageContext.request.contextPath}/member/memberLogin">로그인 > </a></li>
 			<li style="display: inline;" title="현재 위치"><strong>회원 가입</strong></li>
 		</ol>
 	</div>
@@ -33,7 +34,7 @@
 
 <div class="path"  style="margin-top: 80px;" >
 
-<div style="margin-top: 100px; text-align: center;display: block; border-bottom: 3px solid black;">
+<div style="text-align: center; display: block; border-bottom: 3px solid black;height: 100px; margin-top: 50px;">
 <h1 style=" margin-top: 50px; font-weight: bold; font-size: 36px; margin-bottom: 30px;">회원 가입</h1>
 </div>
 

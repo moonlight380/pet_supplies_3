@@ -27,6 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.pet.p1.cart.CartService;
 import com.pet.p1.cart.CartVO;
+import com.pet.p1.mail.JavaMailInfo;
 import com.pet.p1.order.OrderService;
 import com.pet.p1.order.OrderVO;
 
@@ -41,14 +42,12 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-
-	@Autowired
-	private DogService dogService;
 	@Autowired
 	private CartService cartService;
 	@Autowired
 	private OrderService orderService;
-
+	@Autowired
+	private JavaMailInfo javaMailInfo; 
 	
 //--------------------------------------------------------------------------------------------------------------
 
@@ -71,6 +70,7 @@ public class MemberController {
 		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i));
 		}
+		
 		List<CartVO> ar = cartService.cartSelect(list);
 		session.setAttribute("cartSelect", ar); 
 		System.out.println("check");
@@ -103,8 +103,6 @@ public class MemberController {
 	
 	
 	
-	
-	
 	@GetMapping("cartDelete")
 	public ModelAndView cartDelete(Long [] ids)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -129,8 +127,6 @@ public class MemberController {
 	
 	
 	//--장바구니
-	
-	
 	@GetMapping("memberCart")
 	public ModelAndView cartList(HttpSession session)throws Exception {
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -243,7 +239,7 @@ public class MemberController {
 		 */
 		session.setAttribute("access_Token", access_Token);
 		session.setAttribute("member", memberInfo);
-		mv.addObject("result", "로그인 성공!");
+		mv.addObject("result", "환영합니다!");
 		mv.addObject("path", "../");
 		mv.setViewName("common/result");
 		
@@ -315,18 +311,30 @@ public class MemberController {
 		
 	}
 	
-	//-- ID/PW 찾기 성공
-	@GetMapping("findSuccess")
+	
+	//-- ID 찾기 성공
+	@GetMapping("idFindSuccess")
 	public ModelAndView findSuccess(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user", memberVO);
+		
 		return mv;
 	}
-	
-	//-- ID/PW 찾기 실패
-	@GetMapping("findFail")
+
+	//-- ID 찾기 실패
+	@GetMapping("idFindFail")
 	public void findFail()throws Exception{
 		
+	}
+	
+	//-- PW 찾기 성공
+	@GetMapping("pwFindSuccess")
+	public ModelAndView pwFindSuccess(MemberVO memberVO)throws Exception{
+		System.out.println("in");
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user", memberVO);
+		
+		return mv;
 	}
 	
 	//-- email로 찾기
@@ -339,6 +347,15 @@ public class MemberController {
 		return memberVO;
 	}
 	
+	//-- PW 임시 비밀번호 메일 보내기
+	@GetMapping("sendMail")
+	public String sendMail(String mailto,String id)throws Exception{
+		String code = "<비밀번호 찾기 안내 메일>";
+		javaMailInfo.Sendmail(mailto,code,id);
+		
+		return "member/pwFindSuccess";	
+	}
+	
 	//-- Phone으로 찾기
 	@PostMapping("findPhone")
 	@ResponseBody
@@ -348,6 +365,8 @@ public class MemberController {
 		
 		return memberVO;
 	}
+	
+	
 
 	
 	//-- memberPayment

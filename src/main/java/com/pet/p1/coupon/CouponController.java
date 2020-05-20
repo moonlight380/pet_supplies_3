@@ -1,5 +1,6 @@
 package com.pet.p1.coupon;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -29,17 +30,21 @@ public class CouponController {
 	public void couponList()throws Exception{
 		
 	}
+
 	@GetMapping("couponList")
-	public ModelAndView couponList( HttpSession session)throws Exception{
+	public ModelAndView couponList(HttpSession session)throws Exception{
 		 
 		ModelAndView mv = new ModelAndView();
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		List<CouponVO> ar = couponService.couponList(memberVO);
-		List<CartVO> ar1 = cartService.cartList(memberVO);
+		
+		@SuppressWarnings("unchecked")
+		List<CartVO> ar1 = (List<CartVO>)session.getAttribute("cartSelect");
 
+		List<CouponVO> ar = couponService.couponList(memberVO);
+		
 		if(memberVO != null) {
 			mv.addObject("coupon", ar);
-			mv.addObject("cart", ar1);
+			mv.addObject("cartSelect", ar1);
 		}
 		return mv;
 	}

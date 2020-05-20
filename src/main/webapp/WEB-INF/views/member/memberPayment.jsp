@@ -34,7 +34,7 @@
 	
 
 <!-- 기본배송 -->
-<div class="ec-base-table typeList gBorder">
+<div class="ec-base-table typeList gBorder" style="border-bottom: 1px solid black;">
 <div style="text-align: center;">
 <div>
 						<div class="row" style="padding: 0px 15px 15px 15px;" >
@@ -178,7 +178,7 @@
 
 <!-- 주문정보 -->
 
-<div class="orderArea  ec-shop-ordererForm" style="margin-top: 20px; border: 1px solid black;">
+<div class="orderArea  ec-shop-ordererForm" style="margin-top: 20px;">
 <div class="title" style="float: left; width: 100%; height: 25px;">
 	<p class="required" style="float: right;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</p>
 	<h3 style=" font-weight: bold; font-size: medium;">주문 정보</h3>
@@ -239,9 +239,9 @@
 
 <!-- 배송정보 -->
 
-<div class="orderArea">
+<div class="orderArea" style="margin-top: 30px;">
 
-<div class="title">
+<div class="title"  style="float: left; width: 100%; height: 25px;">
 <h3 style="font-size: medium; font-weight: bold; display: inline;">배송 정보</h3>
 <p class="required" style="float: right;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"> 필수입력사항</p>
 </div>
@@ -416,34 +416,37 @@
 </div>
 
 <!-- 결제수단 -->
-<div class="container" style="border: 1px solid black; height: 700px;">
-<div class="title">
-	<h3>결제수단</h3>
+
+<div class="paymentarea">
+
+<div class="title" style="width: 100%; height: 25px; display: block;">
+<h3 style="font-size: medium; font-weight: bold; display: inline;">결제수단</h3>
 <!-- <span class="txtEm gIndent20 ">
 <input type="checkbox" id="save_paymethod" name="save_paymethod" value=""><label for="save_paymethod">지금 선택한 결제수단을 다음에도 사용</label>
 </span> -->
 </div>
 
-<div class="payment" style="border: 1px solid black; width: 70%; height: 600px; float: left; margin-left: 30px;">
-<h4>결제수단선택</h4>
-<div class="payBtn" style="border: 1px solid black; width: 100%; height: 150px; text-align: center; margin-top: 10px;">
-<button id="credit" style="width: 40%; height: 50px; margin-top: 20px;" >신용카드</button>
+
+<div class="All" style="border: 1px solid black; width: 100%; height: 600px;">
+
+<div class="payment" style="width: 75%; height: 500px; float: left;">
+<div class="payBtn" style="width: 100%; height: 150px; text-align: center;">
+<button id="credit" style="width: 40%; height: 50px; margin-top: 40px;" >신용카드</button>
 <button id="phonpay" style="width: 40%; height: 50px;">핸드폰결제</button>
 <button id="account" style="width: 40%; height: 50px;">무통장입금</button>
 <button id="kakaopay" style="width: 40%; height: 50px;"><img src="${pageContext.request.contextPath}/resources/images/payment_text_small.png"></button>
 </div>
 
-<div class="payContents" style="border: 1px solid black; width: 100%; height: 200px; text-align: center;">
+<div class="payContents" style="border-top: 1px solid black; width: 100%; height: 200px; text-align: center; margin-top: 35px">
 
-
-<div id="credit_box" style="display: none; font-size: small; text-align: left; margin-left: 70px; margin-top: 20px;">
+<div id="credit_box" style="display: none; font-size: small; text-align: left; margin-left: 100px; margin-top: 20px;">
 <i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
 <p style="display: inline;">소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p><br>
 <i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
 <p style="display: inline;">최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
 </div>
 
-<div id="phonpay_box" style="display: none; font-size: small; text-align: left; margin-left: 70px; margin-top: 20px;">
+<div id="phonpay_box" style="display: none; font-size: small; text-align: left; margin-left: 100px; margin-top: 20px;">
 <i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
 <p style="display: inline;">소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
 </div>
@@ -522,7 +525,7 @@
 
 </div>
 
-<div id="kakaopay_box" style="display: none; font-size: small; text-align: left; margin-left: 70px; margin-top: 20px;">
+<div id="kakaopay_box" style="display: none; font-size: small; text-align: left; margin-left: 100px; margin-top: 20px;">
 <i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
 <p class="ec-base-help" style="display: inline;">휴대폰에 설치된 카카오톡 앱에서 비밀번호 입력만으로 빠르고 안전하게 결제가 가능한 서비스 입니다.</p><br>
 <i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
@@ -542,21 +545,22 @@
 
 <!-- 최종결제금액 -->
 
-<div class="total" style="border: 1px solid red; width: 300px; height: 600px; float: right; margin-right: 40px;">
-<h4>
-<strong id="current_pay_name"></strong> <span>최종결제 금액</span>
-</h4>
-<div style="color: #FF324D; font-weight: bold;" class="paymentPrice text-center">0원</div>
+<div class="total" style="border-left:1px solid black; width: 25%; height: 600px; float: left;">
 
-<div class="paymentAgree" id="chk_purchase_agreement" style="margin-left: 10px;">
-<input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; float: left; width: 30px;"><label for="chk_purchase_agreement0" style="font-size: small;   width: 230px;">결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
+<h4 style="margin-top: 40px;">
+<strong id="current_pay_name" style="margin-left: 50px;"></strong> <span style="font-size: medium;">최종결제 금액</span>
+</h4>
+<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="paymentPrice text-center">0원</div>
+
+<div class="paymentAgree" id="chk_purchase_agreement" style="margin-left: 10px; margin-top: 20px;">
+<input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; float: left; width: 30px; margin-top: 7px;"><label for="chk_purchase_agreement0" style="font-size: small;">결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
 </div>
 
-<div class="button" style="margin-top: 10px; margin-left: 20px;">
+<div class="button" style="margin-top: 15px; margin-left: 20px; text-align: center;">
 <input type="button" style="background-color: red;color: white; width: 250px; height: 50px; " class="btn_submit btncolor_dominant" id="btn_payment" value="결제하기">
 </div>
 
-<div class="mileage" style="margin-top: 20px; ">
+<div class="mileage" style="margin-top: 30px; ">
 <dl class="ec-base-desc gLarge right" style="height:50px; font-size: small; border-bottom: 1px solid gray; border-top: 1px solid gray;">
 <dt style=" float: left; margin-left: 20px;margin-top: 12px;"><strong>총 적립예정금액</strong></dt>
 <dd id="mAllMileageSum" class="txtWarn" style=" float: right; margin-top: 12px; margin-right: 20px;">570원</dd>
@@ -572,6 +576,7 @@
 </dl>
 </div>
 </div>
+</div>
 <div class="col-sm-2"></div>
 
 </div>
@@ -581,8 +586,10 @@
 </div>
 </div>
 </div>
+
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="../resources/js/cart.js"></script>
+
 <script>
 	/* 배송정보 유효성검사 */
 	//-- 이름
@@ -750,7 +757,7 @@
  	function popup(){
             var url = "../coupon/couponList";
             var name = "coupon";
-            var option = "width = 1050, height = 900, top = 0, left = 0, location = no"
+            var option = "width = 850, height = 900, top = 0, left = 0, location = no"
             window.open(url, name, option);
         } 
 	

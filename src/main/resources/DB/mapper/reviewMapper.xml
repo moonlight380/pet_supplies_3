@@ -49,7 +49,7 @@
 	</select>
 
 	<select id="pboardList" parameterType="Long"
-		resultType="ReviewVO">
+		resultMap="selectResult3">
 		select RE.*,F.* from review RE left join boardFile F on(RE.num = F.num)
 		where RE.productnum=#{productnum}
 	</select>
@@ -89,7 +89,7 @@
 		#{num},
 		0,
 		0,
-		#{productnum}
+		100
 		)
 	</insert>
 

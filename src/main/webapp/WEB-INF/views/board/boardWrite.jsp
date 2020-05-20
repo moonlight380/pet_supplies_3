@@ -33,9 +33,10 @@
 					name="contents"></textarea>
 			</div>
 
-<!-- 			<input type="button" id="add" class="btn btn-info" value="파일추가"
+			<input type="button" id="add" class="btn btn-info" value="파일추가"
 				style="margin-bottom: 3%;">
-			<div id="file"></div> -->
+			<div id="file"></div>
+
 			<!-- contents Server null이 될때 
  		  <input type="hidden" name="contents" id="con">
  		-->
@@ -46,7 +47,7 @@
 		</form>
 
 	</div>
-	
+
 
 	<script type="text/javascript" src="../resources/script/boardForm.js"></script>
 	<c:import url="../template/footer.jsp"></c:import>

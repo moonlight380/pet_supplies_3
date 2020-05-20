@@ -39,7 +39,7 @@
 					name="contents"></textarea>
 			</div>
 
-			<%-- <input type="button" id="add" class="btn btn-info" value="AddFile">
+			<input type="button" id="add" class="btn btn-info" value="AddFile">
 			<div id="file"></div>
 
 			<div class="form-group">
@@ -53,7 +53,7 @@
 					</c:forEach>
 				</c:catch>
 
-			</div> --%>
+			</div>
 
 			<input type="submit" id="btn" class="btn btn-danger" value="수정완료" style="margin-bottom: 3%;">
 		</form>
@@ -62,7 +62,7 @@
 
 
 	<script type="text/javascript" src="../resources/script/boardForm.js"></script>
-<!-- 	<script type="text/javascript">
+ 	<script type="text/javascript">
 	
 	var size = ${size};
 	size = ${vo.boardFileVOs.size()};
@@ -97,7 +97,7 @@
 		})
 		
 		
-	</script> -->
+	</script>
 	<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>

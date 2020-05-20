@@ -2,6 +2,7 @@ package com.pet.p1.board.file;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,14 +12,14 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/boardfile/**")
+@RequestMapping("/boardFile/**")
 public class BoardFileController {
 
 	@Autowired
 	private BoardFileService boardFileService;
 
 	@PostMapping("fileDelete")
-	//@ResponseBody
+	@ResponseBody
 	public int fileDelete(BoardFileVO boardFileVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = boardFileService.fileDelete(boardFileVO);

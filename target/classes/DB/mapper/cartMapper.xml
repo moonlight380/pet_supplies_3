@@ -35,8 +35,6 @@
 		insert into cart values(#{id},cart_seq.nextval,#{productNum},#{cAmount})
 	</insert>
 	
-	
-
 	<delete id="cartDelete" parameterType="List">
 		delete from cart where cnum in
 		<foreach collection="list" item="cnum" open="(" close=")" separator=",">

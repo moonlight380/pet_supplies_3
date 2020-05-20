@@ -1,11 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>        
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    
 <%
+ //   String name = (String)request.getAttribute("name");
+ //   String email = (String)request.getAttribute("email");
+ //  String phone = (String)request.getAttribute("phone");
+ //  String address = (String)request.getAttribute("address");
+  //  int totalPrice = (int)request.getAttribute("totalPrice");
      String name = (String)request.getParameter("name");
+     String email = (String)request.getParameter("email");
      String phone = (String)request.getParameter("phone");
+     String address = (String)request.getParameter("address");
      String stotalPrice = (String)request.getParameter("totalPrice");
-     int totalPrice = Integer.parseInt(stotalPrice);    
+     int totalPrice = Integer.parseInt(stotalPrice);
+    
+     System.out.println("name: "+name);
+    System.out.println("email: "+email);
+     System.out.println("phone: "+phone);
+     System.out.println("address: "+address);
+     System.out.println("stotalPrice: "+stotalPrice);
+     System.out.println("totalPrice: "+totalPrice);
+ 
 %>
 
 
@@ -23,8 +39,7 @@
 
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<script>
-
+    <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
         IMP.init('imp53186896'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
@@ -35,14 +50,15 @@
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : '상품명',
-            amount : <%=totalPrice%>,           
+            amount : <%=totalPrice%>,
+            buyer_email : '<%=email%>',
             buyer_name : '<%=name%>',
-            buyer_tel : '<%=phone%>',           
+            buyer_tel : '<%=phone%>',
+            buyer_addr : '<%=address%>',
             buyer_postcode : '123-456',
             //m_redirect_url : 'http://www.naver.com'
         }, function(rsp) {
             if ( rsp.success ) {
-            	console.log("in");
                 //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
                 jQuery.ajax({
                     url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
@@ -68,8 +84,6 @@
                     }
                 });
                 //성공시 이동할 페이지
-                alert("d");
-                  location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
                <%--  location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
             } else {
                 msg = '결제에 실패하였습니다.';

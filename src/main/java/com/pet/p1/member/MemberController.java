@@ -32,7 +32,7 @@ import com.pet.p1.order.OrderService;
 import com.pet.p1.order.OrderVO;
 
 import com.pet.p1.product.DogService;
-
+import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 
@@ -52,7 +52,7 @@ public class MemberController {
 //--------------------------------------------------------------------------------------------------------------
 
 	
-	@GetMapping("memberOrderInfo")
+	@GetMapping("memberOrder")
 	public void memberOrder()throws Exception{
 		
 	}
@@ -73,6 +73,7 @@ public class MemberController {
 		
 		List<CartVO> ar = cartService.cartSelect(list);
 		session.setAttribute("cartSelect", ar); 
+		System.out.println("check");
 		
 	}
 	
@@ -138,8 +139,9 @@ public class MemberController {
 			
 
 		} else {
+			
 			List<CartVO> ar = cartService.cartList(memberVO);
-			session.setAttribute("headerCart", ar);
+			System.out.println("aas");
 			mv.addObject("cart",ar);
 			mv.setViewName("member/memberCart");
 		
@@ -204,8 +206,8 @@ public class MemberController {
 			 session.setAttribute("cartCount", count);
 			 mv.setViewName("redirect:../");
 		 }else {
-			 mv.addObject("result", "Login Fail");
-			 mv.addObject("path", "./memberJoin");
+			 mv.addObject("result", "아이디와 비밀번호를 확인해주세요");
+			 mv.addObject("path", "./memberLogin");
 			 mv.setViewName("common/result");
 		 }
 				 
@@ -328,7 +330,6 @@ public class MemberController {
 	//-- PW 찾기 성공
 	@GetMapping("pwFindSuccess")
 	public ModelAndView pwFindSuccess(MemberVO memberVO)throws Exception{
-		System.out.println("in");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user", memberVO);
 		
@@ -368,12 +369,24 @@ public class MemberController {
 
 	
 	//-- memberPayment
-	
 	@GetMapping("memberPayment")
 	public void memberPayment(MemberVO memberVO)throws Exception{
 	
 	}
 	
+	//kakao
+	@RequestMapping(value = "kakaoPay",method = RequestMethod.GET)
+	public ModelAndView kakaoPay(ModelAndView mv) throws Exception{
+		mv.setViewName("member/kakao");
+		
+		return mv;
+	}
+	
+	@GetMapping("memberPaySuccess")
+	public String paymentSuccess()throws Exception{
+		System.out.println("un");
+		return "paymentSuccess";
+	}
 	
 	
 //-------------------------------------------------------------------------------------------------------	

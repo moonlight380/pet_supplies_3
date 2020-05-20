@@ -48,7 +48,7 @@
 		</label>
 	</div>
 	
-	<button class="btn btn-lg btn-block" id="btn"style="background-color: #FF324D; width: 400px; margin: 0 auto;">로그인</button>
+	<button class="btn btn-lg btn-block" id="btn"style="background-color: #FF324D; width: 400px; margin: 0 auto; color: white;">로그인</button>
 	
 	<div class="text-center" style="font-size:medium; height: 50px; margin-top: 15px;">
 		<a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a> |
@@ -83,12 +83,5 @@
 </div>
 
 
-
-<script type="text/javascript">
-
-	document.getElementById('btn').style.color = 'white';
-	$('.member').css({'color':'gray','font-size':'5px'});
-	
-</script>
 
 </html>

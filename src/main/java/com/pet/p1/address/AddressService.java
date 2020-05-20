@@ -35,4 +35,9 @@ public class AddressService {
 		return addressDAO.address_update(addressVO);
 	}
 	
+	//address_delete
+	public int address_delete (List<Long> deleteAddress)throws Exception{
+		return addressDAO.address_delete(deleteAddress);
+	}
+	
 }

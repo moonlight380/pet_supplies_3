@@ -94,7 +94,7 @@
 						s.parent().remove();
 						count--;
 					}else {
-						alert("File Delete Fail");
+						alert("파일 삭제를 실패했습니다.");
 					}
 				} );
 			}

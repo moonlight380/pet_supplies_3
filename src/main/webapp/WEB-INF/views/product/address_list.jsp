@@ -65,9 +65,9 @@
               <c:forEach items="${list}" var="vo" varStatus="i">   
 					<tr>
 						<td scope="col">
-						<span class=""><input class="rowCheck" id="rowCheck del" type="checkbox" name="${vo.addressNum}"></span> 
+						<span class=""><input class="rowCheck check" id="rowCheck del" type="checkbox" name="${vo.addressNum}"></span> 
 						</td>
-                        <td scope="col"><input type="button" class="button addr_button gray check" name="check" value="고정"></td>
+                        <td scope="col"><input type="button" class="button addr_button gray "  value="고정"></td>
                         
 						<td scope="col">${vo.addr_name}</td>
 						

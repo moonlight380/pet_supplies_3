@@ -36,27 +36,19 @@
       		}
       		
       	});	
-      	//개별로 체크가 완료되면  allcheck에도 체크
-      	$(".check").click(function(){
-      		if($("input[name='check']:checked")){
-      			$("#allCheck").prop("checked",true);
-      		}else{
-      			$("#allCheck").prop("checked",false);
-      		}
-      	});
-      	
-      	
-      	
-/*      	$(".check").each(function(){
-      		if(!$(this).prop("checked")){
-      			$("#allCheck").prop("checked",false);
-      		}
-      		$(".check").prop("checked",$("#allCheck").prop("checked"));
-      		
-      		
-      	});*/
+      	//개별로 체크가 완료되면  allcheck에도 체크    	
+		$(".check").click(function(){
+					var result=true;
+				 	$(".check").each(function(){
+						var v=$(this).prop("checked");
+							//하나라도 체크가 아니라면
+							if(!(v)){
+								result=false;
+							}
+				 	});//for문 /
+				 	$("#allCheck").prop("checked",result);
+		});
 
-      	//하나씩 선택해서 모두 체크하면 allCheck
 
       	$(".deleteBtn").click(function(){
       	 			var deleteAddress=[];

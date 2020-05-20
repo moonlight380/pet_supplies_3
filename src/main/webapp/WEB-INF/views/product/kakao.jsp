@@ -1,27 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>        
 <%
- //   String name = (String)request.getAttribute("name");
- //   String email = (String)request.getAttribute("email");
- //  String phone = (String)request.getAttribute("phone");
- //  String address = (String)request.getAttribute("address");
-  //  int totalPrice = (int)request.getAttribute("totalPrice");
      String name = (String)request.getParameter("name");
-     String email = (String)request.getParameter("email");
      String phone = (String)request.getParameter("phone");
-     String address = (String)request.getParameter("address");
      String stotalPrice = (String)request.getParameter("totalPrice");
-     int totalPrice = Integer.parseInt(stotalPrice);
-    
-     System.out.println("name: "+name);
-    System.out.println("email: "+email);
-     System.out.println("phone: "+phone);
-     System.out.println("address: "+address);
-     System.out.println("stotalPrice: "+stotalPrice);
-     System.out.println("totalPrice: "+totalPrice);
- 
+     int totalPrice = Integer.parseInt(stotalPrice);    
 %>
 
 
@@ -50,11 +34,9 @@
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : '상품명',
-            amount : <%=totalPrice%>,
-            buyer_email : '<%=email%>',
+            amount : <%=totalPrice%>,           
             buyer_name : '<%=name%>',
-            buyer_tel : '<%=phone%>',
-            buyer_addr : '<%=address%>',
+            buyer_tel : '<%=phone%>',           
             buyer_postcode : '123-456',
             //m_redirect_url : 'http://www.naver.com'
         }, function(rsp) {
@@ -84,6 +66,7 @@
                     }
                 });
                 //성공시 이동할 페이지
+                location.href='<%=request.getContextPath()%>/member/memberLogin';
                <%--  location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
             } else {
                 msg = '결제에 실패하였습니다.';

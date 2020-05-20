@@ -34,25 +34,7 @@ private ReviewService reviewService;
 public String getBoard()throws Exception{
 	return "dog";
 }
-/*
- * //address
- * 
- * @RequestMapping(value = "address",method = RequestMethod.GET) public
- * ModelAndView address (ModelAndView mv) throws Exception{
- * mv.setViewName("product/address"); System.out.println("address/get"); return
- * mv; }
- * 
- * //address_list
- * 
- * @RequestMapping(value = "address_list",method = RequestMethod.GET) public
- * ModelAndView address_list (ModelAndView mv) throws Exception{
- * mv.setViewName("product/address_list");
- * System.out.println("addressList/get"); return mv; } //address_list(post)
- * 
- * @PostMapping("address_list") public String address_list () throws Exception{
- * String path="product/address_list"; System.out.println("addressList/post");
- * return path; }
- */
+
 
 //dogkakaoPay
 @RequestMapping(value = "dogkakaoPay",method = RequestMethod.GET)

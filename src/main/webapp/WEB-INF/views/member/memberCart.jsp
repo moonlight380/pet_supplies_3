@@ -165,7 +165,7 @@
 												<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
 													<button class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
 													<input class="text-center in" id="${cart.id}${cart.cnum}_amount"	title="${cart.id}${cart.cnum}" 
-														style="color: #333; width: 40px; border: 1px solid #d9dde0;"
+														style="color: #333; width: 40px; border: 1px solid #d9dde0;" maxlength="10"
 														value="${cart.cAmount }" name="${cart.cnum }"
 														onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 													<button class="plus" title="${cart.id}${cart.cnum}"style="width: 20px; border: 1px solid #d9dde0;">+</button>

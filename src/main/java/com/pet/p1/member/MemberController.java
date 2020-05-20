@@ -53,7 +53,7 @@ public class MemberController {
 //--------------------------------------------------------------------------------------------------------------
 
 	
-	@GetMapping("memberOrder")
+	@GetMapping("memberOrderInfo")
 	public void memberOrder()throws Exception{
 		
 	}
@@ -73,7 +73,6 @@ public class MemberController {
 		}
 		List<CartVO> ar = cartService.cartSelect(list);
 		session.setAttribute("cartSelect", ar); 
-		System.out.println("check");
 		
 	}
 	

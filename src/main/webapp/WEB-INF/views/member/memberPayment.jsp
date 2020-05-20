@@ -40,22 +40,22 @@
 						<div class="row" style="padding: 0px 15px 15px 15px;" >
 							<table>
 								<colgroup>
-									<col style="width: 27px" />
+									
 
-									<col style="width: 250px" />
-									<col style="width: 400px" />
+									<col style="width: 150px;" />
+									<col style="width: 450px" />
 									<col style="width: 150px" />
 									<col style="width: 120px" />
 									<col style="width: 100px" />
 
-									<col style="width: 130px" />
+									<col style="width: 160px" />
 
 
 
 								</colgroup>
 								<thead>
 									<tr class="table_title"  style="text-align: center;   line-height: 60px;">
-										<th scope="col" ><input type="checkbox" id="check_all" hidden="hidden"
+										<th scope="col" hidden="hidden" ><input type="checkbox" id="check_all" hidden="hidden"
 											title="checkbox" ><div class="row" style="height: 10px;"></div><label style="margin: 0 auto;"
 											for="check_all" class="material-icons checkbox"
 											title="check_all"> check </label></th>
@@ -79,7 +79,7 @@
 								
 									<tbody>
 										<tr class="table_title">
-											<td>
+											<td hidden="hidden">
 												<input type="checkbox" class="check" id="${cart.id}${cart.cnum}_check" hidden="hidden" title="${cart.id}${cart.cnum}" name="${cart.cnum}">
 												 <label	for="${cart.id}${cart.cnum}_check" class="material-icons checkbox"title="${cart.id}${cart.cnum}_check">check</label>
 												 
@@ -88,14 +88,14 @@
 											<td>${cart.productName }</td>
 											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
 											<td>
-												<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
-													<button class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
+												
+													<button hidden="hidden" class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
 													<input class="text-center in" id="${cart.id}${cart.cnum}_amount"	title="${cart.id}${cart.cnum}" 
-														style="color: #333; width: 40px; border: 1px solid #d9dde0;"
+														style="color: #333; width: 40px; border: hidden;"
 														value="${cart.cAmount }" name="${cart.cnum }"
-														onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-													<button class="plus" title="${cart.id}${cart.cnum}"style="width: 20px; border: 1px solid #d9dde0;">+</button>
-												</div>
+														readonly="readonly"><span>개</span>
+													<button hidden="hidden" class="plus" title="${cart.id}${cart.cnum}"style=" border: 1px solid #d9dde0;">+</button>
+												
 											</td>
 
 											<td id="${cart.id}${cart.cnum}_point" name="${cart.point }"></td>
@@ -417,7 +417,7 @@
 <!-- 적립금 --><tbody class=""><tr>
 <th scope="row">적립금</th>
 <td>
-<p> <input id="input_mile" name="input_mile" class="inputTypeText" placeholder="" size="10" value="" type="text"> 원 (총 사용가능 적립금 : <strong class="txtWarn">0</strong>원)</p>
+<p> <input id="input_mile" name="input_mile" class="inputTypeText text-center" placeholder="" size="10" value=""  type="text"> 원 (총 사용가능 적립금 : <strong class="txtWarn">0</strong>원)</p>
 <ul class="info">
 <li>적립금은 최소 0 이상일 때 결제가 가능합니다.</li>
 <li id="mileage_max_unlimit" class="">최대 사용금액은 제한이 없습니다.</li>
@@ -601,6 +601,9 @@
 </div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="../resources/js/cart.js"></script>
+
+
+
 <script>
 	/* 배송정보 유효성검사 */
 	//-- 이름

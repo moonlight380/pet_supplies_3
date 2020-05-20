@@ -6,12 +6,12 @@
 
 
 
-<h1>　</h1>
 
-<div class="col-sm-2 border">
+
+<div class="col-sm-2">
 	<div class="row">
 		<div class="col-sm-2"></div>
-		<div class="col border">
+		<div class="col" style="border: 1px solid black">
 			<div class="row">
 				<div class="col text-center" style="background-color:#bbbfc3; width: 221px;height: 256px">
 					
@@ -32,7 +32,7 @@
 		
 			<ul>
 				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberPage">회원정보</a></li>
-				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberOrder">주문조회</a></li>
+				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberOrderInfo">주문조회</a></li>
 				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberCart">장바구니</a></li>
 				<li class="ml-5 mt-5">쿠폰/포인트</li>
 				<li class="ml-5 mt-5">상품 리뷰</li>

@@ -11,42 +11,52 @@ $("#result").on("click","#payClick",function(){
 		var discount = $("#discount").text();
 		discount = removeCommas(discount); 
 		var id =$("#id").attr("title");
-	 	$.ajax({
-			type:"post",
-			traditional : true,
-			url:"./memberPayment",
-			data:{
-				priceAll:priceAll,
-				charge:charge,
-				id:id
-			}, 
-			success:function(data){
-				var ids=[];
-				$(".plus").each(function(){						//오더인포에 정보 보낼떄 사용
-					var title =$(this).attr("title");
-					var check = $("#"+title+"_check").prop("checked");
-					var cnum = $("#"+title+"_amount").attr("name");
-					if(check){
-						console.log(cnum);
-						ids.push(cnum);
-					}
-					
-				});
-				 $.ajax({
-					type:"post",
-					traditional : true,
-					url:"./memberPaymentList",
-					data:{
-						ids:ids
-					},
-					success:function(data){
-						 location.href="./memberPayment"; 
-					} 
-				});
-				
-			}
-		}); 
 		
+		var count=0;
+		$(".check").each(function(){
+			
+			var check=$(this).prop("checked");
+			if(check){
+				count++;
+			}
+		});
+		if(count>0){
+		 	$.ajax({
+				type:"post",
+				traditional : true,
+				url:"./memberPayment",
+				data:{
+					priceAll:priceAll,
+					charge:charge,
+					id:id
+				},
+				success:function(data){
+					var ids=[];
+					$(".plus").each(function(){						//오더인포에 정보 보낼떄 사용
+						var title =$(this).attr("title");
+						var check = $("#"+title+"_check").prop("checked");
+						var cnum = $("#"+title+"_amount").attr("name");
+						if(check){
+							ids.push(cnum);
+						}
+					});
+					 $.ajax({
+						type:"post",
+						traditional : true,
+						url:"./memberPaymentList",
+						data:{
+							ids:ids
+						},
+						success:function(data){
+							 location.href="./memberPayment"; 
+						}
+					});
+					
+				}
+			}); 
+		} else{
+			alert("선택된 상품이 없습니다.\n상품을 선택해 주세요.");
+		}
 });
 
 
@@ -277,6 +287,7 @@ $("#result").on("click","#del",function() {
 			sumP=sumP+view_point;
 			view_point = addCommas(view_point);
 			view_point = view_point + "P";
+			
 			$("#"+title+"_point").text(view_point);
 			price = removeCommas(price) * 1;
 			var set = (price * amount);
@@ -290,8 +301,7 @@ $("#result").on("click","#del",function() {
 			text = text + "원";
 			$("#" + title + "_total").text(text);
 		});
-
-		console.log(sumP);
+		/*$("#input_mile").val(sumP);*/
 		return sum;
 	}
 
@@ -340,7 +350,6 @@ $("#result").on("click","#del",function() {
 		var payment = sum + deli - discount;
 		text = addCommas(payment) + "원";
 		$(".paymentPrice").each(function(){
-			console.log("a");
 			$(this).text(text);
 			
 		});

@@ -145,21 +145,34 @@
 												 <label	for="${cart.id}${cart.cnum}_check" class="material-icons checkbox"title="${cart.id}${cart.cnum}_check">check</label>
 												 
 											</td>
-											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>${cart.productName }</td>
+											
+											
+											<td>
+												<a href="${pageContext.request.contextPath}/product/dogSelect?productNum=${cart.productNum}" target="_blank">
+													<img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;">
+												</a>
+											</td>
+											<td>
+												<a href="${pageContext.request.contextPath}/product/dogSelect?productNum=${cart.productNum}" target="_blank">
+													${cart.productName }
+												</a>
+											</td>
+											
+											
+											
 											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
 											<td>
 												<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
 													<button class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
 													<input class="text-center in" id="${cart.id}${cart.cnum}_amount"	title="${cart.id}${cart.cnum}" 
-														style="color: #333; width: 40px; border: 1px solid #d9dde0;"
+														style="color: #333; width: 40px; border: 1px solid #d9dde0;" maxlength="10"
 														value="${cart.cAmount }" name="${cart.cnum }"
 														onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 													<button class="plus" title="${cart.id}${cart.cnum}"style="width: 20px; border: 1px solid #d9dde0;">+</button>
 												</div>
 											</td>
 
-											<td id="${cart.id}${cart.cnum}_point" name="${cart.point }"></td>
+											<td id="${cart.id}${cart.cnum}_point" name="${cart.point}"></td>
 
 											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
 											</td>

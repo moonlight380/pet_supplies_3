@@ -19,23 +19,26 @@ public class AddressDAO {
 	}
 	
 	//address_list
-	public List<AddressVO> address_list(AddressVO addressVO)throws Exception{
-		System.out.println("addressVO_list");
+	public List<AddressVO> address_list(AddressVO addressVO)throws Exception{		
 		return sqlSession.selectList(NAMESPACE+"address_list", addressVO);
 	}
 	
 	
 	//address_select
 	public AddressVO address_select(long addressNum)throws Exception{
-		System.out.println("addressDAO SELECT");
 		return sqlSession.selectOne(NAMESPACE+"address_select", addressNum);
 	}
 	
 	
 	//address_update
 	public int address_update(AddressVO addressVO)throws Exception{
-		System.out.println("addressDAO_update");
 		return sqlSession.update(NAMESPACE+"address_update", addressVO);
+	}
+	
+	//address_delete
+	public int address_delete(List<Long> deleteAddress)throws Exception{
+		System.out.println("address_delete_DAO");
+		return sqlSession.delete(NAMESPACE+"address_delete", deleteAddress);
 	}
 
 }

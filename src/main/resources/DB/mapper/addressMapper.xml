@@ -34,7 +34,17 @@
   rphone1_1=#{rphone1_1},rphone1_2=#{rphone1_2},rphone1_3=#{rphone1_3},
   rphone2_1=#{rphone2_1},rphone2_2=#{rphone2_2},rphone2_3=#{rphone2_3},id=#{id}
   where addressNum=#{addressNum}
-  
   </update>
+  
+  <!-- address_delete -->
+ <delete id="address_delete" parameterType="List">
+ 	delete address where addressNum in
+ <foreach collection="list" item="addressNum" open="(" close=")" separator=",">
+ 		#{addressNum}
+ </foreach>
+  
+  </delete>
+
+  
   
   </mapper>

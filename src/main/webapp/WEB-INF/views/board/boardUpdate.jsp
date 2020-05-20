@@ -48,7 +48,7 @@
 					<c:forEach items="${vo.boardFileVOs}" var="fileVO">
 						<p id="pdel">${fileVO.oriName}<i id="${fileVO.fileNum}"
 								title="${fileVO.board}"
-								class="glyphicon glyphicon-remove remove fileDelete"></i>
+								class="fas fa-paw remove fileDelete"></i>
 						</p>
 					</c:forEach>
 				</c:catch>

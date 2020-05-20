@@ -36,28 +36,26 @@ $("#contents").summernote({
 	
 });// $("#contents").summernote
 
-
-/////////////////////////////////////////////////
 $("#btn").click(function() {
-	//productName, contents 데이터 유무 검증
-	var productName = $("#productName").val();
+	//title, contents 데이터 유무 검증
+	var title = $("#title").val();
 	var contents = $("#contents").summernote('code');
 	
 	var ch3 = true;
-	
 	$(".files").each(function() {
 		if($(this).val()==""){
 			ch3 = false;
 		}
 	});
 	
-	var ch1 = productName !="";
+	var ch1 = title !="";
 	var ch2 = $("#contents").summernote('isEmpty');
 	
 	if(ch1 && !ch2 && ch3){
 		//form 전송(submit event 강제 발생)
-//		<!-- contents Server null이 될때-->
-		$("#con").val(contents);
+	/*	contents Server null이 될때
+		$("#con").val(contents);*/
+		
 		$("#frm").submit();
 	}else {
 		//submit event 종료
@@ -65,8 +63,11 @@ $("#btn").click(function() {
 		event.preventDefault();
 	}
 	
-
 });
+
+
+/////////////////////////////////////////////////
+
 
 
 

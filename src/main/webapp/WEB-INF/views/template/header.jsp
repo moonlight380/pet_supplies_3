@@ -83,7 +83,6 @@
 							<div class="input-group-prepend">
 								<div class="custom_select">
 									<select class="fom-control" id="sel1" name="kind">
-										<option value="">모든 카테고리</option>
 										<option value="pn">제품이름</option>
 										<option value="pc">제품내용</option>
 										<option value="pnum">제품번호</option>
@@ -113,7 +112,7 @@
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item"
 										href="${pageContext.request.contextPath}/review/reviewList">리뷰
-											TEST</a></li>
+											게시판</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
 										href="${pageContext.request.contextPath}/notice/noticeList">공지
 											사항</a></li>
@@ -158,7 +157,7 @@
 					</c:if>
 
 					<c:if test="${empty member}">
-						<li><a href="#" class="nav-link"><i
+						<li><a href="${pageContext.request.contextPath}/member/memberLogin" class="nav-link"><i
 								class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
@@ -177,7 +176,7 @@
 					</c:if>
 
 					<c:if test="${not empty member}">
-						<li><a href="#" class="nav-link"><i
+						<li><a href="${pageContext.request.contextPath}/member/memberLogin" class="nav-link"><i
 								class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>

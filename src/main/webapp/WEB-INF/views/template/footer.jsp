@@ -20,11 +20,11 @@
 					</div>
 					<div class="widget">
 						<ul class="social_icons social_white">
-							<li><a href="https://www.facebook.com"><i class="ion-social-facebook"></i></a></li>
-							<li><a href="https://www.twitter.com"><i class="ion-social-twitter"></i></a></li>
-							<li><a href="https://www.google.com"><i class="ion-social-googleplus"></i></a></li>
-							<li><a href="https://www.youtube.com"><i class="ion-social-youtube-outline"></i></a></li>
-							<li><a href="https://www.instagram.com"><i class="ion-social-instagram-outline"></i></a></li>
+							<li><a href="https://www.facebook.com" target="_blank"><i class="ion-social-facebook"></i></a></li>
+							<li><a href="https://www.twitter.com" target="_blank"><i class="ion-social-twitter"></i></a></li>
+							<li><a href="https://www.google.com" target="_blank"><i class="ion-social-googleplus"></i></a></li>
+							<li><a href="https://www.youtube.com" target="_blank"><i class="ion-social-youtube-outline"></i></a></li>
+							<li><a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram-outline"></i></a></li>
 						</ul>
 					</div>
 				</div>

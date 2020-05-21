@@ -18,7 +18,7 @@
 	padding: 25px 0;
 	display: table;
 	width: 100%;
-	background: #202020;
+	background: #fffff0;
 }
 
 body, code {
@@ -78,7 +78,7 @@ body, code {
 
 
 </head>
-<body style="background-color: #fffff0">
+<body>
 
 	<c:import url="./template/header.jsp"></c:import>
 
@@ -126,7 +126,7 @@ body, code {
 					<div class="col-md-6">
 						<div class="single_banner">
 							<img
-								src="${pageContext.request.contextPath}/resources/images/singleb1.png"
+								src="${pageContext.request.contextPath}/resources/images/subbanner1.jpg"
 								alt="shop_banner_img1" />
 							<div class="single_banner_info">
 								<!-- 								<h5 class="single_bn_title1">Super Sale</h5>
@@ -139,7 +139,7 @@ body, code {
 					<div class="col-md-6">
 						<div class="single_banner">
 							<img
-								src="${pageContext.request.contextPath}/resources/images/singleb2.png"
+								src="${pageContext.request.contextPath}/resources/images/subbanner2.jpg"
 								alt="shop_banner_img2" />
 							<div class="single_banner_info">
 								<!-- 								<h3 class="single_bn_title">New Season</h3>
@@ -611,7 +611,7 @@ body, code {
 					class="xans-element- xans-board xans-board-listpackage-1 xans-board-listpackage xans-board-1 mboard ">
 					<h2
 						class="xans-element- xans-board xans-board-title-1 xans-board-title xans-board-1 ">
-						<span><font color="#FFFFFF">공지사항</font></span>
+						<span><font color="#666666">공지사항</font></span>
 					</h2>
 					<ul
 						class="xans-element- xans-board xans-board-list-1 xans-board-list xans-board-1">
@@ -621,14 +621,14 @@ body, code {
 						$subject_cut = 30
 						$main_list_reply_view = no
 					-->
-						<c:forEach items="${nlist}" var="vo" end="5">
+						<c:forEach items="${nlist}" var="vo" end="4">
 							<li class="xans-record-"><a
 								href="./notice/noticeSelect?num=${vo.num}"><font
-									color="#FFFFFF">${vo.title}</font></a></li>
+									color="#666666">${vo.title}</font></a></li>
 						</c:forEach>
 					</ul>
 					<p class="more">
-						<a href="/board/free/list.html?board_no=1"><img
+						<a href="${pageContext.request.contextPath}/notice/noticeList"><img
 							src="/images/layout/btn_board_more.gif" alt="더보기"></a>
 					</p>
 				</div>
@@ -636,7 +636,7 @@ body, code {
 					class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 mboard ">
 					<h2
 						class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-						<span><font color="#FFFFFF">구매후기</font></span>
+						<span><font color="#666666">구매후기</font></span>
 					</h2>
 					<ul
 						class="xans-element- xans-board xans-board-list-4 xans-board-list xans-board-4">
@@ -646,19 +646,19 @@ body, code {
 						$subject_cut = 25
 						$main_list_reply_view = no
 					-->
-						<c:forEach items="${rlist}" var = "vo2" end="5">
+						<c:forEach items="${rlist}" var = "vo2" end="4">
 							<li class="xans-record-"><a href="./review/reviewSelect?num=${vo2.num}"><font
-									color="#FFFFFF">${vo2.title}</font></a><span class="point "></span></li>
+									color="#666666">${vo2.title}</font></a><span class="point "></span></li>
 						</c:forEach>
 					</ul>
 					<p class="more">
-						<a href="/board/product/list.html?board_no=4"><img
+						<a href="${pageContext.request.contextPath}/review/reviewList"><img
 							src="/images/layout/btn_board_more.gif" alt="더보기"></a>
 					</p>
 				</div>
 				<div class="minfo">
 					<h2>
-						<span><font color="#FFFFFF">신규 회원 혜택</font></span>
+						<span><font color="#666666">신규 회원 혜택</font></span>
 					</h2>
 					<div>
 						<strong>가입 즉시 5% 할인<br> 최대 6,000원 할인 쿠폰 3종 세트 지급

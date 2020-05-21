@@ -26,9 +26,9 @@
 			<a id="chatBotBtn" href="${pageContext.request.contextPath}/member/memberLogin"
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
-				src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
+				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
 				alt="상담챗봇 창 열림" id="chatBotBtFloating"
-				style="bottom: 20px; display: block; width: 229px; height: 199px">
+				style="bottom: 20px; display: block; width: 130px; height: 130px">
 			</a>
 		</div>
 	</div>
@@ -44,9 +44,9 @@
 				onclick="window.open('${pageContext.request.contextPath}/echo/chatWindow','window_name','width=510,height=890,location=no,status=no,scrollbars=yes');"
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
-				src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
+				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
 				alt="상담챗봇 창 열림" id="chatBotBtFloating"
-				style="bottom: 20px; display: block; width: 230px; height: 199px">
+				style="bottom: 20px; display: block; width: 130px; height: 130px">
 			</a>
 		</div>
 

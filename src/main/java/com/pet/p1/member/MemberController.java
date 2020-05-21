@@ -257,7 +257,7 @@ public class MemberController {
 	}
 	
 	
-	//-- email 중복검사/찾기
+	//-- email 중복검사
 	@PostMapping("memberEmailCheck")
 	public ModelAndView memberEMCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -282,7 +282,6 @@ public class MemberController {
 	//-- id 중복검사
 	@PostMapping("memberIdCheck")
 	public ModelAndView memberIdCheck(MemberVO memberVO)throws Exception{
-		System.out.println("in");
 		ModelAndView mv = new ModelAndView();
 		memberVO = memberService.memberIdCheck(memberVO);
 		//null -> 가입 가능 1
@@ -298,19 +297,26 @@ public class MemberController {
 	
 	//-- id 중복검사 끝
 	
+	//-- phone 중복검사 
+	@PostMapping("memberPCheck")
+	public ModelAndView memberPCheck(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberVO = memberService.findPhone(memberVO);
+		int result = 0;
+		if(memberVO == null) {
+			result = 1;
+		}
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
 
 	//-- ID 찾기
 	@GetMapping("memberID")
 	public void memberID()throws Exception{
 		
 	}
-	
-	//-- PW 찾기
-	@GetMapping("memberPW")
-	public void memberPW()throws Exception{
-		
-	}
-	
 	
 	//-- ID 찾기 성공
 	@GetMapping("idFindSuccess")
@@ -327,6 +333,12 @@ public class MemberController {
 		
 	}
 	
+	//-- PW 찾기
+	@GetMapping("memberPW")
+	public void memberPW()throws Exception{
+			
+	}
+		
 	//-- PW 찾기 성공
 	@GetMapping("pwFindSuccess")
 	public ModelAndView pwFindSuccess(MemberVO memberVO)throws Exception{
@@ -335,6 +347,7 @@ public class MemberController {
 		
 		return mv;
 	}
+		
 	
 	//-- email로 찾기
 	@PostMapping("findEmail")
@@ -342,6 +355,17 @@ public class MemberController {
 	public MemberVO findEmail(MemberVO memberVO)throws Exception{
 
 		memberVO = memberService.memberEMCheck(memberVO);
+		
+		return memberVO;
+	}
+	
+	
+	//-- Phone으로 찾기
+	@PostMapping("findPhone")
+	@ResponseBody
+	public MemberVO findPhone(MemberVO memberVO)throws Exception{
+		
+		memberVO = memberService.findPhone(memberVO);
 		
 		return memberVO;
 	}
@@ -355,15 +379,7 @@ public class MemberController {
 		return "member/pwFindSuccess";	
 	}
 	
-	//-- Phone으로 찾기
-	@PostMapping("findPhone")
-	@ResponseBody
-	public MemberVO findPhone(MemberVO memberVO)throws Exception{
-		
-		memberVO = memberService.findPhone(memberVO);
-		
-		return memberVO;
-	}
+	
 	
 	//-- memberPayment
 	@GetMapping("memberPayment")

@@ -28,12 +28,13 @@
 <div style=" width: 400px; height:100%; margin: 0 auto; text-align: center; margin-top: 50px">
 	<i class='fas fa-paw' style="font-size: 36px; margin-top: 30px;" ></i>
 	<div class="contensts" style="margin-top: 10px;">
-	<p>${param.id} 고객님의 <br>
-	임시 비밀번호를 ${param.mailto} 로 보냈습니다!</p>
+	<p>${param.id} 고객님의 임시 비밀번호가 <br>
+	 ${param.mailto} 로 전송됐습니다!</p>
 	<p>로그인 후 비밀번호를 변경해 주세요.</p>
 	</div>
 	
 	<button id="find_btn" class="btn btn-info" style="background-color: #FF324D; border: none; width: 300px; margin-top: 10px;" onclick="login()">로그인하기</button>
+	<p style="font-size: small;">이메일을 찾을 수 없나요?<u> <a href="javascript:reload();">임시비밀번호 재전송</a></u></p>
 </div>
 
 </div>
@@ -41,6 +42,11 @@
 </div>
 
 <script type="text/javascript">
+
+function reload() {
+	location.reload();
+	alert("메일을 재발송했습니다!");
+}
 
 function login() {
 	location.href="./memberLogin";

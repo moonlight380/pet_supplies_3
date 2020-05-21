@@ -219,7 +219,24 @@
    		$("#mobile").html(" ");
    		var phoneAll = $("#mobile1").val()+$("#mobile2").val()+$("#mobile3").val();
    		$("#phoneAll").val(phoneAll);
-   		phoneCheck = true;
+   		var phoneNum2 = $("#mobile2").val(); 
+	   	 $.ajax({
+				type: "post",	//method 형식 
+				url : "./memberPCheck", //URL 주소
+				data: {
+					phone1:phoneNum2
+				},	//parameter
+				success : function(data){
+					if(data == 0){
+						alert("중복된 번호입니다 다시 확인해주세요");
+					}
+					phoneCheck = true;
+				},
+				error:function(request,status,error){
+				    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+				
+			});   
+	 	
    	}
 	});
 

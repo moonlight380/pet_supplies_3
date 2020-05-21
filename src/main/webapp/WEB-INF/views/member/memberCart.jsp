@@ -149,7 +149,7 @@
 											
 											<td>
 												<a href="${pageContext.request.contextPath}/product/dogSelect?productNum=${cart.productNum}" target="_blank">
-													<img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;">
+													<img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;">
 												</a>
 											</td>
 											<td>

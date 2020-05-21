@@ -20,6 +20,7 @@
 		
 		<c:forEach items="${cartSelect}" var="cart" varStatus="index">
 			<div class="count" id="_${index.index}">aa</div>
+			
 			<h3>id : ${cart.id}</h3>
 			<h1>index:${index.index }</h1>
 			<h3 id="filename_${index.index}" title="${cart.fileName}" >filename : ${cart.fileName}</h3>
@@ -28,38 +29,60 @@
 			<h3 id="price_${index.index}" title="${cart.price}" >price : ${cart.price}</h3>
 			<h3 id="pNum_${index.index}" title="${cart.productNum}" >pNum : ${cart.productNum}</h3>
 			<h3 id="pName_${index.index}" title="${cart.productName}" >pName : ${cart.productName}</h3>
+			<h3 id="cnum_${index.index}" title="${cart.cnum }">cnum : ${cart.cnum }</h3>
 			<h1>-----------------------------------------------</h1>
 			
 		</c:forEach>
 		
 <script type="text/javascript">
-	var count=0;
+	var ids =[];
 	$(".count").each(function(){
 		var a = $(this).attr("id");
 		var id = $("#orderId").attr("title");
-		var orderNum = $("#orderNum").attr("title");
+		var orderNum = $("#orderNum").attr("title")*1;
 		var fileName = $("#filename"+a).attr("title");
-		var amount = $("#amount"+a).attr("title");
-		var point = $("#point"+a).attr("title");
-		var price = $("#price"+a).attr("title");
-		var pnum = $("#pNum"+a).attr("title");
-		var pname = $("#pName"+a).attr("title");
-		
-		console.log(fileName);
-		console.log(amount);
-		console.log(point);
-		console.log(price);
-		console.log(pnum);
-		console.log(pname);
-		
-		/* $.ajax({
+		var amount = $("#amount"+a).attr("title")*1;
+		var point = $("#point"+a).attr("title")*1;
+		var price = $("#price"+a).attr("title")*1;
+		var productNum = $("#pNum"+a).attr("title")*1;
+		var productName = $("#pName"+a).attr("title");
+		var cnum = $("#cnum"+a).attr("title");
+		ids.push(cnum);
+		$.ajax({
 			type : "post",
 			traditional : true,
-			url:"./memberOrder",
+			url:"./orderInfoInsert",
 			data:{
-				
+				id:id,
+				orderNum:orderNum,
+				fileName:fileName,
+				amount:amount,
+				point:point,
+				price:price,
+				productNum:productNum,
+				productName:productName
+			},
+			success:function(data){
+				$.ajax({
+					type:"get",
+					traditional : true,
+					url:"./cartDelete",
+					data:{
+						ids:ids
+					},
+					success:function(data){
+						$.get("./memberCartRefresh")
+					},
+					
+					error : function(request, status, error) {
+						alert("code = " + request.status + " message = "
+								+ request.responseText + " error = " + error);
+					}
+					
+					
+				});
 			}
-		}); */		
+		});		
 	});
 
 

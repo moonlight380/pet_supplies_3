@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,17 +16,9 @@
 	.table_title th{
 		border-bottom: 2px solid #FF324D;
 	}
-/* 	table{
-		border-collapse: collapse;
-	}
-	table tbody{
-		border-top: 15px solid white;
-	} */
 
-	table{
-		border-collapse: separate;
-		border-spacing: 5em;
-	}
+
+	
 </style>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
@@ -83,93 +75,83 @@
 								
 									
 								<tbody>
-									<c:forEach items="${ cartSelect}" var="cart" begin="0" end="0">
-										<tr class="table_body pCount" style="text-align: center;">      <!-- for문으로 뿌리고 자바스크립트로 테이블 고치기 -->
-											<td rowspan="" id="c">${cart.cnum }tm12325s</td>
-											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>1545t43tdetr</td>
-											<td>123,123</td>
-											<td>5개</td>
-											<td>500P</td>
-											<td>합계asdasdas</td>
-										
-										</tr>
-										<c:forEach items="${cartSelect}" var="cart" begin="1">
-											<tr class="table_body pCount" style="text-align: center;"> 
-												<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-												<td>1545t43tdetr</td>
-												<td>123,123</td>
-												<td>5개</td>
-												<td>500P</td>
-												<td>합계</td>
-											</tr>
-										
-										</c:forEach>
-									</c:forEach>
-									<tr style="line-height: 30px;">
-											<th>&nbsp;</th>
-										</tr>
-									
-									<c:forEach items="${ cartSelect}" var="cart" begin="0" end="0">
-										<tr class="table_body pCount2" style="text-align: center;">      <!-- for문으로 뿌리고 자바스크립트로 테이블 고치기 -->
-											<td rowspan="" id="d">${cart.cnum }tm12325s</td>
-											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>1545t43tdetr</td>
-											<td>123,123</td>
-											<td>5개</td>
-											<td>500P</td>
+								
+								
+									<c:forEach items="${ orderList}" var="order" varStatus="index">
+										<tr class="table_start table_body" id="id_${index.index}" title="${order.orderNum}" style="text-align: center;">      <!-- for문으로 뿌리고 자바스크립트로 테이블 고치기 -->
+											<td rowspan="1" class="${order.orderNum}_row"  title="${index.index}">${order.orderNum }<br>${order.regDate }</td>
+											<td><img src="${pageContext.request.contextPath}/resources/dogUpload/${order.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
+											<td>${order.productName }</td>
+											<td class="price comma" title="price">${order.price}</td>
+											<td class="comma" title="amount">${order.amount}</td>
+											<td class="comma" title="point">
+												<c:set var="point" value="${order.amount * order.point}"/>
+												<c:out value="${point}"/>
+											</td>
 											<td>합계</td>
 										
 										</tr>
-										<c:forEach items="${cartSelect}" var="cart" begin="1">
-											<tr class="table_body pCount2" style="text-align: center;"> 
-												<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-												<td>1545t43tdetr</td>
-												<td>123,123</td>
-												<td>5개</td>
-												<td>500P</td>
-												<td>합계</td>
-											</tr>
 										
-										</c:forEach>
 									</c:forEach>
-										
-									<%-- 	<tr class="table_body" style="text-align: center;">
-											<td>asd</td>
-											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>d</td>
-											<td>f</td>
-											<td>g</td>
-											<td>h15656</td>
-											<td>j124</td>
-										
-										</tr> --%>
-										
-										
-										<tr style="line-height: 30px;">
-											<th>&nbsp;</th>
-										</tr>
-										
+									
+									
+									
 									
 								</tbody>
 							</table>
+							
+							
+							
 							<script type="text/javascript">
-								var a = $("#c").attr("rowspan");
-								var b = 0;
-								var c = 0;
-								$(".pCount").each(function(){
-									b++;
+								
+								$(".table_start").each(function(){
+									var title = $(this).attr("title");
+									var cname = "."+title+"_row";
+									$(cname).each(function(){
+										var rows = $(cname+":contains('"+$(this).text()+ "')" );
+										if(rows.length>1){
+											rows.eq(0).attr("rowspan",rows.length);
+											rows.not(":eq(0)").remove();
+											var id = rows.first().attr("title");
+											id = "id_"+id;
+										
+											$('#'+id).before('<tr style="line-height: 30px;">'+
+															'<th>&nbsp;</th>'+
+															'</tr>');
+											
+											
+										}
+										
+									});
+									
+									
+									
 								});
-								$(".pCount2").each(function(){
-									c++;
+								
+								$(".comma").each(function(){
+									var x = $(this).text();
+									x = addCommas(x);
+									var check = $(this).attr("title");
+									if(check=="price"){
+										x = x+"원";
+										$(this).text(x);
+									} else if(check=="point"){
+										x = x+"P";
+										$(this).text(x);
+									} else if(check=="amount"){
+										x = x+"개";
+										$(this).text(x);
+										
+									}
 								});
-								console.log("asdasd");
-								console.log(a);
-								console.log(b);
-								$("#c").attr("rowspan",b);
-								$("#d").attr("rowspan",b);
-								console.log("asd : "+$("#c").attr("rowspan"));
+								
+								
+								function addCommas(x) {
+									return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+								}
+								
 							</script>
+					
 							
 							
 							
@@ -185,8 +167,17 @@
 							
 						
 						</div>
-						<div class="row">asdasd25345asrfet23</div>
-					
+						<div class="row">aa</div>
+						<div class="row">bb</div>
+						<div class="row">cc</div>
+						<div class="row">bb</div>
+						<div class="row">bb</div>
+						<div class="row" id="c">bb</div>
+						<script type="text/javascript">
+							$("#c").after("<h1>asd</h1>");
+						
+						</script>
+						
 					</div>
 					<div class="col-sm-2"></div>
 				</div>

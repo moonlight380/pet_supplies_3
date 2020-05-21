@@ -14,6 +14,20 @@ public class OrderInfoVO {
 	private Date regDate;
 	private long point;
 	private String fileName;
+	private long priceAll;
+	private long charge;
+	public long getPriceAll() {
+		return priceAll;
+	}
+	public void setPriceAll(long priceAll) {
+		this.priceAll = priceAll;
+	}
+	public long getCharge() {
+		return charge;
+	}
+	public void setCharge(long charge) {
+		this.charge = charge;
+	}
 	public long getOrderNum() {
 		return orderNum;
 	}

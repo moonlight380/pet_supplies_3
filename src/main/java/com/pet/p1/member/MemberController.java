@@ -30,7 +30,7 @@ import com.pet.p1.cart.CartVO;
 import com.pet.p1.mail.JavaMailInfo;
 import com.pet.p1.order.OrderService;
 import com.pet.p1.order.OrderVO;
-
+import com.pet.p1.orderInfo.OrderInfoVO;
 import com.pet.p1.product.DogService;
 
 import com.pet.p1.util.Pager;
@@ -53,7 +53,13 @@ public class MemberController {
 
 	
 	@GetMapping("memberOrderInfo")
-	public void memberOrderInfo()throws Exception{
+	public ModelAndView memberOrderInfo(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		List<OrderInfoVO> ar = orderService.orderInfoList(memberVO);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("orderList",ar);
+		mv.setViewName("member/memberOrderInfo");
+		return mv;
 		
 	}
 	@GetMapping("memberOrder")
@@ -69,6 +75,15 @@ public class MemberController {
 		return mv;
 	}
 	
+	@PostMapping("orderInfoInsert")
+	@ResponseBody
+	public void orderInfoInsert(OrderInfoVO orderInfoVO,HttpSession session)throws Exception{
+		orderService.orderInfoInsert(orderInfoVO);
+		session.setAttribute("cartSelect", null);
+		
+		
+	}
+	
 	@GetMapping("memberCartHeader")
 	public void memberCartHeader()throws Exception{
 		
@@ -80,9 +95,7 @@ public class MemberController {
 	public void memberPaymentList(Long[] ids,HttpSession session)throws Exception{
 		List<Long> list = Arrays.asList(ids);
 		
-		for(int i=0;i<list.size();i++) {
-			System.out.println(list.get(i));
-		}
+		
 		
 		List<CartVO> ar = cartService.cartSelect(list);
 		session.setAttribute("cartSelect", ar); 

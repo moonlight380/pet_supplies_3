@@ -18,4 +18,18 @@
   	</select>
   
   
+  	<insert id="orderInfoInsert" parameterType="OrderInfoVO">
+  		insert into orderinfo values(#{orderNum},#{id},#{productNum},#{productName},#{price},#{amount},sysdate,#{point},#{fileName})
+  	
+  	</insert>
+  	
+  	<select id="orderInfoList" parameterType="MemberVO" resultType="OrderInfoVO">
+  		select orderinfo.ordernum,filename,productname,price,amount,regdate,point,porder.priceall,porder.charge
+		from orderinfo
+		inner join porder on(orderinfo.ordernum=porder.ordernum)
+		where orderinfo.id='a'
+		order by regdate desc
+  	
+  	</select>
+  
   </mapper>

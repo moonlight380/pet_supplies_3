@@ -499,40 +499,36 @@ $('#close_popup2').click(function(){
    						<%-- <span class="price">${}</span>    --%> 	
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
-                            	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>
+                            	<h5 class="product_tab_title"><span>리뷰</span></h5>
                                 <ul class="list_none comment_list mt-4">
                                     <c:forEach items="${list}" var="review">                                 
                                     <li>
-	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
-	                                        <div class="comment_img">
-	                                            <%-- <img src="${pageContext.request.contextPath}/resources/images/user1.jpg" alt="user1"/> --%>
-	                                            						  	<!-- 이미지가 여러개 이므로 반복문 -->		
-											 										 
-													 	<img alt="" src="../resources/${board}Upload/${review2.fileName}">			
-											
-	                                        </div>
-	                                        </c:forEach>
-                                        <div class="comment_block">
-                                            <div class="rating_wrap">
-                                                <div class="rating">
-                                                    <div class="product_rate" style="width:80%"></div>
-                                                </div>
-                                            </div>
+
+                                        <div class="comment_block" style="padding: 0 auto">
+
                                             <p class="customer_meta">
                                                 <span class="review_author">${review.id}</span>
                                                 <span class="comment-date">${review.regDate}</span>
                                             </p>
                                             <div class="description">
                                                 <p>${review.contents}</p>
+                                            	<c:forEach items="${review.boardFileVOs}" var="review2">
+	                                        		<div>
+	                                            						  	<!-- 이미지가 여러개 이므로 반복문 -->		
+											 										 
+													<img alt="" src="../resources/reviewUpload/${review2.fileName}" style="max-width: 100%; height: auto;">			
+	                                        		</div>
+	                                        </c:forEach>
+                                                
                                             </div>
                                         </div>
                                     </li>
   									</c:forEach>
   
-  
                                 </ul>
                         	</div>
-                            <div class="review_form field_form">
+                        	
+<!--                             <div class="review_form field_form">
                                 <h5>Add a review</h5>
                                 <form class="row mt-3">
                                     <div class="form-group col-12">
@@ -558,7 +554,8 @@ $('#close_popup2').click(function(){
                                         <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Submit Review</button>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
+                            
                       	</div>
                 	</div>
                 </div>

@@ -499,7 +499,7 @@ $('#close_popup2').click(function(){
    						<%-- <span class="price">${}</span>    --%> 	
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
-                            	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>
+                       
                                 <ul class="list_none comment_list mt-4">
                                     <c:forEach items="${list}" var="review">                                 
                                     <li>
@@ -508,7 +508,7 @@ $('#close_popup2').click(function(){
 	                                            <%-- <img src="${pageContext.request.contextPath}/resources/images/user1.jpg" alt="user1"/> --%>
 	                                            						  	<!-- 이미지가 여러개 이므로 반복문 -->		
 											 										 
-													 	<img alt="" src="../resources/${board}Upload/${review2.fileName}">			
+													 	<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
 											
 	                                        </div>
 	                                        </c:forEach>
@@ -532,33 +532,7 @@ $('#close_popup2').click(function(){
   
                                 </ul>
                         	</div>
-                            <div class="review_form field_form">
-                                <h5>Add a review</h5>
-                                <form class="row mt-3">
-                                    <div class="form-group col-12">
-                                        <div class="star_rating">
-                                            <span data-value="1"><i class="far fa-star"></i></span>
-                                            <span data-value="2"><i class="far fa-star"></i></span> 
-                                            <span data-value="3"><i class="far fa-star"></i></span>
-                                            <span data-value="4"><i class="far fa-star"></i></span>
-                                            <span data-value="5"><i class="far fa-star"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-12">
-                                        <textarea required="required" placeholder="Your review *" class="form-control" name="message" rows="4"></textarea>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input required="required" placeholder="Enter Name *" class="form-control" name="name" type="text">
-                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <input required="required" placeholder="Enter Email *" class="form-control" name="email" type="email">
-                                    </div>
-                                   
-                                    <div class="form-group col-12">
-                                        <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Submit Review</button>
-                                    </div>
-                                </form>
-                            </div>
+
                       	</div>
                 	</div>
                 </div>

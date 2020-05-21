@@ -165,8 +165,9 @@ $('#close_popup2').click(function(){
 
 
 
-
+<div id="header">		<!-- 추가한부분 -->
 <c:import url="../template/header.jsp"></c:import>
+</div>
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">
@@ -335,6 +336,7 @@ $('#close_popup2').click(function(){
 	               			//$("#quantityNum").val(num);
 
 	               			$("#quantityNum_amount").text(num); 
+	               			
 
 	               			$("#sum_price").text(num*perPrice);
 	               			
@@ -345,7 +347,12 @@ $('#close_popup2').click(function(){
                        
  <!--마이너스 플러스 스클립트 끝 ------------------------------------------------------------------------------------------------------------ -->                     
                        <span class="cart_btn">
-                            <button class="btn btn-fill-out btn-addtocart cart_margin" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
+                       		<!-- 추가한부분  class에 cart id,data-toggle,data-target -->
+                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}"
+                            data-toggle="modal" data-target="#myModal"
+                             type="button">
+                            
+                            <i class="icon-basket-loaded"></i> Add to cart</button> 
                         </span> <!-- "cart_btn" -->
                         
                         <span class="direct_purchase">
@@ -608,6 +615,8 @@ $('#close_popup2').click(function(){
 
 </div>
 <!-- END MAIN CONTENT -->
+
+<c:import url="../cart/addCart.jsp"></c:import>  <!-- 추가한부분  장바구니 추가할 때 필요-->
 
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>

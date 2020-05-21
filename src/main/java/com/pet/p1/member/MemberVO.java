@@ -11,6 +11,10 @@ public class MemberVO {
 	private String address;
 	private Long point;
 	private String sex;
+	private String addr1;
+	private String addr2;
+	private String phone1;
+	private String phone2;
 	
 	
 	public String getId() {
@@ -67,7 +71,30 @@ public class MemberVO {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+	public String getPhone1() {
+		return phone1;
+	}
+	public void setPhone1(String phone1) {
+		this.phone1 = phone1;
+	}
+	public String getPhone2() {
+		return phone2;
+	}
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
+	}
 	
 	
 	

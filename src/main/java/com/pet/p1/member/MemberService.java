@@ -128,7 +128,6 @@ public class MemberService {
 			
 			memberInfo.put("nickname", nickname);
 			memberInfo.put("birthday", birthday);
-			
 	
 
 			
@@ -170,8 +169,8 @@ public class MemberService {
 		}
 		
 	
-	public List<DogVO> productList(DogVO dogVO)throws Exception{
-		return memberDAO.memberCart(dogVO);
+	public Long memberCart(MemberVO memberVO)throws Exception{
+		return memberDAO.memberCart(memberVO);
 	}
 	
 	public List<MemberVO> memberList(Pager memberPager)throws Exception{

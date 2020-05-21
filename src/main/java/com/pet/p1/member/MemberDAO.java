@@ -19,8 +19,12 @@ public class MemberDAO {
 	
 	private final String NAMESPACE="com.pet.p1.member.MemberDAO.";
 	
-	public List<DogVO> memberCart(DogVO dogVO)throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"memberCart", dogVO);
+	public int pwUpdate(MemberVO memberVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"pwUpdate", memberVO);
+	}
+	
+	public Long memberCart(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberCart", memberVO);
 	}
 	
 	public Long memberCount(Pager memberPager) throws Exception{

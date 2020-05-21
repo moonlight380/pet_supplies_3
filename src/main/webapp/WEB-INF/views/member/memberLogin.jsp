@@ -13,19 +13,21 @@
 
 <div class="container">
 
-	<div class="path" style="display: block; float: right; position: relative; height: auto;">
-		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
-			<li style="display: inline;" title="현재 위치"><strong>로그인</strong></li>
-		</ol>
-	</div>
 
-<div style="margin-top: 100px; text-align: center;display: block; border-bottom: 3px solid black;">
-<h1 style=" margin-top: 100px; font-weight: bold; font-size: 36px; margin-bottom: 30px;">로그인</h1>
+<div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">
+	<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
+		<li style="display: inline;" title="현재 위치"><strong>로그인</strong></li>
+	</ol>
+</div>
+
+
+<div style="text-align: center; display: block; border-bottom: 3px solid black;height: 100px; margin-top: 50px;">
+<h1 style="font-weight: bold; font-size: 36px; margin-top: 30px;">로그인</h1>
 </div>
 
 <div class="row" style="margin-top: 50px;">
 <div class="col"></div>
-<div style="height: 600px; width:500px; border: 1px solid red;">
+<div style="height: 600px; width:500px;">
 
 <form class="form-signin" action="./memberLogin" method="post">
 
@@ -37,18 +39,18 @@
 	</a>
 	</div>
 	
-	<input style="width: 400px; margin: 0 auto;" type="text" id="id" name="id" class="form-control" placeholder="아이디 입력" required autofocus value="${cookie.cId.value}">
-	<input style="width: 400px; margin: 0 auto;" type="password" id="pw" name="pw" class="form-control mt-2 mb-2" placeholder="비밀번호 입력" required>
+	<input style="width: 400px; margin: 0 auto;" type="text" id="id" name="id" class="form-control" placeholder="아이디 입력" value="${cookie.cId.value}">
+	<input style="width: 400px; margin: 0 auto;" type="password" id="pw" name="pw" class="form-control mt-2 mb-2" placeholder="비밀번호 입력" value="">
 		
 	<div style="margin-left: 50px;">		
-		<label class="ml-0" style="font-size: small; font-style: inherit;"> <input type="checkbox" value="remember-me">
+		<label class="ml-0" style="font-size: small; font-style: inherit;"> <input type="checkbox" value="remember" name="remember">
 			아이디 저장
 		</label>
 	</div>
 	
-	<button class="btn btn-lg btn-block" id="btn"style="background-color: #FF324D; width: 400px; margin: 0 auto;">로그인</button>
+	<button class="btn btn-lg btn-block" id="btn"style="background-color: #FF324D; width: 400px; margin: 0 auto; color: white;">로그인</button>
 	
-	<div class="text-center" style="border: 1px solid #d7d5d5; font-size:medium; height: 50px; margin-top: 15px;">
+	<div class="text-center" style="font-size:medium; height: 50px; margin-top: 15px;">
 		<a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a> |
 		<a href="${pageContext.request.contextPath}/member/memberID">아이디 찾기</a> |
 		<a href="${pageContext.request.contextPath}/member/memberPW">비밀번호 찾기</a>
@@ -59,7 +61,7 @@
  <form action="./kakaoLogin" method="get">
 	<div class="kakaoLogin" style="margin-top: 50px; width: 400px; margin: 0 auto;">
 	
-	<c:if test="${member.id eq null}">
+	<c:if test="${member.nickname eq null}">
 	<a 		href="https://kauth.kakao.com/oauth/authorize?
 			client_id=ccfe4411fa1bfc86a27222555a4dba8c
 			&redirect_uri=http://localhost:8080/p1/member/kakaoLogin
@@ -81,17 +83,5 @@
 </div>
 
 
-
-<script type="text/javascript">
-	/* kakao Login  */
-	
-	$("#btn").click(function() {
-		alert("click");
-	});
-	document.getElementById('btn').style.backgroundColor = '#ff9999';
-	document.getElementById('btn').style.color = 'white';
-	$('.member').css({'color':'gray','font-size':'5px'});
-	
-</script>
 
 </html>

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<style type="text/css">
 .left {
 	font-size: 15px;
@@ -42,14 +43,15 @@
 
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
+
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
 
 	<div class="container-fulid  mt-5">
-	<c:import url="./memberSide.jsp"></c:import>
 		<div class="row ">
+			<c:import url="./memberSide.jsp"></c:import>
 
 			<div class="col ">
 				<div class="row ">
@@ -164,9 +166,9 @@
 		
 		</div>
 		
-		<div class="row" style="margin-top: 200px;">
-			<h1>footer</h1>
-		</div>
+		
+			<c:import url="../template/footer.jsp"></c:import>
+		
 	
 	</div>
 	

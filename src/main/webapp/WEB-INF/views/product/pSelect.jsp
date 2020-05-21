@@ -25,7 +25,6 @@
 <style type="text/css">
 .sum{
 float: right;
-
 }
 .line{
 	clear:both;
@@ -34,11 +33,9 @@ float: right;
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
 }
-
 .total_price{
 	margin-bottom: 50px;
 }
-
 .cart_margin{
 	margin-left: 160px;
 	margin-bottom: 20px;
@@ -57,7 +54,6 @@ float: right;
 	float: right;
 	margin-bottom: 20px;
 }
-
 .admin_btn{
 	float: right;
 	margin-left: 20px;
@@ -69,7 +65,6 @@ float: right;
     margin-bottom: 20px;
     font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
 }
-
 #prdInfo .prdInfo-cont .cont {
 	font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
     display: inline-block;
@@ -100,22 +95,31 @@ float: right;
 	margin-right: 30px;
 	padding: 30px;
 }
-
 #page_free{
-z-index:99;
-position:absolute;
-top:10px;
-left:10px;
-text-align:left;
-border:1px solid #000;
-width: 720px;
-height: 850px;
-margin: 300px 1000px;
-padding: 10px;
+	z-index:99;
+	position:absolute;
+	top:10px;
+	left:10px;
+	text-align:left;
+	border:1px solid #000;
+	width: 720px;
+	height: 850px;
+	margin: 300px 1000px;
+	padding: 10px;
 }
-#page_free img{border:10px soild #FFF;}
-#page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
 
+#page_free img{
+	border:10px soild #FFF;
+}
+
+#page_free .new_btn{	
+	width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;
+}
+
+.fileSize{
+	width: 500px;
+	height: 500px;
+}
 </style>
 
 <!-- 팝업창띄우기 -->
@@ -124,7 +128,6 @@ padding: 10px;
 	
 function goPopup(){
 		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
-
 		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
 		//크롬에서는 속성값이 먹지 않음
 		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
@@ -160,7 +163,6 @@ $('#close_popup2').click(function(){
 	<input type="checkbox" name="close_popup2" id="close_popup2">
 	</div>
 </div>
-
 <!--레이어팝업  끝--> --%>
 
 
@@ -333,9 +335,7 @@ $('#close_popup2').click(function(){
 	               			num++;
 	               			alert("plus:"+num);
 	               			//$("#quantityNum").val(num);
-
 	               			$("#quantityNum_amount").text(num); 
-
 	               			$("#sum_price").text(num*perPrice);
 	               			
 	               		});/*plus*/
@@ -499,40 +499,62 @@ $('#close_popup2').click(function(){
    						<%-- <span class="price">${}</span>    --%> 	
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
-                       
+                            	<h5 class="product_tab_title"><span>리뷰</span></h5>
                                 <ul class="list_none comment_list mt-4">
                                     <c:forEach items="${list}" var="review">                                 
                                     <li>
-	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
-	                                        <div class="comment_img">
-	                                            <%-- <img src="${pageContext.request.contextPath}/resources/images/user1.jpg" alt="user1"/> --%>
-	                                            						  	<!-- 이미지가 여러개 이므로 반복문 -->		
-											 										 
-													 	<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
-											
-	                                        </div>
-	                                        </c:forEach>
-                                        <div class="comment_block">
-                                            <div class="rating_wrap">
-                                                <div class="rating">
-                                                    <div class="product_rate" style="width:80%"></div>
-                                                </div>
-                                            </div>
+
+                                        <div class="comment_block" style="padding: 0 auto">
+
                                             <p class="customer_meta">
                                                 <span class="review_author">${review.id}</span>
                                                 <span class="comment-date">${review.regDate}</span>
                                             </p>
                                             <div class="description">
                                                 <p>${review.contents}</p>
+                                            	<c:forEach items="${review.boardFileVOs}" var="review2">
+	                                        		<div class="fileSize">
+	                                            	<!-- 이미지가 여러개 이므로 반복문 -->										 
+													<img alt="" src="../resources/reviewUpload/${review2.fileName}" style="max-width: 100%; height: auto;">			
+	                                        		</div>
+	                                        </c:forEach>
+                                                
                                             </div>
                                         </div>
                                     </li>
   									</c:forEach>
   
-  
                                 </ul>
                         	</div>
-
+                        	
+<!--                             <div class="review_form field_form">
+                                <h5>Add a review</h5>
+                                <form class="row mt-3">
+                                    <div class="form-group col-12">
+                                        <div class="star_rating">
+                                            <span data-value="1"><i class="far fa-star"></i></span>
+                                            <span data-value="2"><i class="far fa-star"></i></span> 
+                                            <span data-value="3"><i class="far fa-star"></i></span>
+                                            <span data-value="4"><i class="far fa-star"></i></span>
+                                            <span data-value="5"><i class="far fa-star"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <textarea required="required" placeholder="Your review *" class="form-control" name="message" rows="4"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input required="required" placeholder="Enter Name *" class="form-control" name="name" type="text">
+                                     </div>
+                                    <div class="form-group col-md-6">
+                                        <input required="required" placeholder="Enter Email *" class="form-control" name="email" type="email">
+                                    </div>
+                                   
+                                    <div class="form-group col-12">
+                                        <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Submit Review</button>
+                                    </div>
+                                </form>
+                            </div> -->
+                            
                       	</div>
                 	</div>
                 </div>

@@ -13,11 +13,13 @@
              opener.document.getElementById("rphone1_2").value = document.getElementById("rphone1_2"+num).innerText
              opener.document.getElementById("rphone1_3").value = document.getElementById("rphone1_3"+num).innerText
              //휴대폰
-             opener.document.getElementById("rphone").value= document.getElementById("rphone"+num).innerText
+             //opener.document.getElementById(document.getElementById("rphone"+num).innerText).selected="selected"
+             opener.document.getElementById("rphone").value=document.getElementById("rphone"+num).innerText
              opener.document.getElementById("rphone1").value = document.getElementById("rphone1"+num).innerText 
              opener.document.getElementById("rphone2").value = document.getElementById("rphone2"+num).innerText
-        
-             /*close();*/
+            
+             
+             close();
         }
 
         

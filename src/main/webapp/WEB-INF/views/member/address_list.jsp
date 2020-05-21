@@ -79,7 +79,7 @@
                         
                         </td>
                         <!--휴대폰 -->
-                        <td scope="col" id="rphone${i.index}">${vo.rphone}</span>
+                        <td scope="col"><span id="rphone${i.index}">${vo.rphone}</span>
                         -<span id="rphone1${i.index}">${vo.rphone1}</span>                       
                         -<span id="rphone2${i.index}">${vo.rphone2}</span>
                         </td>

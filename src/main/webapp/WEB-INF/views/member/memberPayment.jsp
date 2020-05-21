@@ -699,6 +699,7 @@
 	
 	//-- 입금자명 유효성 검사
 	var pnameCheck = true;
+	$("#pname").ready(function() {
 	var pname = $("#pname").val();
 		for (var i=0; i<pname.length; i++)  { 
 		    var chk = pname.substring(i,i+1); 
@@ -714,13 +715,16 @@
 		    	nameCheck = true;
 		    }
 		} 
+	});
 	
 	//-- 입금은행 유효성 검사
 	var bankCheck = true;
-	$("#bankaccount").change(function() {
+	$("#bankaccount").ready(function() {
 		var bankaccount = $(this).val();
-		if(bankaccount = -1){
+		if(bankaccount = '-1'){
 			bankCheck = false;
+		}else{
+			bankCheck = true;
 		}
 	});
  	
@@ -754,7 +758,7 @@
 		 		 if(pay == kakaopay){
 					location.href="./kakaoPay?name=dd&totalPrice="+AllPrice;	
 				}else if(pay == account){
-					if(!(pnameCheck)){
+					if(!pnameCheck){
 						alert("입금자명을 제대로 입력해주세요");
 					}else if(!bankCheck){
 						alert("입금은행을 제대로 입력해주세요");

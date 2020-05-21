@@ -119,7 +119,7 @@ padding: 10px;
 </style>
 
 <!-- 팝업창띄우기 -->
-
+<!-- 
 <script type="text/javascript">
 	
 function goPopup(){
@@ -130,10 +130,10 @@ function goPopup(){
 		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
 	}
 	
-</script>
+</script> -->
 
-<!-- 레이어팝업 -->
-<script type="text/javascript">
+ <!-- 레이어팝업 -->
+<!-- <script type="text/javascript">
 $(document).ready(function(){
 //오늘 하루 팝업 열지 않기
 $('#close_popup').click(function(){
@@ -145,7 +145,7 @@ $('#close_popup2').click(function(){
 	$("#page_free").hide();
 });
 });
-</script>
+</script>  -->
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
@@ -360,7 +360,7 @@ $('#close_popup2').click(function(){
                         </span>
                    <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/product/dogkakaoPay?productName=${vo.productName}&amount=${vo.amount}">kakao pay</a></button>
+                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/member/memberPaymenyt?productName=${vo.productName}&amount=${vo.amount}">kakao pay</a></button>
                          
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
@@ -428,7 +428,7 @@ $('#close_popup2').click(function(){
                 	<div class="tab-content shop_info_tab">
                       	<div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
                         	
-						  	<!-- 이미지가 여러개 이므로 반복문 -->		
+<!-- 이미지가 여러개 이므로 반복문 -->		
 							 <c:forEach items="${vo.productFileVOs}" var="file">
 									 <div>
 									 	<img alt="" src="../resources/dogUpload/${file.fileName}">			

@@ -72,20 +72,20 @@
 						<td scope="col">${vo.addr_name}</td>
 						
                         <td scope="col" id="rname${i.index}">${vo.rname}</td>
-                        
+                        <!--일반전화 -->
                         <td scope="col" ><span id="rphone1_1${i.index}">${vo.rphone1_1}</span>                        
                         -<span id="rphone1_2${i.index}">${vo.rphone1_2}</span>                        
                         -<span id="rphone1_3${i.index}">${vo.rphone1_3}</span>
                         
                         </td>
-                        <td scope="col" id="rphone2_1${i.index}"><span>${vo.rphone2_1}</span>
-                        
-                        -<span id="rphone2_2${i.index}">${vo.rphone2_2}</span>
-                        
-                        -<span id="rphone2_3${i.index}">${vo.rphone2_3}</span></td>
+                        <!--휴대폰 -->
+                        <td scope="col" id="rphone${i.index}">${vo.rphone}</span>
+                        -<span id="rphone1${i.index}">${vo.rphone1}</span>                       
+                        -<span id="rphone2${i.index}">${vo.rphone2}</span>
+                        </td>
                         
                         <td scope="col">
-                        (<span id="rzipcode1${i.index}">${vo.rzipcode1}</span>)
+                        (<span id="raddress${i.index}">${vo.raddress}</span>)
                         <span id="raddr1${i.index}">${vo.raddr1}</span>
                         
                         <span id="raddr2${i.index}">${vo.raddr2}</span></td>

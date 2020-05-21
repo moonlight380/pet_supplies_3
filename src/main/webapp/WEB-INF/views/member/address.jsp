@@ -64,7 +64,7 @@
 <tr>
 <th scope="row">주소 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
 	<td>
-		<input id="rzipcode1" name="rzipcode1" class="inputTypeText" size="6" maxlength="6" type="text" readonly="readonly">							
+		<input id="raddress" name="raddress" class="inputTypeText" size="6" maxlength="6" type="text" readonly="readonly">							
 		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
 		<input id="raddr1" name="raddr1" class="inputTypeText" size="40" type="text" readonly="readonly"> <span class="grid">기본주소</span><br>
 		<input id="raddr2" name="raddr2" class="inputTypeText" size="40"type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
@@ -111,8 +111,8 @@
 			<option value="019">019</option>
 			<option value="0508">0508</option>
 	</select>
-	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" value="" type="text">
-	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" value="" type="text">
+	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text">
+	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text">
 	</td>
 </tr>
 
@@ -120,7 +120,7 @@
 <tr class="">
 <th scope="row">휴대전화 <span class=""><img src="/p1/resources/images/ico_required.gif" alt="필수"></span>
 </th>
-	<td><select  class="addr_interval tel" id="rphone2_1" name="rphone2_1">
+	<td><select  class="addr_interval tel" id="rphone" name="rphone">
 		<option value="010">010</option>
 		<option value="011">011</option>
 		<option value="016">016</option>
@@ -128,10 +128,10 @@
 		<option value="018">018</option>
 		<option value="019">019</option>
 		</select>
-			-<input id="rphone2_2" name="rphone2_2" maxlength="4" size="4" value="" type="text">
-			-<input id="rphone2_3" name="rphone2_3" maxlength="4" size="4" value="" type="text">	
+			-<input id="rphone1" name="rphone1" maxlength="4" size="4" type="text">
+			-<input id="rphone2" name="rphone2" maxlength="4" size="4" type="text">	
 	<span id="mobile"></span>
-	<input id="phoneAll" type="text" hidden="" value="" name="phone"></td>
+	<input id="phoneAll" type="text"  hidden="" name="phone"></td>
 </tr>
 </tbody>
 			
@@ -156,15 +156,15 @@
         function setParentText(){
              opener.document.getElementById("addr_name").value = document.getElementById("addr_name").value
              opener.document.getElementById("rname").value = document.getElementById("rname").value
-             opener.document.getElementById("rzipcode1").value = document.getElementById("rzipcode1").value
+             opener.document.getElementById("raddress").value = document.getElementById("raddress").value
              opener.document.getElementById("raddr1").value = document.getElementById("raddr1").value
              opener.document.getElementById("raddr2").value = document.getElementById("raddr2").value
              opener.document.getElementById("rphone1_1").value = document.getElementById("rphone1_1").value
              opener.document.getElementById("rphone1_2").value = document.getElementById("rphone1_2").value
              opener.document.getElementById("rphone1_3").value = document.getElementById("rphone1_3").value
-             opener.document.getElementById("rphone2_1").value = document.getElementById("rphone2_1").value
-             opener.document.getElementById("rphone2_2").value = document.getElementById("rphone2_2").value  
-             opener.document.getElementById("rphone2_3").value = document.getElementById("rphone2_3").value
+             opener.document.getElementById("rphone").value = document.getElementById("rphone").value
+             opener.document.getElementById("rphone1").value = document.getElementById("rphone1").value  
+             opener.document.getElementById("rphone2").value = document.getElementById("rphone2").value
         }
 </script>
 

@@ -36,22 +36,7 @@ public String getBoard()throws Exception{
 }
 
 
-//dogkakaoPay
-@RequestMapping(value = "dogkakaoPay",method = RequestMethod.GET)
-public ModelAndView dogkakaoPay (ModelAndView mv,DogVO dogVO,HttpSession session) throws Exception{
-	
-	mv.addObject("vo",dogVO);
-	mv.setViewName("product/pkakaoPay");	
-	return mv;
-}
 
-//kakao
-@RequestMapping(value = "kakao",method = RequestMethod.GET)
-public ModelAndView kakao (ModelAndView mv) throws Exception{
-	mv.setViewName("product/kakao");
-	
-	return mv;
-}
 
 //List
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )

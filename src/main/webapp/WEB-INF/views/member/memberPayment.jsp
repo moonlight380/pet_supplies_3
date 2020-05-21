@@ -9,6 +9,23 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
+<style type="text/css">
+
+.addr_button{
+	color: #323232;
+    background: #ffffff;
+    border: 1px solid #cbcbcb;
+    min-width: 20px;
+    height: 26px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -261,7 +278,7 @@
 <input id="sameaddr0" name="sameaddr"  value="T" type="radio"><label for="sameaddr0">주문자 정보와 동일</label>
 <input id="sameaddr1" name="sameaddr"  value="F" type="radio"><label for="sameaddr1">새로운배송지</label><span class="recent ec-shop-RecentDelivery displaynone">
 </span>
-<a href="#none" id="btn_shipp_addr" class="btn_function btncolor_basic" style="border: 1px solid gray;"><span class="ico_arrow_r">주소록 보기</span></a>
+<input type="button" id="btn_shipp_addr" class="btn addr_button" onclick="openAddressList()" value="주소록보기">
 </div>
 </td>
 </tr>
@@ -278,18 +295,60 @@
    <input style="width: 300px;" id="raddr2" name="addr2" class="input_Join" placeholder="" type="text"><span>나머지 주소</span>
  
 </tr>
-
+<!-- 일반전화 -->
+<tr class="">
+<th scope="row">일반전화 <span class="displaynone"></span>
+</th>
+	<td>
+		<select id="rphone1_1" name="rphone1_1" >
+			<option value="02">02</option>
+			<option value="031">031</option>
+			<option value="032">032</option>
+			<option value="033">033</option>
+			<option value="041">041</option>
+			<option value="042">042</option>
+			<option value="043">043</option>
+			<option value="044">044</option>
+			<option value="051">051</option>
+			<option value="052">052</option>
+			<option value="053">053</option>
+			<option value="054">054</option>
+			<option value="055">055</option>
+			<option value="061">061</option>
+			<option value="062">062</option>
+			<option value="063">063</option>
+			<option value="064">064</option>
+			<option value="0502">0502</option>
+			<option value="0503">0503</option>
+			<option value="0504">0504</option>
+			<option value="0505">0505</option>
+			<option value="0506">0506</option>
+			<option value="0507">0507</option>
+			<option value="070">070</option>
+			<option value="010">010</option>
+			<option value="011">011</option>
+			<option value="016">016</option>
+			<option value="017">017</option>
+			<option value="018">018</option>
+			<option value="019">019</option>
+			<option value="0508">0508</option>
+	</select>
+	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text">
+	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text">
+	</td>
+</tr>
+<!-- 휴대전화 -->
 <tr class="">
 <th scope="row">휴대전화 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
 </th>
-<td><select id="rphone" name="rphone2_[]">
+<td><select id="rphone" >
 <option value="010">010</option>
 <option value="011">011</option>
 <option value="016">016</option>
 <option value="017">017</option>
 <option value="018">018</option>
 <option value="019">019</option>
-</select>-<input class="input_Join" id="rphone1" name="rphone2_[]" maxlength="4"size="4" type="text">-<input class="input_Join" id="rphone2" name="rphone2_[]" maxlength="4"size="4"type="text"></td>
+</select>-<input class="input_Join" id="rphone1" maxlength="4"size="4" type="text">-<input class="input_Join" id="rphone2" maxlength="4"size="4"type="text"></td>
 </tr>
 
 </tbody>
@@ -833,7 +892,19 @@ function sample6_execDaumPostcode() {
 
 </script>
 
-
+<!-- 배송 정보 스크립트 -->		
+<script type="text/javascript">
+    
+        function openAddressList()
+        {
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            window.open("./address_list",
+                    "childForm", "width=1000, height=700, resizable = no, scrollbars = no");    
+        }
+ 
+</script>
 
 </body>
 </html>

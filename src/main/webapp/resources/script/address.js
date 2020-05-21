@@ -7,8 +7,6 @@ function sample6_execDaumPostcode() {
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-            
-            
             // 각 주소의 노출 규칙에 따라 주소를 조합한다.
             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
             var addr = ''; // 주소 변수
@@ -45,7 +43,7 @@ function sample6_execDaumPostcode() {
             }
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-			$("#rzipcode1").val(data.zonecode);
+			$("#raddress").val(data.zonecode);
 
 			$("#raddr1").val(data.address);
 			
@@ -64,11 +62,11 @@ function sample6_execDaumPostcode() {
  	var phoneCheck = true;
 	
 	$(".tel").blur(function() {
-	var rphone2_1 = $("#rphone2_1").val(); 
-	var rphone2_2 = $("#rphone2_2").val(); 
-	var rphone2_3 = $("#rphone2_3").val(); 
+	var rphone = $("#rphone").val(); 
+	var rphone1 = $("#rphone1").val(); 
+	var rphone2 = $("#rphone2").val(); 
 	
-	var phoneNumber = rphone2_1 + "-" + rphone2_2 + "-" + rphone2_3; 
+	var phoneNumber = rphone + "-" + rphone1 + "-" + rphone2; 
 	
 	var regExp = /(01[0|1|6|9|7|8])[-](\d{3}|\d{4})[-](\d{4}$)/g; 
 	var result = regExp.exec(phoneNumber); 
@@ -95,7 +93,7 @@ function sample6_execDaumPostcode() {
  }else if($("#rname").val() == "") {
 	 	alert("성명을 정확히 입력해주세요");
 	return;
-}else if(($("#rzipcode1").val() == "")||($("#raddr1").val() == "") || ($("#raddr2").val() == "")) {
+}else if(($("#raddress").val() == "")||($("#raddr1").val() == "") || ($("#raddr2").val() == "")) {
 	 	alert("주소를 정확히 입력해주세요");
 	return;
 }else{

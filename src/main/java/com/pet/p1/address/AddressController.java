@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("/product/**")// 일단은 프로덕트로 오는 것들을 받는다. 차후에 변경
+@RequestMapping("/member/**")
 public class AddressController {
 	@Autowired
 	private AddressService addressService;
@@ -22,7 +22,7 @@ public class AddressController {
 //-----------------------------address(insert)-----------------------------//
 	@RequestMapping(value = "address",method = RequestMethod.GET)
 	public ModelAndView address (ModelAndView mv) throws Exception{
-		mv.setViewName("product/address");	
+		mv.setViewName("member/address");	
 		System.out.println("address/get");
 		return mv;
 	}
@@ -51,7 +51,7 @@ public class AddressController {
 		System.out.println("addressList/get");
 		mv.addObject("list", ar);
 		mv.addObject("addressVO", addressVO);	
-		mv.setViewName("product/address_list");	
+		mv.setViewName("member/address_list");	
 		return mv;
 	}
 //-----------------------------address_list(post)-----------------------------//
@@ -68,7 +68,7 @@ public class AddressController {
 		System.out.println("addressList/get");
 		mv.addObject("list", ar);
 		mv.addObject("addressVO", addressVO);	
-		mv.setViewName("product/address_list");	
+		mv.setViewName("member/address_list");	
 		return mv;
 	}
 	
@@ -77,7 +77,7 @@ public class AddressController {
 	public ModelAndView address_select(long addressNum,ModelAndView mv) throws Exception{		
 		AddressVO addressVO=addressService.address_select(addressNum);	
 		mv.addObject("vo", addressVO);		
-		mv.setViewName("product/address_update");		
+		mv.setViewName("member/address_update");		
 		System.out.println(addressVO.getAddr_name());
 		return mv;
 	}
@@ -92,7 +92,7 @@ public class AddressController {
 		addressVO=addressService.address_select(addressNum);
 		
 		mv.addObject("vo", addressVO);
-		mv.setViewName("product/address_update");
+		mv.setViewName("member/address_update");
 		return mv;
 	}
 	

@@ -173,7 +173,7 @@ body, code {
 									aria-controls="arrival" aria-selected="true">신상품</a></li>
 								<li class="nav-item"><a class="nav-link" id="sellers-tab"
 									data-toggle="tab" href="#sellers" role="tab"
-									aria-controls="sellers" aria-selected="false">베스트 셀러</a></li>
+									aria-controls="sellers" aria-selected="false">히트상품</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -195,7 +195,7 @@ body, code {
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -234,7 +234,7 @@ body, code {
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -275,7 +275,7 @@ body, code {
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -315,7 +315,7 @@ body, code {
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -355,7 +355,7 @@ body, code {
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -395,7 +395,7 @@ body, code {
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -435,7 +435,7 @@ body, code {
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -475,7 +475,7 @@ body, code {
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>

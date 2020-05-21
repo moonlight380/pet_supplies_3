@@ -23,7 +23,8 @@
 
 
 		<div>
-			<a id="chatBotBtn" href="${pageContext.request.contextPath}/member/memberLogin"
+			<a id="chatBotBtn"
+				href="${pageContext.request.contextPath}/member/memberLogin"
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
 				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
@@ -50,7 +51,7 @@
 			</a>
 		</div>
 
-<!-- 		<iframe name="cbIframe" id="cbIframe" src="" scrolling="no"
+		<!-- 		<iframe name="cbIframe" id="cbIframe" src="" scrolling="no"
 			frameborder="0"
 			style="display: none; height: 650px; width: 400px; position: fixed; bottom: 20px; right: 120px; z-index: 9998; background: #fff;"
 			title="상담챗봇 창"></iframe> -->
@@ -78,7 +79,7 @@
 
 				<div class="product_search_form rounded_input"
 					style="margin-left: 30px;">
-					<form action="${pageContext.request.contextPath}/product/dogList" >
+					<form action="${pageContext.request.contextPath}/product/dogList">
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<div class="custom_select">
@@ -158,8 +159,9 @@
 
 
 					<c:if test="${empty member}">
-						<li><a href="${pageContext.request.contextPath}/member/memberLogin" class="nav-link"><i
-								class="linearicons-user"></i></a>
+						<li><a
+							href="${pageContext.request.contextPath}/member/memberLogin"
+							class="nav-link"><i class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item "
@@ -176,9 +178,10 @@
 							</div></li>
 					</c:if>
 
-					<c:if test="${not empty member}">
-						<li><a href="${pageContext.request.contextPath}/member/memberLogin" class="nav-link"><i
-								class="linearicons-user"></i></a>
+<%-- 					<c:if test="${not empty member}">
+						<li><a
+							href="${pageContext.request.contextPath}/member/memberLogin"
+							class="nav-link"><i class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item "
@@ -189,62 +192,33 @@
 							</div></li>
 					</c:if>
 
-
-
-
-
-
-
-
 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
-							class="linearicons-cart"></i><span class="cart_count">
-								<c:if test="${empty member.id}">
+							class="linearicons-cart"></i><span class="cart_count"> <c:if
+									test="${empty member.id}">
 									0
-								</c:if>
-								<c:if test="${not empty member.id}">
+								</c:if> <c:if test="${not empty member.id}">
 									${cartCount } <!-- 합칠 때 숫자 0 -->
 								</c:if>
-								</span></a>
+						</span></a>
 						<div class="cart_box dropdown-menu dropdown-menu-right">
 							<ul class="cart_list">
 								<c:forEach items="${headerCart }" var="cart">
-									<li>
-									<a href="#" class="item_remove">
-										<i class="ion-close"></i>
-									</a>
-									<a href="#">
-										<img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }"	alt="cart_thumb1">Variable product
-									</a> 
-										<span class="cart_quantity">
-											 ${cart.cAmount } x 
-											 <span class="cart_amount">
-												<span class="price_symbole">$</span>
-											</span>
-											${cart.price }
-										</span>
-									</li>
+									<li><a href="#" class="item_remove"> <i
+											class="ion-close"></i>
+									</a> <a href="#"> <img
+											src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }"
+											alt="cart_thumb1">Variable product
+									</a> <span class="cart_quantity"> ${cart.cAmount } x <span
+											class="cart_amount"> <span class="price_symbole">$</span>
+										</span> ${cart.price }
+									</span></li>
 								</c:forEach>
-								
-								
-								
+
+
+
 							</ul>
-							<div class="cart_footer">
-								<p class="cart_total">
-									<strong>Subtotal:</strong> <span class="cart_price"> <span
-										class="price_symbole">$</span></span>159.00
-								</p>
-								<p class="cart_buttons">
-									<a href="#" class="btn btn-fill-line view-cart">View Cart</a><a
-										href="#" class="btn btn-fill-out checkout">Checkout</a>
-								</p>
-							</div>
-						</div></li>
-
-
-
-
-
+						</div></li> --%>
 
 
 					<c:if test="${not empty member}">

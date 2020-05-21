@@ -32,7 +32,7 @@
 					<div class="widget">
 						<h6 class="widget_title">사이트 링크</h6>
 						<ul class="widget_links">
-							<li><a href="${pageContext.request.contextPath}/review/reviewList">리뷰 테스트</a></li>
+							<li><a href="${pageContext.request.contextPath}/review/reviewList">리뷰 게시판</a></li>
 							<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 							<li><a href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
 						</ul>

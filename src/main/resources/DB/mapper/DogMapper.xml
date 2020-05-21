@@ -15,6 +15,7 @@
   		<result column="hit" property="hit"/>	
   		<result column="regDate" property="regDate"/>
   		<result column="point" property="point"/>
+  		<result column="sale" property="sale"/>
   		
   		<collection property="productFileVOs" javaType="List" ofType="ProductFileVO">
   			<id column="fileNum" property="fileNum"/>
@@ -139,8 +140,8 @@
 								productNum
 							</otherwise>
 						</choose> 
-		                like '%'||#{search}||'%' and  productNum>=1 order by hit asc) N) 
-		                    where rowNum between 1 and 9)P left join productFile F 
+		                like '%'||#{search}||'%' and  productNum>=1 and sale>0 order by sale desc) N) 
+		                    )P left join productFile F 
 		                        on (P.productNum=F.num) order by F.firstFile asc
 	
 	</select>
@@ -168,13 +169,13 @@
 <!-- WRITE -->
 	<insert id="dogWrite" parameterType="DogVO">
 	INSERT INTO product
-	VALUES (#{productNum},#{productName},#{price},#{contents},0,1,SYSDATE,#{point})
+	VALUES (#{productNum},#{productName},#{price},#{contents},1,1,SYSDATE,#{point},#{sale})
 	</insert>
 
 
 <!-- update -->
  	<update id="dogUpdate" parameterType="DogVO">
-  		UPDATE product set productName =#{productName}, price=#{price},contents=#{contents} where productNum=#{productNum}
+  		UPDATE product set productName =#{productName}, price=#{price},contents=#{contents},#{sale} where productNum=#{productNum}
   	</update>
 
 

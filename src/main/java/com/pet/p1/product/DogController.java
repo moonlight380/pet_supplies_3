@@ -99,12 +99,12 @@ public String getBoard()throws Exception{
 		System.out.println("kind:"+pager.getKind());
 		System.out.println("search:"+pager.getSearch());
 			
-		List<DogVO> ar =dogService.dogTimeSale(pager);
+		List<DogVO> ar =dogService.dogTimeSale(pager); //dogVO의 주소를 줌
 		System.out.println(pager.getTotalPage());
 			
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
-			
+		
 		mv.setViewName("product/pTimeSale");
 
 		return mv;

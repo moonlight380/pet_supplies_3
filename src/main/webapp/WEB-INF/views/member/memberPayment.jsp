@@ -342,8 +342,8 @@
 <th scope="row">휴대전화 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
 </th>
 <td><select id="rphone" >
-<option id="010" value="010">010</option>
-<option id="011" value="011">011</option>
+<option id="010">010</option>
+<option id="011">011</option>
 <option value="016">016</option>
 <option value="017">017</option>
 <option value="018">018</option>

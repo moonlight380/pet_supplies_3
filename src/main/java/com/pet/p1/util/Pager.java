@@ -59,26 +59,9 @@ public class Pager {
 		if(this.curBlock==this.totalBlock) {
 			this.lastNum=this.totalPage;
 		}
-		
-
-		
-//		//1.총 글의 개수
-//		long totalCount= noticeDAO.boardCount();
-//		System.out.println("totalcount:"+totalCount);
-//		
-//		//2.총 페이지의 개수
-//		long totalPage= totalCount/10;
-//		if(totalCount%10!=0) {
-//			//totalPage=totalPage+1;
-//			totalPage++;
-//		}
-//		System.out.println("totalpage:"+totalPage);
-//		
+	
 	}
-	
-	
-	
-	
+
 	
 	public String getKind() {
 		return kind;

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,17 @@
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 
+<style type="text/css">
+.bg_gray{
+	width: auto;
+	height: 60px;
+}
 
+.product_header_right{
+	margin-left: 92%;
+
+}
+</style>
 
 
 </head>
@@ -117,32 +128,22 @@
             	<div class="row align-items-center mb-4 pb-1">
                     <div class="col-12">
                         <div class="product_header">
-                            <div class="product_header_left">
-                                <div class="custom_select">
-                                    <select class="form-control form-control-sm">
-                                        <option value="order">Default sorting</option>
-                                        <option value="popularity">Sort by popularity</option>
-                                        <option value="date">Sort by newness</option>
-                                        <option value="price">Sort by price: low to high</option>
-                                        <option value="price-desc">Sort by price: high to low</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
                             <div class="product_header_right">
                             	<div class="products_view">
-                            	 	<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+                            	
+                               
+<!------------------------------------------------------admin 계정만 write 버튼이 보일 수 있도록//  -------------------------------------------------------------------- -->
+
+								<c:if test="${member.id eq 'admin' }">
+								
+									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+									
+								</c:if>
+               
+                                </div>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->      
                                     <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
-                                    <a href="javascript:Void(0);" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>
-                                </div>
-                                <div class="custom_select">
-                                    <select class="form-control form-control-sm">
-                                        <option value="">Showing</option>
-                                        <option value="9">9</option>
-                                        <option value="12">12</option>
-                                        <option value="18">18</option>
-                                    </select>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -182,21 +183,9 @@
                  				<span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">view: ${vo.hit}</a></span>                          
                                 </div>
                                 <div class="product_price">
-		                              <span class="price">${vo.price}</span>
-                                    <del>$55.25</del>
-                                    <div class="on_sale">
-                                        <span>35% Off</span>
-                                    </div>
+		                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>
                                 </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:80%"></div>
-                                    </div>
-                                    <span class="rating_num">(21)</span>
-                                </div>
-                                <div class="pr_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                                </div>
+
                            
                                 <div class="list_product_action_box">
                                     <ul class="list_none pr_action_btn">

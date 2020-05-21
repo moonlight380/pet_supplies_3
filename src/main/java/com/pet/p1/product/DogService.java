@@ -59,7 +59,7 @@ public class DogService {
 		pager.makeRow();
 		long totalCount= dogDAO.dogCount(pager);
 		pager.makePage(totalCount);
-		System.out.println("dogTimeSale	 in");
+		System.out.println("dogTimeSale	sevice in");
 		return dogDAO.dogTimeSale(pager);
 	}	
 	

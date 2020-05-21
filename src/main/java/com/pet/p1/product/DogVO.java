@@ -16,8 +16,17 @@ public class DogVO {
 	private Date regDate;
 	private List<ProductFileVO> productFileVOs;
 	private long point;
-	
+	private long sale;
 
+
+	
+	public long getSale() {
+		return sale;
+	}
+	public void setSale(long sale) {
+		this.sale = sale;
+	}
+	
 	public long getPoint() {
 		return point;
 	}

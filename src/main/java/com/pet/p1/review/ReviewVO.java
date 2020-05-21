@@ -2,7 +2,6 @@ package com.pet.p1.review;
 
 import java.util.List;
 
-
 import com.pet.p1.board.BoardVO;
 import com.pet.p1.board.file.BoardFileVO;
 
@@ -12,6 +11,15 @@ public class ReviewVO extends BoardVO {
 	private long step;
 	private long depth;
 	private List<BoardFileVO> boardFileVOs;
+	private long productNum;
+
+	public long getProductNum() {
+		return productNum;
+	}
+
+	public void setProductNum(long productNum) {
+		this.productNum = productNum;
+	}
 
 	public long getRef() {
 		return ref;

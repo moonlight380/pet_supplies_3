@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+.button{
+	color: #323232;
+    background: #ffffff;
+    border: 1px solid #cbcbcb;
+    min-width: 20px;
+    height: 26px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+.attr_set_spacebtn{
+	margin-left: 45%;
+
+}
+.addr_button{
+	color: #323232;
+    background: #ffffff;
+    border: 1px solid #cbcbcb;
+    min-width: 20px;
+    height: 26px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+.gray{
+	color: gray;
+}
+#popClose_btn{
+margin-left: 650px;
+}
+.ec-base-layer .content {
+    padding: 20px;
+    font-size: 12px;
+}
+
+body, code {
+    font: 0.75em "Malgun Gothic","Gulim","Tahoma","Verdana","Arial","sans-serif",Verdana,Dotum,AppleGothic,sans-serif;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 0.75em;
+    line-height: normal;
+    font-family: "Malgun Gothic", Gulim, Tahoma, Verdana, Arial, sans-serif, Verdana, Dotum, AppleGothic, sans-serif;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+.button{
+	color: #323232;
+    background: #ffffff;
+    border: 1px solid #cbcbcb;
+    min-width: 20px;
+    height: 26px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+
+.ec-base-table.typeList .scroll {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 185px;
+    min-height: 100px;
+    border: 1px solid #dedede;
+    border-top-width: 0;
+    margin-top: -1px;
+}
+.line_base, div.ec-base-help {
+    border-color: #e1e1e1;
+}
+
+.ec-base-table.typeList table {
+    border-top: 1px solid #333333;
+}
+.ec-base-layer .ec-base-table table {
+    line-height: 1.4;
+}
+.ec-base-table table {
+    position: relative;
+    margin: 10px 0 0;
+    border-bottom: 1px solid #dedede;
+    border-top: 1px solid #dedede;
+    border-top: 0;
+    line-height: 1.5;
+}
+
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.displaynone {
+    display: none !important;
+}
+div {
+    display: block;
+}
+
+.ec-base-layer .ec-base-button {
+    border-top: 1px solid #e1e1e1;
+}
+.ec-base-layer .ec-base-button {
+    padding: 9px;
+    text-align: center;
+}
+
+div.ec-base-help {
+    margin: 20px 0 55px;
+    border-width: 1px;
+    border-style: solid;
+    line-height: 18px;
+}
+.line_base, div.ec-base-help {
+    border-color: #e1e1e1;
+}
+
+.ec-base-layer .content {
+    padding: 20px;
+    font-size: 12px;
+}
+div.ec-base-help .inner {
+    padding: 0 9px 12px;
+}
+
+#popup .ec-base-layer .header {
+    padding: 12px 35px 12px 19px;
+}
+.btncolor_subordinate {
+    color: #FFFFFF;
+    background: #ed1b34;
+    border: 1px solid #ed1b34;
+}
+.btn_pop {
+    min-width: 50px;
+    height: 32px;
+    line-height: 30px;
+    font-size: 13px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 20px;
+    vertical-align: middle;
+    font-weight: bold;
+    border-width: 1px;
+    border-style: solid;
+}
+.btncolor_subordinate:hover {
+    border-color: #c8162c;
+    background: #c8162c;
+    color: #FFFFFF;
+}
+.line_low, div.ec-base-help > h2, div.ec-base-help > h3, .xans-order-result .ec-base-table td .map img {
+    border-color: #efefef;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    
+}
+div.ec-base-help ul li {
+	list-style: none;
+    padding: 0 0 0 11px;
+    background: url(/p1/resources/images/ico_dash.gif) no-repeat 0 7px;
+}
+.div_line{
+	border: 1px solid #efefef;
+}
+h2, h1{
+	margin-left: 20px;	
+	font-size: 20px;
+}
+.ec-base-layer .content {
+    padding: 20px;
+    font-size: 12px;
+}
+
+div.ec-base-help {
+    margin: 20px 0 55px;
+    border-width: 1px;
+    border-style: solid;
+    line-height: 18px;
+    border-color: #efefef;
+}
+
+#popup .ec-base-layer .header {
+    padding: 12px 35px 12px 19px;
+}
+
+input ,.addr_interval{
+	margin-top: 3px;
+	margin-bottom: 3px;
+	margin-left: 10px;
+}

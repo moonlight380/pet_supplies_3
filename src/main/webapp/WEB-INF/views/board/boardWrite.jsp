@@ -33,21 +33,23 @@
 					name="contents"></textarea>
 			</div>
 
-			<input type="button" id="add" class="btn btn-info" value="AddFile">
+			<input type="button" id="add" class="btn btn-info" value="파일추가"
+				style="margin-bottom: 3%;">
 			<div id="file"></div>
+
 			<!-- contents Server null이 될때 
  		  <input type="hidden" name="contents" id="con">
  		-->
 
 
-			<input type="button" id="btn" class="btn btn-default" value="Write">
+			<input type="button" id="btn" class="btn btn-danger" value="글쓰기"
+				style="margin-bottom: 3%;">
 		</form>
 
 	</div>
-	<script type="text/javascript" src="../resources/js/boardForm.js">
-		
-	</script>
 
+
+	<script type="text/javascript" src="../resources/script/boardForm.js"></script>
 	<c:import url="../template/footer.jsp"></c:import>
 
 </body>

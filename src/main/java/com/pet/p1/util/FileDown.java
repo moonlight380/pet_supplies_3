@@ -25,17 +25,19 @@ public class FileDown extends AbstractView {
 			HttpServletResponse response) throws Exception {
 
 		BoardFileVO boardFileVO = (BoardFileVO) model.get("file");
-		String fileNmae = boardFileVO.getFileName();
+		String fileName = boardFileVO.getFileName();
 		String path = "";
 		if (boardFileVO.getBoard() == 1) {
 			path = "/resources/noticeUpload";
-		} else {
+		} else if(boardFileVO.getBoard() == 2) {
 			path = "/resources/qndUpload";
+		} else {
+			path = "/resources/reviewUpload";
 		}
 		path = request.getSession().getServletContext().getRealPath(path);
 
 		// 1. HDD에서 파일을 읽을 준비
-		File file = new File(path, fileNmae);
+		File file = new File(path, fileName);
 
 		// 2. 파일의 크기
 		response.setContentLength((int) file.length());

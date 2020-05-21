@@ -169,11 +169,12 @@ body, code {
 						<div class="tab-style1">
 							<ul class="nav nav-tabs justify-content-center" role="tablist">
 								<li class="nav-item"><a class="nav-link active"
-									id="arrival-tab" data-toggle="tab" href="#arrival" role="tab"
+									id="arrival-tab" data-toggle="tab"
+									href="${pageContext.request.contextPath}/" role="tab"
 									aria-controls="arrival" aria-selected="true">신상품</a></li>
 								<li class="nav-item"><a class="nav-link" id="sellers-tab"
-									data-toggle="tab" href="#sellers" role="tab"
-									aria-controls="sellers" aria-selected="false">히트상품</a></li>
+									data-toggle="tab" href="${pageContext.request.contextPath}/"
+									role="tab" aria-controls="sellers" aria-selected="false">히트상품</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -181,343 +182,63 @@ body, code {
 								role="tabpanel" aria-labelledby="arrival-tab">
 								<div class="row shop_container">
 
-									<div class="col-lg-3 col-md-4 col-6">
-										<div class="product">
-											<div class="product_img">
-												<a href="shop-product-detail.html"> <img
-													src="${pageContext.request.contextPath}/resources/images/item1.jpg"
-													alt="product_img1">
-												</a>
-												<div class="product_action_box">
-													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
-														<li><a
-															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
-															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+									<c:forEach items="${dnlist}" var="dnvo" end="7">
+										<div class="col-lg-3 col-md-4 col-6">
+											<div class="product">
+												<div class="product_img">
+													<a href="shop-product-detail.html"> <img
+														src="${pageContext.request.contextPath}/resources/images/item1.jpg"
+														alt="product_img1">
+													</a>
+													<div class="product_action_box">
+														<ul class="list_none pr_action_btn">
+															<li class="add-to-cart"><a href="#"><i
+																	class="icon-basket-loaded"></i> Add To Cart</a></li>
+															<li><a
+																href="${pageContext.request.contextPath}/resources/images/item1.jpg"
+																class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
 
-													</ul>
-												</div>
-											</div>
-											<div class="product_info">
-												<h6 class="product_title">
-													<a href="shop-product-detail.html">상품1</a>
-												</h6>
-												<div class="product_price">
-													<span class="price">650원</span>
-													<del>1000원</del>
-													<div class="on_sale">
-														<span>35% Off</span>
+														</ul>
 													</div>
 												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
+												<div class="product_info">
+													<h6 class="product_title">
+														<a href="shop-product-detail.html">상품1</a>
+													</h6>
+													<div class="product_price">
+														<span class="price">650원</span>
+														<del>1000원</del>
+														<div class="on_sale">
+															<span>35% Off</span>
+														</div>
+													</div>
+													<div class="rating_wrap"></div>
+													<div class="pr_desc">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Phasellus blandit massa enim. Nullam id varius nunc
+															id varius nunc.</p>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
+									</c:forEach>
 
-									<div class="col-lg-3 col-md-4 col-6">
-										<div class="product">
-											<div class="product_img">
-												<a href="shop-product-detail.html"> <img
-													src="${pageContext.request.contextPath}/resources/images/item1.jpg"
-													alt="product_img1">
-												</a>
-												<div class="product_action_box">
-													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
-														<li><a
-															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
-															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+									<!--first row end -->
 
-													</ul>
-												</div>
-											</div>
-
-											<div class="product_info">
-												<h6 class="product_title">
-													<a href="shop-product-detail.html">상품2</a>
-												</h6>
-												<div class="product_price">
-													<span class="price">650원</span>
-													<del>1000원</del>
-													<div class="on_sale">
-														<span>35% Off</span>
-													</div>
-												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-3 col-md-4 col-6">
-										<div class="product">
-											<div class="product_img">
-												<a href="shop-product-detail.html"> <img
-													src="${pageContext.request.contextPath}/resources/images/item1.jpg"
-													alt="product_img1">
-												</a>
-												<div class="product_action_box">
-													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
-														<li><a
-															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
-															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-
-													</ul>
-												</div>
-											</div>
-											<div class="product_info">
-												<h6 class="product_title">
-													<a href="shop-product-detail.html">상품3</a>
-												</h6>
-												<div class="product_price">
-													<span class="price">650원</span>
-													<del>1000원</del>
-													<div class="on_sale">
-														<span>35% Off</span>
-													</div>
-												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-3 col-md-4 col-6">
-										<div class="product">
-											<div class="product_img">
-												<a href="shop-product-detail.html"> <img
-													src="${pageContext.request.contextPath}/resources/images/item1.jpg"
-													alt="product_img1">
-												</a>
-												<div class="product_action_box">
-													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
-														<li><a
-															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
-															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-
-													</ul>
-												</div>
-											</div>
-											<div class="product_info">
-												<h6 class="product_title">
-													<a href="shop-product-detail.html">상품4</a>
-												</h6>
-												<div class="product_price">
-													<span class="price">650원</span>
-													<del>1000원</del>
-													<div class="on_sale">
-														<span>35% Off</span>
-													</div>
-												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-3 col-md-4 col-6">
-										<div class="product">
-											<div class="product_img">
-												<a href="shop-product-detail.html"> <img
-													src="${pageContext.request.contextPath}/resources/images/item1.jpg"
-													alt="product_img1">
-												</a>
-												<div class="product_action_box">
-													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
-														<li><a
-															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
-															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-
-													</ul>
-												</div>
-											</div>
-											<div class="product_info">
-												<h6 class="product_title">
-													<a href="shop-product-detail.html">상품5</a>
-												</h6>
-												<div class="product_price">
-													<span class="price">650원</span>
-													<del>1000원</del>
-													<div class="on_sale">
-														<span>35% Off</span>
-													</div>
-												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-3 col-md-4 col-6">
-										<div class="product">
-											<div class="product_img">
-												<a href="shop-product-detail.html"> <img
-													src="${pageContext.request.contextPath}/resources/images/item1.jpg"
-													alt="product_img1">
-												</a>
-												<div class="product_action_box">
-													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
-														<li><a
-															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
-															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-
-													</ul>
-												</div>
-											</div>
-											<div class="product_info">
-												<h6 class="product_title">
-													<a href="shop-product-detail.html">상품6</a>
-												</h6>
-												<div class="product_price">
-													<span class="price">650원</span>
-													<del>1000원</del>
-													<div class="on_sale">
-														<span>35% Off</span>
-													</div>
-												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-3 col-md-4 col-6">
-										<div class="product">
-											<div class="product_img">
-												<a href="shop-product-detail.html"> <img
-													src="${pageContext.request.contextPath}/resources/images/item1.jpg"
-													alt="product_img1">
-												</a>
-												<div class="product_action_box">
-													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
-														<li><a
-															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
-															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-
-													</ul>
-												</div>
-											</div>
-											<div class="product_info">
-												<h6 class="product_title">
-													<a href="shop-product-detail.html">상품7</a>
-												</h6>
-												<div class="product_price">
-													<span class="price">650원</span>
-													<del>1000원</del>
-													<div class="on_sale">
-														<span>35% Off</span>
-													</div>
-												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-3 col-md-4 col-6">
-										<div class="product">
-											<div class="product_img">
-												<a href="shop-product-detail.html"> <img
-													src="${pageContext.request.contextPath}/resources/images/item1.jpg"
-													alt="product_img1">
-												</a>
-												<div class="product_action_box">
-													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
-														<li><a
-															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
-															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-
-													</ul>
-												</div>
-											</div>
-											<div class="product_info">
-												<h6 class="product_title">
-													<a href="shop-product-detail.html">상품8</a>
-												</h6>
-												<div class="product_price">
-													<span class="price">650원</span>
-													<del>1000원</del>
-													<div class="on_sale">
-														<span>35% Off</span>
-													</div>
-												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
-												</div>
-
-											</div>
-										</div>
-									</div>
 
 								</div>
 							</div>
-							<!--first row end -->
-
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- END SECTION SHOP -->
+		<!-- END SECTION SHOP -->
 
 
-	<!-- START SECTION TESTIMONIAL -->
-	<!--  <div class="section bg_redon">
+		<!-- START SECTION TESTIMONIAL -->
+		<!--  <div class="section bg_redon">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6">
@@ -601,119 +322,120 @@ body, code {
 			</div>
 		</div>
 	</div>-->
-	<!-- END SECTION TESTIMONIAL -->
+		<!-- END SECTION TESTIMONIAL -->
 
-	<div class="main_bottom_info">
+		<div class="main_bottom_info">
 
-		<div class="template_width">
-			<div class="inner">
-				<div
-					class="xans-element- xans-board xans-board-listpackage-1 xans-board-listpackage xans-board-1 mboard ">
-					<h2
-						class="xans-element- xans-board xans-board-title-1 xans-board-title xans-board-1 ">
-						<span><font color="#666666">공지사항</font></span>
-					</h2>
-					<ul
-						class="xans-element- xans-board xans-board-list-1 xans-board-list xans-board-1">
-						<!--
+			<div class="template_width">
+				<div class="inner">
+					<div
+						class="xans-element- xans-board xans-board-listpackage-1 xans-board-listpackage xans-board-1 mboard ">
+						<h2
+							class="xans-element- xans-board xans-board-title-1 xans-board-title xans-board-1 ">
+							<span><font color="#666666">공지사항</font></span>
+						</h2>
+						<ul
+							class="xans-element- xans-board xans-board-list-1 xans-board-list xans-board-1">
+							<!--
 						$count = 4
 						$main_list = yes
 						$subject_cut = 30
 						$main_list_reply_view = no
 					-->
-						<c:forEach items="${nlist}" var="vo" end="4">
-							<li class="xans-record-"><a
-								href="./notice/noticeSelect?num=${vo.num}"><font
-									color="#666666">${vo.title}</font></a></li>
-						</c:forEach>
-					</ul>
-					<p class="more">
-						<a href="${pageContext.request.contextPath}/notice/noticeList"><img
-							src="/images/layout/btn_board_more.gif" alt="더보기"></a>
-					</p>
-				</div>
-				<div
-					class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 mboard ">
-					<h2
-						class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-						<span><font color="#666666">구매후기</font></span>
-					</h2>
-					<ul
-						class="xans-element- xans-board xans-board-list-4 xans-board-list xans-board-4">
-						<!--
+							<c:forEach items="${nlist}" var="vo" end="4">
+								<li class="xans-record-"><a
+									href="./notice/noticeSelect?num=${vo.num}"><font
+										color="#666666">${vo.title}</font></a></li>
+							</c:forEach>
+						</ul>
+						<p class="more">
+							<a href="${pageContext.request.contextPath}/notice/noticeList"><img
+								src="/images/layout/btn_board_more.gif" alt="더보기"></a>
+						</p>
+					</div>
+					<div
+						class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 mboard ">
+						<h2
+							class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
+							<span><font color="#666666">구매후기</font></span>
+						</h2>
+						<ul
+							class="xans-element- xans-board xans-board-list-4 xans-board-list xans-board-4">
+							<!--
 						$count = 4
 						$main_list = yes
 						$subject_cut = 25
 						$main_list_reply_view = no
 					-->
-						<c:forEach items="${rlist}" var = "vo2" end="4">
-							<li class="xans-record-"><a href="./review/reviewSelect?num=${vo2.num}"><font
-									color="#666666">${vo2.title}</font></a><span class="point "></span></li>
-						</c:forEach>
-					</ul>
-					<p class="more">
-						<a href="${pageContext.request.contextPath}/review/reviewList"><img
-							src="/images/layout/btn_board_more.gif" alt="더보기"></a>
-					</p>
-				</div>
-				<div class="minfo">
-					<h2>
-						<span><font color="#666666">신규 회원 혜택</font></span>
-					</h2>
-					<div>
-						<strong>가입 즉시 5% 할인<br> 최대 6,000원 할인 쿠폰 3종 세트 지급
-						</strong><br> 회원등급에 따라 최대 15% 할인
+							<c:forEach items="${rlist}" var="vo2" end="4">
+								<li class="xans-record-"><a
+									href="./review/reviewSelect?num=${vo2.num}"><font
+										color="#666666">${vo2.title}</font></a><span class="point "></span></li>
+							</c:forEach>
+						</ul>
+						<p class="more">
+							<a href="${pageContext.request.contextPath}/review/reviewList"><img
+								src="/images/layout/btn_board_more.gif" alt="더보기"></a>
+						</p>
 					</div>
-					<a href="/member/join.html">회원가입하기</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- START SECTION SHOP INFO -->
-	<div class="section pb_70">
-		<div class="container">
-			<div class="row no-gutters">
-				<div class="col-lg-4">
-					<div class="icon_box icon_box_style1">
-						<div class="icon">
-							<i class="flaticon-shipped"></i>
+					<div class="minfo">
+						<h2>
+							<span><font color="#666666">신규 회원 혜택</font></span>
+						</h2>
+						<div>
+							<strong>가입 즉시 5% 할인<br> 최대 6,000원 할인 쿠폰 3종 세트 지급
+							</strong><br> 회원등급에 따라 최대 15% 할인
 						</div>
-						<div class="icon_box_content">
-							<h5>무료 배송</h5>
-							<p>저희 쇼핑몰의 모든 상품은 무료배송입니다.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="icon_box icon_box_style1">
-						<div class="icon">
-							<i class="flaticon-money-back"></i>
-						</div>
-						<div class="icon_box_content">
-							<h5>한달 동안 무료 환불</h5>
-							<p>저희는 제품에 문제가 발생할 경우를 대비해, 한달간 무료 반품 서비스를 제공합니다.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="icon_box icon_box_style1">
-						<div class="icon">
-							<i class="flaticon-support"></i>
-						</div>
-						<div class="icon_box_content">
-							<h5>24시간 고객 지원</h5>
-							<p>챗봇 서비스와 고객센터를 통해 24시간 서비스를 지원합니다.</p>
-						</div>
+						<a href="/member/join.html">회원가입하기</a>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- END SECTION SHOP INFO -->
 
-	<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-	<!--  <div class="section bg_default small_pt small_pb">
+		<!-- START SECTION SHOP INFO -->
+		<div class="section pb_70">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-lg-4">
+						<div class="icon_box icon_box_style1">
+							<div class="icon">
+								<i class="flaticon-shipped"></i>
+							</div>
+							<div class="icon_box_content">
+								<h5>무료 배송</h5>
+								<p>저희 쇼핑몰의 모든 상품은 무료배송입니다.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="icon_box icon_box_style1">
+							<div class="icon">
+								<i class="flaticon-money-back"></i>
+							</div>
+							<div class="icon_box_content">
+								<h5>한달 동안 무료 환불</h5>
+								<p>저희는 제품에 문제가 발생할 경우를 대비해, 한달간 무료 반품 서비스를 제공합니다.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="icon_box icon_box_style1">
+							<div class="icon">
+								<i class="flaticon-support"></i>
+							</div>
+							<div class="icon_box_content">
+								<h5>24시간 고객 지원</h5>
+								<p>챗봇 서비스와 고객센터를 통해 24시간 서비스를 지원합니다.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END SECTION SHOP INFO -->
+
+		<!-- START SECTION SUBSCRIBE NEWSLETTER -->
+		<!--  <div class="section bg_default small_pt small_pb">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-6">
@@ -736,9 +458,10 @@ body, code {
 			</div>
 		</div>
 	</div>-->
-	<!-- START SECTION SUBSCRIBE NEWSLETTER -->
+		<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
-	<!-- END MAIN CONTENT -->
+		<!-- END MAIN CONTENT -->
+	</div>
 
 	<c:import url="./template/footer.jsp"></c:import>
 </body>

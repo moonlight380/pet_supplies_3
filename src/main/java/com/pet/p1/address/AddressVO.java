@@ -5,17 +5,16 @@ public class AddressVO {
 	private String id;
 	private String addr_name;
 	private String rname;
-	private String rzipcode1;
+	private String raddress;
 	private String raddr1;
 	private String raddr2;
 	private String rphone1_1;
 	private String rphone1_2;
 	private String rphone1_3;
-	private String rphone2_1;
-	private String rphone2_2;
-	private String rphone2_3;	
+	private String rphone;
+	private String rphone1;
+	private String rphone2;	
 	private long addr_fix;
-	
 	
 	
 	public long getAddressNum() {
@@ -24,7 +23,6 @@ public class AddressVO {
 	public void setAddressNum(long addressNum) {
 		this.addressNum = addressNum;
 	}
-
 	public String getId() {
 		return id;
 	}
@@ -43,11 +41,11 @@ public class AddressVO {
 	public void setRname(String rname) {
 		this.rname = rname;
 	}
-	public String getRzipcode1() {
-		return rzipcode1;
+	public String getRaddress() {
+		return raddress;
 	}
-	public void setRzipcode1(String rzipcode1) {
-		this.rzipcode1 = rzipcode1;
+	public void setRaddress(String raddress) {
+		this.raddress = raddress;
 	}
 	public String getRaddr1() {
 		return raddr1;
@@ -79,23 +77,23 @@ public class AddressVO {
 	public void setRphone1_3(String rphone1_3) {
 		this.rphone1_3 = rphone1_3;
 	}
-	public String getRphone2_1() {
-		return rphone2_1;
+	public String getRphone() {
+		return rphone;
 	}
-	public void setRphone2_1(String rphone2_1) {
-		this.rphone2_1 = rphone2_1;
+	public void setRphone(String rphone) {
+		this.rphone = rphone;
 	}
-	public String getRphone2_2() {
-		return rphone2_2;
+	public String getRphone1() {
+		return rphone1;
 	}
-	public void setRphone2_2(String rphone2_2) {
-		this.rphone2_2 = rphone2_2;
+	public void setRphone1(String rphone1) {
+		this.rphone1 = rphone1;
 	}
-	public String getRphone2_3() {
-		return rphone2_3;
+	public String getRphone2() {
+		return rphone2;
 	}
-	public void setRphone2_3(String rphone2_3) {
-		this.rphone2_3 = rphone2_3;
+	public void setRphone2(String rphone2) {
+		this.rphone2 = rphone2;
 	}
 	public long getAddr_fix() {
 		return addr_fix;
@@ -103,6 +101,10 @@ public class AddressVO {
 	public void setAddr_fix(long addr_fix) {
 		this.addr_fix = addr_fix;
 	}
+	
+	
+	
+	
 	
 	
 }

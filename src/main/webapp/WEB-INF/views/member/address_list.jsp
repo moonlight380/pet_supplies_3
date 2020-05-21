@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>    
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<c:import url="../template/boot.jsp"></c:import> <!-- jsp -->
+
+<link href="../resources/css/address.css" rel="styleSheet" /> <!--style 불러올때-->
+
+</head>
+
+<!-- 바디시작 -->
+<body id="reset">
 <body id="popup">
 <form id="frmAddr" action="./address_list" method="post" target="_self" enctype="multipart/form-data">
   
@@ -51,27 +65,27 @@
               <c:forEach items="${list}" var="vo" varStatus="i">   
 					<tr>
 						<td scope="col">
-						<span class=""><input class="rowCheck" id="rowCheck del" type="checkbox" name="${vo.addressNum}"></span> 
+						<span class=""><input class="rowCheck check" id="rowCheck del" type="checkbox" name="${vo.addressNum}"></span> 
 						</td>
-                        <td scope="col"><input type="button" class="button addr_button gray" value="고정"></td>
+                        <td scope="col"><input type="button" class="button addr_button gray "  value="고정"></td>
                         
 						<td scope="col">${vo.addr_name}</td>
 						
                         <td scope="col" id="rname${i.index}">${vo.rname}</td>
-                        
+                        <!--일반전화 -->
                         <td scope="col" ><span id="rphone1_1${i.index}">${vo.rphone1_1}</span>                        
                         -<span id="rphone1_2${i.index}">${vo.rphone1_2}</span>                        
                         -<span id="rphone1_3${i.index}">${vo.rphone1_3}</span>
                         
                         </td>
-                        <td scope="col" id="rphone2_1${i.index}"><span>${vo.rphone2_1}</span>
-                        
-                        -<span id="rphone2_2${i.index}">${vo.rphone2_2}</span>
-                        
-                        -<span id="rphone2_3${i.index}">${vo.rphone2_3}</span></td>
+                        <!--휴대폰 -->
+                        <td scope="col"><span id="rphone${i.index}">${vo.rphone}</span>
+                        -<span id="rphone1${i.index}">${vo.rphone1}</span>                       
+                        -<span id="rphone2${i.index}">${vo.rphone2}</span>
+                        </td>
                         
                         <td scope="col">
-                        (<span id="rzipcode1${i.index}">${vo.rzipcode1}</span>)
+                        (<span id="raddress${i.index}">${vo.raddress}</span>)
                         <span id="raddr1${i.index}">${vo.raddr1}</span>
                         
                         <span id="raddr2${i.index}">${vo.raddr2}</span></td>
@@ -87,45 +101,9 @@
 
         </div>
     </div>
-<!-- //////////////////////자식->부모로 값전달하기 자바스크립트 시작/////////////////// -->
-     
-<script type="text/javascript">
-        function setParentText(num){
-             opener.document.getElementById("rname").value = document.getElementById("rname"+num).innerText //$("").text()        
-             opener.document.getElementById("rzipcode1").value = document.getElementById("rzipcode1"+num).innerText
-            
-             opener.document.getElementById("raddr1").value = document.getElementById("raddr1"+num).innerText
-             opener.document.getElementById("raddr2").value = document.getElementById("raddr2"+num).innerText
-             
-             opener.document.getElementById("rphone1_1").innerText = document.getElementById("rphone1_1"+num).innerText
-             opener.document.getElementById("rphone1_2").value = document.getElementById("rphone1_2"+num).innerText
-             opener.document.getElementById("rphone1_3").value = document.getElementById("rphone1_3"+num).innerText
-             
-             opener.document.getElementById("rphone2_1").innerText = document.getElementById("rphone2_1"+num).innerText
-             opener.document.getElementById("rphone2_2").value = document.getElementById("rphone2_2"+num).innerText 
-             opener.document.getElementById("rphone2_3").value = document.getElementById("rphone2_3"+num).innerText
-        
-             close();
-        }
-        
-</script>
-
-<!-- //////////////////////자식->부모로 값전달하기 자바스크립트 끝/////////////////// -->
 
 
-<!-- <script type="text/javascript">
-$(".updateBtn").click(function(){
-	var input= $(this).attr("title");
-	location.href="./address_update?addressNum="+input;
-});
-
-
-</script> -->
-
-<script type="text/javascript">
-
-</script>
-
+<!-- 하단 버튼 -->
 <div class="ec-base-button">
 		<a href="#" class="deleteBtn"class="btn_pop btncolor_basic "><span>선택 주소록 삭제</span></a> 
 		<a href="./address" class="btn_pop btncolor_subordinate .attr_set_spacebtn"><span>배송지 등록</span></a>
@@ -133,76 +111,12 @@ $(".updateBtn").click(function(){
 		<br>
 		<br>
 		
+</div> 
 
-</div> <!-- 하단 버튼 -->
-
-
-<!-- ----------------------체크박스 자바스크립트 시작--------------------- -->
-<script type="text/javascript">
-
-//1.모두 체크
-
- 	//모두 선택
-	$("#allCheck").click(function() {
-		var allCheck = $("#allCheck").prop("checked");
-		$(".rowCheck").prop("checked", allCheck);
-		
-	});	
-
-
-	//하나씩 선택해서 모두 체크하면 allCheck
-
-	$(".deleteBtn").click(function(){
-	 			var deleteAddress=[];
-				var result=true;
-				
-			 	$(".rowCheck").each(function(){
-					var v=$(this).prop("checked");
-					console.log($(this).attr("name"));
-						if(v){
-							deleteAddress.push($(this).attr("name"));
-						}			
-				});//for문 /
-				console.log(deleteAddress);
-				
-				$.ajax({
-						type:"get",
-						traditional: true,
-						url:"./address_delete",
-						data:{
-							deleteAddress:deleteAddress
-						},
-						sucess: function(data){
-							$.get("./address_list",function(data){
-								$("#reset").html(data.trim());
-								location.reload();
-								reset();
-								
-							});
-						}					
-				}); //END ajax  
-				
-				
-				
-	});
-
-﻿
-</script>
-
-
-
-
-
-
+<script src="../resources/script/address_list.js" type="text/javascript"></script> <!-- 스크립트 불러올때 -->
 
 </form>
 
-
-
-<!-- External Script Start -->
-
-<!-- rac -->
-
-<!-- External Script End -->
-
 </body>
+</body>
+</html>

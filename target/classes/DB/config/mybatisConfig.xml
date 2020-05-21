@@ -13,11 +13,16 @@
   		<typeAlias type="com.pet.p1.product.DogVO" alias="DogVO"/>
 
   		<typeAlias type="com.pet.p1.member.MemberVO" alias="MemberVO"/>
-
+		<typeAlias type="com.pet.p1.coupon.CouponVO" alias="CouponVO"/>
   		
   		<typeAlias type="com.pet.p1.notice.NoticeVO" alias="NoticeVO"/>
+
   		<typeAlias type="com.pet.p1.qna.QnaVO" alias="QnaVO"/>
   		<typeAlias type="com.pet.p1.review.ReviewVO" alias="ReviewVO"/>
+
+  		<typeAlias type="com.pet.p1.cart.CartVO" alias="CartVO"/>
+  		
+
   		
   		<typeAlias type="com.pet.p1.product.file.ProductFileVO" alias="ProductFileVO"/>
 		<typeAlias type="com.pet.p1.member.MemberVO" alias="MemberVO"/>

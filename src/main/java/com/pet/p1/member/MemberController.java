@@ -22,9 +22,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pet.p1.product.DogService;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.pet.p1.cart.CartService;
+import com.pet.p1.cart.CartVO;
+import com.pet.p1.mail.JavaMailInfo;
+import com.pet.p1.order.OrderService;
+import com.pet.p1.order.OrderVO;
+
+import com.pet.p1.product.DogService;
+import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 
@@ -34,26 +42,114 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-	
+	@Autowired
+	private CartService cartService;
+	@Autowired
+	private OrderService orderService;
+	@Autowired
+	private JavaMailInfo javaMailInfo; 
 	
 //--------------------------------------------------------------------------------------------------------------
 
 	
+	@GetMapping("memberOrder")
+	public void memberOrder()throws Exception{
+		
+	}
+	@GetMapping("memberCartHeader")
+	public void memberCartHeader()throws Exception{
+		
+	}
+	
+	
+	@PostMapping("memberPaymentList")
+	@ResponseBody
+	public void memberPaymentList(Long[] ids,HttpSession session)throws Exception{
+		List<Long> list = Arrays.asList(ids);
+		
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i));
+		}
+		
+		List<CartVO> ar = cartService.cartSelect(list);
+		session.setAttribute("cartSelect", ar); 
+		System.out.println("check");
+		
+	}
+	
+
+	
+	@PostMapping("memberPayment")
+	@ResponseBody
+	public int memberPayment(OrderVO orderVO,HttpSession session)throws Exception{
+		session.setAttribute("order", orderVO); 
+		/* session.setAttribute("order", null); */
+		
+		
+		
+		int result = orderService.orderCart(orderVO);
+		return result;
+	}
+	
+
+	@PostMapping("cartUpdate")
+	@ResponseBody   				//ajax실행시 return으로 jsp를 찾는데 그것 대신 data형태로 찾는것
+	public int cartUpdate(CartVO cartVO)throws Exception{
+	
+		int result = cartService.cartUpdate(cartVO);
+		
+		return result;
+	}
+	
+	
+	
+	@GetMapping("cartDelete")
+	public ModelAndView cartDelete(Long [] ids)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<Long> list = Arrays.asList(ids);
+		int result = cartService.cartDelete(list);
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@GetMapping("memberCartRefresh")
+	public ModelAndView memberCartRefresh(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		ModelAndView mv = new ModelAndView();
+		List<CartVO> ar = cartService.cartList(memberVO);
+		mv.addObject("cart",ar);
+		mv.setViewName("member/memberCartRefresh");
+		long count = memberService.memberCart(memberVO);
+		session.setAttribute("cartCount", count);
+		return mv;
+	}
+	
 	
 	//--장바구니
-	
-	
 	@GetMapping("memberCart")
-	public ModelAndView productList(Long productNum)throws Exception {
-		
-	//	List<DogVO> ar = memberService.productList(dogVO);
-
+	public ModelAndView cartList(HttpSession session)throws Exception {
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		ModelAndView mv = new ModelAndView();
+		if (memberVO == null) {
+			/*
+			 * mv.addObject("result", "로그인을 해주세요."); mv.addObject("path", "./memberLogin");
+			 * mv.setViewName("common/result");
+			 */
+			
+
+		} else {
+			
+			List<CartVO> ar = cartService.cartList(memberVO);
+			System.out.println("aas");
+			mv.addObject("cart",ar);
+			mv.setViewName("member/memberCart");
 		
-//		mv.addObject("dog", dogVO);
-		mv.setViewName("member/memberCart");
+		}
 		
 		return mv;
+		
+		
 	}
 	
 	//--장바구니 끝
@@ -89,8 +185,7 @@ public class MemberController {
 	//--로그인/로그아웃
 	@RequestMapping(value= "memberLogin")
 	public void memberLogin(@CookieValue(value = "cId", required = false)String cId, Model model) {
-		//model.addAttribute("cId", cId);
-		System.out.println(cId);
+		model.addAttribute("cId", cId);
 	}
 	
 	@RequestMapping(value= "memberLogin", method = RequestMethod.POST)
@@ -107,10 +202,12 @@ public class MemberController {
 
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
+			 long count = memberService.memberCart(memberVO);
+			 session.setAttribute("cartCount", count);
 			 mv.setViewName("redirect:../");
 		 }else {
-			 mv.addObject("result", "Login Fail");
-			 mv.addObject("path", "./memberJoin");
+			 mv.addObject("result", "아이디와 비밀번호를 확인해주세요");
+			 mv.addObject("path", "./memberLogin");
 			 mv.setViewName("common/result");
 		 }
 				 
@@ -141,7 +238,8 @@ public class MemberController {
 		 * }
 		 */
 		session.setAttribute("access_Token", access_Token);
-		mv.addObject("result", "로그인 성공!");
+		session.setAttribute("member", memberInfo);
+		mv.addObject("result", "환영합니다!");
 		mv.addObject("path", "../");
 		mv.setViewName("common/result");
 		
@@ -213,22 +311,32 @@ public class MemberController {
 		
 	}
 	
-	//-- ID/PW 찾기 성공
-	@GetMapping("findSuccess")
+	
+	//-- ID 찾기 성공
+	@GetMapping("idFindSuccess")
 	public ModelAndView findSuccess(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user", memberVO);
+		
 		return mv;
 	}
-	
-	//-- ID/PW 찾기 실패
-	@GetMapping("findFail")
+
+	//-- ID 찾기 실패
+	@GetMapping("idFindFail")
 	public void findFail()throws Exception{
 		
 	}
 	
-	//-- email메일로 찾기
+	//-- PW 찾기 성공
+	@GetMapping("pwFindSuccess")
+	public ModelAndView pwFindSuccess(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user", memberVO);
+		
+		return mv;
+	}
 	
+	//-- email로 찾기
 	@PostMapping("findEmail")
 	@ResponseBody
 	public MemberVO findEmail(MemberVO memberVO)throws Exception{
@@ -238,6 +346,16 @@ public class MemberController {
 		return memberVO;
 	}
 	
+	//-- PW 임시 비밀번호 메일 보내기
+	@GetMapping("sendMail")
+	public String sendMail(String mailto,String id)throws Exception{
+		String code = "<비밀번호 찾기 안내 메일>";
+		javaMailInfo.Sendmail(mailto,code,id);
+		
+		return "member/pwFindSuccess";	
+	}
+	
+	//-- Phone으로 찾기
 	@PostMapping("findPhone")
 	@ResponseBody
 	public MemberVO findPhone(MemberVO memberVO)throws Exception{
@@ -246,15 +364,38 @@ public class MemberController {
 		
 		return memberVO;
 	}
-
-	
 	
 	//-- memberPayment
-	
 	@GetMapping("memberPayment")
-	public void memberPayment()throws Exception{
+	public void memberPayment(MemberVO memberVO)throws Exception{
+	
+	}
+	
+	//kakaoPay
+	@RequestMapping(value = "kakaoPay",method = RequestMethod.GET)
+	public ModelAndView kakaoPay(ModelAndView mv) throws Exception{
+		mv.setViewName("member/kakao");
+		
+		return mv;
+	}
+	
+	//-- 결제 성공시
+	@GetMapping("kakaopaySuccess")
+	public void kakaopaySuccess()throws Exception{
+	}
+	
+	//-- 결제 실패시
+	@GetMapping("kakaopayFail")
+	public void kakaopayFail()throws Exception{
 		
 	}
+	
+	//-- 무통장 결제
+	@GetMapping("accountPaySuccess")
+	public void accountPaySuccess()throws Exception{
+		
+	}
+	
 	
 //-------------------------------------------------------------------------------------------------------	
 	

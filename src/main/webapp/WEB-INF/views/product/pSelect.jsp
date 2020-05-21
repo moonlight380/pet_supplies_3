@@ -25,7 +25,6 @@
 <style type="text/css">
 .sum{
 float: right;
-
 }
 .line{
 	clear:both;
@@ -34,11 +33,9 @@ float: right;
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
 }
-
 .total_price{
 	margin-bottom: 50px;
 }
-
 .cart_margin{
 	margin-left: 160px;
 	margin-bottom: 20px;
@@ -57,7 +54,6 @@ float: right;
 	float: right;
 	margin-bottom: 20px;
 }
-
 .admin_btn{
 	float: right;
 	margin-left: 20px;
@@ -69,7 +65,6 @@ float: right;
     margin-bottom: 20px;
     font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
 }
-
 #prdInfo .prdInfo-cont .cont {
 	font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
     display: inline-block;
@@ -100,40 +95,48 @@ float: right;
 	margin-right: 30px;
 	padding: 30px;
 }
-
 #page_free{
-z-index:99;
-position:absolute;
-top:10px;
-left:10px;
-text-align:left;
-border:1px solid #000;
-width: 720px;
-height: 850px;
-margin: 300px 1000px;
-padding: 10px;
+	z-index:99;
+	position:absolute;
+	top:10px;
+	left:10px;
+	text-align:left;
+	border:1px solid #000;
+	width: 720px;
+	height: 850px;
+	margin: 300px 1000px;
+	padding: 10px;
 }
-#page_free img{border:10px soild #FFF;}
-#page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
 
+#page_free img{
+	border:10px soild #FFF;
+}
+
+#page_free .new_btn{	
+	width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;
+}
+
+.fileSize{
+	width: 500px;
+	height: 500px;
+}
 </style>
 
 <!-- 팝업창띄우기 -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	
 function goPopup(){
 		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
-
 		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
 		//크롬에서는 속성값이 먹지 않음
 		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
 	}
 	
-</script>
+</script> -->
 
 <!-- 레이어팝업 -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
 //오늘 하루 팝업 열지 않기
 $('#close_popup').click(function(){
@@ -145,7 +148,7 @@ $('#close_popup2').click(function(){
 	$("#page_free").hide();
 });
 });
-</script>
+</script> -->
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
@@ -160,7 +163,6 @@ $('#close_popup2').click(function(){
 	<input type="checkbox" name="close_popup2" id="close_popup2">
 	</div>
 </div>
-
 <!--레이어팝업  끝--> --%>
 
 
@@ -333,9 +335,7 @@ $('#close_popup2').click(function(){
 	               			num++;
 	               			alert("plus:"+num);
 	               			//$("#quantityNum").val(num);
-
 	               			$("#quantityNum_amount").text(num); 
-
 	               			$("#sum_price").text(num*perPrice);
 	               			
 	               		});/*plus*/
@@ -513,9 +513,8 @@ $('#close_popup2').click(function(){
                                             <div class="description">
                                                 <p>${review.contents}</p>
                                             	<c:forEach items="${review.boardFileVOs}" var="review2">
-	                                        		<div>
-	                                            						  	<!-- 이미지가 여러개 이므로 반복문 -->		
-											 										 
+	                                        		<div class="fileSize">
+	                                            	<!-- 이미지가 여러개 이므로 반복문 -->										 
 													<img alt="" src="../resources/reviewUpload/${review2.fileName}" style="max-width: 100%; height: auto;">			
 	                                        		</div>
 	                                        </c:forEach>

@@ -64,10 +64,10 @@
 <tr>
 <th scope="row">주소 <img src="/p1/resources/images/ico_required.gif" alt="필수"></th>
 	<td>
-		<input id="rzipcode1" name="rzipcode1" class="inputTypeText" placeholder="" size="6" maxlength="6"  value="" type="text">							
+		<input id="rzipcode1" name="rzipcode1" class="inputTypeText" size="6" maxlength="6" type="text" readonly="readonly">							
 		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
-		<input id="raddr1" name="raddr1" class="inputTypeText" placeholder="" size="40"  value="" type="text"> <span class="grid">기본주소</span><br>
-		<input id="raddr2" name="raddr2" class="inputTypeText" placeholder="" size="40" value="" type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
+		<input id="raddr1" name="raddr1" class="inputTypeText" size="40" type="text" readonly="readonly"> <span class="grid">기본주소</span><br>
+		<input id="raddr2" name="raddr2" class="inputTypeText" size="40"type="text"> <span class="grid">나머지주소</span><span class="grid ">(선택입력가능)</span>
 		
 	</td>
 </tr>

@@ -94,11 +94,12 @@
 						s.parent().remove();
 						count--;
 					}else {
-						alert("File Delete Fail");
+						alert("파일 삭제를 실패했습니다.");
 					}
 				} );
 			}
 		});
 	</script>
+		<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>

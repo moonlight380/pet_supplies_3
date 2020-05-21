@@ -15,6 +15,7 @@
 		<result column="ref" property="ref" />
 		<result column="step" property="step" />
 		<result column="depth" property="depth" />
+		<result column="productNum" property="productNum" />
 		<collection property="boardFileVOs" javaType="List"
 			ofType="BoardFileVO">
 			<id column="fileNum" property="fileNum" />
@@ -26,28 +27,17 @@
 
 	</resultMap>
 
-<!-- 	<sql id="search">
-		where
-		<choose>
-			<when test="kind == 'bt'">
-				title
-			</when>
-			<when test="kind=='bw'">
-				id
-			</when>
-			<otherwise>
-				contents
-			</otherwise>
-		</choose>
-		like '%'||#{search}||'%'
-	</sql> -->
+	<!-- <sql id="search"> where <choose> <when test="kind == 'bt'"> title </when> 
+		<when test="kind=='bw'"> id </when> <otherwise> contents </otherwise> </choose> 
+		like '%'||#{search}||'%' </sql> -->
 
 	<select id="boardCount" parameterType="Pager" resultType="Long">
 		select count(num) from review
 		<!-- <include refid="search"></include> -->
 	</select>
 
-	<select id="boardList" parameterType="Pager" resultType="ReviewVO">
+	<select id="boardList" parameterType="Pager"
+		resultType="ReviewVO">
 		select * from
 		(select RE.*, rownum R from
 		(select * from review
@@ -58,6 +48,12 @@
 
 	</select>
 
+	<select id="pboardList" parameterType="Long"
+		resultMap="selectResult3">
+		select RE.*,F.* from review RE left join boardFile F on(RE.num = F.num)
+		where RE.productnum=#{productnum}
+	</select>
+
 	<select id="boardSelect" parameterType="Long"
 		resultMap="selectResult3">
 		select RE.*,F.*
@@ -66,6 +62,11 @@
 		F.num)
 		where RE.num=#{num}
 	</select>
+
+	<!-- <select id="pboardSelect" parameterType="Long" resultMap="selectResult3"> 
+		select RE.*,F.* from review RE left join boardFile F on(RE.num =F.num) left 
+		join product p on(RE.productnum = p.productnum) where p.productnum = #{productnum}; 
+		</select> -->
 
 	<select id="boardNum" resultType="Long">
 		select review_seq.nextval from
@@ -87,7 +88,8 @@
 		0,
 		#{num},
 		0,
-		0
+		0,
+		100
 		)
 	</insert>
 
@@ -102,7 +104,8 @@
 	</update>
 
 	<update id="hitUpdate" parameterType="Long">
-		update review set hit = hit+1
+		update review set hit =
+		hit+1
 		where num = #{num}
 	</update>
 
@@ -119,7 +122,8 @@
 		insert into review
 		values(review_seq.nextval, #{title}, #{id}, #{contents}, sysdate, 0,
 		(select ref from review where num=#{num}),
-		(select step from review where
+		(select step from review
+		where
 		num=#{num})+1,
 		(select depth from review where num=#{num})+1
 		)

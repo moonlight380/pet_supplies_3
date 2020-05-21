@@ -10,12 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pet.p1.board.BoardVO;
 import com.pet.p1.member.MemberVO;
+import com.pet.p1.review.ReviewService;
 import com.pet.p1.util.Pager;
 
 @Controller
@@ -23,43 +26,17 @@ import com.pet.p1.util.Pager;
 public class DogController {
 @Autowired
 private DogService dogService;
+@Autowired
+private ReviewService reviewService;
 
 
 @ModelAttribute("p")
 public String getBoard()throws Exception{
 	return "dog";
 }
-//address
-@RequestMapping(value = "address",method = RequestMethod.GET)
-public ModelAndView address (ModelAndView mv) throws Exception{
-	mv.setViewName("product/address");	
-	System.out.println("address/get");
-	return mv;
-}
 
 
-//@RequestMapping(value = "address",method = RequestMethod.POST)
-//public String address () throws Exception{
-//		System.out.println("adress post");
-//	return"product/pList";
-//}
 
-//dogkakaoPay
-@RequestMapping(value = "dogkakaoPay",method = RequestMethod.GET)
-public ModelAndView dogkakaoPay (ModelAndView mv,DogVO dogVO,HttpSession session) throws Exception{
-	
-	mv.addObject("vo",dogVO);
-	mv.setViewName("product/pkakaoPay");	
-	return mv;
-}
-
-//kakao
-@RequestMapping(value = "kakao",method = RequestMethod.GET)
-public ModelAndView kakao (ModelAndView mv) throws Exception{
-	mv.setViewName("product/kakao");
-	
-	return mv;
-}
 
 //List
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
@@ -155,7 +132,7 @@ public ModelAndView kakao (ModelAndView mv) throws Exception{
 			mv.setViewName("redirect:./dogList");
 		}else {
 			mv.addObject("result","WRITER FAIL");
-			mv.addObject("path","./noticeList");
+			mv.addObject("path","./dogList");
 			mv.setViewName("common/result");
 		}
 		
@@ -166,11 +143,13 @@ public ModelAndView kakao (ModelAndView mv) throws Exception{
 	@GetMapping("dogSelect") 
 		public ModelAndView dogSelect(long productNum, HttpSession session) throws Exception{
 			DogVO dogVO=dogService.dogSelect(productNum);
+			List<BoardVO>ar = reviewService.pboardList(productNum);
+			
 			ModelAndView mv= new ModelAndView();
 			
 
 			mv.addObject("vo",dogVO);
-		
+			mv.addObject("list", ar);
 			mv.setViewName("product/pSelect");
 			
 			

@@ -57,15 +57,19 @@ public class QnaService implements BoardService {
 		String path = servletContext.getRealPath("/resources/qnaUpload");
 
 		for (MultipartFile file : files) {
-			BoardFileVO boardFileVO = new BoardFileVO();
-			String fileName = fileSaver.saveByTransfer(file, path);
-			boardFileVO.setNum(boardVO.getNum());
-			boardFileVO.setFileName(fileName);
-			boardFileVO.setOriName(file.getOriginalFilename());
-			boardFileVO.setBoard(2);
-			boardFileDAO.fileInsert(boardFileVO);
+			if (file.getSize() > 0) {
+				BoardFileVO boardFileVO = new BoardFileVO();
+				String fileName = fileSaver.saveByTransfer(file, path);
+				boardFileVO.setNum(boardVO.getNum());
+				boardFileVO.setFileName(fileName);
+				boardFileVO.setOriName(file.getOriginalFilename());
+				boardFileVO.setBoard(2);
+				boardFileDAO.fileInsert(boardFileVO);
+				if (result < 1) {
+					throw new Exception();
+				}
+			}
 		}
-
 		return result;
 	}
 

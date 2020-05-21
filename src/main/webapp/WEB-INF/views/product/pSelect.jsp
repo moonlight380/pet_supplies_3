@@ -25,7 +25,6 @@
 <style type="text/css">
 .sum{
 float: right;
-
 }
 .line{
 	clear:both;
@@ -34,11 +33,9 @@ float: right;
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
 }
-
 .total_price{
 	margin-bottom: 50px;
 }
-
 .cart_margin{
 	margin-left: 160px;
 	margin-bottom: 20px;
@@ -57,7 +54,6 @@ float: right;
 	float: right;
 	margin-bottom: 20px;
 }
-
 .admin_btn{
 	float: right;
 	margin-left: 20px;
@@ -69,7 +65,6 @@ float: right;
     margin-bottom: 20px;
     font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
 }
-
 #prdInfo .prdInfo-cont .cont {
 	font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
     display: inline-block;
@@ -100,40 +95,48 @@ float: right;
 	margin-right: 30px;
 	padding: 30px;
 }
-
 #page_free{
-z-index:99;
-position:absolute;
-top:10px;
-left:10px;
-text-align:left;
-border:1px solid #000;
-width: 720px;
-height: 850px;
-margin: 300px 1000px;
-padding: 10px;
+	z-index:99;
+	position:absolute;
+	top:10px;
+	left:10px;
+	text-align:left;
+	border:1px solid #000;
+	width: 720px;
+	height: 850px;
+	margin: 300px 1000px;
+	padding: 10px;
 }
-#page_free img{border:10px soild #FFF;}
-#page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
 
+#page_free img{
+	border:10px soild #FFF;
+}
+
+#page_free .new_btn{	
+	width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;
+}
+
+.fileSize{
+	width: 500px;
+	height: 500px;
+}
 </style>
 
 <!-- 팝업창띄우기 -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	
 function goPopup(){
 		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
-
 		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
 		//크롬에서는 속성값이 먹지 않음
 		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
 	}
 	
-</script>
+</script> -->
 
 <!-- 레이어팝업 -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
 //오늘 하루 팝업 열지 않기
 $('#close_popup').click(function(){
@@ -145,14 +148,14 @@ $('#close_popup2').click(function(){
 	$("#page_free").hide();
 });
 });
-</script>
+</script> -->
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
 
 <body onload="goPopup()">
 
-
+<%-- 
 <!-- 레이어팝업 시작 -->
 <div style="" id="page_free">
 	<img src="${pageContext.request.contextPath}/resources/images/goPopup.jpg">
@@ -160,14 +163,12 @@ $('#close_popup2').click(function(){
 	<input type="checkbox" name="close_popup2" id="close_popup2">
 	</div>
 </div>
-
-<!--레이어팝업  끝-->
-
+<!--레이어팝업  끝--> --%>
 
 
-<div id="header">		<!-- 추가한부분 -->
+
+
 <c:import url="../template/header.jsp"></c:import>
-</div>
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">
@@ -334,10 +335,7 @@ $('#close_popup2').click(function(){
 	               			num++;
 	               			alert("plus:"+num);
 	               			//$("#quantityNum").val(num);
-
 	               			$("#quantityNum_amount").text(num); 
-	               			
-
 	               			$("#sum_price").text(num*perPrice);
 	               			
 	               		});/*plus*/
@@ -347,12 +345,7 @@ $('#close_popup2').click(function(){
                        
  <!--마이너스 플러스 스클립트 끝 ------------------------------------------------------------------------------------------------------------ -->                     
                        <span class="cart_btn">
-                       		<!-- 추가한부분  class에 cart id,data-toggle,data-target -->
-                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}"
-                            data-toggle="modal" data-target="#myModal"
-                             type="button">
-                            
-                            <i class="icon-basket-loaded"></i> Add to cart</button> 
+                            <button class="btn btn-fill-out btn-addtocart cart_margin" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
                         </span> <!-- "cart_btn" -->
                         
                         <span class="direct_purchase">
@@ -418,6 +411,7 @@ $('#close_popup2').click(function(){
                       	</li>
                       	<li class="nav-item">
                         	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 후기</a>
+                        	
                       	</li>
                       	<li class="nav-item">
                         	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 문의</a>
@@ -505,49 +499,35 @@ $('#close_popup2').click(function(){
    						<%-- <span class="price">${}</span>    --%> 	
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
-                            	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>
+                            	<h5 class="product_tab_title"><span>리뷰</span></h5>
                                 <ul class="list_none comment_list mt-4">
+                                    <c:forEach items="${list}" var="review">                                 
                                     <li>
-                                        <div class="comment_img">
-                                            <img src="${pageContext.request.contextPath}/resources/images/user1.jpg" alt="user1"/>
-                                        </div>
-                                        <div class="comment_block">
-                                            <div class="rating_wrap">
-                                                <div class="rating">
-                                                    <div class="product_rate" style="width:80%"></div>
-                                                </div>
-                                            </div>
+
+                                        <div class="comment_block" style="padding: 0 auto">
+
                                             <p class="customer_meta">
-                                                <span class="review_author">Alea Brooks</span>
-                                                <span class="comment-date">March 5, 2018</span>
+                                                <span class="review_author">${review.id}</span>
+                                                <span class="comment-date">${review.regDate}</span>
                                             </p>
                                             <div class="description">
-                                                <p>Lorem Ipsumin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate</p>
+                                                <p>${review.contents}</p>
+                                            	<c:forEach items="${review.boardFileVOs}" var="review2">
+	                                        		<div class="fileSize">
+	                                            	<!-- 이미지가 여러개 이므로 반복문 -->										 
+													<img alt="" src="../resources/reviewUpload/${review2.fileName}" style="max-width: 100%; height: auto;">			
+	                                        		</div>
+	                                        </c:forEach>
+                                                
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="comment_img">
-                                            <img src="${pageContext.request.contextPath}/resources/images/user2.jpg" alt="user2"/>
-                                        </div>
-                                        <div class="comment_block">
-                                            <div class="rating_wrap">
-                                                <div class="rating">
-                                                    <div class="product_rate" style="width:60%"></div>
-                                                </div>
-                                            </div>
-                                            <p class="customer_meta">
-                                                <span class="review_author">Grace Wong</span>
-                                                <span class="comment-date">June 17, 2018</span>
-                                            </p>
-                                            <div class="description">
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                            </div>
-                                        </div>
-                                    </li>
+  									</c:forEach>
+  
                                 </ul>
                         	</div>
-                            <div class="review_form field_form">
+                        	
+<!--                             <div class="review_form field_form">
                                 <h5>Add a review</h5>
                                 <form class="row mt-3">
                                     <div class="form-group col-12">
@@ -573,7 +553,8 @@ $('#close_popup2').click(function(){
                                         <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Submit Review</button>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
+                            
                       	</div>
                 	</div>
                 </div>
@@ -623,8 +604,6 @@ $('#close_popup2').click(function(){
 
 </div>
 <!-- END MAIN CONTENT -->
-
-<c:import url="../cart/addCart.jsp"></c:import>  <!-- 추가한부분  장바구니 추가할 때 필요-->
 
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>

@@ -32,7 +32,7 @@ import com.pet.p1.order.OrderService;
 import com.pet.p1.order.OrderVO;
 import com.pet.p1.orderInfo.OrderInfoVO;
 import com.pet.p1.product.DogService;
-
+import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 
@@ -52,6 +52,7 @@ public class MemberController {
 //--------------------------------------------------------------------------------------------------------------
 
 	
+
 	@GetMapping("memberOrderInfo")
 	public ModelAndView memberOrderInfo(HttpSession session)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -69,7 +70,6 @@ public class MemberController {
 		OrderVO orderVO = new OrderVO();
 		
 		orderVO = orderService.orderSelectOne(memberVO);
-		
 		mv.addObject("order",orderVO);
 		mv.setViewName("member/memberOrder");
 		return mv;
@@ -99,6 +99,7 @@ public class MemberController {
 		
 		List<CartVO> ar = cartService.cartSelect(list);
 		session.setAttribute("cartSelect", ar); 
+		System.out.println("check");
 		
 	}
 	
@@ -162,8 +163,9 @@ public class MemberController {
 			
 
 		} else {
+			
 			List<CartVO> ar = cartService.cartList(memberVO);
-			session.setAttribute("headerCart", ar);
+			System.out.println("aas");
 			mv.addObject("cart",ar);
 			mv.setViewName("member/memberCart");
 		
@@ -228,8 +230,8 @@ public class MemberController {
 			 session.setAttribute("cartCount", count);
 			 mv.setViewName("redirect:../");
 		 }else {
-			 mv.addObject("result", "Login Fail");
-			 mv.addObject("path", "./memberJoin");
+			 mv.addObject("result", "아이디와 비밀번호를 확인해주세요");
+			 mv.addObject("path", "./memberLogin");
 			 mv.setViewName("common/result");
 		 }
 				 
@@ -352,7 +354,6 @@ public class MemberController {
 	//-- PW 찾기 성공
 	@GetMapping("pwFindSuccess")
 	public ModelAndView pwFindSuccess(MemberVO memberVO)throws Exception{
-		System.out.println("in");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user", memberVO);
 		
@@ -388,16 +389,36 @@ public class MemberController {
 		return memberVO;
 	}
 	
-	
-
-	
 	//-- memberPayment
-	
 	@GetMapping("memberPayment")
 	public void memberPayment(MemberVO memberVO)throws Exception{
 	
 	}
 	
+	//kakaoPay
+	@RequestMapping(value = "kakaoPay",method = RequestMethod.GET)
+	public ModelAndView kakaoPay(ModelAndView mv) throws Exception{
+		mv.setViewName("member/kakao");
+		
+		return mv;
+	}
+	
+	//-- 결제 성공시
+	@GetMapping("kakaopaySuccess")
+	public void kakaopaySuccess()throws Exception{
+	}
+	
+	//-- 결제 실패시
+	@GetMapping("kakaopayFail")
+	public void kakaopayFail()throws Exception{
+		
+	}
+	
+	//-- 무통장 결제
+	@GetMapping("accountPaySuccess")
+	public void accountPaySuccess()throws Exception{
+		
+	}
 	
 	
 //-------------------------------------------------------------------------------------------------------	

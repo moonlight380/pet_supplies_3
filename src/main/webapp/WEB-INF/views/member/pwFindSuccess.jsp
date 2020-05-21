@@ -28,8 +28,8 @@
 <div style=" width: 400px; height:100%; margin: 0 auto; text-align: center; margin-top: 50px">
 	<i class='fas fa-paw' style="font-size: 36px; margin-top: 30px;" ></i>
 	<div class="contensts" style="margin-top: 10px;">
-	<p>${user.id} 고객님의 <br>
-	임시 비밀번호를 회원님 메일로 보냈습니다!</p>
+	<p>${param.id} 고객님의 <br>
+	임시 비밀번호를 ${param.mailto} 로 보냈습니다!</p>
 	<p>로그인 후 비밀번호를 변경해 주세요.</p>
 	</div>
 	

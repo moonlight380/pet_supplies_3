@@ -114,6 +114,9 @@ public class DogService {
 		dogDAO.hitUpdate(productNum);
 		return dogDAO.dogSelect(productNum);
 	}
+	
+	
+	
 //update
 	public int dogUpdate (DogVO dogVO,MultipartFile firstFile, MultipartFile[] files) throws Exception{	
 		

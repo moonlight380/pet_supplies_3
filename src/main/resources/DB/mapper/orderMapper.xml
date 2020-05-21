@@ -5,7 +5,9 @@
   
   <mapper namespace="com.pet.p1.order.OrderDAO">
 	
+
 	<insert id="orderCart" parameterType="OrderVO">
+
 		insert into porder(ordernum,priceAll,id,pdate,charge) values(porder_seq.nextval,#{priceAll},#{id},sysdate,#{charge})
 	
 	</insert>  

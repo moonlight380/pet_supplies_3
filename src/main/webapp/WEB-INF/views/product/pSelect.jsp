@@ -119,8 +119,8 @@ padding: 10px;
 </style>
 
 <!-- 팝업창띄우기 -->
-<!-- 
-<script type="text/javascript">
+
+<!-- <script type="text/javascript">
 	
 function goPopup(){
 		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
@@ -132,7 +132,7 @@ function goPopup(){
 	
 </script> -->
 
- <!-- 레이어팝업 -->
+<!-- 레이어팝업 -->
 <!-- <script type="text/javascript">
 $(document).ready(function(){
 //오늘 하루 팝업 열지 않기
@@ -145,7 +145,7 @@ $('#close_popup2').click(function(){
 	$("#page_free").hide();
 });
 });
-</script>  -->
+</script> -->
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
@@ -165,9 +165,8 @@ $('#close_popup2').click(function(){
 
 
 
-<div id="header">		<!-- 추가한부분 -->
+
 <c:import url="../template/header.jsp"></c:import>
-</div>
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">
@@ -336,7 +335,6 @@ $('#close_popup2').click(function(){
 	               			//$("#quantityNum").val(num);
 
 	               			$("#quantityNum_amount").text(num); 
-	               			
 
 	               			$("#sum_price").text(num*perPrice);
 	               			
@@ -347,12 +345,7 @@ $('#close_popup2').click(function(){
                        
  <!--마이너스 플러스 스클립트 끝 ------------------------------------------------------------------------------------------------------------ -->                     
                        <span class="cart_btn">
-                       		<!-- 추가한부분  class에 cart id,data-toggle,data-target -->
-                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}"
-                            data-toggle="modal" data-target="#myModal"
-                             type="button">
-                            
-                            <i class="icon-basket-loaded"></i> Add to cart</button> 
+                            <button class="btn btn-fill-out btn-addtocart cart_margin" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
                         </span> <!-- "cart_btn" -->
                         
                         <span class="direct_purchase">
@@ -360,7 +353,7 @@ $('#close_popup2').click(function(){
                         </span>
                    <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/member/memberPaymenyt?productName=${vo.productName}&amount=${vo.amount}">kakao pay</a></button>
+                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/product/dogkakaoPay?productName=${vo.productName}&amount=${vo.amount}&phone=${member.phone}">kakao pay</a></button>
                          
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
@@ -428,7 +421,7 @@ $('#close_popup2').click(function(){
                 	<div class="tab-content shop_info_tab">
                       	<div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
                         	
-<!-- 이미지가 여러개 이므로 반복문 -->		
+						  	<!-- 이미지가 여러개 이므로 반복문 -->		
 							 <c:forEach items="${vo.productFileVOs}" var="file">
 									 <div>
 									 	<img alt="" src="../resources/dogUpload/${file.fileName}">			
@@ -515,7 +508,7 @@ $('#close_popup2').click(function(){
 	                                            <%-- <img src="${pageContext.request.contextPath}/resources/images/user1.jpg" alt="user1"/> --%>
 	                                            						  	<!-- 이미지가 여러개 이므로 반복문 -->		
 											 										 
-													 	<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
+													 	<img alt="" src="../resources/${board}Upload/${review2.fileName}">			
 											
 	                                        </div>
 	                                        </c:forEach>
@@ -615,8 +608,6 @@ $('#close_popup2').click(function(){
 
 </div>
 <!-- END MAIN CONTENT -->
-
-<c:import url="../cart/addCart.jsp"></c:import>  <!-- 추가한부분  장바구니 추가할 때 필요-->
 
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>

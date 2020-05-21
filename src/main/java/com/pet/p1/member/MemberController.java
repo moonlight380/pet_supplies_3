@@ -383,9 +383,13 @@ public class MemberController {
 	}
 	
 	@GetMapping("memberPaySuccess")
-	public String paymentSuccess()throws Exception{
+	public String memberPaySuccess()throws Exception{
 		System.out.println("un");
 		return "paymentSuccess";
+	}
+	
+	@GetMapping("paymentSuccess")
+	public void paymentSuccess()throws Exception{
 	}
 	
 	

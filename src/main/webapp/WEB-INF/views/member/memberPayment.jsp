@@ -452,6 +452,7 @@
 </div>
 
 <div id="account_box" style="display: none;">
+
 <!-- 무통장입금 -->
 <table class="table table-bordered" id="payment_input_cash" style="float: left; text-align: left; font-size:small; height: 80px;">
 <tbody>
@@ -637,7 +638,32 @@
 		}
 	});
 	
-
+	//-- 입금자명 유효성 검사
+	var pnameCheck = true;
+	var pname = $("#pname").val();
+		for (var i=0; i<pname.length; i++)  { 
+		    var chk = pname.substring(i,i+1); 
+		    if(chk.match(/[0-9]|[a-z]|[A-Z]/)) { 
+		    	nameCheck = false;
+		    }else if(chk.match(/([^가-힣\x20])/i)){
+		    	nameCheck = false;
+		    }else if($("#pname").val() == " "){
+		    	nameCheck = false;
+		    }else if(name.length <= 0){
+		    	nameCheck = false;
+		    }else{
+		    	nameCheck = true;
+		    }
+		} 
+	
+	//-- 입금은행 유효성 검사
+	var bankCheck = true;
+	$("#bankaccount").change(function() {
+		var bankaccount = $(this).val();
+		if(bankaccount = -1){
+			bankCheck = false;
+		}
+	});
  	
 	/* 결제버튼 */
 	
@@ -660,14 +686,22 @@
 				a.preventDefault();
 			}else{
 				var pay = $("#current_pay_name").text();
-				var payname = $("#kakaopay").attr("id");
-				
+				var kakaopay = $("#kakaopay").attr("id");
+				var account = $("#account").text();
 				var totalPrice = $("#AllPrice").text();
 				var text = totalPrice.split("원").join("");
 				var AllPrice = text.split(",").join("");
 				
-		 		 if(pay == payname){
+		 		 if(pay == kakaopay){
 					location.href="./kakaoPay?name=dd&totalPrice="+AllPrice;	
+				}else if(pay == account){
+					if(!(pnameCheck)){
+						alert("입금자명을 제대로 입력해주세요");
+					}else if(!bankCheck){
+						alert("입금은행을 제대로 입력해주세요");
+					}else{
+						location.href="./accountPaySuccess";
+					}
 				}else if(pay.length<=0){
 					alert("결제방식을 선택해주세요");
 				}
@@ -721,7 +755,7 @@
 		 $("#credit_box").hide(); 
 		 $("#account_box").hide(); 
 		 $("#kakaopay_box").hide(); 
-		 $("#current_pay_name").text("핸드폰 결제");
+		 $("#current_pay_name").text("핸드폰결제");
 	});
 	
 	$("#account").click(function() {
@@ -729,7 +763,7 @@
 		 $("#phonpay_box").hide(); 
 		 $("#credit_box").hide(); 
 		 $("#kakaopay_box").hide(); 
-		 $("#current_pay_name").text("무통장 입금");
+		 $("#current_pay_name").text("무통장입금");
 	});
 	
 	$("#kakaopay").click(function() {

@@ -24,6 +24,7 @@
         var IMP = window.IMP; // 생략가능
         IMP.init('imp53186896'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
         var msg;
+        
         console.log("page");
         IMP.request_pay({
             pg : 'kakaopay',
@@ -61,14 +62,13 @@
                 });
                 //성공시 이동할 페이지
                 alert("결제가 완료되었습니다");
-                  location.href='${pageContext.request.contextPath}/member/paymentSuccess?msg='+msg;
+                msg = 'kakaoPay';
+                  location.href='${pageContext.request.contextPath}/member/kakaopaySuccess?msg='+msg;
                <%--  location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
-            } else {
-                msg = '결제에 실패하였습니다.';
-                msg += '에러내용 : ' + rsp.error_msg;
+            } else{
+                msg = rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="${pageContext.request.contextPath}/member/payFail";
-                alert(msg);
+                location.href="${pageContext.request.contextPath}/member/kakaopayFail?msg="+encodeURI(msg);
             }
         });
         

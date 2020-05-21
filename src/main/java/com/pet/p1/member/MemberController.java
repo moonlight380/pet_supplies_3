@@ -365,16 +365,13 @@ public class MemberController {
 		return memberVO;
 	}
 	
-	
-
-	
 	//-- memberPayment
 	@GetMapping("memberPayment")
 	public void memberPayment(MemberVO memberVO)throws Exception{
 	
 	}
 	
-	//kakao
+	//kakaoPay
 	@RequestMapping(value = "kakaoPay",method = RequestMethod.GET)
 	public ModelAndView kakaoPay(ModelAndView mv) throws Exception{
 		mv.setViewName("member/kakao");
@@ -382,14 +379,21 @@ public class MemberController {
 		return mv;
 	}
 	
-	@GetMapping("memberPaySuccess")
-	public String memberPaySuccess()throws Exception{
-		System.out.println("un");
-		return "paymentSuccess";
+	//-- 결제 성공시
+	@GetMapping("kakaopaySuccess")
+	public void kakaopaySuccess()throws Exception{
 	}
 	
-	@GetMapping("paymentSuccess")
-	public void paymentSuccess()throws Exception{
+	//-- 결제 실패시
+	@GetMapping("kakaopayFail")
+	public void kakaopayFail()throws Exception{
+		
+	}
+	
+	//-- 무통장 결제
+	@GetMapping("accountPaySuccess")
+	public void accountPaySuccess()throws Exception{
+		
 	}
 	
 	

@@ -336,7 +336,7 @@ $('#close_popup2').click(function(){
                         </span>
                    <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/product/dogkakaoPay?productName=${vo.productName}&amount=${vo.amount}&phone=${member.phone}">kakao pay</a></button>
+                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/member/memberPayment?id=${member.id}&amount=${vo.amount}&productNum=${vo.productNum}">kakao pay</a></button>
                          
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
@@ -360,13 +360,13 @@ $('#close_popup2').click(function(){
                     </div> <!--  END class="product_share" -->
                     
                       <div class="line"></div>
-                      
+                     
+                    <c:if test="${member.id eq 'admin' }">
                     <div class="container"> 
 						<a href="./${p }Update?productNum=${vo.productNum}"  class="btn btn-danger admin_btn">Update</a>
 						<a href="./${p }Delete?productNum=${vo.productNum}"  class="btn btn-primary admin_btn">Delete</a>
-						
 					</div>
-                    
+                    </c:if>
                     
                 </div><!-- class="pr_detail" -->
             </div> <!-- class="col-lg-6 col-md-6" -->

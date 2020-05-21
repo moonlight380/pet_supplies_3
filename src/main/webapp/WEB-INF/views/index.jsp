@@ -620,9 +620,11 @@ body, code {
 						$main_list = yes
 						$subject_cut = 30
 						$main_list_reply_view = no
-					--><c:forEach items="${list}" var="vo" end="5">
-						<li class="xans-record-"><a href="/article/공지사항/1/12389/"><font
-								color="#FFFFFF">${vo.title}</font></a></li>
+					-->
+						<c:forEach items="${nlist}" var="vo" end="5">
+							<li class="xans-record-"><a
+								href="./notice/noticeSelect?num=${vo.num}"><font
+									color="#FFFFFF">${vo.title}</font></a></li>
 						</c:forEach>
 					</ul>
 					<p class="more">
@@ -644,17 +646,10 @@ body, code {
 						$subject_cut = 25
 						$main_list_reply_view = no
 					-->
-						<li class="xans-record-"><a href="/article/구매후기/4/28349/"><font
-								color="#FFFFFF">만족</font></a><span class="point "></span></li>
-						<li class="xans-record-"><a href="/article/구매후기/4/28348/"><font
-								color="#FFFFFF">불만족</font></a><span
-							class="point "></span></li>
-						<li class="xans-record-"><a href="/article/구매후기/4/28348/"><font
-								color="#FFFFFF">보통</font></a><span
-							class="point "></span></li>
-						<li class="xans-record-"><a href="/article/구매후기/4/28348/"><font
-								color="#FFFFFF">환불</font></a><span
-							class="point "></span></li>
+						<c:forEach items="${rlist}" var = "vo2" end="5">
+							<li class="xans-record-"><a href="./review/reviewSelect?num=${vo2.num}"><font
+									color="#FFFFFF">${vo2.title}</font></a><span class="point "></span></li>
+						</c:forEach>
 					</ul>
 					<p class="more">
 						<a href="/board/product/list.html?board_no=4"><img

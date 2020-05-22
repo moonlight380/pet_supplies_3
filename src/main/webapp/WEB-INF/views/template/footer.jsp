@@ -20,11 +20,11 @@
 					</div>
 					<div class="widget">
 						<ul class="social_icons social_white">
-							<li><a href="#"><i class="ion-social-facebook"></i></a></li>
-							<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-							<li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-							<li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+							<li><a href="https://www.facebook.com" target="_blank"><i class="ion-social-facebook"></i></a></li>
+							<li><a href="https://www.twitter.com" target="_blank"><i class="ion-social-twitter"></i></a></li>
+							<li><a href="https://www.google.com" target="_blank"><i class="ion-social-googleplus"></i></a></li>
+							<li><a href="https://www.youtube.com" target="_blank"><i class="ion-social-youtube-outline"></i></a></li>
+							<li><a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram-outline"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 					<div class="widget">
 						<h6 class="widget_title">사이트 링크</h6>
 						<ul class="widget_links">
-							<li><a href="${pageContext.request.contextPath}/review/reviewList">리뷰 테스트</a></li>
+							<li><a href="${pageContext.request.contextPath}/review/reviewList">리뷰 게시판</a></li>
 							<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 							<li><a href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
 						</ul>

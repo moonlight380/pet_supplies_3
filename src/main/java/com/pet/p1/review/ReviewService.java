@@ -61,7 +61,7 @@ public class ReviewService implements BoardService {
 
 		// 3. HDD에 파일저장하고 boardFile table insert
 		String path = servletContext.getRealPath("/resources/reviewUpload");
-		System.out.println(path);
+
 		for (MultipartFile file : files) {
 			if (file.getSize() > 0) {
 				BoardFileVO boardFileVO = new BoardFileVO();

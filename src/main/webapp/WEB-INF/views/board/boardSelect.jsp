@@ -59,15 +59,15 @@
 										<div class="col-md-4">
 											<ul class="social_icons text-md-right"
 												style="width: 100%; margin-left: 216%;">
-												<li><a href="http://www.facebook.com" class="sc_facebook" target="_blank"><i
+												<li><a href="#" class="sc_facebook"><i
 														class="ion-social-facebook"></i></a></li>
-												<li><a href="http://www.twitter.com" class="sc_twitter" target="_blank"><i
-														class="ion-social-twitter" ></i></a></li>
-												<li><a href="http://www.google.com" class="sc_google" target="_blank"><i
+												<li><a href="#" class="sc_twitter"><i
+														class="ion-social-twitter"></i></a></li>
+												<li><a href="#" class="sc_google"><i
 														class="ion-social-googleplus"></i></a></li>
-												<li><a href="http://youtube.com" class="sc_youtube" target="_blank"><i
+												<li><a href="#" class="sc_youtube"><i
 														class="ion-social-youtube-outline"></i></a></li>
-												<li><a href="http://instagram.com" class="sc_instagram" target="_blank"><i
+												<li><a href="#" class="sc_instagram"><i
 														class="ion-social-instagram-outline"></i></a></li>
 											</ul>
 										</div>

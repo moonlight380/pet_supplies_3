@@ -40,7 +40,7 @@ html, body {
 	<c:import url="../template/header.jsp"></c:import>
 <body>
 	<div id="store-bigtitle">
-		<h1>매장 위치 안내</h1>
+		<h1>매장 안내</h1>
 	</div>
 	<div id="map"></div>
 	<script>

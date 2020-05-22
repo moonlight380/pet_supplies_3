@@ -76,7 +76,7 @@
  					success : function(data){
  			
  						if(data.id == null){
- 							alert("아이디를 찾을 수 없습니다 다시 확인해주세요");
+ 							alert("회원님의 아이디로 가입된 정보가 없습니다 확인후 재시도 해주세요");
  						}else{
  						 	location.href="./sendMail?mailto="+data.email+"&id="+data.id;
  						}
@@ -118,9 +118,9 @@
   						success : function(data){
   						
   							if(data.id == null){
-  								alert("아이디를 찾을 수 없습니다 다시 확인해주세요")
+  								alert("회원님의 아이디로 가입된 정보가 없습니다 확인후 재시도 해주세요")
   							}else{
-  								location.href="./findSuccess?id="+data.id+"&name="+data.name; 
+  								location.href="./sendMail?mailto="+data.email+"&id="+data.id; 
   							}
   								
   						},

@@ -136,13 +136,8 @@
                                 
                                 <span class="contents"><a href="./${p}SelectTimeSale?productNum=${vo.productNum}">${vo.contents}</a></span>				
 								<!-- 타이머기능 -->                 			
-                 				<div class="notice">               	
-								 <div id="displayTimeSale" class="time_sale" style="">
-				                    <strong class="time_sale_num"><span class="skip">타임세일</span></strong>
-				                    <strong class="time_day">
-									<span id="displayTimeSaleDay" class="time_day_view"><script type="text/javascript" src="../resources/script/timeSale.js"> </script> </span>
-				                    </strong>
-				                </div> 
+                 				<div class="notice">               						
+									<script type="text/javascript" src="../resources/script/timeSale.js"> </script>
 								</div>  
   
                                 </div>

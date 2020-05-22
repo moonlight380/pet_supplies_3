@@ -153,7 +153,7 @@
 										상품구매금액 <strong id="all_sum" class="all_sum">0원</strong>
 										 + 배송비 <span id="deli">0원</span>
 										   = 합계 : <strong class="txtEm gIndent10">
-										   <span id="payment" class="paymentPrice">0</span></strong>
+										   <span id="payment pm" class="Price">0</span></strong>
 										</td>
 
 										</tr>		
@@ -208,7 +208,7 @@
 								</div>
 								<div class="col-sm-3">
 									<div>결제 금액</div>
-									<div style="color: #FF324D;" id="payment" class="paymentPrice">0원</div>
+									<div style="color: #FF324D;" id="" class="paymentPrice">0원</div>
 
 								</div>
 						</div> -->
@@ -441,7 +441,7 @@
 <span id="discount" class="txt23"><strong>0원</strong></span>
 </div></td>
 <td><div class="box txtEm txt16">
-<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="paymentPrice">0원</span>
+<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="paymentPrice Ap">0원</span>
 </div></td>
 </tr></tbody>
 </table>
@@ -487,7 +487,7 @@
 <!-- 적립금 --><tbody class=""><tr>
 <th scope="row">적립금</th>
 <td>
-<p> <input id="input_point" name="input_point" class="inputTypeText text-center" placeholder="" size="10" value=""  type="text"> 원 (총 사용가능 적립금 : <strong class="txtWarn">0</strong>원)</p>
+<p> <input id="input_point" name="input_point" class="inputTypeText text-center" placeholder="" size="10" value=""  type="text"> 원 (총 사용가능 적립금 : <strong id="memberPoint">${member.point}</strong>원)</p>
 <ul class="info">
 <li>적립금은 최소 0 이상일 때 결제가 가능합니다.</li>
 <li id="mileage_max_unlimit" class="">최대 사용금액은 제한이 없습니다.</li>
@@ -644,7 +644,7 @@
  <span style="font-size: medium;">최종결제 금액</span>
 </h4>
 
-<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="paymentPrice" id="AllPrice">0원</div>
+<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="Ap" id="AllPrice">0원</div>
 <div class="paymentAgree" id="chk_purchase_agreement" style="margin-left: 10px; margin-top: 20px;">
 <input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; float: left; width: 30px; margin-top: 7px;"><label for="chk_purchase_agreement0" style="font-size: small;">결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
 </div>
@@ -665,7 +665,6 @@
 <dd id="mProductMileage" style="text-align: right; margin-right: 20px;">0원</dd>
 <dt style=" float: left; margin-left: 20px;">회원 적립금</dt>
 <dd id="mMemberMileage" style="text-align: right; margin-right: 20px;">0원</dd>
-
 
 </dl>
 
@@ -895,25 +894,60 @@
             window.open(url, name, option);
         } 
 	
- 	window.onmessage = function(e){
- 		$("#total_addsale_price_view").html("<strong>"+e.data+"원</strong>");
- 		$("#discount").html("<strong>"+e.data+"원</strong>");;
- 	  } 
+  	window.onmessage = function(e){
 
+ 		var coupon = e.data*1;
+
+ 		$("#total_addsale_price_view").html("<strong>"+coupon+"원</strong>");
+ 		$("#discount").html("<strong>"+coupon+"원</strong>");;
+		
+
+
+ 	  } 
+ 
  	
  	//-- 적립창 유효성 검사
- 	$("#input_point").blur(function() {
-		var memberPoint = $(".txtWarn").val();
-		var input_point = $(this).val();
-		if(input_point>memberPoint){
-			alert("사용가능한 적립금액을 확인해주세요");
-			$("#input_point").val(" ");
-		}
-	});
+
+	 	$("#input_point").blur(function() {
+			var memberPoint1 = $("#memberPoint").text();
+			var input_point1 = $(this).val();
+			
+			var memberPoint = memberPoint1*1;
+			var input_point = input_point1*1;
+			
+			if(input_point > memberPoint){
+				alert("사용가능한 적립금액을 확인해주세요");
+				$("#input_point").val(" ");
+			}
+
+			var coupon1 = $("#c_in").val();
+			var coupon = coupon1*1;
+			
+			var dis = coupon+input_point;
+			
+	 		
+	 		$("#total_addsale_price_view").html("<strong>"+dis+"원</strong>");
+	 		$("#discount").html("<strong>"+dis+"원</strong>");;
+			
+			
+		});
  	
+ 		var payment1 = $("#pm").text();
+ 		var payment = payment1*1;
+ 		
+ 		var coupon1 = $("#c_in").val();
+		var coupon = coupon1*1;
+		
+		var input_point1 = $(this).val();
+ 		var input_point = input_point1*1;
+ 		
+ 		
+ 		var dis = coupon+input_point;
+ 		
  	
- 	
- 	
+ 		var all = payment-dis;
+ 		 
+ 		alert(payment);
  	
 	function sample6_execDaumPostcode() {
     new daum.Postcode({

@@ -145,23 +145,20 @@
 											</td>
 
 										</tr>
-										<tr class="table table-hove">
+								
+
+								</c:forEach>
+											<tr class="table table-hove">
 										<td colspan="8" style="text-align: right;">
 										상품구매금액 <strong id="all_sum" class="all_sum">0원</strong>
 										 + 배송비 <span id="deli">0원</span>
 										   = 합계 : <strong class="txtEm gIndent10">
 										   <span id="payment" class="paymentPrice">0</span></strong>
 										</td>
-			
-										
-										</tr>
-									</tbody>
 
-
-
-								</c:forEach>
-		
+										</tr>		
 								
+									</tbody>
 							</table>
 
 						</div>
@@ -668,8 +665,7 @@
 <dd id="mProductMileage" style="text-align: right; margin-right: 20px;">0원</dd>
 <dt style=" float: left; margin-left: 20px;">회원 적립금</dt>
 <dd id="mMemberMileage" style="text-align: right; margin-right: 20px;">0원</dd>
-<dt style="float: left; margin-left: 20px;">쿠폰 적립금</dt>
-<dd id="mCouponMileage" style="text-align: right; margin-right: 20px;">0원</dd>
+
 
 </dl>
 
@@ -910,7 +906,7 @@
 		var memberPoint = $(".txtWarn").val();
 		var input_point = $(this).val();
 		if(input_point>memberPoint){
-			alert("사용가능한 적립금을 확인해주세요");
+			alert("사용가능한 적립금액을 확인해주세요");
 			$("#input_point").val(" ");
 		}
 	});

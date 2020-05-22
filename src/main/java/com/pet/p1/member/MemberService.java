@@ -8,10 +8,13 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 
-
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +33,7 @@ public class MemberService {
 	
 	@Autowired
 	private MemberDAO memberDAO;
+	private ServletRequest request;
 
 	public String getAccessToken(String code) {
 		String access_Token = "";
@@ -82,7 +86,6 @@ public class MemberService {
 			bw.close();
 			
 		}catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return access_Token;
@@ -122,17 +125,20 @@ public class MemberService {
 			
 			JsonObject properties = element.getAsJsonObject().getAsJsonObject("properties").getAsJsonObject();
 			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+			long id = element.getAsJsonObject().get("id").getAsLong();
+			
 			
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 			String birthday = kakao_account.getAsJsonObject().get("birthday").getAsString();
+			String kakaoId = Long.toString(id);
 			
 			memberInfo.put("nickname", nickname);
 			memberInfo.put("birthday", birthday);
+			memberInfo.put("kakaoId", kakaoId);
 	
 
 			
 		}catch (Exception e) {
-			// TODO: handle exception
 			 e.printStackTrace();
 		}
 		
@@ -163,9 +169,39 @@ public class MemberService {
 				System.out.println(result);
 				
 			}catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
+		}
+		
+		//-- 로그인
+		public void naverLogin(String access_token)throws Exception {
+			
+			String token = access_token;// 네아로 접근 토큰 값";
+	        String header = "Bearer " + token; // Bearer 다음에 공백 추가
+	        try {
+	            String apiURL = "https://openapi.naver.com/v1/nid/me";
+	            URL url = new URL(apiURL);
+	            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+	            con.setRequestMethod("GET");
+	            con.setRequestProperty("Authorization", header);
+	            int responseCode = con.getResponseCode();
+	            BufferedReader br;
+	            if(responseCode==200) { // 정상 호출
+	                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+	            } else {  // 에러 발생
+	                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+	            }
+	            String inputLine;
+	            StringBuffer response = new StringBuffer();
+	            while ((inputLine = br.readLine()) != null) {
+	                response.append(inputLine);
+	            }
+	         
+	            System.out.println(response.toString());
+	            br.close();
+	        } catch (Exception e) {
+	            System.out.println(e);
+	        }
 		}
 		
 	
@@ -194,6 +230,14 @@ public class MemberService {
 	
 	public int memberJoin(MemberVO memberVO, HttpSession session)throws Exception{
 		return memberDAO.memberJoin(memberVO);
+	}
+	
+	public int snsJoin(MemberVO memberVO, HttpSession session)throws Exception{
+		return memberDAO.snsJoin(memberVO);
+	}
+	
+	public MemberVO snsLogin(MemberVO memberVO)throws Exception{
+		return memberDAO.snsLogin(memberVO);
 	}
 	
 	public MemberVO memberEMCheck(MemberVO memberVO)throws Exception{

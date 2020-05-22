@@ -238,12 +238,51 @@ public class MemberController {
 		 * }
 		 */
 		session.setAttribute("access_Token", access_Token);
-		session.setAttribute("member", memberInfo);
-		mv.addObject("result", "환영합니다!");
-		mv.addObject("path", "../");
-		mv.setViewName("common/result");
+		session.setAttribute("kmember", memberInfo);
+		
+		MemberVO memberVO = new MemberVO();
+		memberVO.setId((String)memberInfo.get("kakaoId"));
+		memberVO = memberService.memberIdCheck(memberVO);
+		
+		if(memberVO != null) {
+		
+			memberVO = memberService.snsLogin(memberVO);
+			 session.setAttribute("member", memberVO);
+			 long count = memberService.memberCart(memberVO);
+			 session.setAttribute("cartCount", count);
+			 mv.setViewName("redirect:../");
+		}else {
+			
+			mv.setViewName("member/kakaoJoin");
+		}
+		return mv;
+	}
+	
+	//-- kakaoJoin
+	@GetMapping("kakaoJoin")
+	public ModelAndView kakaoJoin()throws Exception{
+		ModelAndView mv = new ModelAndView();
 		
 		return mv;
+	}
+	
+	@PostMapping("snsJoin")
+	public ModelAndView snsJoin(MemberVO memberVO,HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+	
+		int result = memberService.snsJoin(memberVO, session);
+		  String msg ="Member Join Fail";
+		  if(result>0) { 
+			msg = "회원가입 완료!"
+					+ "로그인을해주세요";
+			}
+		  
+		  mv.addObject("result", msg); 
+		  mv.addObject("path", "../");
+		  mv.setViewName("common/result");
+		  
+		return mv;
+
 	}
 	
 	//-- kakao 로그아웃
@@ -255,7 +294,6 @@ public class MemberController {
 
 		return "redirect:../";
 	}
-	
 	
 	//-- email 중복검사
 	@PostMapping("memberEmailCheck")

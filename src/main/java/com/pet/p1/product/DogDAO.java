@@ -58,17 +58,19 @@ public class DogDAO {
 	
 //SELECT
 	public DogVO dogSelect(DogVO dogVO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"dogSelect", dogVO);
+	}
+//dogSelectTimeSale
+	public DogVO dogSelectTimeSale(DogVO dogVO) throws Exception {	
+		return sqlSession.selectOne(NAMESPACE+"dogSelectTimeSale", dogVO);
+	}
 	
-	return sqlSession.selectOne(NAMESPACE+"dogSelect", dogVO);
-		}
-
 //update
 	public int dogUpdate(DogVO dogVO) throws Exception{
 	
 		return sqlSession.update(NAMESPACE+"dogUpdate",dogVO);
 	}
-
-//	//HIT UPDATE
+//HIT UPDATE
 	public int hitUpdate(DogVO dogVO) throws Exception {
 	
 		return sqlSession.update(NAMESPACE+"hitUpdate", dogVO);

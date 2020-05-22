@@ -109,7 +109,7 @@ public String getBoard()throws Exception{
 		
 		}	
 	
-	
+
 	
 	
 //write_get	(insert)
@@ -154,6 +154,27 @@ public String getBoard()throws Exception{
 			
 			return mv;
 		}	
+	
+//dogSelectTimeSale		
+	@GetMapping("dogSelectTimeSale") 
+	public ModelAndView dogSelectTimeSale(long productNum,DogVO dogVO, HttpSession session) throws Exception{
+		System.out.println("1");
+		dogVO=dogService.dogSelectTimeSale(dogVO);
+		List<BoardVO>ar = reviewService.pboardList(productNum);
+		
+		ModelAndView mv= new ModelAndView();
+		
+
+		mv.addObject("vo",dogVO);
+		mv.addObject("list", ar);
+		mv.setViewName("product/pSelectTimeSale");
+		System.out.println("2");
+		
+		
+		return mv;
+	}	
+	
+	
 	
 //update_get
 	@GetMapping("dogUpdate")

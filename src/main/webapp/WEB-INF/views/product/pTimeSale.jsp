@@ -23,7 +23,7 @@
 <style type="text/css">
 
 .product_header_right{
-	margin-left: 92%;
+	margin-left: 96%;
 
 }
 .bg_gray{
@@ -48,50 +48,6 @@
     </div>
 </div>
 <!-- END LOADER -->
-
-<%-- <!-- Home Popup Section -->
-<div class="modal fade subscribe_popup" id="onload-popup" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="ion-ios-close-empty"></i></span>
-                </button>
-                <div class="row no-gutters">
-                    <div class="col-sm-5">
-                    	<div class="background_bg h-100" data-img-src="${pageContext.request.contextPath}/resources/images/popup_img.jpg"></div>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="popup_content">
-                            <div class="popup-text">
-                                <div class="heading_s4">
-                                    <h4>Subscribe and Get 25% Discount!</h4>
-                                </div>
-                                <p>Subscribe to the newsletter to receive updates about new products.</p>
-                            </div>
-                            <form method="post">
-                            	<div class="form-group">
-                                	<input name="email" required type="email" class="form-control rounded-0" placeholder="Enter Your Email">
-                                </div>
-                                <div class="form-group">
-                                	<button class="btn btn-fill-line btn-block text-uppercase rounded-0" title="Subscribe" type="submit">Subscribe</button>
-                                </div>
-                            </form>
-                            <div class="chek-form">
-                                <div class="custome-checkbox">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
-                                    <label class="form-check-label" for="exampleCheckbox3"><span>Don't show this popup again!</span></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    	</div>
-    </div>
-</div>
-<!-- End Screen Load Popup Section -->  --%>
-
 
 <!-- START SECTION BREADCRUMB -->
 <div class="breadcrumb_section bg_gray page-title-mini">
@@ -175,13 +131,18 @@
                                 </div>
                             </div>
                             <div class="product_info">
-                                <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
+                                <h6 class="product_title"><a href="./${p}SelectTimeSale?productNum=${vo.productNum}">${vo.productName} </a></h6>
                                 <div class="product_contents">
                                 
-                                <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>				
+                                <span class="contents"><a href="./${p}SelectTimeSale?productNum=${vo.productNum}">${vo.contents}</a></span>				
 								<!-- 타이머기능 -->                 			
                  				<div class="notice">               	
-								<script type="text/javascript" src="../resources/script/timeSale.js"> </script> 
+								 <div id="displayTimeSale" class="time_sale" style="">
+				                    <strong class="time_sale_num"><span class="skip">타임세일</span></strong>
+				                    <strong class="time_day">
+									<span id="displayTimeSaleDay" class="time_day_view"><script type="text/javascript" src="../resources/script/timeSale.js"> </script> </span>
+				                    </strong>
+				                </div> 
 								</div>  
   
                                 </div>
@@ -228,27 +189,6 @@
 
 <!-- END SECTION SHOP -->
 
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-<div class="section bg_default small_pt small_pb">
-	<div class="container">	
-    	<div class="row align-items-center">	
-            <div class="col-md-6">
-                <div class="heading_s1 mb-md-0 heading_light">
-                    <h3>Subscribe Our Newsletter</h3>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="newsletter_form">
-                    <form>
-                        <input type="text" class="form-control rounded-0" placeholder="Enter Email Address">
-                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> 
-</div>
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
 </div>
 <!-- END MAIN CONTENT -->

@@ -157,7 +157,13 @@
 			WHERE N.productNum=#{productNum} 
   	</select> 
   	
- 
+<!-- dogSelectTimeSale -->
+  	<select id="dogSelectTimeSale" parameterType="DogVO" resultMap="selectResult">		
+			select N.*,F.*
+			from product N left join productFile F
+			ON (N.productNum=F.num)
+			WHERE N.productNum=#{productNum} 
+  	</select> 
 
 <!-- num 가상테이블 dual -->
 	<select id="dogNum" resultType="Long" >

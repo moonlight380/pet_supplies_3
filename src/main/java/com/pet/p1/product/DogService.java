@@ -115,7 +115,11 @@ public class DogService {
 		return dogDAO.dogSelect(dogVO);
 	}
 	
-	
+//dogSelectTimeSale	
+	public DogVO dogSelectTimeSale(DogVO dogVO) throws Exception {
+		dogDAO.hitUpdate(dogVO);
+		return dogDAO.dogSelectTimeSale(dogVO);
+	}
 	
 //update
 	public int dogUpdate (DogVO dogVO,MultipartFile firstFile, MultipartFile[] files) throws Exception{	

@@ -169,9 +169,7 @@
 		                                         Add To Cart
 	                                         </a>
                                          </li>
-                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>

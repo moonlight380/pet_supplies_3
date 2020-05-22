@@ -110,9 +110,9 @@ public class DogService {
 	
 //select
 	
-	public DogVO dogSelect(long productNum) throws Exception {
-		dogDAO.hitUpdate(productNum);
-		return dogDAO.dogSelect(productNum);
+	public DogVO dogSelect(DogVO dogVO) throws Exception {
+		dogDAO.hitUpdate(dogVO);
+		return dogDAO.dogSelect(dogVO);
 	}
 	
 	

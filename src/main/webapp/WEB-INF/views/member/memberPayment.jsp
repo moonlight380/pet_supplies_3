@@ -647,7 +647,7 @@
 </div>
 </div>
 </div>
-
+<div id="direct_cnum" hidden="hidden">${cnum}</div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="../resources/js/cart.js"></script>
 
@@ -943,6 +943,31 @@ function sample6_execDaumPostcode() {
         }
  
 </script>
+<!-- <script type="text/javascript">
+	
+		var ids=[];
+		var cnum=$("#direct_cnum").text();
+		ids.push(cnum);
+		$.ajax({
+			type:"post",
+			traditional : true,
+			url:"./memberPaymentList",
+			data:{
+				ids:ids
+			},
+			success:function(data){
+				
+			},error : function(request, status, error) {
+				alert("code = " + request.status + " message = "
+						+ request.responseText + " error = " + error);
+			}
+		});
+		
+		
+		
+
+
+</script> -->
 
 </body>
 </html>

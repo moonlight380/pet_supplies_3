@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +23,10 @@
 
 
 <style type="text/css">
+.bg_gray{
+	width: auto;
+	height: 60px;
+}
 .sum{
 float: right;
 
@@ -149,8 +153,8 @@ $('#close_popup2').click(function(){
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
-
-<body onload="goPopup()">
+<body>
+<!-- <body onload="goPopup()"> -->
 
 <%-- 
 <!-- 레이어팝업 시작 -->
@@ -242,11 +246,8 @@ $('#close_popup2').click(function(){
            <!-- ------------------------------------------------------------------------------------------------------------ -->            
                   
                       <div class="product_price">
-                            <span class="price">${vo.price}</span>
-                            <del>$55.25</del>
-                            <div class="on_sale">
-                                <span>35% Off</span>
-                            </div>
+                            <p2><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></p2>
+
                        </div><!--END  class="product_price " -->   
                    
 
@@ -274,7 +275,7 @@ $('#close_popup2').click(function(){
                        
                        <span class="sum">
                        <strong><!-- 총가격 -->
-                       <span  id="sum_price">${vo.price}</span> 
+                       <span  id="sum_price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span> 
                        </strong> <!-- 수량 -->
                        
                        (<span id="quantityNum_amount">1</span>)
@@ -301,7 +302,7 @@ $('#close_popup2').click(function(){
 	               			
 	               				
 	               			$("#sum_price").text(num*perPrice);
-	               			/* $("sum_price").text(num);  */
+	               			
 	               			}
 	               		});/*minus*/
 	               		
@@ -336,12 +337,61 @@ $('#close_popup2').click(function(){
                         </span>
                    <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"><i class='fas fa-comment'></i><a href="${pageContext.request.contextPath}/member/memberPayment?id=${member.id}&amount=${vo.amount}&productNum=${vo.productNum}">kakao pay</a></button>
+                        	<button class=" btn kakao-purchase" type="button"  data-toggle="modal" data-target="#myModal"><i class='fas fa-comment' id='kakao'></i>kakao pay</button>
                          
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
-                   
-                     
+ 
+ 
+<div id="direct_cnum">${cnum}</div>
+<!------------------------카카오 자바스크립트-------------------------->
+
+
+
+    <script type="text/javascript">
+	$(".kakao-purchase").mouseover(function(){
+		$(".kakao-purchase").css({
+			'cursor':'pointer'
+		});
+	});
+    
+ 	$(".kakao-purchase").each(function(){
+		$(this).click(function(){
+			
+		
+			var id ="${member.id}";
+			var productNum = "${vo.productNum}";
+			var cAmount = 1*$("#quantityNum_amount").text();
+			alert("수량:"+cAmount);
+			if(confirm("카카오페이로 주문 하시겠습니까?")){
+			$.ajax({
+					type:"post",
+					url:"../cart/cartInsert",
+					data:{
+						cAmount : cAmount,
+						productNum:productNum,
+						id:id
+					},success : function(data){
+						$.ajax({
+							type:"get",
+							url:"../cart/cartSelect",
+							success:function(){
+								location.href="../member/orderWait";
+							}
+						});
+					}
+				});
+				
+			} else{
+				$(this).attr("data-target","");
+				alert("취소 됐습니다.");
+			}
+			
+		});
+	}); 
+	
+    </script>               
+<!------------------------카카오 자바스크립트  끝-------------------------->                   
                      
                      
                      <div class="line"></div>
@@ -473,7 +523,7 @@ $('#close_popup2').click(function(){
 							<div class="line"></div>
 							
 							<div class="comments">
-                            	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>
+                            	<h5 class="product_tab_title"></h5>
                                 <ul class="list_none comment_list mt-4">
                                     <c:forEach items="${list}" var="review">                                 
                                     <li>
@@ -571,7 +621,7 @@ $('#close_popup2').click(function(){
    						<%-- <span class="price">${}</span>    --%> 	
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
-                            	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>
+                            	<h5 class="product_tab_title"></h5>
                                 <ul class="list_none comment_list mt-4">
                                     <c:forEach items="${list}" var="review">                                 
                                     <li>
@@ -603,6 +653,8 @@ $('#close_popup2').click(function(){
                 </div>
             </div>
         </div>
+        
+
     <!-- ---------------------------------------------------------------------------------------------------- -->    
         
 <!--         <div class="row">
@@ -647,6 +699,9 @@ $('#close_popup2').click(function(){
 
 </div>
 <!-- END MAIN CONTENT -->
+
+
+
 
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>

@@ -57,9 +57,9 @@ public class DogDAO {
 	
 	
 //SELECT
-	public DogVO dogSelect(long productNum) throws Exception {
+	public DogVO dogSelect(DogVO dogVO) throws Exception {
 	
-	return sqlSession.selectOne(NAMESPACE+"dogSelect", productNum);
+	return sqlSession.selectOne(NAMESPACE+"dogSelect", dogVO);
 		}
 
 //update
@@ -69,9 +69,9 @@ public class DogDAO {
 	}
 
 //	//HIT UPDATE
-	public int hitUpdate(long productNum) throws Exception {
+	public int hitUpdate(DogVO dogVO) throws Exception {
 	
-		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
+		return sqlSession.update(NAMESPACE+"hitUpdate", dogVO);
 	}
 
 //DELETE

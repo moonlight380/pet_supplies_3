@@ -36,8 +36,6 @@ public String getBoard()throws Exception{
 }
 
 
-
-
 //List
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
 	public ModelAndView dogList (ModelAndView mv,Pager pager,HttpSession session)throws Exception {
@@ -141,8 +139,8 @@ public String getBoard()throws Exception{
 	
 //Select
 	@GetMapping("dogSelect") 
-		public ModelAndView dogSelect(long productNum, HttpSession session) throws Exception{
-			DogVO dogVO=dogService.dogSelect(productNum);
+		public ModelAndView dogSelect(long productNum,DogVO dogVO, HttpSession session) throws Exception{
+			dogVO=dogService.dogSelect(dogVO);
 			List<BoardVO>ar = reviewService.pboardList(productNum);
 			
 			ModelAndView mv= new ModelAndView();
@@ -159,8 +157,8 @@ public String getBoard()throws Exception{
 	
 //update_get
 	@GetMapping("dogUpdate")
-	public ModelAndView dogUpdate(Model model,ModelAndView mv,DogVO dogVO,long productNum)throws Exception{
-		dogVO =dogService.dogSelect(productNum);
+	public ModelAndView dogUpdate(Model model,ModelAndView mv,DogVO dogVO)throws Exception{
+		dogVO =dogService.dogSelect(dogVO);
 		mv.addObject("vo",dogVO);	
 		mv.setViewName("product/pUpdate");
 		//size(): 리스트에 들어있는 객체의 수

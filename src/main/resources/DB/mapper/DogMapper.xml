@@ -150,7 +150,7 @@
  
  
  <!-- select --> 		
-  	<select id="dogSelect" parameterType="Long" resultMap="selectResult">		
+  	<select id="dogSelect" parameterType="DogVO" resultMap="selectResult">		
 			select N.*,F.*
 			from product N left join productFile F
 			ON (N.productNum=F.num)
@@ -160,7 +160,7 @@
  
 
 <!-- num 가상테이블 dual -->
-	<select id="dogNum" resultType="Long">
+	<select id="dogNum" resultType="Long" >
   			select product_seq.nextval from dual
   		<!-- inset 하기 전에 가상의 테이블에서 먼저 시퀀스 번호를 가져온다 -->
   	</select>
@@ -180,7 +180,7 @@
 
 
 <!-- hitupdate -->
-	 <update id="hitUpdate" parameterType="Long">
+	 <update id="hitUpdate" parameterType="DogVO">
 	  	UPDATE product set hit=hit+1 where productNum=#{productNum}
 	</update> 
 	

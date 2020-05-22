@@ -41,6 +41,7 @@
       </div>
     </div>
   </div>
+  
 <script type="text/javascript">
 	$(".cart").mouseover(function(){
 		$(".cart").css({

@@ -116,7 +116,7 @@ body, code {
 	</div>
 	<!-- END SECTION BANNER -->
 
-	<!-- END MAIN CONTENT -->
+	<!-- START MAIN CONTENT -->
 	<div class="main_content">
 
 		<!-- START SECTION BANNER -->
@@ -160,13 +160,13 @@ body, code {
 				<div class="row justify-content-center">
 					<div class="col-md-6">
 						<div class="heading_s1 text-center">
-							<h2>이주의 상품</h2>
+							<h2>신상품</h2>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<div class="tab-style1">
+						<%-- 						<div class="tab-style1">
 							<ul class="nav nav-tabs justify-content-center" role="tablist">
 								<li class="nav-item"><a class="nav-link active"
 									id="arrival-tab" data-toggle="tab"
@@ -176,26 +176,30 @@ body, code {
 									data-toggle="tab" href="${pageContext.request.contextPath}/"
 									role="tab" aria-controls="sellers" aria-selected="false">히트상품</a></li>
 							</ul>
-						</div>
+						</div> --%>
+
 						<div class="tab-content">
+
 							<div class="tab-pane fade show active" id="arrival"
 								role="tabpanel" aria-labelledby="arrival-tab">
+
 								<div class="row shop_container">
 
 									<c:forEach items="${dnlist}" var="dnvo" end="7">
 										<div class="col-lg-3 col-md-4 col-6">
 											<div class="product">
 												<div class="product_img">
-													<a href="shop-product-detail.html"> <img
-														src="${pageContext.request.contextPath}/resources/images/item1.jpg"
+													<a href=""> <img
+														src="${pageContext.request.contextPath}/resources/dogUpload/${dnvo.productFileVOs['0'].fileName}"
 														alt="product_img1">
 													</a>
 													<div class="product_action_box">
 														<ul class="list_none pr_action_btn">
-															<li class="add-to-cart"><a href="#"><i
-																	class="icon-basket-loaded"></i> Add To Cart</a></li>
+															<li class="add-to-cart"><a
+																href="#"><i
+																	class="icon-basket-loaded cart"  data-target="#myModal" data-toggle="modal"></i> Add To Cart</a></li>
 															<li><a
-																href="${pageContext.request.contextPath}/resources/images/item1.jpg"
+																href="${pageContext.request.contextPath}/resources/dogUpload/${dnvo.productFileVOs['0'].fileName}"
 																class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
 
 														</ul>
@@ -203,11 +207,12 @@ body, code {
 												</div>
 												<div class="product_info">
 													<h6 class="product_title">
-														<a href="shop-product-detail.html">상품1</a>
+														<a
+															href="./product/dogSelect?productNum=${dnvo.productNum}">${dnvo.contents}</a>
 													</h6>
 													<div class="product_price">
-														<span class="price">650원</span>
-														<del>1000원</del>
+														<span class="price">${dnvo.price}</span>
+														<del>할인 전 가격</del>
 														<div class="on_sale">
 															<span>35% Off</span>
 														</div>
@@ -222,18 +227,91 @@ body, code {
 											</div>
 										</div>
 									</c:forEach>
-
-									<!--first row end -->
-
-
 								</div>
 							</div>
+							<!--first tab end -->
+
+							<!-- 							<div class="tab-pane fade show active" id="sellers"
+								role="tabpanel" aria-labelledby="sellers-tab">
+								<div class="row shop_container"> -->
 						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+		</div>
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<div class="heading_s1 text-center">
+						<h2>히트상품</h2>
 					</div>
 				</div>
 			</div>
-		</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="tab-content">
 
+						<div class="tab-pane fade show active" id="arrival"
+							role="tabpanel" aria-labelledby="arrival-tab">
+
+							<div class="row shop_container">
+
+								<c:forEach items="${dblist}" var="dbvo" end="7">
+									<div class="col-lg-3 col-md-4 col-6">
+										<div class="product">
+											<div class="product_img">
+												<a href="./dog/dogSelect?productNum=${dnvo.productNum}">
+													<img
+													src="${pageContext.request.contextPath}/resources/dogUpload/${dbvo.productFileVOs['0'].fileName}"
+													alt="product_img1">
+												</a>
+												<div class="product_action_box">
+													<ul class="list_none pr_action_btn">
+														<li class="add-to-cart"><a href="#"><i
+																class="icon-basket-loaded"></i> Add To Cart</a></li>
+														<li><a
+															href="${pageContext.request.contextPath}/resources/dogUpload/${dbvo.productFileVOs['0'].fileName}"
+															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+
+													</ul>
+												</div>
+											</div>
+											<div class="product_info">
+												<h6 class="product_title">
+													<a href="shop-product-detail.html">${dbvo.contents}</a>
+												</h6>
+												<div class="product_price">
+													<span class="price">${dbvo.price}</span>
+													<del>할인 전 가격</del>
+													<div class="on_sale">
+														<span>35% Off</span>
+													</div>
+												</div>
+												<div class="rating_wrap"></div>
+												<div class="pr_desc">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Phasellus blandit massa enim. Nullam id varius nunc
+														id varius nunc.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+						<!--first tab end -->
+					</div>
+				</div>
+
+
+			</div>
+		</div>
 		<!-- END SECTION SHOP -->
 
 
@@ -348,10 +426,10 @@ body, code {
 										color="#666666">${vo.title}</font></a></li>
 							</c:forEach>
 						</ul>
-						<p class="more">
-							<a href="${pageContext.request.contextPath}/notice/noticeList"><img
-								src="/images/layout/btn_board_more.gif" alt="더보기"></a>
-						</p>
+						<%-- 					<p class="more">
+						<a href="${pageContext.request.contextPath}/notice/noticeList"><img
+							src="/images/layout/btn_board_more.gif" alt="더보기"></a>
+					</p> --%>
 					</div>
 					<div
 						class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 mboard ">
@@ -373,10 +451,6 @@ body, code {
 										color="#666666">${vo2.title}</font></a><span class="point "></span></li>
 							</c:forEach>
 						</ul>
-						<p class="more">
-							<a href="${pageContext.request.contextPath}/review/reviewList"><img
-								src="/images/layout/btn_board_more.gif" alt="더보기"></a>
-						</p>
 					</div>
 					<div class="minfo">
 						<h2>
@@ -462,7 +536,7 @@ body, code {
 
 		<!-- END MAIN CONTENT -->
 	</div>
-
+	<c:import url="./cart/addCart.jsp"></c:import>
 	<c:import url="./template/footer.jsp"></c:import>
 </body>
 </html>

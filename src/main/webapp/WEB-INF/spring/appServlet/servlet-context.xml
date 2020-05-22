@@ -32,6 +32,27 @@
 	
 	<context:component-scan base-package="com.pet.p1" />
 	
+	<!-- interceptor -->
+	<interceptors>
+		
+		<!-- notice -->
+		<interceptor>
+			<mapping path="/notice/*"/>
+			<exclude-mapping path="/notice/noticeList"/>
+			<exclude-mapping path="/notice/noticeSelect"/>
+			<beans:ref bean = "noticeInterceptor"/>
+		</interceptor>
+		
+		<!-- qna -->
+		<interceptor>
+			<mapping path="/qna/*"/>
+			<exclude-mapping path="/qna/qnaList"/>
+			<beans:ref bean = "qnaInterceptor"/>
+		</interceptor>	
+	
+	</interceptors>
+	
+	
 	<!-- websocket -->
 	<websocket:handlers>
 		<websocket:mapping handler="echoHandler" path="/echo"/>

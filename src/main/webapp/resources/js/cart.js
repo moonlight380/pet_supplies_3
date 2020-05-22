@@ -352,7 +352,7 @@ $("#result").on("click","#del",function() {
 		$(".paymentPrice").each(function(){
 			$(this).text(text);
 			
-		});
+		});  
 		$("#payment").text(text);
 
 	}

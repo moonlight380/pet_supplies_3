@@ -29,7 +29,7 @@
 		</ol>
 	</div>
 	
- <form action="./memberJoin" method="post" id="Joinfrm" style="font-style: inherit; font-size: small;">
+ <form action="./snsJoin" method="post" id="Joinfrm" style="font-style: inherit; font-size: small;">
   
 
 <div class="path"  style="margin-top: 80px;" >
@@ -55,6 +55,8 @@
 
 <h4 style="float: right; margin-top: 60px; font-size: 14px;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h4>
 
+<input hidden="hidden" id="id" name="id" class="input_Join" placeholder="" value="${kmember.kakaoId}" type="text">
+
 <table class="table table-bordered" style="margin-bottom: -1px;">
 
 <colgroup>
@@ -67,39 +69,11 @@
 <col style="width:auto;">
 </colgroup>
 <tbody>
-<tr>
-<th scope="row">아이디 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td><input id="id" name="id" class="input_Join" placeholder="" value="" type="text"><span id="idt" style="font-size: small;"> (영문소문자/숫자, 4~12자)</span></td>
- </tr>
-<tr>
-<th scope="row">비밀번호 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
- <td><input id="pw" name="pw" class="input_Join" autocomplete="off" maxlength="16" value="" type="password"><span id="pwt" style="font-size: small;"> (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)</span></td>
- </tr>
-<tr>
-<th scope="row">비밀번호 확인 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td><input id="check_pw" name="check_pw" class="input_Join" autocomplete="off" maxlength="16" value="" type="password"><span id="pwc"></span></td>
-</tr>
-<tr class="">
-<th scope="row">비밀번호 확인 질문 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-  <td><select id="hint" name="hint">
-<option value="hint_01">기억에 남는 추억의 장소는?</option>
-<option value="hint_02">자신의 인생 좌우명은?</option>
-<option value="hint_03">자신의 보물 제1호는?</option>
-<option value="hint_04">가장 기억에 남는 선생님 성함은?</option>
-<option value="hint_05">타인이 모르는 자신만의 신체비밀이 있다면?</option>
-<option value="hint_06">추억하고 싶은 날짜가 있다면?</option>
-</select></td>
- </tr>
- 
-<tr class="">
-<th scope="row">비밀번호 확인 답변 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td><input style="width: 400px;" id="hint_answer" name="hint_answer" class="input_Join" placeholder="" value="" type="text"><span id="answer"></span></td>
-</tr>
 
 <tr>
 <th scope="row" id="nameTitle">이름 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
   <td>
-    <input style="width: 100px;" type="text" name="name" id="name" class="input_Join" maxlength="20"><span id="nameContents"></span>
+    <input style="width: 100px;" type="text" name="name" id="name" class="input_Join" maxlength="20" value="${kmember.nickname}"><span id="nameContents"></span>
   </td>
 </tr>
 
@@ -118,6 +92,7 @@
    <input style="width: 250px;" id="addr2" name="addr2" class="input_Join" placeholder="" value="상세주소" type="text">
  
 </tr>
+
 <tr class="">
 <th scope="row">휴대전화 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
  <td><select id="mobile1" id="phone" class="input_Join tel" name="phone">
@@ -294,7 +269,7 @@ function sample6_execDaumPostcode() {
 </script>
 
 	
-<script type="text/javascript" src="../resources/js/memberjoin.js"></script>
+<script type="text/javascript" src="../resources/js/join.js"></script>
 
 
 </body>

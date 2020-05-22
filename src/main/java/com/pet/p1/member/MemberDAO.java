@@ -43,6 +43,14 @@ public class MemberDAO {
 		return sqlSession.insert(NAMESPACE+"memberJoin", memberVO);
 	}
 	
+	public int snsJoin(MemberVO memberVO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"snsJoin", memberVO);
+	}
+	
+	public MemberVO snsLogin(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"snsLogin", memberVO);
+	}
+	
 	public int memberUpdate(MemberVO memberVO)throws Exception{
 		return sqlSession.update(NAMESPACE+"memberUpdate", memberVO);
 	}

@@ -353,13 +353,12 @@ public class MemberController {
 		return mv;
 	}
 	
-
 	//-- ID 찾기
 	@GetMapping("memberID")
 	public void memberID()throws Exception{
 		
 	}
-	
+
 	//-- ID 찾기 성공
 	@GetMapping("idFindSuccess")
 	public ModelAndView findSuccess(MemberVO memberVO)throws Exception{
@@ -374,13 +373,13 @@ public class MemberController {
 	public void findFail()throws Exception{
 		
 	}
-	
+
 	//-- PW 찾기
 	@GetMapping("memberPW")
 	public void memberPW()throws Exception{
 			
 	}
-		
+
 	//-- PW 찾기 성공
 	@GetMapping("pwFindSuccess")
 	public ModelAndView pwFindSuccess(MemberVO memberVO)throws Exception{
@@ -389,8 +388,7 @@ public class MemberController {
 		
 		return mv;
 	}
-		
-	
+
 	//-- email로 찾기
 	@PostMapping("findEmail")
 	@ResponseBody
@@ -400,8 +398,7 @@ public class MemberController {
 		
 		return memberVO;
 	}
-	
-	
+
 	//-- Phone으로 찾기
 	@PostMapping("findPhone")
 	@ResponseBody
@@ -411,7 +408,7 @@ public class MemberController {
 		
 		return memberVO;
 	}
-	
+
 	//-- PW 임시 비밀번호 메일 보내기
 	@GetMapping("sendMail")
 	public String sendMail(String mailto,String id)throws Exception{
@@ -420,15 +417,13 @@ public class MemberController {
 		
 		return "member/pwFindSuccess";	
 	}
-	
-	
-	
+
 	//-- memberPayment
 	@GetMapping("memberPayment")
 	public void memberPayment(MemberVO memberVO)throws Exception{
 	
 	}
-	
+
 	//kakaoPay
 	@RequestMapping(value = "kakaoPay",method = RequestMethod.GET)
 	public ModelAndView kakaoPay(ModelAndView mv) throws Exception{
@@ -436,18 +431,18 @@ public class MemberController {
 		
 		return mv;
 	}
-	
+
 	//-- 결제 성공시
 	@GetMapping("kakaopaySuccess")
 	public void kakaopaySuccess()throws Exception{
 	}
-	
+
 	//-- 결제 실패시
 	@GetMapping("kakaopayFail")
 	public void kakaopayFail()throws Exception{
-		
+
 	}
-	
+
 	//-- 무통장 결제
 	@GetMapping("accountPaySuccess")
 	public void accountPaySuccess()throws Exception{

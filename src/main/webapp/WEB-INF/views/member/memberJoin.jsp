@@ -215,24 +215,32 @@
 	
 	</div>
 	
-</div>
-</div>
-
-	<div class="agreeBtn" style="margin: 0 auto; margin-top: 50px; width: 100%; display: inline; height: 100%; float: left; text-align: center;" >
+	<div class="agreeBtn" style=" margin: 0 auto; margin-top: 50px; width: 100%; height: 100%; text-align: center; margin-bottom: 100px;" >
 	
 		<button id="btnJoin" type="submit" class="btn btn-info" style="font-size: small;">회원가입</button>
 		
 		<button id="btnCancel" type="submit" class="btn btn-danger" onclick="goback()" style="font-size: small;">취소하기</button>
 		
 	</div>
+	
+	
+</div>
+</div>
+
+
+	
+	
 
 </div>
 </div>
 </div>
 </div>
+
 </div>
 
 
+
+<c:import url="../template/footer.jsp"></c:import>
 
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

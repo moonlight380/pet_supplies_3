@@ -144,7 +144,7 @@
  	
  	/* 이메일 유효성 검사 */
  	var emailCheck = true;
-   	$("#email").blur(function() { 
+   	$("#email").change(function() { 
  		
  		var email = $(this).val(); 
  		

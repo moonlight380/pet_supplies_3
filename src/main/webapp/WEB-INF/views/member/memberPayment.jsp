@@ -63,6 +63,7 @@
 	</div> --%>
 
 <!-- <div class="container" style="margin-top: 100px;  height: 3000px;"> -->
+
 <div class="container-fulid mt-5"id="step" title="step2">
 	<div class="row">
 		
@@ -126,7 +127,7 @@
 												 
 											</td>
 											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>${cart.productName }</td>
+											<td id="productName">${cart.productName }</td>
 											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
 											<td>
 												
@@ -273,7 +274,7 @@
 <th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
 <td>
 <input id="oemail1" name="email" class="mailId" value="${member.email}" type="text">
-<ul>
+<ul style="list-style: none; margin-top: 10px;">
 <li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
 <li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
 </ul>
@@ -289,7 +290,7 @@
 
 <!-- 배송정보 -->
 
-<div class="orderArea" style="margin-top: 30px;">
+<div class="orderArea" style="margin-top: 50px;">
 
 <div class="title"  style="float: left; width: 100%; height: 25px;">
 <h3 style="font-size: medium; font-weight: bold; display: inline;">배송 정보</h3>
@@ -393,9 +394,8 @@
 <td>
 <textarea class="input_Join" id="omessage" name="omessage" maxlength="255" cols="70"></textarea>
 <div class="devMessage">
-<ul class="gIndent5">
-<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주십시오.</li>
-<li>게시글은 비밀글로 저장되며 비밀번호는 주문번호 뒷자리로 자동 저장됩니다.</li>
+<ul class="gIndent5" style="list-style: none;" >
+<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주세요.</li>
 </ul>
 </div>
 </td>
@@ -441,7 +441,7 @@
 <span id="discount" class="txt23"><strong>0원</strong></span>
 </div></td>
 <td><div class="box txtEm txt16">
-<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="Ap">0원</span>
+<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="Ap paymentPrice">0원</span>
 </div></td>
 </tr></tbody>
 </table>
@@ -488,7 +488,7 @@
 <th scope="row">적립금</th>
 <td>
 <p> <input id="input_point" name="input_point" class="inputTypeText text-center" placeholder="" size="10" value=""  type="text"> 원 (총 사용가능 적립금 : <strong id="memberPoint">${member.point}</strong>원)</p>
-<ul class="info">
+<ul class="info" style="list-style: square;" >
 <li>적립금은 최소 0 이상일 때 결제가 가능합니다.</li>
 <li id="mileage_max_unlimit" class="">최대 사용금액은 제한이 없습니다.</li>
 <li id="mileage_max_limit" class="">1회 구매시 적립금 최대 사용금액은 0입니다.</li>
@@ -781,9 +781,10 @@
 				var AllPrice = text.split(",").join("");
 				var pname = $("#pname").val();
 				var bankaccount = $("#bankaccount").val();
+				var productName = $("#productName").text();
 				
 		 		 if(pay == kakaopay){
-					location.href="./kakaoPay?name=dd&totalPrice="+AllPrice;	
+					location.href="./kakaoPay?name="+productName+"&totalPrice="+AllPrice;	
 				}else if(pay == account){
 					if(pname.length <= 0){
 						alert("입금자명이 입력되지 않았습니다");
@@ -947,7 +948,7 @@
 		});
 
  	
- 	
+ 		
  	
 	function sample6_execDaumPostcode() {
     new daum.Postcode({

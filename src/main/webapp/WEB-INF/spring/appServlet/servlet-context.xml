@@ -32,36 +32,7 @@
 	
 	<context:component-scan base-package="com.pet.p1" />
 	
-	<!-- interceptor -->
-	<interceptors>
-		
-		<!-- notice -->
-		<interceptor>
-			<mapping path="/notice/*"/>
-			<exclude-mapping path="/notice/noticeList"/>
-			<exclude-mapping path="/notice/noticeSelect"/>
-			<beans:ref bean = "noticeInterceptor"/>
-		</interceptor>
-		
-		<!-- qna -->
-		<interceptor>
-			<mapping path="/qna/*"/>
-			<exclude-mapping path="/qna/qnaList"/>
-			<beans:ref bean = "qnaInterceptor"/>
-		</interceptor>	
-	
-	</interceptors>
-	
-	
-	<!-- websocket -->
-	<websocket:handlers>
-		<websocket:mapping handler="echoHandler" path="/echo"/>
-		<websocket:sockjs></websocket:sockjs>
-	</websocket:handlers>
-	
-	<beans:bean id = "echoHandler" class="com.pet.p1.echoHandler.EchoHandler"></beans:bean>
-	
-	<!--interceptors -->
+
 
 	<interceptors>
 		<interceptor>	
@@ -98,6 +69,9 @@
 			<exclude-mapping path="/member/kakaoLogin"/>
 			<exclude-mapping path="/member/snsJoin"/>
 			<exclude-mapping path="/member/kakaoJoin"/>
+			<exclude-mapping path="/member/memberEmailCheck"/>
+			<exclude-mapping path="/member/memberIdCheck"/>
+			<exclude-mapping path="/member/memberJoinSuccess"/>
 			
 			
 			<beans:bean class="com.pet.p1.Interceptor.MemberIntercepter" id="memberIntercepter"></beans:bean>

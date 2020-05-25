@@ -109,6 +109,7 @@
 
 
 										<th scope="col">합계</th>
+										
 
 
 									</tr>
@@ -126,8 +127,13 @@
 												 <label	for="${cart.id}${cart.cnum}_check" class="material-icons checkbox"title="${cart.id}${cart.cnum}_check">check</label>
 												 
 											</td>
+
+											<td><img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
+											<td>${cart.productName }</td>
+
 											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
 											<td id="productName">${cart.productName }</td>
+
 											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
 											<td>
 												
@@ -677,7 +683,7 @@
 </div>
 </div>
 </div>
-<div class="col-sm-2"></div>
+<div class="col-sm-2">1123</div>
 </div>
 </div>
 </div>
@@ -688,6 +694,7 @@
 
 
 <script>
+	
 	/* 배송정보 유효성검사 */
 	//-- 이름
 	var nameCheck = true;

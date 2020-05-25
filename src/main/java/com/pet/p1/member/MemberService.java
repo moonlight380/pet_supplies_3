@@ -253,6 +253,9 @@ public class MemberService {
 	public int memberDeletes(List<String> list)throws Exception{
 		return memberDAO.memberDeletes(list);
 	}
+	public long orderCount(MemberVO memberVO) throws Exception{
+		return memberDAO.orderCount(memberVO);
+	}
 	
 
 }

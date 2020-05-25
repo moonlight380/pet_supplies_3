@@ -78,7 +78,8 @@ public class JavaMailInfo{
 		mimeMessage.setFrom(new InternetAddress("tudsid147@gmail.com")); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
 		mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); //수신자셋팅 //.TO 외에 .CC(참조) .BCC(숨은참조) 도 있음 
 		mimeMessage.setSubject(subject); //제목셋팅 
-		mimeMessage.setText(body); //내용셋팅 
+	//	mimeMessage.setText(body); //내용셋팅 
+		mimeMessage.setContent(body, "text/plain;charset=KSC5601");
 
 		Transport.send(mimeMessage); //javax.mail.Transport.send() 이용
 		MemberVO memberVO = new MemberVO();

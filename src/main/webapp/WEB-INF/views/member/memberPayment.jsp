@@ -153,7 +153,7 @@
 										상품구매금액 <strong id="all_sum" class="all_sum">0원</strong>
 										 + 배송비 <span id="deli">0원</span>
 										   = 합계 : <strong class="txtEm gIndent10">
-										   <span id="payment pm" class="Price">0</span></strong>
+										   <span id="payment" class="paymentPrice">0</span></strong>
 										</td>
 
 										</tr>		
@@ -426,14 +426,14 @@
 <strong>총 주문 금액</strong>
 </th>
 <th scope="col" class="">
-<strong id="total_addsale_text" class="">총 할인금액</strong>
+<strong id="total_addsale_text">총 할인금액</strong>
 </th>
 <th scope="col"><strong>총 결제예정 금액</strong></th>
 </tr>
 
 <tbody class="center"><tr>
 <td><div class="box txt16">
-<div style="color: black; font-weight: bold;" id="payment" class="paymentPrice">0원</div>
+<div style="color: black; font-weight: bold;"><span id="pp" class="paymentPrice">0</span></div>
 </div></td>
 
 <td class="option "><div class="box txt16">
@@ -441,7 +441,7 @@
 <span id="discount" class="txt23"><strong>0원</strong></span>
 </div></td>
 <td><div class="box txtEm txt16">
-<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="paymentPrice Ap">0원</span>
+<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="Ap">0원</span>
 </div></td>
 </tr></tbody>
 </table>
@@ -899,12 +899,18 @@
  		var coupon = e.data*1;
 
  		$("#total_addsale_price_view").html("<strong>"+coupon+"원</strong>");
- 		$("#discount").html("<strong>"+coupon+"원</strong>");;
-		
-
-
+ 		$("#discount").html("<strong>"+coupon+"원</strong>");
+ 		
+		//-- 최종결제금액
+ 		var pay = $("#pp").text();
+ 		pay = removeCommas(pay);
+ 		pay = pay*1;
+ 		
+ 		all = pay-coupon;
+ 		all = addCommas(all)+"원";
+ 		$(".Ap").text(all);
+ 		
  	  } 
- 
  	
  	//-- 적립창 유효성 검사
 
@@ -919,7 +925,7 @@
 				alert("사용가능한 적립금액을 확인해주세요");
 				$("#input_point").val(" ");
 			}
-
+	
 			var coupon1 = $("#c_in").val();
 			var coupon = coupon1*1;
 			
@@ -928,26 +934,20 @@
 	 		
 	 		$("#total_addsale_price_view").html("<strong>"+dis+"원</strong>");
 	 		$("#discount").html("<strong>"+dis+"원</strong>");;
-			
+	 		
+	 		//-- 최종결제금액
+	 		var pay = $("#pp").text();
+	 		pay = removeCommas(pay);
+	 		pay = pay*1;
+	 		
+	 		all = pay-dis;
+	 		all = addCommas(all)+"원";
+	 		$(".Ap").text(all);
 			
 		});
+
  	
- 		var payment1 = $("#pm").text();
- 		var payment = payment1*1;
- 		
- 		var coupon1 = $("#c_in").val();
-		var coupon = coupon1*1;
-		
-		var input_point1 = $(this).val();
- 		var input_point = input_point1*1;
- 		
- 		
- 		var dis = coupon+input_point;
- 		
  	
- 		var all = payment-dis;
- 		 
- 		alert(payment);
  	
 	function sample6_execDaumPostcode() {
     new daum.Postcode({

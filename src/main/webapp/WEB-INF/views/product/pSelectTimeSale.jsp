@@ -44,12 +44,10 @@ float: right;
 }
 
 .cart_margin{
-	margin-left: 160px;
+	float:right;
 	margin-bottom: 20px;
 }
-.direct_purchase{
-	float: right;
-}
+
 .kakao-purchase{
 	border-width: 1px;
 	cursor: pointer;
@@ -60,6 +58,7 @@ float: right;
 	background-color: rgba(255,238,51,0.99);
 	float: right;
 	margin-bottom: 20px;
+	margin-right: 20px;
 }
 
 .admin_btn{
@@ -106,23 +105,66 @@ float: right;
 }
 
 #page_free{
-z-index:99;
-position:absolute;
-top:10px;
-left:10px;
-text-align:left;
-border:1px solid #000;
-width: 720px;
-height: 850px;
-margin: 300px 1000px;
-padding: 10px;
+	z-index:99;
+	position:absolute;
+	top:10px;
+	left:10px;
+	text-align:left;
+	border:1px solid #000;
+	width: 720px;
+	height: 850px;
+	margin: 300px 1000px;
+	padding: 10px;
 }
+
 #page_free img{border:10px soild #FFF;}
 #page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
 
 #timeSale_st{
 	font-size: 20px;	
 	font-style: normal;
+}
+
+body, th, td, input, select, textarea {
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: 'Montserrat','Noto Sans KR',-apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;
+    color: #333;
+}
+.item_choice_list table tbody:last-child tr td {
+    border-bottom: 1px solid #dbdbdb;
+}
+.item_choice_list .cart_prdt_name {
+    text-align: left;
+    padding: 20px 0 20px 20px;
+}
+.item_choice_list table colgroup+tbody tr td {
+    border: none;
+}
+ #quantity_minus{
+	 width: 30px;
+	 height: 30px;
+	 text-align: center;
+	 padding: 0px; 
+	 
+}
+#quantityNum{
+	height: 30px;
+	width: 30px; 
+	text-align: center;
+}
+
+#quantity_plus{
+	 width: 30px;
+	 height:30px;
+	 text-align: center;
+	 padding: 0px;
+} 
+
+#timeSalePrice_top , #timeSalePrice_unit{
+	 color: #28d893;
+	 font-size: 17px;
+	 
 }
 </style>
 
@@ -158,6 +200,11 @@ $('#close_popup2').click(function(){
 
 <!-- ------------------------------------body 시작---------------------------------- -->
 <body>
+
+<div id="header"> <!-- 추가한부분  header reset -->
+	<c:import url="../template/header.jsp"></c:import>
+</div>
+
 <!-- <body onload="goPopup()">  -->
 
 <%-- 
@@ -172,9 +219,6 @@ $('#close_popup2').click(function(){
 <!--레이어팝업  끝--> --%>
 
 
-
-
-<c:import url="../template/header.jsp"></c:import>
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">
@@ -235,48 +279,54 @@ $('#close_popup2').click(function(){
         
             <div class="col-lg-6 col-md-6">
                 <div class="pr_detail ">
-                    <div class="product_description">
+                     
+                     <div class="line"></div>
                     
-                      <!-- 타이머기능 -->                 			
-                 		<div class="notice" id="timeSale_st">               						
-							<script  type="text/javascript" src="../resources/script/timeSale.js"> </script>
-						</div>
-						 <br>
-						 						 
-                        <h4 class="product_title"><a href="#">${vo.productName}</a></h4>                       
-                       
-                            
-                        <div class="pr_desc">
-                            <p>반려견을 위한 펫푸드</p>
-                        </div>
-                        
-                    </div> <!-- END "product_description" -->
-                    <hr />
-                
-           <!-- ------------------------------------------------------------------------------------------------------------ -->            
-                  
-                      <div class="product_price">
-                            <span>판매 가격 : </span> <fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>
+<div class="item_detail_list">
+	<dl>
+      <dt>짧은설명</dt>
+           <dd>내 반려견을 위한</dd>
+    </dl>
+	
+	<dl class="time_sale_price">
+       <dt>타임세일가</dt>
+          <dd>
+            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
+              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+          </dd>
+     </dl>
 
-                       </div><!--END  class="product_price " -->   
-                   
-
-                     
-                       
-                       
-                        <div class="cart-product-quantity">
-                        <!-- 수량 버튼 시작 -->
-                            <div class="quantity">
-                                <input type="button" value="-"  class="minus">
-                                <input type="text" id="quantityNum" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                <input type="button"  value="+" class="plus" >
-                            </div> <!-- class="quantity" -->
+      <dl>
+          <dt>상품수량</dt>
+              <div class="cart-product-quantity"><!-- 수량 버튼 시작 -->
+                  <div class="quantity">
+                      <input id="quantity_minus" type="button" value="-"  class="minus">
+                      <input type="text" id="quantityNum" name="quantity" value="1" title="Qty" class="qty" size="4">
+                      <input id="quantity_plus" type="button"  value="+" class="plus" >
+                  </div> <!-- class="quantity" -->
                             
-                        </div><!--END class="cart-product-quantity" 수량 끝-->
-                       
-                    <div class="cart-product-quantity">
-                     
-                       
+             </div><!--END class="cart-product-quantity" 수량 끝-->
+     </dl>
+     
+			     <dl class="item_discount_mileage dn">
+			            <dt>구매혜택</dt>
+			              <dd>
+			                   <div class="item_discount">할인 : ${vo.sale}%</div>
+			                     
+			                    <div class="item_mileage">적립 마일리지 : ${vo.point}점</div>
+			              </dd>
+			     </dl>
+			      <dl>
+			            <dt>배송비</dt>
+			             <dd>3,000원</dd>
+			     </dl>
+			     <dl>
+			            <dt>브랜드</dt>
+			            <dd>brand</dd>
+			     </dl>
+			     
+			        <div class="cart-product-quantity">
+
                        <div class="line"></div>
                        
                        <div class="total_price">
@@ -285,12 +335,13 @@ $('#close_popup2').click(function(){
                        
                        <span class="sum">
                        <strong><!-- 총가격 -->
-                       <span  id="sum_price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span> 
+                       <span  id="sum_price"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></span> 
                        </strong> <!-- 수량 -->
                        
                        (<span id="quantityNum_amount">1</span>)
                        </span>
-                       </div>
+                       </div> <!-- 총상품금액 끝 -->
+        
   <!--마이너스 플러스 스크립트---------------------------------------------------------------------------------------------------------------- -->     
 	               		<script type="text/javascript">
 	               		var perPrice='${vo.price}';
@@ -339,12 +390,11 @@ $('#close_popup2').click(function(){
                        
  <!--마이너스 플러스 스클립트 끝 ------------------------------------------------------------------------------------------------------------ -->                     
                        <span class="cart_btn">
-                            <button class="btn btn-fill-out btn-addtocart cart_margin" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
+                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
                         </span> <!-- "cart_btn" -->
-                        
-                        <span class="direct_purchase">
-                        	<button class="btn btn-fill-out btn-addtocart direct_purchase" type="button"><i class='fas fa-dollar-sign'></i> Add to purchase</button>
-                        </span>
+                        <div id="quantityNum_amount"hidden="hidden">1</div>
+						<c:import url="../cart/addCart.jsp"></c:import>
+
                    <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
                         	<button class=" btn kakao-purchase" type="button"  data-toggle="modal" data-target="#myModal"><i class='fas fa-comment' id='kakao'></i>kakao pay</button>
@@ -353,7 +403,7 @@ $('#close_popup2').click(function(){
                     </div><!-- END class="cart-product-quantity" -->
  
  
-<div id="direct_cnum">${cnum}</div>
+<div hidden="hidden" id="direct_cnum">${cnum}</div>
 <!------------------------카카오 자바스크립트-------------------------->
 
 
@@ -403,10 +453,7 @@ $('#close_popup2').click(function(){
     </script>               
 <!------------------------카카오 자바스크립트  끝-------------------------->                   
                      
-                     
-                     <div class="line"></div>
-                    
-                   
+      				<div class="line"></div>
                     
                     <div class="product_share">
                         <span>Share:</span>
@@ -676,7 +723,7 @@ $('#close_popup2').click(function(){
 </div>
 <!-- END MAIN CONTENT -->
 
-
+</div>
 
 
 <!-- START FOOTER -->

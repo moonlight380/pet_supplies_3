@@ -78,5 +78,9 @@ public class MemberDAO {
 	public Long orderCount(MemberVO memberVO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"orderCount",memberVO);
 	}
+	
+	public int pointUpdate(MemberVO memberVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"pointUpdate",memberVO);
+	}
 
 }

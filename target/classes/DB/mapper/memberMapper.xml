@@ -87,6 +87,10 @@
 	</select>
 	
   	
+  	<update id="pointUpdate" parameterType="MemberVO">
+  		update member set point=point+#{point} where id=#{id}
+  	</update>
+  	
   	<delete id="memberDelete" parameterType="Long">
   		delete member where id = #{id}
   	</delete>	

@@ -53,6 +53,14 @@ public class MemberController {
 //--------------------------------------------------------------------------------------------------------------
 
 
+	  @PostMapping("pointUpdate")
+	  @ResponseBody public void pointUpdate(MemberVO memberVO,HttpSession session)throws Exception{
+		  session.setAttribute("pointUpdate", memberVO);
+	  
+	  }
+
+	
+	
 	@GetMapping("memberPurchase")
 	public ModelAndView memberOrderInfo2(HttpSession session,ModelAndView mv,HttpServletRequest request)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -511,12 +519,18 @@ public class MemberController {
 	//-- 결제 성공시
 	@GetMapping("kakaopaySuccess")
 	public ModelAndView kakaopaySuccess(HttpSession session)throws Exception{
+		
+		MemberVO pointUpdate = (MemberVO)session.getAttribute("pointUpdate");
+		memberService.pointUpdate(pointUpdate);
+		Long point = pointUpdate.getPoint();
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		memberVO.setPoint(point);
 		ModelAndView mv = new ModelAndView();
 		OrderVO orderVO = new OrderVO();
 		orderVO = orderService.orderSelectOne(memberVO);
 		mv.addObject("order", orderVO);
 		mv.setViewName("member/kakaopaySuccess");
+		session.setAttribute("member", memberVO);
 		return mv;
 		
 	}

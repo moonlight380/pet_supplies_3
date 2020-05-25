@@ -129,9 +129,7 @@
 											</td>
 
 											<td><img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>${cart.productName }</td>
 
-											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
 											<td id="productName">${cart.productName }</td>
 
 											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
@@ -146,7 +144,7 @@
 												
 											</td>
 
-											<td id="${cart.id}${cart.cnum}_point" name="${cart.point }"></td>
+											<td><span id="${cart.id}${cart.cnum}_point" name="${cart.point }"></span></td>
 
 											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
 											</td>
@@ -662,15 +660,12 @@
 <div class="mileage" style="margin-top: 30px; ">
 <dl class="ec-base-desc gLarge right" style="height:50px; font-size: small; border-bottom: 1px solid gray; border-top: 1px solid gray;">
 <dt style=" float: left; margin-left: 20px;margin-top: 12px;"><strong>총 적립예정금액</strong></dt>
-<dd id="mAllMileageSum" class="txtWarn" style=" float: right; margin-top: 12px; margin-right: 20px;">0원</dd>
+<dd id="mAllMileageSum" class="txtWarn" style=" float: right; margin-top: 12px; margin-right: 20px;"></dd>
 </dl>
 
 <dl class="ec-base-desc gLarge right" style="font-size: small;">
 
-<dt style=" float: left; margin-left: 20px;">상품별 적립금</dt>
-<dd id="mProductMileage" style="text-align: right; margin-right: 20px;">0원</dd>
-<dt style=" float: left; margin-left: 20px;">회원 적립금</dt>
-<dd id="mMemberMileage" style="text-align: right; margin-right: 20px;">0원</dd>
+
 
 </dl>
 
@@ -683,17 +678,61 @@
 </div>
 </div>
 </div>
-<div class="col-sm-2">1123</div>
+<div class="col-sm-2"></div>
 </div>
 </div>
 </div>
 </div>
+<div id="member_id" hidden="hidden">${member.id}</div>
 <div id="direct_cnum" hidden="hidden">${cnum}</div>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<button class="btn btn-danger a"> btn</button>
 <script type="text/javascript" src="../resources/js/cart.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script type="text/javascript">
+	var sumP = 0;
+	var save = 0;
+	
+	var text;
+	$(".plus").each(function(){
+		var title = $(this).attr("title");
+		var amount = $("#"+title+"_amount").val();
+		var point = $("#"+title+"_point").attr("name");
+		sumP = sumP + (amount*point);
+		save = sumP;
+
+	});
+	$("#input_point").blur(function(){
+		sumP=save;
+	 	var minus_p = $(this).val()*1;
+		var memberPoint1 = $("#memberPoint").text();
+		var memberPoint = memberPoint1*1;
+
+		if(minus_p <= memberPoint){
+			
+			sumP = sumP-minus_p;
+			text = addCommas(sumP);
+			text = text + "P";
+		$("#mAllMileageSum").text(text);
+		} else{
+			sumP=save;
+			text = addCommas(sumP);
+			text = text + "P";
+			
+			$("#mAllMileageSum").text(text);
+		}
+		
+	});
+	
+	
+
+</script>
 
 
 <script>
+	
+	
+	
 	
 	/* 배송정보 유효성검사 */
 	//-- 이름
@@ -766,7 +805,10 @@
  		var c = true;
 		var check = $(".input_Join");
 		var agree = $("#chk_purchase_agreement0").prop("checked"); 
-		
+		var point = sumP;
+		var id = $("#member_id").text();
+		console.log(point);
+		console.log(id);
 		
 	 	for(i=0;i<check.length;i++){
 			if(check[i].value.length<=0){
@@ -805,6 +847,15 @@
 				}else if(pay.length<=0){
 					alert("결제방식을 선택해주세요");
 				}
+		 	 	$.ajax({
+		 			type:"post",
+		 			url:"./member/pointUpdate",
+		 			data:{
+		 				point:point,
+		 				id:id
+		 			}
+		 			
+		 		}); 
 			} 
 
 	});
@@ -932,6 +983,7 @@
 			if(input_point > memberPoint){
 				alert("사용가능한 적립금액을 확인해주세요");
 				$("#input_point").val(" ");
+				input_point=0;
 			}
 	
 			var coupon1 = $("#c_in").val();

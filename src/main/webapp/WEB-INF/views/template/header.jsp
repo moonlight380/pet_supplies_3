@@ -29,7 +29,7 @@
 				<img
 				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
 				alt="상담챗봇 창 열림" id="chatBotBtFloating"
-				style="bottom: 20px; display: block; width: 130px; height: 130px">
+				style="bottom: 20px; display: block; width: 100px; height: 100px">
 			</a>
 		</div>
 	</div>
@@ -47,7 +47,7 @@
 				<img
 				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
 				alt="상담챗봇 창 열림" id="chatBotBtFloating"
-				style="bottom: 20px; display: block; width: 130px; height: 130px">
+				style="bottom: 20px; display: block; width: 100px; height: 100px">
 			</a>
 		</div>
 
@@ -160,7 +160,7 @@
 
 					<c:if test="${empty member}">
 						<li><a
-							href="${pageContext.request.contextPath}/member/memberLogin"
+							href="#"
 							class="nav-link"><i class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
@@ -178,9 +178,9 @@
 							</div></li>
 					</c:if>
 
-<%-- 					<c:if test="${not empty member}">
+ 					<c:if test="${not empty member}">
 						<li><a
-							href="${pageContext.request.contextPath}/member/memberLogin"
+							href="#"
 							class="nav-link"><i class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
@@ -192,7 +192,7 @@
 							</div></li>
 					</c:if>
 
-					<li class="dropdown cart_dropdown"><a
+<%-- 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
 							class="linearicons-cart"></i><span class="cart_count"> <c:if
 									test="${empty member.id}">

@@ -15,7 +15,7 @@
   	</select>
   	
   	<insert id="memberJoin" parameterType="MemberVO">
-  		insert into member values(#{id},#{pw},#{name},#{email},#{age, jdbcType=NUMERIC},#{address},#{phone},0,#{sex, jdbcType=VARCHAR},#{addr1},#{addr2},#{phone1},#{phone2})
+  		insert into member values(#{id},#{pw},#{name},#{email},#{age, jdbcType=NUMERIC},#{address},#{phone},1000,#{sex, jdbcType=VARCHAR},#{addr1},#{addr2},#{phone1},#{phone2})
   	</insert> 
   	
   	<insert id="snsJoin" parameterType="MemberVO">

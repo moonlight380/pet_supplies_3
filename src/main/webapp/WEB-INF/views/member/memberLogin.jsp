@@ -9,6 +9,7 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
+<body>
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
@@ -34,7 +35,7 @@
 	<div class="text-center">
 	<a href="${pageContext.request.contextPath}">
 	<img class="m-5 mb-4" 
-		src="${pageContext.request.contextPath}/resources/images/logo_dark.png"
+		src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 		alt="" width="182" height="47">
 	</a>
 	</div>
@@ -93,6 +94,10 @@
 </div>
 
 
+
+<c:import url="../template/footer.jsp"></c:import>
+
+
 <!-- 
 
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
@@ -133,5 +138,5 @@
 
 
 
-
+</body>
 </html>

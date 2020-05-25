@@ -160,18 +160,18 @@
 	<div id="contentWrap">
 		<div id="contentCover">
 			<div id="chatWrap">
-				<div id="chatHeader">오픈 채팅방</div>
+				<div id="chatHeader">오픈 문의방</div>
 				<div>
 					<div id="messageArea" class="anotherMsg">
 						<span>접속중인 아이디 :</span>&nbsp<span id="id">${member.id}</span> <br>
 						<br>
 					</div>
 				</div>
-				<form id="chatForm">
-					<input type="text" autocomplete="off" size="30" id="message"
-						placeholder="메시지를 입력하세요"> <input type="button"
-						id="sendBtn" value="보내기">
-				</form>
+				<div id="chatForm">
+					<input onkeyup="enterkey();" type="text" autocomplete="off" size="30" id="message"
+						 placeholder="메시지를 입력하세요"> <input
+						type="button" id="sendBtn" value="보내기">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -179,8 +179,15 @@
 	<script type="text/javascript">
 		$("#sendBtn").click(function() {
 			sendMessage();
-			$('#message').val('')
+			$('#message').val('');
 		});
+
+		function enterkey() {
+			if (window.event.keyCode == 13) {
+				sendMessage();
+				$('#message').val('');
+			}
+		}
 
 		let sock = new SockJS("http://localhost:8080/p1/echo");
 		sock.onmessage = onMessage;

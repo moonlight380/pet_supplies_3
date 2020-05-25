@@ -144,7 +144,7 @@
  	
  	/* 이메일 유효성 검사 */
  	var emailCheck = true;
-   	$("#email").blur(function() { 
+   	$("#email").change(function() { 
  		
  		var email = $(this).val(); 
  		
@@ -229,6 +229,7 @@
 				success : function(data){
 					if(data == 0){
 						alert("중복된 번호입니다 다시 확인해주세요");
+						
 					}
 					phoneCheck = true;
 				},

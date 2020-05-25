@@ -32,15 +32,7 @@
 	
 	<context:component-scan base-package="com.pet.p1" />
 	
-	<!-- websocket -->
-	<websocket:handlers>
-		<websocket:mapping handler="echoHandler" path="/echo"/>
-		<websocket:sockjs></websocket:sockjs>
-	</websocket:handlers>
-	
-	<beans:bean id = "echoHandler" class="com.pet.p1.echoHandler.EchoHandler"></beans:bean>
-	
-	<!--interceptors -->
+
 
 	<interceptors>
 		<interceptor>	
@@ -57,6 +49,34 @@
 		</interceptor>
 	</interceptors>	
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/*"/>
+			
+			<exclude-mapping path="/member/memberLogin"/>
+			<exclude-mapping path="/member/memberLogout"/>
+			<exclude-mapping path="/member/memberJoin"/>
+			<exclude-mapping path="/member/memberID"/>
+			<exclude-mapping path="/member/memberPW"/>
+			<exclude-mapping path="/member/kakaoJoin"/>
+			<exclude-mapping path="/member/idFindFail"/>
+			<exclude-mapping path="/member/idFindSuccess"/>
+			<exclude-mapping path="/member/pwFindSuccess"/>
+			<exclude-mapping path="/member/findEmail"/>
+			<exclude-mapping path="/member/findPhone"/>
+			<exclude-mapping path="/member/memberPCheck"/>
+			<exclude-mapping path="/member/sendMail"/>
+			<exclude-mapping path="/member/kakaoLogin"/>
+			<exclude-mapping path="/member/snsJoin"/>
+			<exclude-mapping path="/member/kakaoJoin"/>
+			<exclude-mapping path="/member/memberEmailCheck"/>
+			<exclude-mapping path="/member/memberIdCheck"/>
+			<exclude-mapping path="/member/memberJoinSuccess"/>
+			
+			
+			<beans:bean class="com.pet.p1.Interceptor.MemberIntercepter" id="memberIntercepter"></beans:bean>
+		</interceptor>
+	</interceptors>
 
 	
 </beans:beans>

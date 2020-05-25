@@ -129,13 +129,9 @@ public class MemberService {
 			
 			
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-			
-//			String birthday = kakao_account.getAsJsonObject().get("birthday").getAsString();
-			 
 			String kakaoId = Long.toString(id);
 			
 			memberInfo.put("nickname", nickname);
-//			memberInfo.put("birthday", birthday);
 			memberInfo.put("kakaoId", kakaoId);
 	
 

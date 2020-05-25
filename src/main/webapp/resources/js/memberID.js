@@ -1,3 +1,5 @@
+
+
 //-- radio 선택에 따른 div태그 보이기 숨기기
 	function setDisplay(){
 	    if($('input:radio[id=check_email]').is(':checked')){
@@ -75,7 +77,7 @@
 						email:email
 					},	//parameter
 					success : function(data){
-			
+						alert(data);
 						if(data.email == null){
 							location.href="./idFindFail";
 						}else{

@@ -63,6 +63,7 @@
 	</div> --%>
 
 <!-- <div class="container" style="margin-top: 100px;  height: 3000px;"> -->
+
 <div class="container-fulid mt-5"id="step" title="step2">
 	<div class="row">
 		
@@ -126,7 +127,7 @@
 												 
 											</td>
 											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>${cart.productName }</td>
+											<td id="productName">${cart.productName }</td>
 											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
 											<td>
 												
@@ -208,7 +209,7 @@
 								</div>
 								<div class="col-sm-3">
 									<div>결제 금액</div>
-									<div style="color: #FF324D;" id="payment" class="paymentPrice">0원</div>
+									<div style="color: #FF324D;" id="" class="paymentPrice">0원</div>
 
 								</div>
 						</div> -->
@@ -273,7 +274,7 @@
 <th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
 <td>
 <input id="oemail1" name="email" class="mailId" value="${member.email}" type="text">
-<ul>
+<ul style="list-style: none; margin-top: 10px;">
 <li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
 <li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
 </ul>
@@ -289,7 +290,7 @@
 
 <!-- 배송정보 -->
 
-<div class="orderArea" style="margin-top: 30px;">
+<div class="orderArea" style="margin-top: 50px;">
 
 <div class="title"  style="float: left; width: 100%; height: 25px;">
 <h3 style="font-size: medium; font-weight: bold; display: inline;">배송 정보</h3>
@@ -393,9 +394,8 @@
 <td>
 <textarea class="input_Join" id="omessage" name="omessage" maxlength="255" cols="70"></textarea>
 <div class="devMessage">
-<ul class="gIndent5">
-<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주십시오.</li>
-<li>게시글은 비밀글로 저장되며 비밀번호는 주문번호 뒷자리로 자동 저장됩니다.</li>
+<ul class="gIndent5" style="list-style: none;" >
+<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주세요.</li>
 </ul>
 </div>
 </td>
@@ -426,14 +426,14 @@
 <strong>총 주문 금액</strong>
 </th>
 <th scope="col" class="">
-<strong id="total_addsale_text" class="">총 할인금액</strong>
+<strong id="total_addsale_text">총 할인금액</strong>
 </th>
 <th scope="col"><strong>총 결제예정 금액</strong></th>
 </tr>
 
 <tbody class="center"><tr>
 <td><div class="box txt16">
-<div style="color: black; font-weight: bold;" id="payment" class="paymentPrice">0원</div>
+<div style="color: black; font-weight: bold;"><span id="pp" class="paymentPrice">0</span></div>
 </div></td>
 
 <td class="option "><div class="box txt16">
@@ -441,7 +441,7 @@
 <span id="discount" class="txt23"><strong>0원</strong></span>
 </div></td>
 <td><div class="box txtEm txt16">
-<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="paymentPrice">0원</span>
+<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="Ap paymentPrice">0원</span>
 </div></td>
 </tr></tbody>
 </table>
@@ -487,8 +487,8 @@
 <!-- 적립금 --><tbody class=""><tr>
 <th scope="row">적립금</th>
 <td>
-<p> <input id="input_point" name="input_point" class="inputTypeText text-center" placeholder="" size="10" value=""  type="text"> 원 (총 사용가능 적립금 : <strong class="txtWarn">0</strong>원)</p>
-<ul class="info">
+<p> <input id="input_point" name="input_point" class="inputTypeText text-center" placeholder="" size="10" value=""  type="text"> 원 (총 사용가능 적립금 : <strong id="memberPoint">${member.point}</strong>원)</p>
+<ul class="info" style="list-style: square;" >
 <li>적립금은 최소 0 이상일 때 결제가 가능합니다.</li>
 <li id="mileage_max_unlimit" class="">최대 사용금액은 제한이 없습니다.</li>
 <li id="mileage_max_limit" class="">1회 구매시 적립금 최대 사용금액은 0입니다.</li>
@@ -644,7 +644,7 @@
  <span style="font-size: medium;">최종결제 금액</span>
 </h4>
 
-<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="paymentPrice" id="AllPrice">0원</div>
+<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="Ap" id="AllPrice">0원</div>
 <div class="paymentAgree" id="chk_purchase_agreement" style="margin-left: 10px; margin-top: 20px;">
 <input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; float: left; width: 30px; margin-top: 7px;"><label for="chk_purchase_agreement0" style="font-size: small;">결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
 </div>
@@ -665,7 +665,6 @@
 <dd id="mProductMileage" style="text-align: right; margin-right: 20px;">0원</dd>
 <dt style=" float: left; margin-left: 20px;">회원 적립금</dt>
 <dd id="mMemberMileage" style="text-align: right; margin-right: 20px;">0원</dd>
-
 
 </dl>
 
@@ -782,9 +781,10 @@
 				var AllPrice = text.split(",").join("");
 				var pname = $("#pname").val();
 				var bankaccount = $("#bankaccount").val();
+				var productName = $("#productName").text();
 				
 		 		 if(pay == kakaopay){
-					location.href="./kakaoPay?name=dd&totalPrice="+AllPrice;	
+					location.href="./kakaoPay?name="+productName+"&totalPrice="+AllPrice;	
 				}else if(pay == account){
 					if(pname.length <= 0){
 						alert("입금자명이 입력되지 않았습니다");
@@ -895,25 +895,60 @@
             window.open(url, name, option);
         } 
 	
- 	window.onmessage = function(e){
- 		$("#total_addsale_price_view").html("<strong>"+e.data+"원</strong>");
- 		$("#discount").html("<strong>"+e.data+"원</strong>");;
- 	  } 
+  	window.onmessage = function(e){
 
+ 		var coupon = e.data*1;
+
+ 		$("#total_addsale_price_view").html("<strong>"+coupon+"원</strong>");
+ 		$("#discount").html("<strong>"+coupon+"원</strong>");
+ 		
+		//-- 최종결제금액
+ 		var pay = $("#pp").text();
+ 		pay = removeCommas(pay);
+ 		pay = pay*1;
+ 		
+ 		all = pay-coupon;
+ 		all = addCommas(all)+"원";
+ 		$(".Ap").text(all);
+ 		
+ 	  } 
  	
  	//-- 적립창 유효성 검사
- 	$("#input_point").blur(function() {
-		var memberPoint = $(".txtWarn").val();
-		var input_point = $(this).val();
-		if(input_point>memberPoint){
-			alert("사용가능한 적립금액을 확인해주세요");
-			$("#input_point").val(" ");
-		}
-	});
+
+	 	$("#input_point").blur(function() {
+			var memberPoint1 = $("#memberPoint").text();
+			var input_point1 = $(this).val();
+			
+			var memberPoint = memberPoint1*1;
+			var input_point = input_point1*1;
+			
+			if(input_point > memberPoint){
+				alert("사용가능한 적립금액을 확인해주세요");
+				$("#input_point").val(" ");
+			}
+	
+			var coupon1 = $("#c_in").val();
+			var coupon = coupon1*1;
+			
+			var dis = coupon+input_point;
+			
+	 		
+	 		$("#total_addsale_price_view").html("<strong>"+dis+"원</strong>");
+	 		$("#discount").html("<strong>"+dis+"원</strong>");;
+	 		
+	 		//-- 최종결제금액
+	 		var pay = $("#pp").text();
+	 		pay = removeCommas(pay);
+	 		pay = pay*1;
+	 		
+	 		all = pay-dis;
+	 		all = addCommas(all)+"원";
+	 		$(".Ap").text(all);
+			
+		});
+
  	
- 	
- 	
- 	
+ 		
  	
 	function sample6_execDaumPostcode() {
     new daum.Postcode({

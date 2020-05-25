@@ -47,7 +47,7 @@ public class JavaMailInfo{
 		// 메일 내용
 		String recipient = mailto; //받는 사람의 메일주소를 입력해주세요. 
 		String subject = "펫코리아에서 보낸 메일입니다 "+code; //메일 제목 입력해주세요. 
-		String body = "회원님의 임시 비밀번호는 "+pw+"입니다.";//메일 내용 입력해주세요. 
+		String body = id+"님의 임시 비밀번호는 "+pw+"입니다.";//메일 내용 입력해주세요. 
 		Properties props = System.getProperties(); // 정보를 담기 위한 객체 생성 
 		// SMTP 서버 정보 설정 
 		//props.put("mail.transport.protocol", "smtp");

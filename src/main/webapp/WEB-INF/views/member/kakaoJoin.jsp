@@ -269,7 +269,7 @@ function sample6_execDaumPostcode() {
 </script>
 
 	
-<script type="text/javascript" src="../resources/js/join.js"></script>
+<script type="text/javascript" src="../resources/js/memberjoin.js"></script>
 
 
 </body>

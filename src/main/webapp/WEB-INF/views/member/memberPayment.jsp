@@ -643,7 +643,7 @@
 </div>
 </div>
 </div>
-<div class="col-sm-2"></div>
+<div class="col-sm-2">1123</div>
 </div>
 </div>
 </div>
@@ -654,6 +654,7 @@
 
 
 <script>
+	
 	/* 배송정보 유효성검사 */
 	//-- 이름
 	var nameCheck = true;

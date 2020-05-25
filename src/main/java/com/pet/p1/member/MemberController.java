@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -51,29 +52,58 @@ public class MemberController {
 	
 //--------------------------------------------------------------------------------------------------------------
 
-	
+	@GetMapping("memberPurchase")
+	public ModelAndView memberOrderInfo2(HttpSession session,ModelAndView mv,HttpServletRequest request)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		memberVO.setOrderCheck(1);
+		String curPage = request.getParameter("curPage");
+		
+		
+		
+		if(curPage==null) {
+			curPage="1";
+		}
+		Long curPage2 = Long.parseLong(curPage);
+		
+		memberVO.setCurPage(curPage2);
+		List<OrderInfoVO> ar = orderService.orderInfoList(memberVO);
+
+		
+		
+		mv.addObject("orderList",ar);
+		mv.addObject("pager",memberVO);
+		mv.setViewName("member/memberPurchase");
+		return mv;
+		
+		
+	}
 
 	@GetMapping("memberOrderInfo")
-	public ModelAndView memberOrderInfo(HttpSession session)throws Exception{
+	public ModelAndView memberOrderInfo(HttpSession session,ModelAndView mv,HttpServletRequest request)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		memberVO.setOrderCheck(0);
+		String curPage = request.getParameter("curPage");
+		
+		
+		
+		if(curPage==null) {
+			curPage="1";
+		}
+		Long curPage2 = Long.parseLong(curPage);
+		
+		memberVO.setCurPage(curPage2);
 		List<OrderInfoVO> ar = orderService.orderInfoList(memberVO);
-		ModelAndView mv = new ModelAndView();
+
+		
+		
 		mv.addObject("orderList",ar);
+		mv.addObject("pager",memberVO);
 		mv.setViewName("member/memberOrderInfo");
 		return mv;
 		
-	}
-	@GetMapping("memberOrder")
-	public ModelAndView memberOrder(HttpSession session)throws Exception{
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		ModelAndView mv = new ModelAndView();
-		OrderVO orderVO = new OrderVO();
 		
-		orderVO = orderService.orderSelectOne(memberVO);
-		mv.addObject("order",orderVO);
-		mv.setViewName("member/memberOrder");
-		return mv;
 	}
+	
 	
 	@PostMapping("orderInfoInsert")
 	@ResponseBody
@@ -85,8 +115,10 @@ public class MemberController {
 	}
 	
 	@GetMapping("memberCartHeader")
-	public void memberCartHeader()throws Exception{
-		
+	public void memberCartHeader(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		long count = memberService.memberCart(memberVO);
+		session.setAttribute("cartCount", count);
 	}
 	
 	
@@ -99,7 +131,6 @@ public class MemberController {
 		
 		List<CartVO> ar = cartService.cartSelect(list);
 		session.setAttribute("cartSelect", ar); 
-		System.out.println("check");
 		
 	}
 	
@@ -165,7 +196,6 @@ public class MemberController {
 		} else {
 			
 			List<CartVO> ar = cartService.cartList(memberVO);
-			System.out.println("aas");
 			mv.addObject("cart",ar);
 			mv.setViewName("member/memberCart");
 		
@@ -403,9 +433,29 @@ public class MemberController {
 		return mv;
 	}
 	
+	
+	/*
+	 * @GetMapping("memberOrder") public ModelAndView memberOrder(HttpSession
+	 * session)throws Exception{ MemberVO memberVO =
+	 * (MemberVO)session.getAttribute("member"); ModelAndView mv = new
+	 * ModelAndView(); OrderVO orderVO = new OrderVO();
+	 * 
+	 * orderVO = orderService.orderSelectOne(memberVO);
+	 * mv.addObject("order",orderVO); mv.setViewName("member/memberOrder"); return
+	 * mv; }
+	 */
+	
 	//-- 결제 성공시
 	@GetMapping("kakaopaySuccess")
-	public void kakaopaySuccess()throws Exception{
+	public ModelAndView kakaopaySuccess(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		ModelAndView mv = new ModelAndView();
+		OrderVO orderVO = new OrderVO();
+		orderVO = orderService.orderSelectOne(memberVO);
+		mv.addObject("order", orderVO);
+		mv.setViewName("member/kakaopaySuccess");
+		return mv;
+		
 	}
 	
 	//-- 결제 실패시
@@ -435,8 +485,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "memberPage")
-	public void memberPage()throws Exception {
-		
+	public ModelAndView memberPage(HttpSession session)throws Exception {
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		Long oc = memberService.orderCount(memberVO);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("ocount", oc);
+		mv.setViewName("member/memberPage");
+		return mv;
 	}
 
 	

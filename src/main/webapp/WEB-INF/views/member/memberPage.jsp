@@ -62,7 +62,7 @@
 								style="color: #FF324D;">
 								<span>주문배송</span>
 								<div>
-									<span style="font-size: 30px;">${member.point }</span>
+									<span style="font-size: 30px;">${ocount}</span>
 								</div>
 							</div>
 

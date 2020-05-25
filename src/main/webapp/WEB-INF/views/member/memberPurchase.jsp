@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,13 +8,17 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-.table_body td {
-	border: 1px solid gray;
-}
+	.table_body td{
+		border : 1px solid gray;
+		
+	}
+	
+	.table_title th{
+		border-bottom: 2px solid #FF324D;
+	}
 
-.table_title th {
-	border-bottom: 2px solid #FF324D;
-}
+
+	
 </style>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
@@ -23,9 +27,9 @@
 
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-
-
-
+	
+	
+	
 	<div class="container-fulid  mt-5">
 		<div class="row">
 			<c:import url="./memberSide.jsp"></c:import>
@@ -34,13 +38,9 @@
 					<div class="col-sm-1"></div>
 					<div class="col">
 
-
-
-
-
 						<div class="row mb-4"
 							style="border-bottom: solid 1px black; font-weight: bold; color: black;">
-							<div style="margin-left: 21px;">주문 조회</div>
+							<div style="margin-left: 21px;">구매 내역</div>
 						</div>
 
 
@@ -55,7 +55,8 @@
 
 							<div class="row mb-5">
 								<div class="col text-center"
-									style="font-weight: 2px; color: black;">주문내역이 없습니다.</div>
+									style="font-weight: 2px; color: black;">구매내역이
+									없습니다.</div>
 							</div>
 
 							<div class="row">
@@ -66,7 +67,8 @@
 							</div>
 						</c:if>
 
-						<c:if test="${not empty orderList }">
+
+						<c:if test="${not empty orderList}">
 							<div class="row">
 								<table>
 									<colgroup>
@@ -89,7 +91,7 @@
 											<th>판매가</th>
 											<th>수량</th>
 											<th>적립금</th>
-											<th>금액</th>
+											<th>후기</th>
 
 										</tr>
 										<tr style="line-height: 30px;">
@@ -124,7 +126,9 @@
 												<td class="comma" title="point"><c:set var="point"
 														value="${order.amount * order.point}" /> <c:out
 														value="${point}" /></td>
-												<td><a href="https://tracker.delivery/#/:carrier_id/:track_id" target="_blank">배송조회</a></td>
+												<td><a
+													href="${pageContext.request.contextPath}/review/reviewWrite?productNum=${order.productNum}"
+													target="_blank"> 리뷰 작성 </a></td>
 
 											</tr>
 
@@ -136,14 +140,6 @@
 									</tbody>
 								</table>
 
-
-
-
-
-
-
-
-
 							</div>
 							<div class="row">
 								<div class="col-12">
@@ -151,42 +147,41 @@
 										class="pagination mt-3 justify-content-center pagination_style1">
 										<c:if test="${pager.curBlock gt 1}">
 											<li class="page-item active"><a class="page-link"
-												href="./memberOrderInfo?curPage=${pager.startNum-1}">이전</a></li>
+												href="./memberPurchase?curPage=${pager.startNum-1}">이전</a></li>
 										</c:if>
 										<c:forEach begin="${pager.startNum}" end="${pager.lastNum}"
 											var="i">
 											<li class="page-item"><a class="page-link"
-												href="./memberOrderInfo?curPage=${i}">${i}</a></li>
+												href="./memberPurchase?curPage=${i}">${i}</a></li>
 										</c:forEach>
 										<c:if test="${pager.curBlock lt pager.totalBlock}">
 											<li class="page-item"><a class="page-link"
-												href="./memberOrderInfo?curPage=${pager.lastNum+1}">다음</a></li>
+												href="./memberPurchase?curPage=${pager.lastNum+1}">다음</a></li>
 										</c:if>
 									</ul>
 								</div>
 							</div>
-						</c:if>
-
-
-
-
-
+							</c:if>
 					</div>
 					<div class="col-sm-2"></div>
 				</div>
+			
+			</div>		
 
-			</div>
-
-
-
+		
+		
 		</div>
-
-
+	
+	
 	</div>
-
+	
 </body>
 
 <script type="text/javascript">
+
+
+
+
 
 	var ids = [];
 	$(".table_start").each(function() {
@@ -212,15 +207,17 @@
 		}
 		return a;
 	}, []);
+	console.log("a : " + list);
+	console.log("aasdb : " + list.length);
 
 	for (var i = 0; i < list.length; i++) {
 		var id = list[i];
+		console.log(id);
 		$("#" + id)
 				.before(
 						'<tr style="line-height: 30px;">' + '<th>&nbsp;</th>'
 								+ '</tr>');
 	}
-
 
 	$(".comma").each(function() {
 		var x = $(this).text();
@@ -243,4 +240,7 @@
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
 </script>
+
+
+
 </html>

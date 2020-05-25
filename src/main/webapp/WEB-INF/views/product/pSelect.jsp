@@ -168,7 +168,9 @@ $('#close_popup2').click(function(){
 
 
 
+<div id="header">
 <c:import url="../template/header.jsp"></c:import>
+</div>
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">
@@ -345,7 +347,7 @@ $('#close_popup2').click(function(){
                        
  <!--마이너스 플러스 스클립트 끝 ------------------------------------------------------------------------------------------------------------ -->                     
                        <span class="cart_btn">
-                            <button class="btn btn-fill-out btn-addtocart cart_margin" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
+                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" type="button" id="${vo.productNum}" data-toggle="modal" data-target="#myModal"><i class="icon-basket-loaded"></i> Add to cart</button> 
                         </span> <!-- "cart_btn" -->
                         
                         <span class="direct_purchase">
@@ -605,6 +607,7 @@ $('#close_popup2').click(function(){
 </div>
 <!-- END MAIN CONTENT -->
 
+<c:import url="../cart/addCart.jsp"></c:import>
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>
 <!-- END FOOTER -->

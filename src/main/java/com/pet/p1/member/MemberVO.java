@@ -1,6 +1,8 @@
 package com.pet.p1.member;
 
-public class MemberVO {
+import com.pet.p1.util.OrderInfoPager;
+
+public class MemberVO extends OrderInfoPager{
 	
 	private String id;
 	private String pw;

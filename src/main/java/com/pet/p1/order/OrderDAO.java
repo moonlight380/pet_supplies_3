@@ -33,4 +33,7 @@ public class OrderDAO {
 		return sqlSession.selectList(NAMESPACE+"orderInfoList",memberVO);
 	}
 	
+	public long orderInfoCount(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"orderInfoCount",memberVO);
+	}
 }

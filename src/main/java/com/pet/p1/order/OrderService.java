@@ -2,6 +2,8 @@ package com.pet.p1.order;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +29,13 @@ public class OrderService {
 		public int orderInfoInsert(OrderInfoVO orderInfoVO)throws Exception{
 			return orderDAO.orderInfoInsert(orderInfoVO);
 		}
+		
 		public List<OrderInfoVO> orderInfoList(MemberVO memberVO)throws Exception{
+			
+			
+			memberVO.makeRow();
+			long totalCount = orderDAO.orderInfoCount(memberVO);
+			memberVO.makePage(totalCount);
 			return orderDAO.orderInfoList(memberVO);
 		}
 }

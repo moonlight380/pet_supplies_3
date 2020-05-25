@@ -9,8 +9,8 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
-<body>
-
+<body>	
+		<h1>지워도댐</h1>
 		<h1 id="orderNum" title="${order.orderNum }">orderNum : ${order.orderNum}</h1>
 		<h1 id="orderPriceAll"title="${order.priceAll }">orderPriceAll : ${order.priceAll}</h1>
 		<h1 id="orderId" title="${order.id }">order id : ${order.id}</h1>

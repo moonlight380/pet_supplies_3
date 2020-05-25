@@ -83,7 +83,7 @@
 						
 						<div class="row mb-5">
 							<div class="col text-center" style="font-weight: 2px; color: black;">
-								장바구니가 담긴 상품이 없습니다.
+								장바구니에 담긴 상품이 없습니다.
 							</div>
 						</div>
 					

@@ -66,5 +66,9 @@ public class MemberDAO {
 	public int memberDeletes(List<String> list)throws Exception{
 		return sqlSession.delete(NAMESPACE+"memberDeletes", list);
 	}
+	
+	public Long orderCount(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"orderCount",memberVO);
+	}
 
 }

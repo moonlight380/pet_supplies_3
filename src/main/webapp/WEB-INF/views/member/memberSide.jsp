@@ -33,6 +33,7 @@
 			<ul>
 				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberPage">회원정보</a></li>
 				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberOrderInfo">주문조회</a></li>
+				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberPurchase">구매내역</a></li>
 				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberCart">장바구니</a></li>
 				<li class="ml-5 mt-5">쿠폰/포인트</li>
 				<li class="ml-5 mt-5">상품 리뷰</li>

@@ -166,6 +166,47 @@ body, th, td, input, select, textarea {
 	 font-size: 17px;
 	 
 }
+
+.item_detail_list dt {
+    float: left;
+    width: 70px;
+    margin: 0 10px 0 0;
+    color: #888888;
+    font-weight: normal;
+    word-wrap: break-word;
+}
+.item_mileage{
+	margin-left: 80px;
+}
+
+.time_sale , .time_sale_num {
+    width: 59px;
+    height: 44px;
+    padding: 5px 0 0 0;
+    color: #ffffff;
+    font-size: 18px;
+    background: url(../resources/images/bg_sale.png) no-repeat 0 0;
+    text-align: center;
+}
+
+
+.item_info_box .time_sale {
+    overflow: hidden;
+    height: 49px;
+    margin: 0 0 20px 0;
+    padding: 10px 10px 0 10px;
+    border-bottom: 1px solid #dbdbdb;
+    background: #f5f5f5;
+}
+.enter{
+	float: left;
+	margin-bottom: 20px;
+}
+.product_title{
+	
+	clear: left;
+}
+
 </style>
 
 <!-- 팝업창띄우기 -->
@@ -243,7 +284,7 @@ $('#close_popup2').click(function(){
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
                     <li class="breadcrumb-item"><a href="../">Home</a></li>  
-                    <li class="breadcrumb-item active">Product Detail</li>
+                    <li class="breadcrumb-item active">타임세일리스트</li>
                 </ol>
             </div>
         </div>
@@ -278,40 +319,55 @@ $('#close_popup2').click(function(){
             
         
             <div class="col-lg-6 col-md-6">
+    
                 <div class="pr_detail ">
-                     
-                     <div class="line"></div>
-                    
-<div class="item_detail_list">
-	<dl>
-      <dt>짧은설명</dt>
-           <dd>내 반려견을 위한</dd>
-    </dl>
-	
-	<dl class="time_sale_price">
-       <dt>타임세일가</dt>
-          <dd>
-            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
-              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
-          </dd>
-     </dl>
 
-      <dl>
-          <dt>상품수량</dt>
-              <div class="cart-product-quantity"><!-- 수량 버튼 시작 -->
-                  <div class="quantity">
-                      <input id="quantity_minus" type="button" value="-"  class="minus">
-                      <input type="text" id="quantityNum" name="quantity" value="1" title="Qty" class="qty" size="4">
-                      <input id="quantity_plus" type="button"  value="+" class="plus" >
-                  </div> <!-- class="quantity" -->
-                            
-             </div><!--END class="cart-product-quantity" 수량 끝-->
-     </dl>
+                <div id="displayTimeSale" class="time_sale enter">
+                    <strong class="time_sale_num">${vo.sale}<span>%</span></strong>
+                </div>
+                    
+                        <!-- 타이머기능 -->                 			
+                 		<div class="notice enter">               						
+							<script class="notice enter" type="text/javascript" src="../resources/script/timeSale.js"> </script>
+						</div>  
+                   
+
+                <h4 class="product_title"><a href="#">${vo.productName}</a></h4>    
+                     
+                 <div class="line"></div>
+				                    
+				<div class="item_detail_list">
+					<dl>
+				      <dt>짧은설명</dt>
+				           <dd>내 반려견을 위한</dd>
+				    </dl>
+					
+					<dl class="time_sale_price">
+				       <dt>타임세일</dt>
+				          <dd>
+				            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
+				              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+				          </dd>
+				     </dl>
+				
+				      <dl>
+				          <dt>상품수량</dt>
+				              <dd>
+				                  <span class="quantity">
+				                      <input id="quantity_minus" type="button" value="-"  class="minus">
+				                      <input type="text" id="quantityNum" name="quantity" value="1" title="Qty" class="qty" size="4">
+				                      <input id="quantity_plus" type="button"  value="+" class="plus" >
+				                  </span> <!-- class="quantity" -->
+				              </dd>
+				                            
+				             
+				      </dl>
      
 			     <dl class="item_discount_mileage dn">
 			            <dt>구매혜택</dt>
+			            
 			              <dd>
-			                   <div class="item_discount">할인 : ${vo.sale}%</div>
+			                   <span class="item_discount">할인 : ${vo.sale}%</span>
 			                     
 			                    <div class="item_mileage">적립 마일리지 : ${vo.point}점</div>
 			              </dd>

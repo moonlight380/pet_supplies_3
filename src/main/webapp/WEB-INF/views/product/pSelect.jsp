@@ -153,6 +153,18 @@ body, th, td, input, select, textarea {
 	 text-align: center;
 	 padding: 0px;
 } 
+
+.item_detail_list dt {
+    float: left;
+    width: 70px;
+    margin: 0 10px 0 0;
+    color: #888888;
+    font-weight: normal;
+    word-wrap: break-word;
+}
+.item_mileage{
+	margin-left: 10px;
+}
 </style>
 
 <!-- 팝업창띄우기 -->
@@ -263,41 +275,41 @@ $('#close_popup2').click(function(){
             
         
             <div class="col-lg-6 col-md-6">
+    
                 <div class="pr_detail ">
-                    <div class="product_description">
-                        
-                        <h4 class="product_title"><a href="#">${vo.productName}</a></h4>                       
 
-                    </div> <!-- END "product_description" -->
-                    <hr />
-                
+                        <h4 class="product_title"><a href="#">${vo.productName}</a></h4>                       
+   
            <!-- ------------------------------------------------------------------------------------------------------------ -->            
                   
 			                    
 			<div class="item_detail_list">
 				<dl>
 			      <dt>짧은설명</dt>
-			           <dd>내 반려견을 위한</dd>
+			           <dd>내 반려견을 위한 ${vo.productName}</dd>
 			    </dl>
-			
-			      <dl>
-			          <dt>상품수량</dt>
-			              <div class="cart-product-quantity"><!-- 수량 버튼 시작 -->
-			                  <div class="quantity">
-			                      <input id="quantity_minus" type="button" value="-"  class="minus">
-			                      <input type="text" id="quantityNum" name="quantity" value="1" title="Qty" class="qty" size="4">
-			                      <input id="quantity_plus" type="button"  value="+" class="plus" >
-			                  </div> <!-- class="quantity" -->
-			                            
-			             </div><!--END class="cart-product-quantity" 수량 끝-->
-			     </dl>
+			    
+		      <dl>
+		          <dt>상품수량</dt>
+		              <dd>
+		                  <div class="quantity">
+		                      <input id="quantity_minus" type="button" value="-"  class="minus">
+		                      <input type="text" id="quantityNum" name="quantity" value="1" title="Qty" class="qty" size="4">
+		                      <input id="quantity_plus" type="button"  value="+" class="plus" >
+		                  </div> <!-- class="quantity" -->
+		              </dd>
+		                            
+		             
+		      </dl>
 			     
 						     <dl class="item_discount_mileage dn">
 						            <dt>구매혜택</dt>
 						              <dd>
-						                   <div class="item_discount">할인 : ${vo.sale}%</div>
-						                     
-						                    <div class="item_mileage">적립 마일리지 : ${vo.point}점</div>
+						              
+						              		<c:if test="${vo.sale gt 0}">
+						                   <span class="item_discount">할인 : ${vo.sale}%</span>
+						                     </c:if>
+						                    <span class="item_mileage">적립 마일리지 : ${vo.point}점</span>
 						              </dd>
 						     </dl>
 						      <dl>

@@ -59,7 +59,7 @@ public class DogService {
 		pager.makeRow();
 		long totalCount= dogDAO.dogCount(pager);
 		pager.makePage(totalCount);
-		System.out.println("dogTimeSale	 in");
+		System.out.println("dogTimeSale	sevice in");
 		return dogDAO.dogTimeSale(pager);
 	}	
 	
@@ -110,12 +110,16 @@ public class DogService {
 	
 //select
 	
-	public DogVO dogSelect(long productNum) throws Exception {
-		dogDAO.hitUpdate(productNum);
-		return dogDAO.dogSelect(productNum);
+	public DogVO dogSelect(DogVO dogVO) throws Exception {
+		dogDAO.hitUpdate(dogVO);
+		return dogDAO.dogSelect(dogVO);
 	}
 	
-	
+//dogSelectTimeSale	
+	public DogVO dogSelectTimeSale(DogVO dogVO) throws Exception {
+		dogDAO.hitUpdate(dogVO);
+		return dogDAO.dogSelectTimeSale(dogVO);
+	}
 	
 //update
 	public int dogUpdate (DogVO dogVO,MultipartFile firstFile, MultipartFile[] files) throws Exception{	

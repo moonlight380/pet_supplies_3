@@ -32,14 +32,51 @@
 	
 	<context:component-scan base-package="com.pet.p1" />
 	
-	<!-- websocket -->
-	<websocket:handlers>
-		<websocket:mapping handler="echoHandler" path="/echo"/>
-		<websocket:sockjs></websocket:sockjs>
-	</websocket:handlers>
+
+
+	<interceptors>
+		<interceptor>	
+			<mapping path="/product/*"/>
+			<!-- 제외할 부분 -->
+			<exclude-mapping path="/product/dogList"/>
+			<exclude-mapping path="/product/dogBestList"/>
+			<exclude-mapping path="/product/dogNewList"/>
+			<exclude-mapping path="/product/dogTimeSale"/>
+			<exclude-mapping path="/product/dogSelect"/>
+			<exclude-mapping path="/product/dogSelectTimeSale"/>
+				
+			<beans:bean class="com.pet.p1.Interceptor.AdminIntercepter" id="AdminInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>	
 	
-	<beans:bean id = "echoHandler" class="com.pet.p1.echoHandler.EchoHandler"></beans:bean>
-	
-	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/*"/>
+			
+			<exclude-mapping path="/member/memberLogin"/>
+			<exclude-mapping path="/member/memberLogout"/>
+			<exclude-mapping path="/member/memberJoin"/>
+			<exclude-mapping path="/member/memberID"/>
+			<exclude-mapping path="/member/memberPW"/>
+			<exclude-mapping path="/member/kakaoJoin"/>
+			<exclude-mapping path="/member/idFindFail"/>
+			<exclude-mapping path="/member/idFindSuccess"/>
+			<exclude-mapping path="/member/pwFindSuccess"/>
+			<exclude-mapping path="/member/findEmail"/>
+			<exclude-mapping path="/member/findPhone"/>
+			<exclude-mapping path="/member/memberPCheck"/>
+			<exclude-mapping path="/member/sendMail"/>
+			<exclude-mapping path="/member/kakaoLogin"/>
+			<exclude-mapping path="/member/snsJoin"/>
+			<exclude-mapping path="/member/kakaoJoin"/>
+			<exclude-mapping path="/member/memberEmailCheck"/>
+			<exclude-mapping path="/member/memberIdCheck"/>
+			<exclude-mapping path="/member/memberJoinSuccess"/>
+			
+			
+			<beans:bean class="com.pet.p1.Interceptor.MemberIntercepter" id="memberIntercepter"></beans:bean>
+		</interceptor>
+	</interceptors>
+
 	
 </beans:beans>

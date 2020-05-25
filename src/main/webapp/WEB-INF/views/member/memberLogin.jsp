@@ -9,6 +9,7 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
+<body>
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
@@ -34,7 +35,7 @@
 	<div class="text-center">
 	<a href="${pageContext.request.contextPath}">
 	<img class="m-5 mb-4" 
-		src="${pageContext.request.contextPath}/resources/images/logo_dark.png"
+		src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 		alt="" width="182" height="47">
 	</a>
 	</div>
@@ -58,17 +59,20 @@
 	
 </form>
 
+<!-- kakao 로그인 -->
  <form action="./kakaoLogin" method="get">
-	<div class="kakaoLogin" style="margin-top: 50px; width: 400px; margin: 0 auto;">
+	<div class="kakaoLogin" style="margin-top: 50px; width: 320px; margin: 0 auto;">
 	
 	<c:if test="${member.nickname eq null}">
 	<a 		href="https://kauth.kakao.com/oauth/authorize?
 			client_id=ccfe4411fa1bfc86a27222555a4dba8c
 			&redirect_uri=http://localhost:8080/p1/member/kakaoLogin
-			&response_type=code">
+			&response_type=code" >
 		<img src="${pageContext.request.contextPath}/resources/images/kakao_login_btn_large_wide.png">
 	</a>
+	
 	</c:if>
+	
 	
 	</div>
 
@@ -77,11 +81,62 @@
 	<c:if test="${member.id ne null}">
         <input type="button" value="로그아웃" onclick="location.href='kakaoLogout'">
     </c:if>
-</div>
+  
+<!-- naver 로그인 --> 
+<!-- <div id = "naverIdLogin" style="margin: 0 auto; margin-left: 90px; margin-top: 10px;"></div>
+    -->
+    
+</div> 
+
 <div class="col"></div>
+
 </div>
 </div>
 
 
 
+<c:import url="../template/footer.jsp"></c:import>
+
+
+<!-- 
+
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+ 
+ 네이버아디디로로그인 초기화 Script
+<script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "dkthWuzZwGIygDF5_hF2",
+			callbackUrl: "http://localhost:8080/p1/member/naverLogin",
+			isPopup: false, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+		}
+	);
+	
+	/* 설정정보를 초기화하고 연동을 준비 */
+	naverLogin.init();
+	
+</script>
+// 네이버아이디로로그인 초기화 Script
+ 
+ 
+  -->
+ 
+<!-- <script type="text/javascript">
+ 
+         var naver_id_login = new naver_id_login("dkthWuzZwGIygDF5_hF2", "http://localhost:8080/p1/member/naverLogin");    // Client ID, CallBack URL 삽입
+                                            // 단 'localhost'가 포함된 CallBack URL
+         var state = naver_id_login.getUniqState();
+        
+         naver_id_login.setButton("green", 4, 70);
+         naver_id_login.setDomain("http://localhost:8080/p1/member/memberLogin");    //  URL
+         naver_id_login.setState(state);
+         naver_id_login.setPopup();
+         naver_id_login.init_naver_id_login();
+ 
+</script> -->
+
+
+
+</body>
 </html>

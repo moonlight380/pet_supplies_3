@@ -23,12 +23,13 @@
 
 
 		<div>
-			<a id="chatBotBtn" href="${pageContext.request.contextPath}/member/memberLogin"
+			<a id="chatBotBtn"
+				href="${pageContext.request.contextPath}/member/memberLogin"
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
-				src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
+				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
 				alt="상담챗봇 창 열림" id="chatBotBtFloating"
-				style="bottom: 20px; display: block; width: 229px; height: 199px">
+				style="bottom: 20px; display: block; width: 100px; height: 100px">
 			</a>
 		</div>
 	</div>
@@ -44,13 +45,13 @@
 				onclick="window.open('${pageContext.request.contextPath}/echo/chatWindow','window_name','width=510,height=890,location=no,status=no,scrollbars=yes');"
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
-				src="${pageContext.request.contextPath}/resources/images/chatbotwaiting.gif"
+				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
 				alt="상담챗봇 창 열림" id="chatBotBtFloating"
-				style="bottom: 20px; display: block; width: 230px; height: 199px">
+				style="bottom: 20px; display: block; width: 100px; height: 100px">
 			</a>
 		</div>
 
-<!-- 		<iframe name="cbIframe" id="cbIframe" src="" scrolling="no"
+		<!-- 		<iframe name="cbIframe" id="cbIframe" src="" scrolling="no"
 			frameborder="0"
 			style="display: none; height: 650px; width: 400px; position: fixed; bottom: 20px; right: 120px; z-index: 9998; background: #fff;"
 			title="상담챗봇 창"></iframe> -->
@@ -78,12 +79,11 @@
 
 				<div class="product_search_form rounded_input"
 					style="margin-left: 30px;">
-					<form action="${pageContext.request.contextPath}/product/dogList" >
+					<form action="${pageContext.request.contextPath}/product/dogList">
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<div class="custom_select">
 									<select class="fom-control" id="sel1" name="kind">
-										<option value="">모든 카테고리</option>
 										<option value="pn">제품이름</option>
 										<option value="pc">제품내용</option>
 										<option value="pnum">제품번호</option>
@@ -113,7 +113,7 @@
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item"
 										href="${pageContext.request.contextPath}/review/reviewList">리뷰
-											TEST</a></li>
+											게시판</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
 										href="${pageContext.request.contextPath}/notice/noticeList">공지
 											사항</a></li>
@@ -159,8 +159,9 @@
 
 
 					<c:if test="${empty member}">
-						<li><a href="#" class="nav-link"><i
-								class="linearicons-user"></i></a>
+						<li><a
+							href="#"
+							class="nav-link"><i class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item "
@@ -177,9 +178,10 @@
 							</div></li>
 					</c:if>
 
-					<c:if test="${not empty member}">
-						<li><a href="#" class="nav-link"><i
-								class="linearicons-user"></i></a>
+ 					<c:if test="${not empty member}">
+						<li><a
+							href="#"
+							class="nav-link"><i class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item "
@@ -190,62 +192,33 @@
 							</div></li>
 					</c:if>
 
-
-
-
-
-
-
-
-					<li class="dropdown cart_dropdown"><a
+<%-- 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
-							class="linearicons-cart"></i><span class="cart_count">
-								<c:if test="${empty member.id}">
+							class="linearicons-cart"></i><span class="cart_count"> <c:if
+									test="${empty member.id}">
 									0
-								</c:if>
-								<c:if test="${not empty member.id}">
+								</c:if> <c:if test="${not empty member.id}">
 									${cartCount } <!-- 합칠 때 숫자 0 -->
 								</c:if>
-								</span></a>
+						</span></a>
 						<div class="cart_box dropdown-menu dropdown-menu-right">
 							<ul class="cart_list">
 								<c:forEach items="${headerCart }" var="cart">
-									<li>
-									<a href="#" class="item_remove">
-										<i class="ion-close"></i>
-									</a>
-									<a href="#">
-										<img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }"	alt="cart_thumb1">Variable product
-									</a> 
-										<span class="cart_quantity">
-											 ${cart.cAmount } x 
-											 <span class="cart_amount">
-												<span class="price_symbole">$</span>
-											</span>
-											${cart.price }
-										</span>
-									</li>
+									<li><a href="#" class="item_remove"> <i
+											class="ion-close"></i>
+									</a> <a href="#"> <img
+											src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }"
+											alt="cart_thumb1">Variable product
+									</a> <span class="cart_quantity"> ${cart.cAmount } x <span
+											class="cart_amount"> <span class="price_symbole">$</span>
+										</span> ${cart.price }
+									</span></li>
 								</c:forEach>
-								
-								
-								
+
+
+
 							</ul>
-							<div class="cart_footer">
-								<p class="cart_total">
-									<strong>Subtotal:</strong> <span class="cart_price"> <span
-										class="price_symbole">$</span></span>159.00
-								</p>
-								<p class="cart_buttons">
-									<a href="#" class="btn btn-fill-line view-cart">View Cart</a><a
-										href="#" class="btn btn-fill-out checkout">Checkout</a>
-								</p>
-							</div>
-						</div></li>
-
-
-
-
-
+						</div></li> --%>
 
 
 					<c:if test="${not empty member}">

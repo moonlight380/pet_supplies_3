@@ -10,8 +10,8 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="widget">
 						<div class="footer_logo">
-							<a href="#"><img src="" alt="logo" /></a>
-						</div>
+							<a href="#"><img src="" alt="" /></a>
+						</div>logo
 						<p>
 							회사명 : (주)펫샵 <br> 대표 : 김쌍용 <br>전화 : 1234-5678 <br>사업자등록번호
 							: 1234-5678-90<br> 통신판매업 신고 : 제 2020-서울마포-2020호 <br>
@@ -20,11 +20,11 @@
 					</div>
 					<div class="widget">
 						<ul class="social_icons social_white">
-							<li><a href="#"><i class="ion-social-facebook"></i></a></li>
-							<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-							<li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-							<li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+							<li><a href="https://www.facebook.com" target="_blank"><i class="ion-social-facebook"></i></a></li>
+							<li><a href="https://www.twitter.com" target="_blank"><i class="ion-social-twitter"></i></a></li>
+							<li><a href="https://www.google.com" target="_blank"><i class="ion-social-googleplus"></i></a></li>
+							<li><a href="https://www.youtube.com" target="_blank"><i class="ion-social-youtube-outline"></i></a></li>
+							<li><a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram-outline"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 					<div class="widget">
 						<h6 class="widget_title">사이트 링크</h6>
 						<ul class="widget_links">
-							<li><a href="${pageContext.request.contextPath}/review/reviewList">리뷰 테스트</a></li>
+							<li><a href="${pageContext.request.contextPath}/review/reviewList">리뷰 게시판</a></li>
 							<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 							<li><a href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
 						</ul>

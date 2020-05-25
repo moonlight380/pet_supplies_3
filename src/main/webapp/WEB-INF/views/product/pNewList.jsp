@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +20,21 @@
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 
+<style type="text/css">
 
+.product_header_right{
+	margin-left: 96%;
 
+}
+
+.bg_gray{
+	width: auto;
+	height: 60px;
+}
+</style>
 
 </head>
-
+<!-- --------------------------------------------------바디시작--------------------------------------------- -->
 <body>
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
@@ -39,50 +50,6 @@
 </div>
 <!-- END LOADER -->
 
-<%-- <!-- Home Popup Section -->
-<div class="modal fade subscribe_popup" id="onload-popup" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="ion-ios-close-empty"></i></span>
-                </button>
-                <div class="row no-gutters">
-                    <div class="col-sm-5">
-                    	<div class="background_bg h-100" data-img-src="${pageContext.request.contextPath}/resources/images/popup_img.jpg"></div>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="popup_content">
-                            <div class="popup-text">
-                                <div class="heading_s4">
-                                    <h4>Subscribe and Get 25% Discount!</h4>
-                                </div>
-                                <p>Subscribe to the newsletter to receive updates about new products.</p>
-                            </div>
-                            <form method="post">
-                            	<div class="form-group">
-                                	<input name="email" required type="email" class="form-control rounded-0" placeholder="Enter Your Email">
-                                </div>
-                                <div class="form-group">
-                                	<button class="btn btn-fill-line btn-block text-uppercase rounded-0" title="Subscribe" type="submit">Subscribe</button>
-                                </div>
-                            </form>
-                            <div class="chek-form">
-                                <div class="custome-checkbox">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
-                                    <label class="form-check-label" for="exampleCheckbox3"><span>Don't show this popup again!</span></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    	</div>
-    </div>
-</div>
-<!-- End Screen Load Popup Section -->  --%>
-
-
 <!-- START SECTION BREADCRUMB -->
 <div class="breadcrumb_section bg_gray page-title-mini">
     <div class="container"><!-- STRART CONTAINER -->
@@ -94,8 +61,8 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>                    
-                    <li class="breadcrumb-item active">Shop Load More</li>
+                    <li class="breadcrumb-item"><a href="../">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">신상품 리스트</a></li>                    
                 </ol>
             </div>
         </div>
@@ -117,32 +84,21 @@
             	<div class="row align-items-center mb-4 pb-1">
                     <div class="col-12">
                         <div class="product_header">
-                            <div class="product_header_left">
-                                <div class="custom_select">
-                                    <select class="form-control form-control-sm">
-                                        <option value="order">Default sorting</option>
-                                        <option value="popularity">Sort by popularity</option>
-                                        <option value="date">Sort by newness</option>
-                                        <option value="price">Sort by price: low to high</option>
-                                        <option value="price-desc">Sort by price: high to low</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
+
                             <div class="product_header_right">
                             	<div class="products_view">
-                            	 	<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
-                                    <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
-                                    <a href="javascript:Void(0);" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>
+<!------------------------------------------------------admin 계정만 write 버튼이 보일 수 있도록//  -------------------------------------------------------------------- -->
+
+								<c:if test="${member.id eq 'admin' }">
+								
+									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+									
+								</c:if>
+               
                                 </div>
-                                <div class="custom_select">
-                                    <select class="form-control form-control-sm">
-                                        <option value="">Showing</option>
-                                        <option value="9">9</option>
-                                        <option value="12">12</option>
-                                        <option value="18">18</option>
-                                    </select>
-                                </div>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->      
+                                <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
+                                    
                             </div>
                         </div>
                     </div>
@@ -162,10 +118,19 @@
                                 </a>
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
+
                                         <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal"></i> Add To Cart</a></li>
                                         <li><a href="//bestwebcreator.com/shopwise/demo/shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
                                         <li><a href="//bestwebcreator.com/shopwise/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
                                         <li><a href="#"><i class="icon-heart"></i></a></li>
+
+                                       <li class="add-to-cart">
+                                             <a>	<!-- 추가한부분 class에 cart id,data-toggle,data-target -->
+		                                        <i class="icon-basket-loaded cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal"></i>
+		                                         Add To Cart
+	                                         </a>   
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -177,36 +142,16 @@
 	               				<span class="contents"><a href="./${p}Select?productNum=${vo.productNum}"> date: ${vo.regDate}</a></span>                         
                                 </div>
                                 <div class="product_price">
-		                              <span class="price">${vo.price}</span>
-                                    <del>$55.25</del>
-                                    <div class="on_sale">
-                                        <span>35% Off</span>
-                                    </div>
+		                              <a href="./${p}Select?productNum=${vo.productNum}">   
+			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>
+                                    </a>                               
+                                    
                                 </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:80%"></div>
-                                    </div>
-                                    <span class="rating_num">(21)</span>
-                                </div>
-                                <div class="pr_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                                </div>
-                           
-                                <div class="list_product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                
+   
                             </div><!-- product_info" -->
                         </div> <!-- product -->
                     </div> <!-- "col-lg-3 col-md-4 col-6 grid_item" -->
 
-                    
                   </c:forEach>  
                 </div><!-- "row shop_container grid_container loadmore" -->
                 
@@ -221,36 +166,18 @@
 
 <!-- END SECTION SHOP -->
 
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-<div class="section bg_default small_pt small_pb">
-	<div class="container">	
-    	<div class="row align-items-center">	
-            <div class="col-md-6">
-                <div class="heading_s1 mb-md-0 heading_light">
-                    <h3>Subscribe Our Newsletter</h3>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="newsletter_form">
-                    <form>
-                        <input type="text" required="" class="form-control rounded-0" placeholder="Enter Email Address">
-                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> 
-</div>
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-
 </div>
 <!-- END MAIN CONTENT -->
+
+
 
 
 
 <!-- 추가한부분 div addCart -->
 <div id="quantityNum_amount"hidden="hidden">1</div>
 <c:import url="../cart/addCart.jsp"></c:import>
+
+
 
 
 <!-- START FOOTER -->

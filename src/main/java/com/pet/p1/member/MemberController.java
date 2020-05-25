@@ -52,6 +52,7 @@ public class MemberController {
 	
 //--------------------------------------------------------------------------------------------------------------
 
+
 	@GetMapping("memberPurchase")
 	public ModelAndView memberOrderInfo2(HttpSession session,ModelAndView mv,HttpServletRequest request)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -100,8 +101,12 @@ public class MemberController {
 		mv.addObject("pager",memberVO);
 		mv.setViewName("member/memberOrderInfo");
 		return mv;
+	}
 		
-		
+
+	@GetMapping("orderWait")
+	public void orderWait()throws Exception{
+
 	}
 	
 	
@@ -218,23 +223,28 @@ public class MemberController {
 	
 	@RequestMapping(value= "memberJoin", method = RequestMethod.POST)
 	public ModelAndView memberJoin(MemberVO memberVO, ModelAndView mv,HttpSession session) throws Exception {
-
 		  int result = memberService.memberJoin(memberVO,session);
-		  
-		  String msg ="Member Join Fail";
+
+		  String msg ="다시 시도해주세요";
+		  String path = "../";
 		  if(result>0) { 
 			msg = "Member Join Success";
+			path = "memberJoinSuccess";
 			}
 		  
 		  mv.addObject("result", msg); 
-		  mv.addObject("path", "../");
+		  mv.addObject("path", path);
 		  mv.setViewName("common/result");
 		  
 		return mv;
 	}
 	//--회원가입 끝
 	
-	
+	//-- 회원가입 성공 페이지
+	@GetMapping("memberJoinSuccess")
+	public void memberJoinSuccess()throws Exception{
+		
+	}
 	
 	//--로그인/로그아웃
 	@RequestMapping(value= "memberLogin")
@@ -292,12 +302,51 @@ public class MemberController {
 		 * }
 		 */
 		session.setAttribute("access_Token", access_Token);
-		session.setAttribute("member", memberInfo);
-		mv.addObject("result", "환영합니다!");
-		mv.addObject("path", "../");
-		mv.setViewName("common/result");
+		session.setAttribute("kmember", memberInfo);
+		
+		MemberVO memberVO = new MemberVO();
+		memberVO.setId((String)memberInfo.get("kakaoId"));
+		memberVO = memberService.memberIdCheck(memberVO);
+		
+		if(memberVO != null) {
+		
+			memberVO = memberService.snsLogin(memberVO);
+			 session.setAttribute("member", memberVO);
+			 long count = memberService.memberCart(memberVO);
+			 session.setAttribute("cartCount", count);
+			 mv.setViewName("redirect:../");
+		}else {
+			
+			mv.setViewName("member/kakaoJoin");
+		}
+		return mv;
+	}
+	
+	//-- kakaoJoin
+	@GetMapping("kakaoJoin")
+	public ModelAndView kakaoJoin()throws Exception{
+		ModelAndView mv = new ModelAndView();
 		
 		return mv;
+	}
+	
+	@PostMapping("snsJoin")
+	public ModelAndView snsJoin(MemberVO memberVO,HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+	
+		int result = memberService.snsJoin(memberVO, session);
+		  String msg ="Member Join Fail";
+		  if(result>0) { 
+			msg = "회원가입 완료!"
+					+ "로그인을해주세요";
+			}
+		  
+		  mv.addObject("result", msg); 
+		  mv.addObject("path", "../");
+		  mv.setViewName("common/result");
+		  
+		return mv;
+
 	}
 	
 	//-- kakao 로그아웃
@@ -310,8 +359,7 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
-	
-	//-- email 중복검사/찾기
+	//-- email 중복검사
 	@PostMapping("memberEmailCheck")
 	public ModelAndView memberEMCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -336,7 +384,6 @@ public class MemberController {
 	//-- id 중복검사
 	@PostMapping("memberIdCheck")
 	public ModelAndView memberIdCheck(MemberVO memberVO)throws Exception{
-		System.out.println("in");
 		ModelAndView mv = new ModelAndView();
 		memberVO = memberService.memberIdCheck(memberVO);
 		//null -> 가입 가능 1
@@ -352,20 +399,26 @@ public class MemberController {
 	
 	//-- id 중복검사 끝
 	
-
+	//-- phone 중복검사 
+	@PostMapping("memberPCheck")
+	public ModelAndView memberPCheck(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberVO = memberService.findPhone(memberVO);
+		int result = 0;
+		if(memberVO == null) {
+			result = 1;
+		}
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
 	//-- ID 찾기
 	@GetMapping("memberID")
 	public void memberID()throws Exception{
 		
 	}
-	
-	//-- PW 찾기
-	@GetMapping("memberPW")
-	public void memberPW()throws Exception{
-		
-	}
-	
-	
+
 	//-- ID 찾기 성공
 	@GetMapping("idFindSuccess")
 	public ModelAndView findSuccess(MemberVO memberVO)throws Exception{
@@ -380,7 +433,13 @@ public class MemberController {
 	public void findFail()throws Exception{
 		
 	}
-	
+
+	//-- PW 찾기
+	@GetMapping("memberPW")
+	public void memberPW()throws Exception{
+			
+	}
+
 	//-- PW 찾기 성공
 	@GetMapping("pwFindSuccess")
 	public ModelAndView pwFindSuccess(MemberVO memberVO)throws Exception{
@@ -389,7 +448,7 @@ public class MemberController {
 		
 		return mv;
 	}
-	
+
 	//-- email로 찾기
 	@PostMapping("findEmail")
 	@ResponseBody
@@ -399,16 +458,7 @@ public class MemberController {
 		
 		return memberVO;
 	}
-	
-	//-- PW 임시 비밀번호 메일 보내기
-	@GetMapping("sendMail")
-	public String sendMail(String mailto,String id)throws Exception{
-		String code = "<비밀번호 찾기 안내 메일>";
-		javaMailInfo.Sendmail(mailto,code,id);
-		
-		return "member/pwFindSuccess";	
-	}
-	
+
 	//-- Phone으로 찾기
 	@PostMapping("findPhone")
 	@ResponseBody
@@ -418,13 +468,22 @@ public class MemberController {
 		
 		return memberVO;
 	}
-	
+
+	//-- PW 임시 비밀번호 메일 보내기
+	@GetMapping("sendMail")
+	public String sendMail(String mailto,String id)throws Exception{
+		String code = "<비밀번호 찾기 안내 메일>";
+		javaMailInfo.Sendmail(mailto,code,id);
+		
+		return "member/pwFindSuccess";	
+	}
+
 	//-- memberPayment
 	@GetMapping("memberPayment")
 	public void memberPayment(MemberVO memberVO)throws Exception{
 	
 	}
-	
+
 	//kakaoPay
 	@RequestMapping(value = "kakaoPay",method = RequestMethod.GET)
 	public ModelAndView kakaoPay(ModelAndView mv) throws Exception{
@@ -432,6 +491,7 @@ public class MemberController {
 		
 		return mv;
 	}
+
 	
 	
 	/*
@@ -445,6 +505,9 @@ public class MemberController {
 	 * mv; }
 	 */
 	
+
+
+
 	//-- 결제 성공시
 	@GetMapping("kakaopaySuccess")
 	public ModelAndView kakaopaySuccess(HttpSession session)throws Exception{
@@ -457,13 +520,13 @@ public class MemberController {
 		return mv;
 		
 	}
-	
+
 	//-- 결제 실패시
 	@GetMapping("kakaopayFail")
 	public void kakaopayFail()throws Exception{
-		
+
 	}
-	
+
 	//-- 무통장 결제
 	@GetMapping("accountPaySuccess")
 	public void accountPaySuccess()throws Exception{

@@ -79,9 +79,10 @@ countdown('countdown', 43200);	 // second base
 	*
 	*/
 	
-var targetDate = new Date('2020-05-16');
 function timeout() {
-  var ms = targetDate - new Date();
+	var targetDate = new Date("2020-06-01");
+  var ms = targetDate - new Date;
+  console.log("000");
   var h = Math.floor(ms / (1000*60*60));
   var m = Math.floor((ms - (h*1000*60*60)) / (1000*60));
   var s = Math.floor((ms - (h*1000*60*60) - (m*1000*60)) / 1000);
@@ -94,7 +95,6 @@ function timeout() {
   }
 }
 timeout();
-	
 	
 
 

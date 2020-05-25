@@ -106,7 +106,6 @@ public class QnaService implements BoardService {
 		List<BoardFileVO> list = boardFileDAO.fileList(num);
 
 		String path = servletContext.getRealPath("/resources/qnaUpload");
-		System.out.println(path);
 		for (BoardFileVO boardFileVO : list) {
 			fileSaver.deleteFile(boardFileVO.getFileName(), path);
 		}

@@ -25,6 +25,30 @@
     vertical-align: middle;
     font-weight: normal;
 }
+
+.txt11{
+	padding: 10px 0 8px 10px;
+    color: #f76560;
+    font-size: 12px;
+    line-height: 1.5;
+    background: #fff8f5;
+    list-style: none;
+    text-align: left;
+    border-top: 1px solid #e8e5e4;
+    border-bottom: 1px solid #e8e5e4;
+    margin-bottom: 50px;
+}
+
+.payBtn button{
+	width: 35%; 
+	height: 50px;
+	background-color: #f2f2f2;
+	color: #777;
+	font-weight: bold;
+	border-color: #d7d5d5;
+	border-style: solid;
+}
+
 </style>
 </head>
 <body>
@@ -39,6 +63,7 @@
 	</div> --%>
 
 <!-- <div class="container" style="margin-top: 100px;  height: 3000px;"> -->
+
 <div class="container-fulid mt-5"id="step" title="step2">
 	<div class="row">
 		
@@ -51,11 +76,11 @@
 	
 
 <!-- 기본배송 -->
-<div class="ec-base-table typeList gBorder" style="border-bottom: 1px solid black;">
+<div class="ec-base-table typeList gBorder">
 <div style="text-align: center;">
 <div>
 						<div class="row" style="padding: 0px 15px 15px 15px;" >
-							<table>
+							<table style="border-top: 1px solid black; width: 100%">
 								<colgroup>
 									
 
@@ -71,7 +96,7 @@
 
 								</colgroup>
 								<thead>
-									<tr class="table_title"  style="text-align: center;   line-height: 60px;">
+									<tr class="table_title"  style="text-align: center; line-height: 60px;">
 										<th scope="col" hidden="hidden" ><input type="checkbox" id="check_all" hidden="hidden"
 											title="checkbox" ><div class="row" style="height: 10px;"></div><label style="margin: 0 auto;"
 											for="check_all" class="material-icons checkbox"
@@ -102,8 +127,13 @@
 												 <label	for="${cart.id}${cart.cnum}_check" class="material-icons checkbox"title="${cart.id}${cart.cnum}_check">check</label>
 												 
 											</td>
+
 											<td><img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
 											<td>${cart.productName }</td>
+
+											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
+											<td id="productName">${cart.productName }</td>
+
 											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
 											<td>
 												
@@ -122,19 +152,32 @@
 											</td>
 
 										</tr>
-									</tbody>
-
-
+								
 
 								</c:forEach>
+											<tr class="table table-hove">
+										<td colspan="8" style="text-align: right;">
+										상품구매금액 <strong id="all_sum" class="all_sum">0원</strong>
+										 + 배송비 <span id="deli">0원</span>
+										   = 합계 : <strong class="txtEm gIndent10">
+										   <span id="payment" class="paymentPrice">0</span></strong>
+										</td>
+
+										</tr>		
+								
+									</tbody>
 							</table>
 
 						</div>
+						
+						
+<!-- 
 						<div class="row">
 							<div class="col">
 								
 							</div>
 						</div>
+						
 
 						<div class="row"
 							style="margin:15px 0 15px 0; padding: 15px; text-align: center; font-weight: bold; color: black; border: 1px solid #9ca0aa;">
@@ -172,32 +215,28 @@
 								</div>
 								<div class="col-sm-3">
 									<div>결제 금액</div>
-									<div style="color: #FF324D;" id="payment" class="paymentPrice">0원</div>
+									<div style="color: #FF324D;" id="" class="paymentPrice">0원</div>
 
 								</div>
-						</div>
+						</div> -->
+						
+<ul class="ec-base-help controlInfo typeBtm" style="height: 20px;">
+<li class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</li>
+</ul>
+			
 					</div>
 
 
 
-<ul class="ec-base-help controlInfo typeBtm">
-<li class="txtWarn txt11">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</li>
-</ul>
-</div>
 
-<div class="ec-base-button" style="margin-top: 10px;">
-<span class="gLeft " >
-<strong class="text">선택상품을</strong>
-<a href="#none" id="btn_product_delete" class="btn_function btncolor_etc"><span class="ico_delete_w">삭제하기</span></a>
-</span>
 </div>
 
 </div>
 
 <!-- 주문정보 -->
 
-<div class="orderArea  ec-shop-ordererForm" style="margin-top: 20px;">
-<div class="title" style="float: left; width: 100%; height: 25px;">
+<div class="orderArea  ec-shop-ordererForm" style="margin-top: 60px; border-top: 1px solid black;">
+<div class="title" style="float: left; width: 100%; height: 25px; margin-top: 20px;">
 	<p class="required" style="float: right;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</p>
 	<h3 style=" font-weight: bold; font-size: medium;">주문 정보</h3>
 </div>
@@ -241,7 +280,7 @@
 <th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
 <td>
 <input id="oemail1" name="email" class="mailId" value="${member.email}" type="text">
-<ul>
+<ul style="list-style: none; margin-top: 10px;">
 <li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
 <li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
 </ul>
@@ -257,7 +296,7 @@
 
 <!-- 배송정보 -->
 
-<div class="orderArea" style="margin-top: 30px;">
+<div class="orderArea" style="margin-top: 50px;">
 
 <div class="title"  style="float: left; width: 100%; height: 25px;">
 <h3 style="font-size: medium; font-weight: bold; display: inline;">배송 정보</h3>
@@ -343,8 +382,8 @@
 <th scope="row">휴대전화 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
 </th>
 <td><select id="rphone" >
-<option id="010" value="010">010</option>
-<option id="011" value="011">011</option>
+<option id="010">010</option>
+<option id="011">011</option>
 <option value="016">016</option>
 <option value="017">017</option>
 <option value="018">018</option>
@@ -361,9 +400,8 @@
 <td>
 <textarea class="input_Join" id="omessage" name="omessage" maxlength="255" cols="70"></textarea>
 <div class="devMessage">
-<ul class="gIndent5">
-<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주십시오.</li>
-<li>게시글은 비밀글로 저장되며 비밀번호는 주문번호 뒷자리로 자동 저장됩니다.</li>
+<ul class="gIndent5" style="list-style: none;" >
+<li>배송메시지란에는 배송시 참고할 사항이 있으면 적어주세요.</li>
 </ul>
 </div>
 </td>
@@ -383,7 +421,7 @@
 	<h3 style="font-size: medium; font-weight: bold;">결제 예정 금액</h3>
 </div>
 <div class="ec-base-table typeList gBorder total">
-<table class="table">
+<table class="table" style="text-align: center;">
 <colgroup>
 <col style="width:33.33%">
 <col style="width:33.33%" class="">
@@ -391,24 +429,25 @@
 </colgroup>
 <tr class="table-danger">
 <th scope="col">
-<strong>총 주문 금액</strong> <a href="#none" onclick="EC_SHOP_FRONT_ORDERFORM_DISPLAY.onDiv('order_layer_detail', event);" class="more btn_function btncolor_basic"><span class="ico_arrow_r">내역보기</span></a>
+<strong>총 주문 금액</strong>
 </th>
 <th scope="col" class="">
-<strong>총 </strong><strong id="total_addsale_text" class="">할인</strong><strong id="plus_mark" class=""> + </strong><strong id="total_addpay_text" class="">부가결제</strong><strong> 금액</strong>
+<strong id="total_addsale_text">총 할인금액</strong>
 </th>
 <th scope="col"><strong>총 결제예정 금액</strong></th>
 </tr>
 
 <tbody class="center"><tr>
 <td><div class="box txt16">
-<!-- <strong><span id="total_order_price_view" class="txt23">31,900</span>원</strong> <span class="displaynone"><span id="total_order_price_ref_view"></span></span> -->
-<div style="color: black; font-weight: bold;" class="all_sum">0원</div>
+<div style="color: black; font-weight: bold;"><span id="pp" class="paymentPrice">0</span></div>
 </div></td>
+
 <td class="option "><div class="box txt16">
-<strong>-</strong> <span id="total_sale_price_view" class="txt23"><strong>0원</strong></span> <span class="displaynone"><span id="total_sale_price_ref_view"></span></span>
+<strong>-</strong>
+<span id="discount" class="txt23"><strong>0원</strong></span>
 </div></td>
 <td><div class="box txtEm txt16">
-<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="paymentPrice">0원</span><span class="displaynone"><span id="total_order_sale_price_ref_view"></span></span>
+<strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="Ap paymentPrice">0원</span>
 </div></td>
 </tr></tbody>
 </table>
@@ -434,7 +473,7 @@
 <th scope="row">쿠폰할인</th>
 
 <td><input id="c_in" readonly="readonly" style="width: 100px;" value="0">원  
-<a href="javascript:popup()" id="btn_coupon_select" class="btn_function btncolor_subordinate" style="background-color: red; width: 80px; height: 30px; text-align: center;" type="button"><span style="font-size: small; color: white;">쿠폰적용</span></a>
+<a href="javascript:popup()" style="background-color: #FF324D; width: 80px; height: 30px; text-align: center;" type="button"><span style="font-size: small; color: white;">쿠폰적용</span></a>
 </td>
 </tr>
 
@@ -451,16 +490,11 @@
 <col style="width:auto">
 </colgroup>
 
-<tbody><tr class="table-danger">
-<th scope="row"><strong>총 부가결제금액</strong></th>
-<td><strong id="total_addpay_price_view">0</strong>원</td>
-</tr></tbody>
-
 <!-- 적립금 --><tbody class=""><tr>
 <th scope="row">적립금</th>
 <td>
-<p> <input id="input_mile" name="input_mile" class="inputTypeText text-center" placeholder="" size="10" value=""  type="text"> 원 (총 사용가능 적립금 : <strong class="txtWarn">0</strong>원)</p>
-<ul class="info">
+<p> <input id="input_point" name="input_point" class="inputTypeText text-center" placeholder="" size="10" value=""  type="text"> 원 (총 사용가능 적립금 : <strong id="memberPoint">${member.point}</strong>원)</p>
+<ul class="info" style="list-style: square;" >
 <li>적립금은 최소 0 이상일 때 결제가 가능합니다.</li>
 <li id="mileage_max_unlimit" class="">최대 사용금액은 제한이 없습니다.</li>
 <li id="mileage_max_limit" class="">1회 구매시 적립금 최대 사용금액은 0입니다.</li>
@@ -487,17 +521,18 @@
 </div>
 
 
-<div class="All" style="border: 1px solid black; width: 100%; height: 600px;">
+<div class="All" style="border-top: 1px solid black; border-bottom:1px solid black;  width: 100%; height: 500px;">
 
 <div class="payment" style="width: 75%; height: 500px; float: left;">
 <div class="payBtn" style="width: 100%; height: 150px; text-align: center;">
-<button id="credit" style="width: 40%; height: 50px; margin-top: 40px;" >신용카드</button>
-<button id="phonpay" style="width: 40%; height: 50px;">핸드폰결제</button>
-<button id="account" style="width: 40%; height: 50px;">무통장입금</button>
-<button id="kakaopay" style="width: 40%; height: 50px;"><img src="${pageContext.request.contextPath}/resources/images/payment_text_small.png"></button>
+
+<button id="credit" style="margin-top: 40px;" >신용카드</button>
+<button id="phonpay" >핸드폰결제</button>
+<button id="account" style="color: black; margin-top: 10px;">무통장입금</button>
+<button id="kakaopay" style="margin-top: 20px;"><img src="${pageContext.request.contextPath}/resources/images/payment_text_small.png"></button>
 </div>
 
-<div class="payContents" style="border-top: 1px solid black; width: 100%; height: 200px; text-align: center; margin-top: 35px">
+<div class="payContents" style="border-top: 1px solid #d7d5d5; width: 100%; height: 200px; text-align: center; margin-top: 35px">
 
 <div id="credit_box" style="display: none; font-size: small; text-align: left; margin-left: 100px; margin-top: 20px;">
 <i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
@@ -525,7 +560,7 @@
 <td>
 <select id="bankaccount" name="bankaccount" >
 <option value="-1">::: 선택해 주세요. :::</option>
-<option value="bank_13:000-0000-0000-11:(주)펫코리아:농협:banking.nonghyup.com">농협:000-0000-0000-11 (주)펫코리아</option>
+<option value="농협 000-0000-0000-11">농협:000-0000-0000-11 (주)펫코리아</option>
 </select><p class="gBlank5 "><a href="#none" id="btn_bank_go" class="btn_function btncolor_basic"><span class="ico_arrow_r">은행사이트 바로가기</span></a></p>
 </td>
 </tr>
@@ -534,11 +569,11 @@
 
 <div id="pg_paymethod_info" class="payHelp" style="display: block; font-size: small; height: 250px;">
 <i class='fas fa-paw' style="font-size: 20px; display: inline; width: 100px;"></i>
-<p id="pg_paymethod_info_shipfee" class="ec-base-help" style="display: inline;">최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.<br><b><font size="3" color="red">★ 무통장입금 시 <u>주문완료 문자(카톡)을 꼭 확인 후</u> 해당 계좌로 입금 부탁드립니다. ★</font><b></b></b></p>
+<p id="pg_paymethod_info_shipfee" class="ec-base-help" style="display: inline;">최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.<br><b><font size="3" color="red">★ 무통장입금 시 <u>주문완료를 꼭 확인 후</u> 해당 계좌로 입금 부탁드립니다. ★</font><b></b></b></p>
 <p id="pg_paymethod_info_pg" class="ec-base-help" style="display: none;">소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
 </div>
 
-
+<!-- 
 <div class="agree">
 <table class="table table-condensed" style="float: left; text-align: left; font-size:small; height: 50px;">
 
@@ -553,6 +588,7 @@
 </div>
 
 <div id="cashreceipt_form_area" class="ec-base-table cash" style="display: none;font-size: small; height: 10px;">
+
 <table class="table table-condensed">
 <tbody>
 <tr>
@@ -578,11 +614,12 @@
 </tr>
 </tbody>
 </table>
+
 </div>
 </td>
 </tr>
 </table>
-</div>
+</div> -->
 
 </div>
 
@@ -606,35 +643,38 @@
 
 <!-- 최종결제금액 -->
 
-<div class="total" style="border-left:1px solid black; width: 25%; height: 600px; float: left;">
+<div class="total" style="border-left:1px solid #d7d5d5; width: 25%; height: 500px; float: left;">
 
 <h4 style="margin-top: 40px;">
-<strong id="current_pay_name" style="margin-left: 50px;"></strong> <span style="font-size: medium;">최종결제 금액</span>
+<strong id="current_pay_name" style="margin-left: 50px;"></strong>
+ <span style="font-size: medium;">최종결제 금액</span>
 </h4>
-<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="paymentPrice" id="AllPrice">0원</div>
 
+<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="Ap" id="AllPrice">0원</div>
 <div class="paymentAgree" id="chk_purchase_agreement" style="margin-left: 10px; margin-top: 20px;">
 <input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; float: left; width: 30px; margin-top: 7px;"><label for="chk_purchase_agreement0" style="font-size: small;">결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
 </div>
 
 <div class="button" style="margin-top: 15px; margin-left: 20px; text-align: center;">
-<input type="button" style="background-color: red;color: white; width: 250px; height: 50px; " class="btn_submit btncolor_dominant" id="btn_payment" value="결제하기">
+<input type="button" style="background-color: #FF324D; color: white; width: 250px; height: 50px; border: none;" class="btn_submit btncolor_dominant" id="btn_payment" value="결제하기">
 </div>
 
 <div class="mileage" style="margin-top: 30px; ">
 <dl class="ec-base-desc gLarge right" style="height:50px; font-size: small; border-bottom: 1px solid gray; border-top: 1px solid gray;">
 <dt style=" float: left; margin-left: 20px;margin-top: 12px;"><strong>총 적립예정금액</strong></dt>
-<dd id="mAllMileageSum" class="txtWarn" style=" float: right; margin-top: 12px; margin-right: 20px;">570원</dd>
+<dd id="mAllMileageSum" class="txtWarn" style=" float: right; margin-top: 12px; margin-right: 20px;">0원</dd>
 </dl>
 
 <dl class="ec-base-desc gLarge right" style="font-size: small;">
+
 <dt style=" float: left; margin-left: 20px;">상품별 적립금</dt>
-<dd id="mProductMileage" style="text-align: right; margin-right: 20px;">570원</dd>
+<dd id="mProductMileage" style="text-align: right; margin-right: 20px;">0원</dd>
 <dt style=" float: left; margin-left: 20px;">회원 적립금</dt>
 <dd id="mMemberMileage" style="text-align: right; margin-right: 20px;">0원</dd>
-<dt style="float: left; margin-left: 20px;">쿠폰 적립금</dt>
-<dd id="mCouponMileage" style="text-align: right; margin-right: 20px;">0원</dd>
+
 </dl>
+
+
 </div>
 </div>
 </div>
@@ -648,7 +688,7 @@
 </div>
 </div>
 </div>
-
+<div id="direct_cnum" hidden="hidden">${cnum}</div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="../resources/js/cart.js"></script>
 
@@ -701,34 +741,24 @@
 	
 	//-- 입금자명 유효성 검사
 	var pnameCheck = true;
-	$("#pname").ready(function() {
+	$("#pname").blur(function() {
 	var pname = $("#pname").val();
-		for (var i=0; i<pname.length; i++)  { 
+		 for (var i=0; i<pname.length; i++)  { 
 		    var chk = pname.substring(i,i+1); 
 		    if(chk.match(/[0-9]|[a-z]|[A-Z]/)) { 
-		    	nameCheck = false;
+		    	pnameCheck = false;
 		    }else if(chk.match(/([^가-힣\x20])/i)){
-		    	nameCheck = false;
+		    	pnameCheck = false;
 		    }else if($("#pname").val() == " "){
-		    	nameCheck = false;
-		    }else if(name.length <= 0){
-		    	nameCheck = false;
+		    	pnameCheck = false;
+		    }else if(pname.length <= 0){
+		    	pnameCheck = false;
 		    }else{
-		    	nameCheck = true;
+		    	pnameCheck = true;
 		    }
-		} 
+		}  
 	});
 	
-	//-- 입금은행 유효성 검사
-	var bankCheck = true;
-	$("#bankaccount").ready(function() {
-		var bankaccount = $(this).val();
-		if(bankaccount = '-1'){
-			bankCheck = false;
-		}else{
-			bankCheck = true;
-		}
-	});
  	
 	/* 결제버튼 */
 	
@@ -756,16 +786,21 @@
 				var totalPrice = $("#AllPrice").text();
 				var text = totalPrice.split("원").join("");
 				var AllPrice = text.split(",").join("");
+				var pname = $("#pname").val();
+				var bankaccount = $("#bankaccount").val();
+				var productName = $("#productName").text();
 				
 		 		 if(pay == kakaopay){
-					location.href="./kakaoPay?name=dd&totalPrice="+AllPrice;	
+					location.href="./kakaoPay?name="+productName+"&totalPrice="+AllPrice;	
 				}else if(pay == account){
-					if(!pnameCheck){
+					if(pname.length <= 0){
+						alert("입금자명이 입력되지 않았습니다");
+					}else if(!pnameCheck){
 						alert("입금자명을 제대로 입력해주세요");
-					}else if(!bankCheck){
-						alert("입금은행을 제대로 입력해주세요");
+					}else if(bankaccount <= 0){
+						alert("입금은행을 선택해주세요");
 					}else{
-						location.href="./accountPaySuccess";
+						location.href="./accountPaySuccess?pname="+pname;
 					}
 				}else if(pay.length<=0){
 					alert("결제방식을 선택해주세요");
@@ -867,12 +902,62 @@
             window.open(url, name, option);
         } 
 	
- 	window.onmessage = function(e){
- 		$("#total_addsale_price_view").html("<strong>"+e.data+"원</strong>");
- 		$("#total_sale_price_view").html("<strong>"+e.data+"원</strong>");;
- 	  } 
+  	window.onmessage = function(e){
 
-function sample6_execDaumPostcode() {
+ 		var coupon = e.data*1;
+
+ 		$("#total_addsale_price_view").html("<strong>"+coupon+"원</strong>");
+ 		$("#discount").html("<strong>"+coupon+"원</strong>");
+ 		
+		//-- 최종결제금액
+ 		var pay = $("#pp").text();
+ 		pay = removeCommas(pay);
+ 		pay = pay*1;
+ 		
+ 		all = pay-coupon;
+ 		all = addCommas(all)+"원";
+ 		$(".Ap").text(all);
+ 		
+ 	  } 
+ 	
+ 	//-- 적립창 유효성 검사
+
+	 	$("#input_point").blur(function() {
+			var memberPoint1 = $("#memberPoint").text();
+			var input_point1 = $(this).val();
+			
+			var memberPoint = memberPoint1*1;
+			var input_point = input_point1*1;
+			
+			if(input_point > memberPoint){
+				alert("사용가능한 적립금액을 확인해주세요");
+				$("#input_point").val(" ");
+			}
+	
+			var coupon1 = $("#c_in").val();
+			var coupon = coupon1*1;
+			
+			var dis = coupon+input_point;
+			
+	 		
+	 		$("#total_addsale_price_view").html("<strong>"+dis+"원</strong>");
+	 		$("#discount").html("<strong>"+dis+"원</strong>");;
+	 		
+	 		//-- 최종결제금액
+	 		var pay = $("#pp").text();
+	 		pay = removeCommas(pay);
+	 		pay = pay*1;
+	 		
+	 		all = pay-dis;
+	 		all = addCommas(all)+"원";
+	 		$(".Ap").text(all);
+			
+		});
+
+ 	
+ 		
+ 	
+	function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -945,6 +1030,31 @@ function sample6_execDaumPostcode() {
         }
  
 </script>
+<!-- <script type="text/javascript">
+	
+		var ids=[];
+		var cnum=$("#direct_cnum").text();
+		ids.push(cnum);
+		$.ajax({
+			type:"post",
+			traditional : true,
+			url:"./memberPaymentList",
+			data:{
+				ids:ids
+			},
+			success:function(data){
+				
+			},error : function(request, status, error) {
+				alert("code = " + request.status + " message = "
+						+ request.responseText + " error = " + error);
+			}
+		});
+		
+		
+		
+
+
+</script> -->
 
 </body>
 </html>

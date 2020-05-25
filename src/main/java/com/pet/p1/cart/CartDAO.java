@@ -37,5 +37,9 @@ public class CartDAO {
 	public int cartInsert(CartVO cartVO)throws Exception{
 		return sqlSessions.insert(NAMESPACE+"cartInsert",cartVO);
 	}
+	
+	public long direct(MemberVO memberVO) throws Exception{
+		return sqlSessions.selectOne(NAMESPACE+"direct",memberVO);
+	}
 
 }

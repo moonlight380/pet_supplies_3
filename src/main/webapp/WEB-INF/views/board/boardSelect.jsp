@@ -47,7 +47,9 @@
 									</c:forEach>
 								</blockquote>
 
-								<div align="right">
+								<div align="left" style="float: left;"></div>
+								<a href="./${board}List" class="btn btn-success">글 목록으로</a>
+								<div style="float: right;">
 									<a href="./${board}Update?num=${vo.num}"
 										class="btn btn-primary">글수정</a> <a
 										href="./${board}Delete?num=${vo.num}" class="btn btn-danger">글삭제</a>
@@ -76,6 +78,18 @@
 										</div>
 									</div>
 								</div>
+
+
+								<div style="float: left;">
+									<a href="./${board}Select?num=${maxNum}" class="btn btn-link"
+										id="previous" title="${maxNum}">이전글로</a>
+								</div>
+
+								<div style="float: right;">
+									<a href="./${board}Select?num=${minNum}" class="btn btn-link"
+										id="next" title="${minNum}">다음글로</a>
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -84,7 +98,25 @@
 		</div>
 
 	</div>
+	<input type="hidden" title="${vo.num}" id="compareNum">
 
+	<script type="text/javascript">
+		$("#previous").click(
+				function() {
+					if ($("#compareNum").attr("title") == $("#previous").attr(
+							"title")) {
+						alert("맨 처음 글입니다");
+					}
+				})
+
+		$("#next").click(
+				function() {
+					if ($("#compareNum").attr("title") == $("#next").attr(
+							"title")) {
+						alert("맨 마지막 글입니다");
+					}
+				})
+	</script>
 
 
 	<c:import url="../template/footer.jsp"></c:import>

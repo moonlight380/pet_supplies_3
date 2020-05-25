@@ -60,4 +60,10 @@ public class NoticeDAO implements BoardDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.update(NAMESPACE + "hitUpdate", num);
 	}
+	public long minNum(long num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "minNum", num);
+	}
+	public long maxNum(long num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "maxNum", num);
+	}
 }

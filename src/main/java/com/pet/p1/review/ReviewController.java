@@ -2,8 +2,6 @@ package com.pet.p1.review;
 
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -100,6 +98,11 @@ public class ReviewController {
 
 		BoardVO boardVO = reviewService.boardSelect(num);
 
+		long minNum = reviewService.minNum(num);
+		long maxNum = reviewService.maxNum(num);
+
+		mv.addObject("maxNum", maxNum);
+		mv.addObject("minNum", minNum);
 		mv.addObject("vo", boardVO);
 		mv.setViewName("board/boardSelect");
 		return mv;

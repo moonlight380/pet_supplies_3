@@ -93,6 +93,11 @@ public class NoticeController {
 	public ModelAndView boardSelect(long num) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		BoardVO boardVO = noticeService.boardSelect(num);
+		long minNum = noticeService.minNum(num);
+		long maxNum = noticeService.maxNum(num);
+	
+		mv.addObject("maxNum",maxNum);
+		mv.addObject("minNum", minNum);
 		mv.addObject("vo", boardVO);
 		mv.setViewName("board/boardSelect");
 		return mv;

@@ -106,6 +106,16 @@
 		hit+1 where num=#{num}
 	</update>
 
+	<select id="minNum" resultType="Long">
+		select nvl(min(num),#{num}) from notice where
+		num > #{num}
+	</select>
+
+	<select id="maxNum" resultType="Long">
+		select nvl(max(num),#{num}) from notice where
+		num &lt; #{num}
+	</select>
+
 
 
 </mapper>  

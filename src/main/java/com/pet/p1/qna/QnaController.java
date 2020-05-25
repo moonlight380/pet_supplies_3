@@ -122,7 +122,12 @@ public class QnaController {
 	public ModelAndView boardSelect(Long num, ModelAndView mv) throws Exception {
 
 		BoardVO boardVO = qnaService.boardSelect(num);
-
+		long minNum = qnaService.minNum(num);
+		long maxNum = qnaService.maxNum(num);
+	
+		mv.addObject("maxNum",maxNum);
+		mv.addObject("minNum", minNum);
+		
 		mv.addObject("vo", boardVO);
 		mv.setViewName("board/boardSelect");
 		return mv;

@@ -106,4 +106,13 @@ public class NoticeService implements BoardService{
 		return noticeDAO.boardDelete(num);
 
 	}
+	
+	public long minNum(long num) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.minNum(num);
+	}
+	public long maxNum(long num) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.maxNum(num);
+	}
 }

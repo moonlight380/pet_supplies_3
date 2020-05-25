@@ -227,7 +227,7 @@ public class MemberController {
 
 		  String msg ="다시 시도해주세요";
 		  String path = "../";
-		  if(result>0) { 
+		  if(result>0) {
 			msg = "Member Join Success";
 			path = "memberJoinSuccess";
 			}
@@ -529,8 +529,14 @@ public class MemberController {
 
 	//-- 무통장 결제
 	@GetMapping("accountPaySuccess")
-	public void accountPaySuccess()throws Exception{
-		
+	public ModelAndView accountPaySuccess(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		ModelAndView mv = new ModelAndView();
+		OrderVO orderVO = new OrderVO();
+		orderVO = orderService.orderSelectOne(memberVO);
+		mv.addObject("order", orderVO);
+		mv.setViewName("member/accountPaySuccess");
+		return mv;
 	}
 	
 	

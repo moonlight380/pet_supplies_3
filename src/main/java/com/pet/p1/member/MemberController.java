@@ -50,7 +50,11 @@ public class MemberController {
 	private JavaMailInfo javaMailInfo; 
 	
 //--------------------------------------------------------------------------------------------------------------
-
+	@GetMapping("orderWait")
+	public void orderWait()throws Exception{
+		
+	}
+	
 	
 	@GetMapping("memberOrder")
 	public void memberOrder()throws Exception{

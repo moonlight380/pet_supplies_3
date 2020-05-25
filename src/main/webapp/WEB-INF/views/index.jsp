@@ -13,11 +13,72 @@
 .footersubbtn {
 	height: 100%;
 }
+/*review banner*/
+.main_bottom_info {
+	padding: 25px 0;
+	display: table;
+	width: 100%;
+	background: #fffff0;
+}
+
+body, code {
+	color: #666666;
+	background: #fff;
+}
+
+.template_width {
+	position: relative;
+	max-width: 1230px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+.main_bottom_info div.inner {
+	padding: 35px 10px 25px;
+}
+
+.main_bottom_info div.inner:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.main_bottom_info div.inner>div {
+	float: left;
+	border-right: 1px solid #333;
+}
+
+.main_bottom_info .mboard:first-child {
+	width: 33%;
+	padding-left: 0;
+}
+
+.main_bottom_info .mboard {
+	width: 37%;
+	padding: 0 45px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.main_bottom_info .mboard h2 {
+	margin: 0 0 25px;
+	word-spacing: -1px;
+}
+
+.main_bottom_info .minfo {
+	padding: 0 25px;
+	box-sizing: border-box;
+	width: 30%;
+	text-align: center;
+	min-height: 200px;
+	border: 0 !important;
+	padding: 0 20px;
+}
 </style>
 
 
 </head>
-<body style="background-color: #fffff0">
+<body>
 
 	<c:import url="./template/header.jsp"></c:import>
 
@@ -65,7 +126,7 @@
 					<div class="col-md-6">
 						<div class="single_banner">
 							<img
-								src="${pageContext.request.contextPath}/resources/images/singleb1.png"
+								src="${pageContext.request.contextPath}/resources/images/subbanner1.jpg"
 								alt="shop_banner_img1" />
 							<div class="single_banner_info">
 								<!-- 								<h5 class="single_bn_title1">Super Sale</h5>
@@ -78,7 +139,7 @@
 					<div class="col-md-6">
 						<div class="single_banner">
 							<img
-								src="${pageContext.request.contextPath}/resources/images/singleb2.png"
+								src="${pageContext.request.contextPath}/resources/images/subbanner2.jpg"
 								alt="shop_banner_img2" />
 							<div class="single_banner_info">
 								<!-- 								<h3 class="single_bn_title">New Season</h3>
@@ -112,7 +173,7 @@
 									aria-controls="arrival" aria-selected="true">신상품</a></li>
 								<li class="nav-item"><a class="nav-link" id="sellers-tab"
 									data-toggle="tab" href="#sellers" role="tab"
-									aria-controls="sellers" aria-selected="false">베스트 셀러</a></li>
+									aria-controls="sellers" aria-selected="false">히트상품</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -134,7 +195,7 @@
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -173,7 +234,7 @@
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -214,7 +275,7 @@
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -254,7 +315,7 @@
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -294,7 +355,7 @@
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -334,7 +395,7 @@
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -374,7 +435,7 @@
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -414,7 +475,7 @@
 														<li><a
 															href="${pageContext.request.contextPath}/resources/images/item1.jpg"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-														<li><a href="#"><i class="icon-heart"></i></a></li>
+
 													</ul>
 												</div>
 											</div>
@@ -456,7 +517,7 @@
 
 
 	<!-- START SECTION TESTIMONIAL -->
-	<div class="section bg_redon">
+	<!--  <div class="section bg_redon">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6">
@@ -539,8 +600,75 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<!-- END SECTION TESTIMONIAL -->
+
+	<div class="main_bottom_info">
+
+		<div class="template_width">
+			<div class="inner">
+				<div
+					class="xans-element- xans-board xans-board-listpackage-1 xans-board-listpackage xans-board-1 mboard ">
+					<h2
+						class="xans-element- xans-board xans-board-title-1 xans-board-title xans-board-1 ">
+						<span><font color="#666666">공지사항</font></span>
+					</h2>
+					<ul
+						class="xans-element- xans-board xans-board-list-1 xans-board-list xans-board-1">
+						<!--
+						$count = 4
+						$main_list = yes
+						$subject_cut = 30
+						$main_list_reply_view = no
+					-->
+						<c:forEach items="${nlist}" var="vo" end="4">
+							<li class="xans-record-"><a
+								href="./notice/noticeSelect?num=${vo.num}"><font
+									color="#666666">${vo.title}</font></a></li>
+						</c:forEach>
+					</ul>
+					<p class="more">
+						<a href="${pageContext.request.contextPath}/notice/noticeList"><img
+							src="/images/layout/btn_board_more.gif" alt="더보기"></a>
+					</p>
+				</div>
+				<div
+					class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 mboard ">
+					<h2
+						class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
+						<span><font color="#666666">구매후기</font></span>
+					</h2>
+					<ul
+						class="xans-element- xans-board xans-board-list-4 xans-board-list xans-board-4">
+						<!--
+						$count = 4
+						$main_list = yes
+						$subject_cut = 25
+						$main_list_reply_view = no
+					-->
+						<c:forEach items="${rlist}" var = "vo2" end="4">
+							<li class="xans-record-"><a href="./review/reviewSelect?num=${vo2.num}"><font
+									color="#666666">${vo2.title}</font></a><span class="point "></span></li>
+						</c:forEach>
+					</ul>
+					<p class="more">
+						<a href="${pageContext.request.contextPath}/review/reviewList"><img
+							src="/images/layout/btn_board_more.gif" alt="더보기"></a>
+					</p>
+				</div>
+				<div class="minfo">
+					<h2>
+						<span><font color="#666666">신규 회원 혜택</font></span>
+					</h2>
+					<div>
+						<strong>가입 즉시 5% 할인<br> 최대 6,000원 할인 쿠폰 3종 세트 지급
+						</strong><br> 회원등급에 따라 최대 15% 할인
+					</div>
+					<a href="/member/join.html">회원가입하기</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- START SECTION SHOP INFO -->
 	<div class="section pb_70">
@@ -585,7 +713,7 @@
 	<!-- END SECTION SHOP INFO -->
 
 	<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-	<div class="section bg_default small_pt small_pb">
+	<!--  <div class="section bg_default small_pt small_pb">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-6">
@@ -607,10 +735,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
-	</div>
 	<!-- END MAIN CONTENT -->
 
 	<c:import url="./template/footer.jsp"></c:import>

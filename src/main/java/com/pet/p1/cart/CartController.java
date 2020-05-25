@@ -4,9 +4,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.member.MemberService;
 import com.pet.p1.member.MemberVO;
@@ -31,8 +33,25 @@ public class CartController {
 		int result = cartService.cartInsert(cartVO);
 		long count = memberService.memberCart(memberVO);
 		session.setAttribute("cartCount", count);
-		System.out.println(count);
 		return result;
 	}
+	
+	@GetMapping("cartSelect")
+	@ResponseBody
+	public void cartSelect(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		long cnum = cartService.direct(memberVO);
+		session.setAttribute("cnum", cnum);
+		
+		
+		
+	}
 
+	
+	
+	
+	
+	
+	
+	
 }

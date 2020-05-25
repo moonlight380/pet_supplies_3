@@ -120,21 +120,25 @@ padding: 10px;
 #page_free img{border:10px soild #FFF;}
 #page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
 
+#timeSale_st{
+	font-size: 20px;	
+	font-style: normal;
+}
 </style>
 
 <!-- 팝업창띄우기 -->
 
-<!-- <script type="text/javascript">
+ <script type="text/javascript">
 	
 function goPopup(){
 		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
 
-		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
+		var popOption ="width=530px,height=660px,location=no,toolbars=no,status=no"  
 		//크롬에서는 속성값이 먹지 않음
-		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
+		window.open( popUrl ,"popup name",popOption);
 	}
 	
-</script> -->
+</script>  
 
 <!-- 레이어팝업 -->
 <!-- <script type="text/javascript">
@@ -154,7 +158,7 @@ $('#close_popup2').click(function(){
 
 <!-- ------------------------------------body 시작---------------------------------- -->
 <body>
-<!-- <body onload="goPopup()"> -->
+<!-- <body onload="goPopup()">  -->
 
 <%-- 
 <!-- 레이어팝업 시작 -->
@@ -232,7 +236,13 @@ $('#close_popup2').click(function(){
             <div class="col-lg-6 col-md-6">
                 <div class="pr_detail ">
                     <div class="product_description">
-                        
+                    
+                      <!-- 타이머기능 -->                 			
+                 		<div class="notice" id="timeSale_st">               						
+							<script  type="text/javascript" src="../resources/script/timeSale.js"> </script>
+						</div>
+						 <br>
+						 						 
                         <h4 class="product_title"><a href="#">${vo.productName}</a></h4>                       
                        
                             
@@ -246,7 +256,7 @@ $('#close_popup2').click(function(){
            <!-- ------------------------------------------------------------------------------------------------------------ -->            
                   
                       <div class="product_price">
-                            <p2><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></p2>
+                            <span>판매 가격 : </span> <fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>
 
                        </div><!--END  class="product_price " -->   
                    
@@ -656,16 +666,7 @@ $('#close_popup2').click(function(){
         
 
     <!-- ---------------------------------------------------------------------------------------------------- -->    
-        
-<!--         <div class="row">
-        	<div class="col-12">
-            	<div class="small_divider"></div>
-            	<div class="divider"></div>
-                <div class="medium_divider"></div>
-            </div>
-        </div> -->
-        
-   
+
     </div><!-- END class="container" -->
 </div>  <!-- END class="section" -->
 

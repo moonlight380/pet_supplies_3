@@ -40,6 +40,23 @@
 	
 	<beans:bean id = "echoHandler" class="com.pet.p1.echoHandler.EchoHandler"></beans:bean>
 	
+	<!--interceptors -->
+
+	<interceptors>
+		<interceptor>	
+			<mapping path="/product/*"/>
+			<!-- 제외할 부분 -->
+			<exclude-mapping path="/product/dogList"/>
+			<exclude-mapping path="/product/dogBestList"/>
+			<exclude-mapping path="/product/dogNewList"/>
+			<exclude-mapping path="/product/dogTimeSale"/>
+			<exclude-mapping path="/product/dogSelect"/>
+			<exclude-mapping path="/product/dogSelectTimeSale"/>
+				
+			<beans:bean class="com.pet.p1.Interceptor.AdminIntercepter" id="AdminInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>	
 	
+
 	
 </beans:beans>

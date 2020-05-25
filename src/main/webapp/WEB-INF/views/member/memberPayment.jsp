@@ -375,8 +375,8 @@
 <th scope="row">휴대전화 <span class=""><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></span>
 </th>
 <td><select id="rphone" >
-<option id="010" value="010">010</option>
-<option id="011" value="011">011</option>
+<option id="010">010</option>
+<option id="011">011</option>
 <option value="016">016</option>
 <option value="017">017</option>
 <option value="018">018</option>
@@ -682,7 +682,7 @@
 </div>
 </div>
 </div>
-
+<div id="direct_cnum" hidden="hidden">${cnum}</div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="../resources/js/cart.js"></script>
 
@@ -1022,6 +1022,31 @@
         }
  
 </script>
+<!-- <script type="text/javascript">
+	
+		var ids=[];
+		var cnum=$("#direct_cnum").text();
+		ids.push(cnum);
+		$.ajax({
+			type:"post",
+			traditional : true,
+			url:"./memberPaymentList",
+			data:{
+				ids:ids
+			},
+			success:function(data){
+				
+			},error : function(request, status, error) {
+				alert("code = " + request.status + " message = "
+						+ request.responseText + " error = " + error);
+			}
+		});
+		
+		
+		
+
+
+</script> -->
 
 </body>
 </html>

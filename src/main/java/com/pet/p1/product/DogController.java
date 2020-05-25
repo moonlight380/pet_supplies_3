@@ -36,8 +36,6 @@ public String getBoard()throws Exception{
 }
 
 
-
-
 //List
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
 	public ModelAndView dogList (ModelAndView mv,Pager pager,HttpSession session)throws Exception {
@@ -99,19 +97,19 @@ public String getBoard()throws Exception{
 		System.out.println("kind:"+pager.getKind());
 		System.out.println("search:"+pager.getSearch());
 			
-		List<DogVO> ar =dogService.dogTimeSale(pager);
+		List<DogVO> ar =dogService.dogTimeSale(pager); //dogVO의 주소를 줌
 		System.out.println(pager.getTotalPage());
 			
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
-			
+		
 		mv.setViewName("product/pTimeSale");
 
 		return mv;
 		
 		}	
 	
-	
+
 	
 	
 //write_get	(insert)
@@ -141,8 +139,8 @@ public String getBoard()throws Exception{
 	
 //Select
 	@GetMapping("dogSelect") 
-		public ModelAndView dogSelect(long productNum, HttpSession session) throws Exception{
-			DogVO dogVO=dogService.dogSelect(productNum);
+		public ModelAndView dogSelect(long productNum,DogVO dogVO, HttpSession session) throws Exception{
+			dogVO=dogService.dogSelect(dogVO);
 			List<BoardVO>ar = reviewService.pboardList(productNum);
 			
 			ModelAndView mv= new ModelAndView();
@@ -157,10 +155,31 @@ public String getBoard()throws Exception{
 			return mv;
 		}	
 	
+//dogSelectTimeSale		
+	@GetMapping("dogSelectTimeSale") 
+	public ModelAndView dogSelectTimeSale(long productNum,DogVO dogVO, HttpSession session) throws Exception{
+		System.out.println("1");
+		dogVO=dogService.dogSelectTimeSale(dogVO);
+		List<BoardVO>ar = reviewService.pboardList(productNum);
+		
+		ModelAndView mv= new ModelAndView();
+		
+
+		mv.addObject("vo",dogVO);
+		mv.addObject("list", ar);
+		mv.setViewName("product/pSelectTimeSale");
+		System.out.println("2");
+		
+		
+		return mv;
+	}	
+	
+	
+	
 //update_get
 	@GetMapping("dogUpdate")
-	public ModelAndView dogUpdate(Model model,ModelAndView mv,DogVO dogVO,long productNum)throws Exception{
-		dogVO =dogService.dogSelect(productNum);
+	public ModelAndView dogUpdate(Model model,ModelAndView mv,DogVO dogVO)throws Exception{
+		dogVO =dogService.dogSelect(dogVO);
 		mv.addObject("vo",dogVO);	
 		mv.setViewName("product/pUpdate");
 		//size(): 리스트에 들어있는 객체의 수

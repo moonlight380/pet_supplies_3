@@ -460,7 +460,6 @@ body, code {
 							<strong>가입 즉시 5% 할인<br> 최대 6,000원 할인 쿠폰 3종 세트 지급
 							</strong><br> 회원등급에 따라 최대 15% 할인
 						</div>
-						<a href="/member/join.html">회원가입하기</a>
 					</div>
 				</div>
 			</div>

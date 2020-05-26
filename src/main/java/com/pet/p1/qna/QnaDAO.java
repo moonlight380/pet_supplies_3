@@ -59,11 +59,17 @@ public class QnaDAO implements BoardDAO {
 	public int hitUpdate(long num) throws Exception {
 		return sqlSession.update(NAMESPACE + "hitUpdate", num);
 	}
+
 	public long minNum(long num) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "minNum", num);
 	}
+
 	public long maxNum(long num) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "maxNum", num);
 	}
-	
+
+	public List<Long> rNum() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "rNum");
+	}
+
 }

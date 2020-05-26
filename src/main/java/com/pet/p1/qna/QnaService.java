@@ -113,15 +113,20 @@ public class QnaService implements BoardService {
 		boardFileDAO.fileDeleteAll(num);
 		return qnaDAO.boardDelete(num);
 	}
-	
+
 	public long minNum(long num) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaDAO.minNum(num);
 	}
+
 	public long maxNum(long num) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaDAO.maxNum(num);
 	}
 
+	public List<Long> rNum() throws Exception {
+		// TODO Auto-generated method stub
+		return qnaDAO.rNum();
+	}
 
 }

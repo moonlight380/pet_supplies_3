@@ -132,4 +132,9 @@ public class ReviewService implements BoardService {
 		return reviewDAO.maxNum(num);
 	}
 
+	public List<Long> rNum() throws Exception {
+		// TODO Auto-generated method stub
+		return reviewDAO.rNum();
+	}
+
 }

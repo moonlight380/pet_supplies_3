@@ -72,4 +72,7 @@ public class ReviewDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE + "maxNum", num);
 	}
 
+	public List<Long> rNum() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "rNum");
+	}
 }

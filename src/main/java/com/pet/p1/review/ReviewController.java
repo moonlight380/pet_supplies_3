@@ -111,6 +111,9 @@ public class ReviewController {
 	@GetMapping("reviewList")
 	public ModelAndView boardList(Pager pager, ModelAndView mv) throws Exception {
 		List<BoardVO> ar = reviewService.boardList(pager);
+		List<Long> rNumber = reviewService.rNum();
+
+		mv.addObject("listNo", rNumber);
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("board/boardList");

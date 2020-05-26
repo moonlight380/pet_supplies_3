@@ -138,5 +138,10 @@
 		num &lt; #{num}
 	</select>
 
+	<select id="rNum" resultType="Long">
+		select rownum from qna order by
+		rownum desc
+	</select>
+
 
 </mapper>  

@@ -28,10 +28,10 @@
 					<div class="single_post">
 						<h2 class="blog_title">${vo.title}</h2>
 						<ul class="list_none blog_meta">
-							<li><a href="#"><i class="ti-calendar"></i>등록일 :
-									${vo.regDate} </a></li>
-							<li><a href="#"><i class="ti-comments"></i>작성자 :
-									${vo.id}</a></li>
+							<li><a><i class="ti-calendar"></i>등록일 : ${vo.regDate} </a></li>
+							<li><a
+								href="./${board}List?kind=bw&search=${vo.id}&btnSearch="><i
+									class="ti-comments"></i>작성자 : ${vo.id}</a></li>
 						</ul>
 						<div class="blog_content">
 							<div class="blog_text">
@@ -109,13 +109,11 @@
 					}
 				})
 
-		$("#next").click(
-				function() {
-					if ($("#compareNum").attr("title") == $("#next").attr(
-							"title")) {
-						alert("맨 마지막 글입니다");
-					}
-				})
+		$("#next").click(function() {
+			if ($("#compareNum").attr("title") == $("#next").attr("title")) {
+				alert("맨 마지막 글입니다");
+			}
+		})
 	</script>
 
 

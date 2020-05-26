@@ -27,13 +27,19 @@
 
 	</resultMap>
 
-	<!-- <sql id="search"> where <choose> <when test="kind == 'bt'"> title </when> 
-		<when test="kind=='bw'"> id </when> <otherwise> contents </otherwise> </choose> 
-		like '%'||#{search}||'%' </sql> -->
+	<sql id="search">
+		where
+		<choose>
+			<when test="kind == 'bt'"> title </when>
+			<when test="kind=='bw'"> id </when>
+			<otherwise> contents </otherwise>
+		</choose>
+		like '%'||#{search}||'%'
+	</sql>
 
 	<select id="boardCount" parameterType="Pager" resultType="Long">
 		select count(num) from review
-		<!-- <include refid="search"></include> -->
+		<include refid="search"></include>
 	</select>
 
 	<select id="boardList" parameterType="Pager"
@@ -41,7 +47,7 @@
 		select * from
 		(select RE.*, rownum R from
 		(select * from review
-		<!-- <include refid="search"></include> -->
+		<include refid="search"></include>
 		order by ref desc, step asc) RE)
 		where R between #{startRow} and
 		#{lastRow}
@@ -91,7 +97,7 @@
 		#{num},
 		0,
 		0,
-		100
+		#{productNum}
 		)
 	</insert>
 
@@ -144,6 +150,10 @@
 		num &lt; #{num}
 	</select>
 
+	<select id="rNum" resultType="Long">
+		select rownum from review order by
+		rownum desc
+	</select>
 
 </mapper>  
 	

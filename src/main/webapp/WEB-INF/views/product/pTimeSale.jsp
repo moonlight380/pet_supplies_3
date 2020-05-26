@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,21 +24,20 @@
 
 .product_header_right{
 	margin-left: 92%;
-
+	
 }
 .bg_gray{
 	width: auto;
-	height: 60px;
+	height: 60px;	
 }
+
 </style>
 </head>
-
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
 <body>
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
 </div>
-
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">
@@ -61,7 +60,7 @@
             <div class="col-md-6">
  				<ol class="breadcrumb justify-content-md-end">
                     <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="#">타임세일 리스트</a></li>                    
+                    <li class="breadcrumb-item"><a href="#"><strong>타임세일 리스트</strong></a></li>                    
                 </ol>
             </div>
         </div>
@@ -108,7 +107,7 @@
                     <c:forEach items="${list}" var="vo" varStatus="status" begin="0" end="300"> 
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
                         
-                        <div class="product">
+                        <div class="product pnum" title="${vo.productNum }">
                             <div class="product_img">
                                 <a href="./${p}Select?productNum=${vo.productNum}">                             
                                     <img src="${pageContext.request.contextPath}/resources/dogUpload/${vo.productFileVOs['0'].fileName}" alt="X">
@@ -128,21 +127,30 @@
                             </div>
                             <div class="product_info">
                                 <h6 class="product_title"><a href="./${p}SelectTimeSale?productNum=${vo.productNum}">${vo.productName} </a></h6>
-
+								
+								<!-- 타임세일시작 -->
 								<!-- 타이머기능 -->                 			
                  				<div class="notice">               						
-									<script type="text/javascript" src="../resources/script/timeSale.js"> </script>
+								<!-- <script type="text/javascript" src="../resources/script/timeSale.js"> </script> 
+ -->
 								</div>  
-
+								
+								
                                 <div class="product_price">
-		                              <span class="price">
-		                              <fmt:formatNumber value=" ${vo.price*(vo.sale*0.01)}" type="number"></fmt:formatNumber></span>
-                                    <del>${vo.price}</del>
+		                              <span class="price sale_display_none"><fmt:formatNumber value="${vo.price*(vo.sale*0.01)}" type="number"></fmt:formatNumber></span>
+                  
                                     <div class="on_sale">
-                                        <span>${vo.sale}% Off</span>
+                                   		<del  class="sale_display_none"><fmt:formatNumber value="${vo.price*1}" type="number" ></fmt:formatNumber></del> 
+                                        <span class="sale_display_none">${vo.sale*1}% Off</span>
                                     </div>
+                                    
                                 </div>
-                                
+                               
+                                 <div class="product_price">
+		                              <span class="price oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber></span>
+		                         </div>
+                               
+                                <!-- 타임세일끝 -->
                                 
                            
                                 <div class="list_product_action_box">
@@ -170,6 +178,12 @@
     </div> <!-- container -->
 </div><!-- section -->
 
+<script type="text/javascript" src="../resources/script/timeSale.js"> </script> 
+
+
+
+
+
 
 <!-- 추가한부분 div addCart -->
 <div id="quantityNum_amount"hidden="hidden">1</div>
@@ -180,12 +194,6 @@
 
 </div>
 <!-- END MAIN CONTENT -->
-
-
-
-<!-- 추가한부분 div addCart -->
-<div id="quantityNum_amount"hidden="hidden">1</div>
-<c:import url="../cart/addCart.jsp"></c:import>
 
 
 <!-- START FOOTER -->

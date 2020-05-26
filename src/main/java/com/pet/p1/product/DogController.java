@@ -1,5 +1,6 @@
 package com.pet.p1.product;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -40,8 +42,6 @@ public String getBoard()throws Exception{
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
 	public ModelAndView dogList (ModelAndView mv,Pager pager,HttpSession session)throws Exception {
 		
-		System.out.println("kind:"+pager.getKind());
-		System.out.println("search:"+pager.getSearch());
 		
 		List<DogVO> ar =dogService.dogList(pager);
 		System.out.println(pager.getTotalPage());
@@ -57,8 +57,6 @@ public String getBoard()throws Exception{
 	@RequestMapping(value ="dogNewList", method = RequestMethod.GET )
 	public ModelAndView dogNewList(ModelAndView mv,Pager pager)throws Exception {
 			
-		System.out.println("kind:"+pager.getKind());
-		System.out.println("search:"+pager.getSearch());
 			
 		List<DogVO> ar =dogService.dogNewList(pager);
 		System.out.println(pager.getTotalPage());
@@ -76,8 +74,10 @@ public String getBoard()throws Exception{
 	@RequestMapping(value ="dogBestList", method = RequestMethod.GET )
 	public ModelAndView dogBestList	(ModelAndView mv,Pager pager)throws Exception {
 			
-		System.out.println("kind:"+pager.getKind());
-		System.out.println("search:"+pager.getSearch());
+		/*
+		 * System.out.println("kind:"+pager.getKind());
+		 * System.out.println("search:"+pager.getSearch());
+		 */
 			
 		List<DogVO> ar =dogService.dogBestList(pager);
 		System.out.println(pager.getTotalPage());
@@ -93,10 +93,7 @@ public String getBoard()throws Exception{
 //dogTimeSale	
 	@RequestMapping(value ="dogTimeSale", method = RequestMethod.GET )
 	public ModelAndView dogTimeSale	(ModelAndView mv,Pager pager)throws Exception {
-			
-		System.out.println("kind:"+pager.getKind());
-		System.out.println("search:"+pager.getSearch());
-			
+	
 		List<DogVO> ar =dogService.dogTimeSale(pager); //dogVO의 주소를 줌
 		System.out.println(pager.getTotalPage());
 			
@@ -158,23 +155,41 @@ public String getBoard()throws Exception{
 //dogSelectTimeSale		
 	@GetMapping("dogSelectTimeSale") 
 	public ModelAndView dogSelectTimeSale(long productNum,DogVO dogVO, HttpSession session) throws Exception{
-		System.out.println("1");
 		dogVO=dogService.dogSelectTimeSale(dogVO);
 		List<BoardVO>ar = reviewService.pboardList(productNum);
 		
 		ModelAndView mv= new ModelAndView();
-		
 
 		mv.addObject("vo",dogVO);
 		mv.addObject("list", ar);
 		mv.setViewName("product/pSelectTimeSale");
-		System.out.println("2");
-		
-		
+
 		return mv;
 	}	
 	
+//timeSaleUpdate
+	 	@RequestMapping(value="timeSaleUpdate", method=RequestMethod.GET)
+	    @ResponseBody
+		public void timeSaleUpdate(Long[] ids)throws Exception{
+		
+	 	System.out.println("타임세일업데이트  controller");
+	 	System.out.println("ids:"+ids);
+	 	
+		List<Long> list = Arrays.asList(ids);
+		int result=dogService.timeSaleUpdate(list);
 	
+		if(result>0) {
+			System.out.println("성공");
+		}
+		
+//		for(int i =0;i<list.size();i++) {
+//			long productNum = list.get(i);
+//			dogService.timeSaleUpdate(productNum);
+//		}
+
+		
+		}	
+			
 	
 //update_get
 	@GetMapping("dogUpdate")

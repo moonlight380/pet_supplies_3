@@ -175,9 +175,7 @@ body, th, td, input, select, textarea {
     font-weight: normal;
     word-wrap: break-word;
 }
-.item_mileage{
-	margin-left: 80px;
-}
+
 
 .time_sale , .time_sale_num {
     width: 59px;
@@ -240,13 +238,13 @@ $('#close_popup2').click(function(){
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
-<body>
+<body onload="goPopup()">
 
 <div id="header"> <!-- 추가한부분  header reset -->
 	<c:import url="../template/header.jsp"></c:import>
 </div>
 
-<!-- <body onload="goPopup()">  -->
+
 
 <%-- 
 <!-- 레이어팝업 시작 -->
@@ -343,10 +341,15 @@ $('#close_popup2').click(function(){
 				    </dl>
 					
 					<dl class="time_sale_price">
-				       <dt>타임세일</dt>
+				       <dt>상품가격</dt>
 				          <dd>
-				            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
+				          <c:if test="${vo.sale gt 0}">
+				            <del ><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</del>
 				              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+				          </c:if>
+				         <c:if test="${vo.sale eq 0}">   
+				              <span class="oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber>원</span>
+				          </c:if>
 				          </dd>
 				     </dl>
 				
@@ -366,12 +369,14 @@ $('#close_popup2').click(function(){
 			     <dl class="item_discount_mileage dn">
 			            <dt>구매혜택</dt>
 			            
-			              <dd>
-			                   <span class="item_discount">할인 : ${vo.sale}%</span>
-			                     
-			                    <div class="item_mileage">적립 마일리지 : ${vo.point}점</div>
-			              </dd>
+			              	 <dd>     
+						      <c:if test="${vo.sale gt 0}">
+						            <span class="item_discount">할인 : ${vo.sale}%</span>						            
+						       </c:if>
+						             <span class="item_mileage">적립 마일리지 : ${vo.point}점</span>
+						      </dd>
 			     </dl>
+
 			      <dl>
 			            <dt>배송비</dt>
 			             <dd>3,000원</dd>

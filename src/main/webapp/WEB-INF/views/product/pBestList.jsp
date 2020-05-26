@@ -106,7 +106,7 @@
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
                    <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="#">베스트 리스트</a></li>   
+                    <li class="breadcrumb-item"><a href="#"><strong>베스트 리스트</strong></a></li>   
                 </ol>
             </div>
         </div>

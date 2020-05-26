@@ -64,6 +64,12 @@ public class DogDAO {
 	public DogVO dogSelectTimeSale(DogVO dogVO) throws Exception {	
 		return sqlSession.selectOne(NAMESPACE+"dogSelectTimeSale", dogVO);
 	}
+//timeSaleUpdate
+	public int timeSaleUpdate(List<Long> list) throws Exception{
+		System.out.println("타임세일업데이트DAO");
+	
+		return sqlSession.update(NAMESPACE+"timeSaleUpdate", list);
+	}
 	
 //update
 	public int dogUpdate(DogVO dogVO) throws Exception{

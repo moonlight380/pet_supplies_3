@@ -178,6 +178,14 @@
 	VALUES (#{productNum},#{productName},#{price},#{contents},1,1,SYSDATE,#{point},#{sale})
 	</insert>
 
+<!-- timeSaleUpdate -->
+	<update id="timeSaleUpdate" parameterType="List">
+		UPDATE product set sale=0 where productNum in
+	 <foreach collection="list" item="productNum" open="(" close=")" separator=",">
+	 		#{productNum}
+	 </foreach>
+	</update>
+
 
 <!-- update -->
  	<update id="dogUpdate" parameterType="DogVO">

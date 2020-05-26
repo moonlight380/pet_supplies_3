@@ -305,7 +305,6 @@ $('#close_popup2').click(function(){
 						     <dl class="item_discount_mileage dn">
 						            <dt>구매혜택</dt>
 						              <dd>
-						              
 						              		<c:if test="${vo.sale gt 0}">
 						                   <span class="item_discount">할인 : ${vo.sale}%</span>
 						                     </c:if>

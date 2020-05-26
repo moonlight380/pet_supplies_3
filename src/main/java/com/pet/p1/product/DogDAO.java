@@ -16,46 +16,45 @@ public class DogDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.pet.p1.product.DogDAO.";
 
+	
+//product_list_delete
+	public int product_list_delete(List<Long> deleteProduct)throws Exception{
+		System.out.println("product_list_delete DAO");
+		return sqlSession.delete(NAMESPACE+"product_list_delete",deleteProduct);
+	}
+	
 //dual에서 먼저 조회
 	public long dogNum() throws Exception{
 			return sqlSession.selectOne(NAMESPACE+"dogNum");
 	}
 //list
 	public List<DogVO> dogList(Pager pager) throws Exception{
-		
 		return sqlSession.selectList(NAMESPACE+"dogList",pager);
 	}
 	
 //dogNewList
-	public List<DogVO> dogNewList(Pager pager) throws Exception{
-			
+	public List<DogVO> dogNewList(Pager pager) throws Exception{	
 		return sqlSession.selectList(NAMESPACE+"dogNewList",pager);
 	}
 	
 //dogBestList
 	public List<DogVO> dogBestList(Pager pager) throws Exception{
-			
 		return sqlSession.selectList(NAMESPACE+"dogBestList",pager);
 	}		
 	
 //dogTimeSale
-	public List<DogVO> dogTimeSale(Pager pager) throws Exception{
-				
+	public List<DogVO> dogTimeSale(Pager pager) throws Exception{		
 		return sqlSession.selectList(NAMESPACE+"dogTimeSale",pager);
 	}	
 
 //count
 	public long dogCount(Pager pager) throws Exception {
-		
 		return sqlSession.selectOne(NAMESPACE+"dogCount", pager);
 	}
 //dogWrite(insert)
 	public int dogWrite(DogVO dogVO)throws Exception{
-		System.out.println("dogDAO");
 		return sqlSession.insert(NAMESPACE+"dogWrite",dogVO);
 	}
-	
-	
 //SELECT
 	public DogVO dogSelect(DogVO dogVO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"dogSelect", dogVO);
@@ -66,19 +65,14 @@ public class DogDAO {
 	}
 //timeSaleUpdate
 	public int timeSaleUpdate(List<Long> list) throws Exception{
-		System.out.println("타임세일업데이트DAO");
-	
 		return sqlSession.update(NAMESPACE+"timeSaleUpdate", list);
 	}
-	
 //update
 	public int dogUpdate(DogVO dogVO) throws Exception{
-	
 		return sqlSession.update(NAMESPACE+"dogUpdate",dogVO);
 	}
 //HIT UPDATE
 	public int hitUpdate(DogVO dogVO) throws Exception {
-	
 		return sqlSession.update(NAMESPACE+"hitUpdate", dogVO);
 	}
 

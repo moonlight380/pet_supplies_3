@@ -2,85 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<!-- Meta -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Anil z" name="author">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Shopwise is Powerful features and You Can Use The Perfect Build this Template For Any eCommerce Website. The template is built for sell Fashion Products, Shoes, Bags, Cosmetics, Clothes, Sunglasses, Furniture, Kids Products, Electronics, Stationery Products and Sporting Goods.">
-<meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
-
-<c:import url="../template/boot.jsp"></c:import>
-<c:import url="../template/css.jsp"></c:import>
-<c:import url="../template/summer.jsp"></c:import>
 
 
-<style type="text/css">
 
-
-#right1,#right2{
-	margin-right: 10.5px;
-	color: black;
-}
-
-#right3{
-	float: right;
-	
-}
-.bg_gray{
-	width: auto;
-	height: 60px;
-}
-#product_header_right2{
-	float: right;
-}
-
-#right1 >input[type=checkbox]
-{
-	margin-right:10px;
-	margin-top:15px;
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(2.5); /* IE */
-  -moz-transform: scale(2.5); /* FF */
-  -webkit-transform: scale(2.5); /* Safari and Chrome */
-  -o-transform: scale(2.5); /* Opera */
-  	padding: 10px;
-  
-}
-</style>
-</head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
 <body id="reset">
 
-<!--    <br>
-    <b><font size="5" color="gray">부모창</font></b>
-    <br><br>
-       배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
-       성명: <input type="text" id="name" name="name"/> <br/>
-       주소: <input type="text" id="adressInput" name="adressInput"/> <br/>
-       일반전화: <input type="tel" id="homePhone" name="homePhone"/> <br/>
-        휴대전화: <input type="tel" id="phone" name="phone"/>
-    <input type="button" value="자식창 열기" onclick="openAddress()"><br>
-
-팝업창  띄우기
-<script type="text/javascript">
-	var openWin;
-$("#address_management").click(function(){
-	var popUrl = "./address";	//팝업창에 출력될 페이지 URL
-
-	var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
-	//크롬에서는 속성값이 먹지 않음
-	openWin=window.open(popUrl ,"address_management",popOption);
-		
-});
-	
-</script> -->
-
-<!--주소록팝업창띄우기끝 =============================================================================================== -->
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
 </div>
@@ -114,23 +41,6 @@ $("#address_management").click(function(){
 </div>
 <!-- END SECTION BREADCRUMB -->
 
-<%-- <!-- 검색 -->
-	<form class="col-xs-6" action="./${p}List">
-    <div class="input-group container">
-    <select class="form-control" id="sel1" name="kind">
-		    <option value="pn">productName</option>
-		    <option value="pc">Contents</option>
-			<option value="pnum">productNum</option>
-			
-	</select>
-		<input type="text" class="form-control" placeholder="Search" name="search">
-		<div class="input-group-btn">
-       		 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-     	 </div>
-	</div>
- 	 </form>
-<!-- 검색 끝--> --%>
-
 <!-- END MAIN CONTENT -->
 
 
@@ -161,7 +71,7 @@ $("#address_management").click(function(){
                                <div class="product_header_right2" id="product_header_right2">
                                 <c:if test="${member.id eq 'admin' }">
                                 	<span id="right1"><input type="checkbox" id="product_all" style='font-size:44px;color:#FF324D'>모두체크</span>
-									<span id="right3"><button  class="product_del_btn" style='font-size:20px'>삭제 <i class='far fa-trash-alt' style='color:#FF324D'></i></button></span>
+									<span id="right3"><button  class="product_del_btn" style='font-size:20px'>모두삭제 <i class='far fa-trash-alt' style='color:#FF324D'></i></button></span>
 								</c:if>
 								</div>
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->      
@@ -185,7 +95,8 @@ $("#address_management").click(function(){
                         <input class="product_row_check" id="product_row_check" type="checkbox" name="${vo.productNum}"><span>선택삭제</span>
                         </div> 
                         </c:if> 
-             
+                         
+<script type="text/javascript" src="../resources/script/pList.js"> </script>               
                         <div class="product"> 
                             <div class="product_img">
                                 <a href="./${p}Select?productNum=${vo.productNum}">                            
@@ -253,8 +164,7 @@ $("#address_management").click(function(){
 <div id="quantityNum_amount"hidden="hidden">1</div>
 <c:import url="../cart/addCart.jsp"></c:import>
 
-                         
-<script type="text/javascript" src="../resources/script/pList.js"> </script>  
+
 
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>

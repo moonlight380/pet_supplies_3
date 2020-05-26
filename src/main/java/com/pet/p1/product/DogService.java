@@ -27,15 +27,20 @@ public class DogService {
 	private FileSaver fileSaver;
 	@Autowired
 	private ProductFileDAO productFileDAO;
+
+	
+//product_list_delete
+	public int product_list_delete (List<Long> deleteProduct)throws Exception{
+		System.out.println("product_list_delete service");
+		return dogDAO.product_list_delete(deleteProduct);
+	}
 	
 //dogList	
 	public List<DogVO> dogList(Pager pager) throws Exception{
 		pager.makeRow(); 
-		
 		long totalCount= dogDAO.dogCount(pager);
 		pager.makePage(totalCount);
-		
-		
+
 		return dogDAO.dogList(pager);
 	}
 //dogNewList	
@@ -67,8 +72,7 @@ public class DogService {
 		String path = servletContext.getRealPath("/resources/dogUpload");
 		
 		System.out.println(path);
-		
-		
+
 		//시퀀스 번호 받기 dual로 맵퍼에서 가져옴
 		dogVO.setProductNum(dogDAO.dogNum());
 		
@@ -125,12 +129,10 @@ public class DogService {
 		return dogDAO.timeSaleUpdate(list);
 	}
 
-	
 //update
 	public int dogUpdate (DogVO dogVO,MultipartFile firstFile, MultipartFile[] files) throws Exception{	
 		
 String path = servletContext.getRealPath("/resources/dogUpload");
-		
 		System.out.println(path);
 		
 		//dogDAO table insert
@@ -165,10 +167,7 @@ String path = servletContext.getRealPath("/resources/dogUpload");
 		}
 		
 		return result;
-		
-		
-		
-		
+
 	}
 	
 //delete

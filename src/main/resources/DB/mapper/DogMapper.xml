@@ -202,6 +202,13 @@
 	<delete id="dogDelete" parameterType="Long"> 
 		delete product where productNum=#{productNum}
 	</delete>
-		
 
+ <!-- product_list_delete -->
+ <delete id="product_list_delete" parameterType="List">
+ 	delete product where productNum in
+ <foreach collection="list" item="productNum" open="(" close=")" separator=",">
+ 		#{productNum}
+ </foreach>
+  </delete>
+  
 </mapper>

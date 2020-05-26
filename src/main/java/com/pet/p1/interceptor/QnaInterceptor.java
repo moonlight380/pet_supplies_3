@@ -139,19 +139,16 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 					
 					if(result>0) {
 						modelAndView.setViewName("redirect:" + board);
-					} else {
-						modelAndView.addObject("result", "권한이 없음");
-						modelAndView.addObject("path", board);
-						modelAndView.setViewName("common/result");
-					}
-
+					} 
 				}
 			}
 
 			if (memberVO != null) {
 				if (!memberVO.getId().equals("admin")) {
 					if (!memberVO.getId().equals(boardVO.getId())) {
-						modelAndView.setViewName("redirect:" + board);
+						modelAndView.addObject("result", "권한이 없음");
+						modelAndView.addObject("path", board);
+						modelAndView.setViewName("common/result");
 					}
 				}
 			} else {

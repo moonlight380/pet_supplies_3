@@ -7,7 +7,7 @@ public class MemberVO extends OrderInfoPager{
 	private String id;
 	private String pw;
 	private String name;
-	private Integer age;
+	private String age;
 	private String phone;
 	private String email;
 	private String address;
@@ -37,10 +37,10 @@ public class MemberVO extends OrderInfoPager{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getAge() {
+	public String getAge() {
 		return age;
 	}
-	public void setAge(Integer age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 	public String getPhone() {
@@ -97,6 +97,8 @@ public class MemberVO extends OrderInfoPager{
 	public void setPhone2(String phone2) {
 		this.phone2 = phone2;
 	}
+	
+	
 	
 	
 	

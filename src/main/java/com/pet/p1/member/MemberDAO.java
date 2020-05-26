@@ -55,6 +55,10 @@ public class MemberDAO {
 		return sqlSession.update(NAMESPACE+"memberUpdate", memberVO);
 	}
 	
+	public MemberVO selectPW(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"selectPW", memberVO);
+	}
+	
 	public int memberDelete(MemberVO memberVO)throws Exception{
 		return sqlSession.delete(NAMESPACE+"memberDelete", memberVO);
 	}

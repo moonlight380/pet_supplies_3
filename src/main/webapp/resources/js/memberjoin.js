@@ -182,7 +182,7 @@
    	
    	/* 주소 유효성 검사 */
    	
-    var AddrCheck = false;
+    var AddrCheck = true;
     
    	$("#postcode1").blur(function() {
 		var postcode = $(this).val();
@@ -252,17 +252,15 @@
  	/* 생년월일 유효성검사 */
  	var birthCheck = true;
  	$("#birth").blur(function() {
- 		
-	  var birth = $(this).val(); 
+	 var birth = $(this).val(); 
 	 	
  	 var year = Number(birth.substr(0,4)); 
   	 var month = Number(birth.substr(4,2));
      var day = Number(birth.substr(6,2));
      var today = new Date();
      var yearNow = today.getFullYear();
-     var adultYear = yearNow-20; 
-      
- 
+     var adultYear = yearNow-20;
+     
      if (year <1900 || year > adultYear){
           alert("년도를 확인하세요. "+adultYear+"년생 이전 출생자만 등록 가능합니다.");
           birthCheck = false;
@@ -282,8 +280,14 @@
           if (day>29 || (day==29 && !isleap)) {
                alert(year + "년 2월은  " + day + "일이 없습니다.");
                birthCheck = false;
+          }else{
+        	 var age = today.getFullYear() - year+1;
+         	 $("#age").val(age);
+         	 birthCheck = true;
           }
      }else{
+    	 var age = today.getFullYear() - year+1;
+    	 $("#age").val(age);
     	 birthCheck = true;
      }
 		
@@ -309,8 +313,8 @@
 				break;
 			}
 		}
-
-			if(!(idCheck && pwCheck && pw2Check && pwanswerCheck && nameCheck && emailCheck && AddrCheck && birthCheck && btncheck && c)){
+		console.log("in");
+		if(!(idCheck && pwCheck && pw2Check && pwanswerCheck && nameCheck && emailCheck && AddrCheck && birthCheck && c)){
 				alert("정보를 제대로 입력해주세요");
 			}else if(!agree){
 				alert("필수 약관에 동의해주세요");
@@ -319,6 +323,7 @@
 			else{
 				frm.submit();
 			}
+			
 	
 	});
 	

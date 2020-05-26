@@ -136,8 +136,8 @@
 <tr class="">
 <th scope="row">생년월일</th>
 <td>
-<input id="birth" name="age" placeholder="ex)20200101" maxlength="8" value="" type="text"> 
-
+<input id="birth" name="birth_year" placeholder="ex)19991104" maxlength="8" value="" type="text"> 
+<input hidden="hidden" name=age id=age>
 <input id="calendar0" name="calendar" value="T" type="radio" checked="checked"><label for="is_solar_calendar0">양력</label>
 <input id="calendar1" name="calendar" value="F" type="radio"><label for="is_solar_calendar1">음력</label>
 <span id="msg"></span>

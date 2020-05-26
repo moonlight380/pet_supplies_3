@@ -36,16 +36,15 @@
         </div>
 
         <div class="ec-base-table typeList">
-            <table border="1" >
+            <table border="1" style="text-align: center;">
 					<caption></caption>
 					                <colgroup>
 					<col style="width:27px">
-					<col style="width:80px">
 					<col style="width:100px">
 					<col style="width:90px">
 					<col style="width:100px">
 					<col style="width:100px">
-					<col style="width:auto">
+					<col style="width:300px">
 					<col style="width:87px">
 					</colgroup>
 <tbody class="head">
@@ -53,7 +52,7 @@
 <td scope="col">
 <span class=""><input id="allCheck" type="checkbox" ></span> 
 </td>
-                        <td scope="col">주소록 고정</td>
+    
 						<td scope="col">배송지명</td>
                         <td scope="col">수령인</td>
                         <td scope="col">일반전화</td>
@@ -67,7 +66,7 @@
 						<td scope="col">
 						<span class=""><input class="rowCheck check" id="rowCheck del" type="checkbox" name="${vo.addressNum}"></span> 
 						</td>
-                        <td scope="col"><input type="button" class="button addr_button gray "  value="고정"></td>
+     
                         
 						<td scope="col">${vo.addr_name}</td>
 						

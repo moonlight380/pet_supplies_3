@@ -38,24 +38,9 @@
 <h1 style=" margin-top: 50px; font-weight: bold; font-size: 36px; margin-bottom: 30px;">회원 가입</h1>
 </div>
 
-<%-- <div class="row" style="display: block; margin-right: 30px;">
-	
-
-	<div class="col border m-5">
-		<div class="text-center">
-		<a href="${pageContext.request.contextPath}">
-		<img class="m-5 mb-4" 
-			src="${pageContext.request.contextPath}/resources/images/logo_dark.png"
-			alt="" width="182" height="47">
-		</a>
-	</div>
-	</div>
-
-</div> --%>
-
 <h4 style="float: right; margin-top: 60px; font-size: 14px;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h4>
 
-<input hidden="hidden" id="id" name="id" class="input_Join" placeholder="" value="${kmember.kakaoId}" type="text">
+<input hidden="hidden" id="id" name="id" class="input_Join" value="${kmember.kakaoId}" type="text">
 
 <table class="table table-bordered" style="margin-bottom: -1px;">
 
@@ -79,7 +64,7 @@
 
 <tr>
 <th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
- <td><input style="width: 250px;" id="email" name="email" class="input_Join" value="" type="email"><span id="emailCheck"></span>
+ <td><input style="width: 250px;" id="email" name="email" class="input_Join" type="email"><span id="emailCheck"></span>
  </td>
 </tr>
 
@@ -111,8 +96,8 @@
 <tr class="">
 <th scope="row">생년월일</th>
 <td>
-<input id="birth" name="birth_year" placeholder="ex)20200101" maxlength="8" value="" type="text"> 
-
+<input id="birth" placeholder="ex)19991104" maxlength="8" value="" type="text"> 
+<input hidden="hidden" name=age id=age>
 <input id="calendar0" name="calendar" value="T" type="radio" checked="checked"><label for="is_solar_calendar0">양력</label>
 <input id="calendar1" name="calendar" value="F" type="radio"><label for="is_solar_calendar1">음력</label>
 <span id="msg"></span>

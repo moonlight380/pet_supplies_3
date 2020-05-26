@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -236,6 +237,10 @@ public class MemberService {
 	
 	public MemberVO snsLogin(MemberVO memberVO)throws Exception{
 		return memberDAO.snsLogin(memberVO);
+	}
+	
+	public MemberVO selectPW(MemberVO memberVO)throws Exception{
+		return memberDAO.selectPW(memberVO);
 	}
 	
 	public MemberVO memberEMCheck(MemberVO memberVO)throws Exception{

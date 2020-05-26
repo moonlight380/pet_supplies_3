@@ -327,6 +327,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 	
 		int result = memberService.snsJoin(memberVO, session);
+		
 		  String msg ="Member Join Fail";
 		  if(result>0) { 
 			msg = "회원가입 완료!"
@@ -464,6 +465,24 @@ public class MemberController {
 		
 		return "member/pwFindSuccess";	
 	}
+	
+	//-- PW 조회
+	@PostMapping("selectPW")
+	public ModelAndView selectPW(MemberVO memberVO)throws Exception{
+		
+		memberVO = memberService.selectPW(memberVO);
+		
+		ModelAndView mv = new ModelAndView();
+		int result = 0;
+		if(memberVO == null) {
+			result = 1;
+		}
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+
+	}
 
 	//-- memberPayment
 	@GetMapping("memberPayment")
@@ -558,6 +577,7 @@ public class MemberController {
 	
 	@RequestMapping(value= "memberUpdate", method = RequestMethod.POST)
 	public ModelAndView memberUpdate(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception {
+	
 		String id = ((MemberVO)session.getAttribute("member")).getId();
 		memberVO.setId(id);
 		

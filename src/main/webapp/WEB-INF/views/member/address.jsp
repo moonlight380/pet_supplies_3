@@ -128,8 +128,8 @@
 		<option value="018">018</option>
 		<option value="019">019</option>
 		</select>
-			-<input id="rphone1" name="rphone1" maxlength="4" size="4" type="text">
-			-<input id="rphone2" name="rphone2" maxlength="4" size="4" type="text">	
+			-<input id="rphone1" name="rphone1" class="tel" maxlength="4" size="4" type="text">
+			-<input id="rphone2" name="rphone2" class="tel" maxlength="4" size="4" type="text">	
 	<span id="mobile"></span>
 	<input id="phoneAll" type="text"  hidden="" name="phone"></td>
 </tr>

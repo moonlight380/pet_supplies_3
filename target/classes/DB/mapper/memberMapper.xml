@@ -19,12 +19,12 @@
   	</select>
   	
   	<insert id="memberJoin" parameterType="MemberVO">
-  		insert into member values(#{id},#{pw},#{name},#{email},#{age, jdbcType=NUMERIC},#{address},#{phone},1000,#{sex, jdbcType=VARCHAR},#{addr1},#{addr2},#{phone1},#{phone2})
+  		insert into member values(#{id},#{pw},#{name},#{email},#{age},#{address},#{phone},1000,#{sex, jdbcType=VARCHAR},#{addr1},#{addr2},#{phone1},#{phone2})
   	</insert> 
   	
   	<insert id="snsJoin" parameterType="MemberVO">
-  		insert into member(id, name, email, phone, phone1, phone2)
-			VALUES(#{id},#{name},#{email},#{phone},#{phone1},#{phone2})
+  		insert into member(id, name, email, phone, phone1, phone2, address, addr1, addr2, age, sex)
+			VALUES(#{id},#{name},#{email},#{phone},#{phone1},#{phone2},#{address},#{addr1},#{addr2},#{age},#{sex, jdbcType=VARCHAR})
   	</insert>
   	
   	<select id="snsLogin" resultType="MemberVO" parameterType="MemberVO">
@@ -41,6 +41,10 @@
 
   	<select id="findPhone" resultType="MemberVO" parameterType="MemberVO">
   		select id,email,name from member where phone1 = #{phone1}
+  	</select>
+  	
+  	<select id="selectPW" resultType="MemberVO" parameterType="MemberVO">
+  		select pw from member where pw = #{pw}
   	</select>
   	
   	<update id="pwUpdate" parameterType="MemberVO">
@@ -92,8 +96,8 @@
   	</delete>	
   	
   	<update id="memberUpdate" parameterType="MemberVO">
-  		update member set name=#{name} , age=#{age} , phone=#{phone} , phone1=#{phone1} , phone2=#{phone2},
-  		email=#{email} , address=#{address}, addr1=#{addr1}, addr2=#{addr2} where id=#{id}
+  		update member set pw=#{pw} , name=#{name} , age=#{age} , phone=#{phone} , phone1=#{phone1} , phone2=#{phone2},
+  		email=#{email} , address=#{address}, addr1=#{addr1}, addr2=#{addr2}, sex=#{sex} where id=#{id}
   	</update>
   	
   	<delete id="memberDeletes" parameterType="List">

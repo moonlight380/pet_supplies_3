@@ -123,6 +123,12 @@
 									<div class="col border right box">
 										${member.phone }
 									</div>
+									<div class="col border right box">
+										${member.phone1 }
+									</div>
+									<div class="col border right box">
+										${member.phone2 }
+									</div>
 								</div>
 								<div class="row">
 									<div class="col border left box">

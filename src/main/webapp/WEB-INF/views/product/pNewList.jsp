@@ -119,12 +119,19 @@
                                 </a>
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
+
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal"></i> Add To Cart</a></li>
+                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+
                                        <li class="add-to-cart">
                                              <a>	<!-- 추가한부분 class에 cart id,data-toggle,data-target -->
 		                                        <i class="icon-basket-loaded cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal"></i>
 		                                         Add To Cart
 	                                         </a>   
                                         </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -174,9 +181,11 @@
 
 
 
+
 <!-- 추가한부분 div addCart -->
 <div id="quantityNum_amount"hidden="hidden">1</div>
 <c:import url="../cart/addCart.jsp"></c:import>
+
 
 
 

@@ -213,8 +213,13 @@ $('#close_popup2').click(function(){
 <!--레이어팝업  끝--> --%>
 
 
+
+
+
+
 <div id="header"> <!-- 추가한부분  header reset -->
 	<c:import url="../template/header.jsp"></c:import>
+
 </div>
 <!-- LOADER -->
 <div class="preloader">
@@ -385,7 +390,9 @@ $('#close_popup2').click(function(){
  <!--마이너스 플러스 스클립트 끝 ------------------------------------------------------------------------------------------------------------ -->                                           
 
                        <span class="cart_btn">
+
                             <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
+
                         </span> <!-- "cart_btn" -->
                         <div id="quantityNum_amount"hidden="hidden">1</div>
 						<c:import url="../cart/addCart.jsp"></c:import>
@@ -740,6 +747,7 @@ $('#close_popup2').click(function(){
 
 
 
+<c:import url="../cart/addCart.jsp"></c:import>
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>
 <!-- END FOOTER -->

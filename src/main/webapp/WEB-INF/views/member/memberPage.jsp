@@ -62,7 +62,7 @@
 								style="color: #FF324D;">
 								<span>주문배송</span>
 								<div>
-									<span style="font-size: 30px;">${member.point }</span>
+									<span style="font-size: 30px;">${ocount}</span>
 								</div>
 							</div>
 
@@ -70,7 +70,7 @@
 							<div class="col text-center border fa fa-credit-card" style="color:#6699ff">
 								<span>보유 쿠폰</span>
 								<div>
-								 	<span style="font-size: 30px">${member.point }</span>
+								 	<span style="font-size: 30px">0</span>
 								 </div>	
 							</div>
 									

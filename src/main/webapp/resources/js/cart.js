@@ -301,7 +301,11 @@ $("#result").on("click","#del",function() {
 			text = text + "원";
 			$("#" + title + "_total").text(text);
 		});
-		/*$("#input_mile").val(sumP);*/
+		
+		sumP=addCommas(sumP);
+		sumP=sumP+"P";
+		
+		$("#mAllMileageSum").text(sumP);
 		return sum;
 	}
 

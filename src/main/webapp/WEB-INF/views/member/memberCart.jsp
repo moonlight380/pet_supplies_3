@@ -83,7 +83,7 @@
 						
 						<div class="row mb-5">
 							<div class="col text-center" style="font-weight: 2px; color: black;">
-								장바구니가 담긴 상품이 없습니다.
+								장바구니에 담긴 상품이 없습니다.
 							</div>
 						</div>
 					
@@ -149,7 +149,7 @@
 											
 											<td>
 												<a href="${pageContext.request.contextPath}/product/dogSelect?productNum=${cart.productNum}" target="_blank">
-													<img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;">
+													<img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;">
 												</a>
 											</td>
 											<td>

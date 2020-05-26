@@ -112,10 +112,10 @@
 <tr class="">
 <th scope="row">주소 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
  <td>
-   <input style="width: 80px;" id="postcode1" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" value="우편번호" type="text">
+   <input style="width: 80px;" id="postcode1" name="address" class="input_Join" placeholder="우편번호" readonly="readonly" maxlength="14" type="text">
    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
-   <input style="width: 400px;" id="addr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" value="기본주소" type="text" ><br>
-   <input style="width: 250px;" id="addr2" name="addr2" class="input_Join" placeholder="" value="상세주소" type="text">
+   <input style="width: 400px;" id="addr1" name="addr1" class="input_Join" placeholder="기본주소" readonly="readonly"type="text" ><br>
+   <input style="width: 250px;" id="addr2" name="addr2" class="input_Join" placeholder="상세주소" type="text">
  
 </tr>
 <tr class="">
@@ -293,7 +293,6 @@ function sample6_execDaumPostcode() {
 			
 			$("#addr2").focus();
 
-			console.log(data);
         }
     }).open();
 

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.pet.p1.member.MemberVO;
+
 
 @Component
 public class MemberIntercepter extends HandlerInterceptorAdapter{
@@ -15,6 +17,7 @@ public class MemberIntercepter extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
 		boolean check = false;
 		
 		Object object = request.getSession().getAttribute("member");
@@ -35,12 +38,6 @@ public class MemberIntercepter extends HandlerInterceptorAdapter{
 		return check;
 	}
 	
-	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-		
-		super.postHandle(request, response, handler, modelAndView);
-	}
 	
 	
 }

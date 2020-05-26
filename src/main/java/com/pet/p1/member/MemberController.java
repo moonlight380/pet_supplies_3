@@ -225,26 +225,17 @@ public class MemberController {
 	public ModelAndView memberJoin(MemberVO memberVO, ModelAndView mv,HttpSession session) throws Exception {
 		  int result = memberService.memberJoin(memberVO,session);
 
-		  String msg ="다시 시도해주세요";
-		  String path = "../";
 		  if(result>0) {
-			msg = "Member Join Success";
-			path = "memberJoinSuccess";
+			  mv.setViewName("member/memberJoinSuccess");
+			}else {
+				 mv.addObject("result", "회원가입에 실패했습니다 다시 시도해주세요");
+				 mv.addObject("path", "./memberJoin");
+				 mv.setViewName("common/result");
 			}
-		  
-		  mv.addObject("result", msg); 
-		  mv.addObject("path", path);
-		  mv.setViewName("common/result");
-		  
+
 		return mv;
 	}
 	//--회원가입 끝
-	
-	//-- 회원가입 성공 페이지
-	@GetMapping("memberJoinSuccess")
-	public void memberJoinSuccess()throws Exception{
-		
-	}
 	
 	//--로그인/로그아웃
 	@RequestMapping(value= "memberLogin")

@@ -173,7 +173,7 @@
 					}
 				},
 				error	: function() {
-				
+					alert("권한이 없습니다");
 				}
 				
 			});
@@ -182,10 +182,17 @@
    	
    	/* 주소 유효성 검사 */
    	
-    var AddrCheck = true;
+    var AddrCheck = false;
+    
    	$("#postcode1").blur(function() {
 		var postcode = $(this).val();
 		if(postcode == null){
+			AddrCheck = false;
+		}
+	});
+   	
+   	$("#addr1").blur(function() {
+		if($(this).val().length<=0){
 			AddrCheck = false;
 		}
 	});
@@ -302,7 +309,8 @@
 				break;
 			}
 		}
-			if(!(idCheck && pwCheck && pw2Check && pwanswerCheck && nameCheck && emailCheck && AddrCheck && birthCheck  && c)){
+
+			if(!(idCheck && pwCheck && pw2Check && pwanswerCheck && nameCheck && emailCheck && AddrCheck && birthCheck && btncheck && c)){
 				alert("정보를 제대로 입력해주세요");
 			}else if(!agree){
 				alert("필수 약관에 동의해주세요");

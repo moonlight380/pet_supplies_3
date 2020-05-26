@@ -595,10 +595,14 @@ public class MemberController {
 		return mv;
 	}
 	
-	@RequestMapping(value= "memberDelete")
-	public ModelAndView memberDelete(ModelAndView mv, HttpSession session) throws Exception {
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+	@RequestMapping(value= "memberDelete", method = RequestMethod.GET)
+	public ModelAndView memberDelete(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception {
+		
+		String id = ((MemberVO)session.getAttribute("member")).getId();
+		memberVO.setId(id);
+		System.out.println(id);
 		int result = memberService.memberDelete(memberVO);
+		System.out.println("id in");
 		if(result>0) {
 			session.invalidate();
 			mv.addObject("result", "Delete Success");

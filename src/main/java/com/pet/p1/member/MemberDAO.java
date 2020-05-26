@@ -60,6 +60,7 @@ public class MemberDAO {
 	}
 	
 	public int memberDelete(MemberVO memberVO)throws Exception{
+		System.out.println("daoin");
 		return sqlSession.delete(NAMESPACE+"memberDelete", memberVO);
 	}
 	

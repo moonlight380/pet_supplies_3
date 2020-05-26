@@ -11,22 +11,22 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-
-
+	
 	<div class="container-fulid  mt-5">
 		<div class="row">
+		
 		<c:import url="./memberSide.jsp"></c:import>
 	
-<div class="col ">
+<div class="col" style="margin-top: 0px;">
 <form action="./memberUpdate" method="post" id="frm" style="font-style: inherit; font-size: small;">
 
-<div class="path"  style="margin-top: 10px;" >
+<div class="path"  style="margin-top: 50px;" >
 
 <div style="text-align: center; display: block; border-bottom: 3px solid black;height: 100px; margin-top: 20px;">
 <h1 style=" margin-top: 50px; font-weight: bold; font-size: 36px; margin-bottom: 30px;">회원 정보 수정</h1>
 </div>
 
-<h4 style="float: right; margin-top: 60px; font-size: 14px;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h4>
+<h4 style="float: right; margin-top: 20px; font-size: 14px;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h4>
 
 <table class="table table-bordered" style="margin-bottom: -1px;">
 
@@ -42,7 +42,7 @@
 <tbody>
 <tr>
 <th scope="row">아이디 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td><input id="id" name="id" readonly="readonly" value="${member.id }" type="text"><span id="idt" style="font-size: small;"> (영문소문자/숫자, 4~12자)</span></td>
+<td><input id="id" name="id" readonly="readonly" value="${member.id}" type="text"><span id="idt" style="font-size: small;"> (영문소문자/숫자, 4~12자)</span></td>
  </tr>
  
 <tr id="kakao" style="display: none;">
@@ -129,9 +129,15 @@
 </div>
 </form>
 
-<div class="row center"  style="margin: 0 auto; margin-top: 20px;">
+<div class="row center"  style="margin: 0 auto; margin-top: 10px; float: left;">
 	<button type="button" id="button" class="btn btn-default">수정</button>
-</div>	
+	<button type="button" id="cancel" class="btn btn-primary" onclick="goback()">취소</button>
+</div>
+<div style="float: right; margin-top: 10px; ">
+	<button type="button" id="delete" class="btn btn-danger">회원탈퇴</button>
+</div>
+
+	
 </div>
 
 <div class="col-sm-2 "></div>
@@ -144,24 +150,20 @@
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
-<!-- 배송 정보 스크립트 -->		
-<script type="text/javascript">
-    
-        function openAddressList()
-        {
-            // window.name = "부모창 이름"; 
-            window.name = "parentForm";
-            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-            window.open("./address_list",
-                    "childForm", "width=1000, height=700, resizable = no, scrollbars = no");    
-        }
- 
-</script>
+
 
 <script type="text/javascript">
 
 document.getElementById('button').style.backgroundColor = '#FF324D';
 document.getElementById('button').style.color = 'white';
+
+$("#delete").click(function() {
+	location.href="./memberDelete";
+});
+
+function goback() {
+	history.back();
+};
 
 //-- kakao 로그인과 아닐때 구분
 $("#id").ready(function() {
@@ -329,6 +331,7 @@ $("#button").click(function() {
 });
 
 
+
 //-- 배송지 수정 우편번호 api
 function sample6_execDaumPostcode() {
     new daum.Postcode({
@@ -386,11 +389,21 @@ function sample6_execDaumPostcode() {
     }
 
 
-
-
-
 </script>
 
+<!-- 배송 정보 스크립트 -->		
+<script type="text/javascript">
+    
+        function openAddressList()
+        {
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            window.open("./address_list",
+                    "childForm", "width=1000, height=700, resizable = no, scrollbars = no");    
+        }
+ 
+</script>
 
 
 

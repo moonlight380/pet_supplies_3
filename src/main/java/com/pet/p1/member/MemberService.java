@@ -220,6 +220,7 @@ public class MemberService {
 	}
 	
 	public int memberDelete(MemberVO memberVO) throws Exception{
+		System.out.println("s in");
 		return memberDAO.memberDelete(memberVO);
 	}
 	

@@ -2,7 +2,6 @@ package com.pet.p1.qna;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,15 +30,47 @@ public class QnaController {
 
 	@GetMapping("qnaDelete")
 	public ModelAndView boardDelete(long num) throws Exception {
+
 		ModelAndView mv = new ModelAndView();
-		int result = qnaService.boardDelete(num);
-		if (result > 0) {
-			mv.addObject("result", "삭제 성공");
-		} else {
-			mv.addObject("result", "삭제 실패");
-		}
+
+		BoardVO boardVO = qnaService.boardSelect(num);
+
+		mv.addObject("vo", boardVO);
+		mv.addObject("path", "./qnaSelect?num=" + num);
+		mv.addObject("truePath", "./qnaDeleteReal?num="+num);
+
+		mv.setViewName("common/deleteResult");
+
+		return mv;
+	}
+
+	@GetMapping("qnaDeleteReal")
+	public ModelAndView boardDeleteReal(long num) throws Exception {
+
+		ModelAndView mv = new ModelAndView();
+		
+		BoardVO boardVO = qnaService.boardSelect(num);
+		
+		mv.addObject("vo", boardVO);
+		//mv.setViewName("board/boardList");
+		
+		mv.addObject("result", "권한이 없음");
 		mv.addObject("path", "./qnaList");
 		mv.setViewName("common/result");
+		
+		//mv.addObject("path", "./qnaSelect?num=" + num);
+		
+		//mv.addObject("result","실행 완료");
+		//mv.setViewName("./qnaList");
+		
+		/*
+		 * int result = qnaService.boardDelete(num);
+		 * 
+		 * if (result > 0) { mv.addObject("result", "삭제 성공"); } else {
+		 * mv.addObject("result", "삭제 실패"); } mv.addObject("path", "./qnaList");
+		 * mv.setViewName("common/result");
+		 */
+
 		return mv;
 	}
 
@@ -124,10 +155,10 @@ public class QnaController {
 		BoardVO boardVO = qnaService.boardSelect(num);
 		long minNum = qnaService.minNum(num);
 		long maxNum = qnaService.maxNum(num);
-	
-		mv.addObject("maxNum",maxNum);
+
+		mv.addObject("maxNum", maxNum);
 		mv.addObject("minNum", minNum);
-		
+
 		mv.addObject("vo", boardVO);
 		mv.setViewName("board/boardSelect");
 		return mv;
@@ -136,6 +167,9 @@ public class QnaController {
 	@GetMapping("qnaList")
 	public ModelAndView boardList(Pager pager, ModelAndView mv) throws Exception {
 		List<BoardVO> ar = qnaService.boardList(pager);
+		List<Long> rNumber = qnaService.rNum();
+
+		mv.addObject("listNo", rNumber);
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("board/boardList");
@@ -144,6 +178,10 @@ public class QnaController {
 
 	@GetMapping("qnaReply")
 	public ModelAndView boardReply(ModelAndView mv, long num) throws Exception {
+
+		BoardVO boardVO = qnaService.boardSelect(num);
+		mv.addObject("vo", boardVO);
+
 		mv.addObject("num", num);
 		mv.setViewName("board/boardReply");
 		return mv;

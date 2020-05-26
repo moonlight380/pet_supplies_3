@@ -5,26 +5,31 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.pet.p1.board.BoardVO;
 import com.pet.p1.member.MemberVO;
+import com.pet.p1.qna.QnaController;
+import com.pet.p1.qna.QnaDAO;
+import com.pet.p1.qna.QnaService;
 
 @Component
 public class QnaInterceptor extends HandlerInterceptorAdapter {
+
+	@Autowired
+	private QnaDAO qnaDAO;
+	@Autowired
+	private QnaService qnaService;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 
-		
 		MemberVO memberVO = (MemberVO) request.getSession().getAttribute("member");
-		
-		//ModelAndView mv = new ModelAndView();
-		//BoardVO boardVO = (BoardVO) mv.getModel().get("vo");
-		
+
 		boolean check;
 
 		if (memberVO != null && memberVO.getId().equals("admin")) {
@@ -46,6 +51,7 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 		String path = request.getServletPath();
 		path = path.substring(path.lastIndexOf("/"));
 		System.out.println(path);
+
 		String method = request.getMethod();
 		System.out.println(method);
 
@@ -56,7 +62,14 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 		System.out.println(board);
 
 		// select
-/*		if (path.equals("/qnaSelect")) {
+		if (path.equals("/qnaSelect")) {
+
+			if (memberVO != null) {
+				if (memberVO.getId().equals("admin") || memberVO.getId().equals(boardVO.getId())) {
+					System.out.println(boardVO.getNum());
+					qnaDAO.hitUpdate(boardVO.getNum());
+				}
+			}
 
 			if (memberVO != null) {
 				if (!memberVO.getId().equals("admin")) {
@@ -64,12 +77,13 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 						modelAndView.setViewName("redirect:" + board);
 					}
 				}
+
 			} else {
 				modelAndView.addObject("result", "권한이 없음");
 				modelAndView.addObject("path", board);
 				modelAndView.setViewName("common/result");
-			}*/
-		//} // end select
+			}
+		} // end select
 
 		// update
 		if (path.equals("/qnaUpdate") && method.equals("GET")) {
@@ -102,9 +116,37 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 				modelAndView.setViewName("common/result");
 			}
 		} // end reply
-		
+
 		// delete
-		if (path.equals("/qnaDelete") && method.equals("GET")) {
+		if (path.equals("/qnaDeleteReal") && method.equals("GET")) {
+
+			/*
+			 * if (memberVO != null) {
+			 * 
+			 * if (memberVO.getId().equals("admin")) {
+			 * 
+			 * int result = qnaService.boardDelete(boardVO.getNum());
+			 * 
+			 * if (result > 0) { modelAndView.addObject("result", "삭제 성공"); } else {
+			 * modelAndView.addObject("result", "삭제 실패"); } modelAndView.addObject("path",
+			 * "./qnaList"); modelAndView.setViewName("common/result"); } }
+			 */
+
+			if (memberVO != null) {
+				if (memberVO.getId().equals("admin") || memberVO.getId().equals(boardVO.getId())) {
+					System.out.println(boardVO.getNum());
+					int result = qnaService.boardDelete(boardVO.getNum());
+					
+					if(result>0) {
+						modelAndView.setViewName("redirect:" + board);
+					} else {
+						modelAndView.addObject("result", "권한이 없음");
+						modelAndView.addObject("path", board);
+						modelAndView.setViewName("common/result");
+					}
+
+				}
+			}
 
 			if (memberVO != null) {
 				if (!memberVO.getId().equals("admin")) {

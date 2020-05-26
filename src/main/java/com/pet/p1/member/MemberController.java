@@ -292,6 +292,7 @@ public class MemberController {
 		 * memberInfo.get("email")); 
 		 * }
 		 */
+		
 		session.setAttribute("access_Token", access_Token);
 		session.setAttribute("kmember", memberInfo);
 		
@@ -356,11 +357,6 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 
 		memberVO = memberService.memberEMCheck(memberVO);
-		
-		/*
-		 * ObjectMapper mapper = new ObjectMapper(); String membervo =
-		 * mapper.writeValueAsString(memberVO);
-		 */
 		
 		 int result = 0; 
 		 if(memberVO == null){ 

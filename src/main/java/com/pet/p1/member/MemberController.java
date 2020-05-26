@@ -524,6 +524,7 @@ public class MemberController {
 		memberService.pointUpdate(pointUpdate);
 		Long point = pointUpdate.getPoint();
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		point = point+memberVO.getPoint();
 		memberVO.setPoint(point);
 		ModelAndView mv = new ModelAndView();
 		OrderVO orderVO = new OrderVO();

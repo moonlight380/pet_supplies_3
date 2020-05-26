@@ -11,6 +11,12 @@
 <c:import url="../template/css.jsp"></c:import>
 <style type="text/css">
 
+.sum_text{
+	color:#FF324D;
+	font-weight: bold;
+
+}
+
 .addr_button{
 	color: #323232;
     background: #ffffff;
@@ -76,6 +82,7 @@
 	
 
 <!-- 기본배송 -->
+
 <div class="ec-base-table typeList gBorder">
 <div style="text-align: center;">
 <div>
@@ -119,7 +126,7 @@
 
 
 								<c:forEach items="${cartSelect }" var="cart">
-								
+									<div hidden="hidden" id="${cart.id}${cart.cnum}_sd"></div>
 									<tbody>
 										<tr class="table_title">
 											<td hidden="hidden">
@@ -131,8 +138,20 @@
 											<td><img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
 
 											<td id="productName">${cart.productName }</td>
-
-											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
+	
+											<c:if test="${cart.sale gt 0 }">
+												
+												<td>
+													<del id="${cart.id}${cart.cnum}_price" class="price" style="color: black;">${cart.price }</del><span>(${cart.sale }%)</span>
+													<div class="price" id="${cart.id}${cart.cnum}_sale" title="${cart.sale*(cart.price/100)}">${cart.price-(cart.sale*(cart.price/100) )}</div>
+												</td>
+											</c:if>
+											<c:if test="${cart.sale eq 0 }">
+												<div hidden="hidden" class="price" id="${cart.id}${cart.cnum}_sale" title="${cart.sale*(cart.price/100)}"></div>
+												<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
+											</c:if>
+											
+											
 											<td>
 												
 													<button hidden="hidden" class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
@@ -146,7 +165,17 @@
 
 											<td><span id="${cart.id}${cart.cnum}_point" name="${cart.point }"></span></td>
 
-											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+											<td>
+												
+												<c:if test="${cart.sale gt 0}">
+													<span hidden="hidden" id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+													<span id="${cart.id}${cart.cnum}_dc" class="sum_text"></span>
+												</c:if>
+												<c:if test="${cart.sale eq 0}">
+													<span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+													
+												</c:if>
+												
 											</td>
 
 										</tr>
@@ -156,6 +185,7 @@
 											<tr class="table table-hove">
 										<td colspan="8" style="text-align: right;">
 										상품구매금액 <strong id="all_sum" class="all_sum">0원</strong>
+										- 상품할인금액<strong id="discount"></strong>
 										 + 배송비 <span id="deli">0원</span>
 										   = 합계 : <strong class="txtEm gIndent10">
 										   <span id="payment" class="paymentPrice">0</span></strong>
@@ -685,7 +715,7 @@
 </div>
 <div id="member_id" hidden="hidden">${member.id}</div>
 <div id="direct_cnum" hidden="hidden">${cnum}</div>
-<button class="btn btn-danger a"> btn</button>
+
 <script type="text/javascript" src="../resources/js/cart.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
@@ -700,26 +730,21 @@
 		var point = $("#"+title+"_point").attr("name");
 		sumP = sumP + (amount*point);
 		save = sumP;
+		
 
 	});
-	$("#input_point").blur(function(){
+	sumP=save;
+	
+$("#input_point").blur(function(){
 		sumP=save;
 	 	var minus_p = $(this).val()*1;
 		var memberPoint1 = $("#memberPoint").text();
 		var memberPoint = memberPoint1*1;
 
 		if(minus_p <= memberPoint){
-			
 			sumP = sumP-minus_p;
-			text = addCommas(sumP);
-			text = text + "P";
-		$("#mAllMileageSum").text(text);
 		} else{
 			sumP=save;
-			text = addCommas(sumP);
-			text = text + "P";
-			
-			$("#mAllMileageSum").text(text);
 		}
 		
 	});
@@ -1082,31 +1107,6 @@
         }
  
 </script>
-<!-- <script type="text/javascript">
-	
-		var ids=[];
-		var cnum=$("#direct_cnum").text();
-		ids.push(cnum);
-		$.ajax({
-			type:"post",
-			traditional : true,
-			url:"./memberPaymentList",
-			data:{
-				ids:ids
-			},
-			success:function(data){
-				
-			},error : function(request, status, error) {
-				alert("code = " + request.status + " message = "
-						+ request.responseText + " error = " + error);
-			}
-		});
-		
-		
-		
-
-
-</script> -->
 
 </body>
 </html>

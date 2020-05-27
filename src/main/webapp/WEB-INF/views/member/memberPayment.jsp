@@ -352,15 +352,15 @@
 </tr>
 <tr>
 <th scope="row">받으시는 분 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td><input class="input_Join" id="rname" name="rname" class="inputTypeText" placeholder="" size="15"  type="text"></td>
+<td><input class="input_Join ds" id="rname" name="rname" class="inputTypeText" placeholder="" size="15"  type="text"></td>
 </tr>
 <tr class="">
 <th scope="row">주소 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
  <td>
-   <input style="width: 80px;" id="raddress" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" type="text">
+   <input style="width: 80px;" id="raddress" name="address" class="input_Join ds" placeholder="" readonly="readonly" maxlength="14" type="text">
    <input type="button" onclick="sample6_execDaumPostcode1()" value="우편번호"><br>
-   <input style="width: 300px;" id="raddr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" type="text" ><span> 기본주소</span> <br>
-   <input style="width: 300px;" id="raddr2" name="addr2" class="input_Join" placeholder="" type="text"><span> 나머지 주소</span>
+   <input style="width: 300px;" id="raddr1" name="addr1" class="input_Join ds" placeholder="" readonly="readonly" type="text" ><span> 기본주소</span> <br>
+   <input style="width: 300px;" id="raddr2" name="addr2" class="input_Join ds" placeholder="" type="text"><span> 나머지 주소</span>
  
 </tr>
 <!-- 일반전화 -->
@@ -401,8 +401,8 @@
 			<option value="019">019</option>
 			<option value="0508">0508</option>
 	</select>
-	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text">
-	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text">
+	-<input class="ds" id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text">
+	-<input class="ds" id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text">
 	</td>
 </tr>
 <!-- 휴대전화 -->
@@ -416,7 +416,7 @@
 <option value="017">017</option>
 <option value="018">018</option>
 <option value="019">019</option>
-</select>-<input class="input_Join" id="rphone1" maxlength="4"size="4" type="text">-<input class="input_Join" id="rphone2" maxlength="4"size="4"type="text"></td>
+</select>-<input class="input_Join ds" id="rphone1" maxlength="4"size="4" type="text">-<input class="input_Join ds" id="rphone2" maxlength="4"size="4"type="text"></td>
 </tr>
 
 </tbody>
@@ -776,9 +776,15 @@ $("#input_point").blur(function(){
 		if($(this).val().length<=0){
 			alert("주소가 입력되지않았습니다");
 			addrCheck = false;
-		}
-			
+		}	
 	});
+	
+   	$("#raddr2").blur(function() {
+		if($(this).val().length=0){
+			AddrCheck = true;
+		}
+	});
+   	
 	//-- 번호
 	var phoneCheck = true;
 	$("#rphone1").blur(function() {
@@ -906,13 +912,7 @@ $("#input_point").blur(function(){
 	});
 	
 	$("#sameaddr1").click(function() {
-		$("#rname").val("");
-		$("#raddress").val("");
-		$("#raddr1").val("");
-		$("#raddr2").val("");
-		$("#rphone").val("");
-		$("#rphone1").val("");
-		$("#rphone2").val("");
+		$(".ds").val('');
 
 	});
 	
@@ -1068,10 +1068,10 @@ $("#input_point").blur(function(){
                     extraAddr = ' (' + extraAddr + ')';
                 }
                 // 조합된 참고항목을 해당 필드에 넣는다.
-                $("#addr2").val(extraAddr);
+                $("#oaddr2").val(extraAddr);
             
             } else {
-            	 $("#addr2").val(''); 
+            	 $("#oaddr2").val(''); 
           /*       document.getElementById("sample6_extraAddress").value = ''; */
             }
 
@@ -1082,7 +1082,7 @@ $("#input_point").blur(function(){
 			
 			$("#oaddr2").focus();
 
-			console.log(data);
+
         }
     }).open();
 
@@ -1123,10 +1123,10 @@ $("#input_point").blur(function(){
 	                    extraAddr = ' (' + extraAddr + ')';
 	                }
 	                // 조합된 참고항목을 해당 필드에 넣는다.
-	                $("#addr2").val(extraAddr);
+	                $("#raddr2").val(extraAddr);
 	            
 	            } else {
-	            	 $("#addr2").val(''); 
+	            	 $("#raddr2").val(''); 
 	          /*       document.getElementById("sample6_extraAddress").value = ''; */
 	            }
 
@@ -1137,7 +1137,7 @@ $("#input_point").blur(function(){
 				
 				$("#raddr2").focus();
 
-				console.log(data);
+	
 	        }
 	    }).open();
 

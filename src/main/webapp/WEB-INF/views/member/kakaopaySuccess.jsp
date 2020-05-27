@@ -14,7 +14,10 @@
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
 </div>
-<div class="path" style="display: block; float: right; position: relative; height: auto; margin-top: 50px; margin-right: 200px;">
+
+<div class="container">
+
+<div class="path" style="display: block; height: auto; width:100%; margin-top: 150px; text-align: right;">
 		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home ></a></li>
 			<li style="display: inline;"><a href="${pageContext.request.contextPath}">장바구니 ></a></li>
 			<li style="display: inline;">주문결제</li>
@@ -22,11 +25,10 @@
 		</ol>
 </div>
 
-<div class="container">
 
-<div style="height: 800px;margin-top: 200px;">
-<div style="text-align: center; display: block; border-bottom: 3px solid black;height: 100px; margin-top: 50px;">
-<h1 style=" margin-top: 50px; font-weight: bold; font-size: 36px;">주문 완료</h1>
+
+<div style="text-align: center; display: block; border-bottom: 3px solid black;height: 100px; margin-top: 100px;">
+<h1 style="font-weight: bold; font-size: 36px; margin-top: 30px;">주문완료</h1>
 </div>
 
 <div class="" style="margin: 0 auto; width: 800px; text-align: center; margin-top: 60px;">

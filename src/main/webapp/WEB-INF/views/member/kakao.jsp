@@ -66,7 +66,7 @@
             } else{
                 msg = rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="${pageContext.request.contextPath}/member/kakaopayFail"+encodeURI(msg);
+                location.href="${pageContext.request.contextPath}/member/kakaopayFail?msg="+encodeURI(msg);
             }
         });
         

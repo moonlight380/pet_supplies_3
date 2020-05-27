@@ -58,7 +58,6 @@
 			<exclude-mapping path="/member/memberJoin"/>
 			<exclude-mapping path="/member/memberID"/>
 			<exclude-mapping path="/member/memberPW"/>
-			<exclude-mapping path="/member/kakaoJoin"/>
 			<exclude-mapping path="/member/idFindFail"/>
 			<exclude-mapping path="/member/idFindSuccess"/>
 			<exclude-mapping path="/member/pwFindSuccess"/>
@@ -68,12 +67,10 @@
 			<exclude-mapping path="/member/sendMail"/>
 			<exclude-mapping path="/member/kakaoLogin"/>
 			<exclude-mapping path="/member/snsJoin"/>
-			<exclude-mapping path="/member/kakaoJoin"/>
 			<exclude-mapping path="/member/memberEmailCheck"/>
 			<exclude-mapping path="/member/memberIdCheck"/>
-			<exclude-mapping path="/member/memberJoinSuccess"/>
-			
-			
+
+
 			<beans:bean class="com.pet.p1.Interceptor.MemberIntercepter" id="memberIntercepter"></beans:bean>
 		</interceptor>
 	</interceptors>

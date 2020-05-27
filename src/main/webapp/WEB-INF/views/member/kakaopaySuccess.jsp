@@ -32,7 +32,7 @@
 <div class="" style="margin: 0 auto; width: 800px; text-align: center; margin-top: 60px;">
 <i class='far fa-check-circle' style='font-size:70px'></i>
 <p style="margin-top: 30px;"><strong style="font-size: 30px;">고객님의 주문이 성공적으로 완료되었습니다.</strong><br>
-주문내역 및 배송에 관한 안내는 <a href="#">주문조회</a> 를 통하여 확인 가능합니다.</p>
+주문내역 및 배송에 관한 안내는 <a href="./memberOrderInfo"><strong style="text-decoration: underline; color: red"> 주문조회</strong></a> 를 통하여 확인 가능합니다.</p>
 <p>주문번호 : <span>${order.orderNum}</span><br>
 주문날짜 : <span id="day"></span></p>
 
@@ -70,6 +70,8 @@
 
 
 </body>
+
+
 <script type="text/javascript">
 	var today = new Date();
 	var dd = today.getDate();

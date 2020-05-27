@@ -86,7 +86,7 @@
 							
 					},
 					error	: function() {
-						alert("error");
+						alert("권한이 없습니다");
 					}
 					
 				});    
@@ -127,7 +127,7 @@
 								
 						},
 						error	: function() {
-							alert("error");
+							alert("권한이 없습니다");
 						}
 						
 					});    

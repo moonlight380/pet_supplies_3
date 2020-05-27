@@ -233,26 +233,17 @@ public class MemberController {
 	public ModelAndView memberJoin(MemberVO memberVO, ModelAndView mv,HttpSession session) throws Exception {
 		  int result = memberService.memberJoin(memberVO,session);
 
-		  String msg ="다시 시도해주세요";
-		  String path = "../";
-		  if(result>0) { 
-			msg = "Member Join Success";
-			path = "memberJoinSuccess";
+		  if(result>0) {
+			  mv.setViewName("member/memberJoinSuccess");
+			}else {
+				 mv.addObject("result", "회원가입에 실패했습니다 다시 시도해주세요");
+				 mv.addObject("path", "./memberJoin");
+				 mv.setViewName("common/result");
 			}
-		  
-		  mv.addObject("result", msg); 
-		  mv.addObject("path", path);
-		  mv.setViewName("common/result");
-		  
+
 		return mv;
 	}
 	//--회원가입 끝
-	
-	//-- 회원가입 성공 페이지
-	@GetMapping("memberJoinSuccess")
-	public void memberJoinSuccess()throws Exception{
-		
-	}
 	
 	//--로그인/로그아웃
 	@RequestMapping(value= "memberLogin")
@@ -311,6 +302,7 @@ public class MemberController {
 		 * memberInfo.get("email")); 
 		 * }
 		 */
+		
 		session.setAttribute("access_Token", access_Token);
 		session.setAttribute("kmember", memberInfo);
 		
@@ -347,6 +339,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 	
 		int result = memberService.snsJoin(memberVO, session);
+		
 		  String msg ="Member Join Fail";
 		  if(result>0) { 
 			msg = "회원가입 완료!"
@@ -377,11 +370,6 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 
 		memberVO = memberService.memberEMCheck(memberVO);
-		
-		/*
-		 * ObjectMapper mapper = new ObjectMapper(); String membervo =
-		 * mapper.writeValueAsString(memberVO);
-		 */
 		
 		 int result = 0; 
 		 if(memberVO == null){ 
@@ -489,6 +477,24 @@ public class MemberController {
 		
 		return "member/pwFindSuccess";	
 	}
+	
+	//-- PW 조회
+	@PostMapping("selectPW")
+	public ModelAndView selectPW(MemberVO memberVO)throws Exception{
+		
+		memberVO = memberService.selectPW(memberVO);
+		
+		ModelAndView mv = new ModelAndView();
+		int result = 0;
+		if(memberVO == null) {
+			result = 1;
+		}
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+
+	}
 
 	//-- memberPayment
 	@GetMapping("memberPayment")
@@ -548,8 +554,14 @@ public class MemberController {
 
 	//-- 무통장 결제
 	@GetMapping("accountPaySuccess")
-	public void accountPaySuccess()throws Exception{
-		
+	public ModelAndView accountPaySuccess(HttpSession session)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		ModelAndView mv = new ModelAndView();
+		OrderVO orderVO = new OrderVO();
+		orderVO = orderService.orderSelectOne(memberVO);
+		mv.addObject("order", orderVO);
+		mv.setViewName("member/accountPaySuccess");
+		return mv;
 	}
 	
 	
@@ -584,6 +596,7 @@ public class MemberController {
 	
 	@RequestMapping(value= "memberUpdate", method = RequestMethod.POST)
 	public ModelAndView memberUpdate(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception {
+	
 		String id = ((MemberVO)session.getAttribute("member")).getId();
 		memberVO.setId(id);
 		
@@ -601,17 +614,21 @@ public class MemberController {
 		return mv;
 	}
 	
-	@RequestMapping(value= "memberDelete")
-	public ModelAndView memberDelete(ModelAndView mv, HttpSession session) throws Exception {
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+	@RequestMapping(value= "memberDelete", method = RequestMethod.GET)
+	public ModelAndView memberDelete(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception {
+		
+		String id = ((MemberVO)session.getAttribute("member")).getId();
+		memberVO.setId(id);
+		
 		int result = memberService.memberDelete(memberVO);
+		
 		if(result>0) {
 			session.invalidate();
-			mv.addObject("result", "Delete Success");
+			mv.addObject("result", "회원탈퇴에 성공하였습니다");
 			mv.addObject("path", "../");
 			mv.setViewName("common/result");
 		}else {
-			mv.addObject("result", "Delete Fail");
+			mv.addObject("result", "다시 시도해주세요");
 			mv.addObject("path", "../");
 			mv.setViewName("common/result");
 		}

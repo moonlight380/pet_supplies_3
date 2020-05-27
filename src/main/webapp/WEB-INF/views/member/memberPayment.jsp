@@ -359,8 +359,8 @@
  <td>
    <input style="width: 80px;" id="raddress" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" type="text">
    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
-   <input style="width: 300px;" id="raddr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" type="text" ><span>기본주소</span> <br>
-   <input style="width: 300px;" id="raddr2" name="addr2" class="input_Join" placeholder="" type="text"><span>나머지 주소</span>
+   <input style="width: 300px;" id="raddr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" type="text" ><span> 기본주소</span> <br>
+   <input style="width: 300px;" id="raddr2" name="addr2" class="input_Join" placeholder="" type="text"><span> 나머지 주소</span>
  
 </tr>
 <!-- 일반전화 -->
@@ -1031,7 +1031,6 @@ $("#input_point").blur(function(){
 			
 		});
 
- 	
  		
  	
 	function sample6_execDaumPostcode() {

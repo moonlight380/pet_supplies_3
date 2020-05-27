@@ -32,19 +32,51 @@ public class ReviewController {
 	@GetMapping("reviewDelete")
 	public ModelAndView boardDelete(long num) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result = reviewService.boardDelete(num);
-		if (result > 0) {
-			mv.addObject("result", "삭제 성공");
-		} else {
-			mv.addObject("result", "삭제 실패");
-		}
+
+		BoardVO boardVO = reviewService.boardSelect(num);
+
+		mv.addObject("vo", boardVO);
+		mv.addObject("path", "./reviewSelect?num=" + num);
+		mv.addObject("truePath", "./reviewDeleteReal?num=" + num);
+
+		mv.setViewName("common/deleteResult");
+
+		return mv;
+	}
+
+	@GetMapping("reviewDeleteReal")
+	public ModelAndView boardDeleteReal(long num) throws Exception {
+
+		ModelAndView mv = new ModelAndView();
+
+		BoardVO boardVO = reviewService.boardSelect(num);
+
+		mv.addObject("vo", boardVO);
+		// mv.setViewName("board/boardList");
+
+		mv.addObject("result", "권한이 없음");
 		mv.addObject("path", "./reviewList");
 		mv.setViewName("common/result");
+
+		// mv.addObject("path", "./qnaSelect?num=" + num);
+
+		// mv.addObject("result","실행 완료");
+		// mv.setViewName("./qnaList");
+
+		/*
+		 * int result = qnaService.boardDelete(num);
+		 * 
+		 * if (result > 0) { mv.addObject("result", "삭제 성공"); } else {
+		 * mv.addObject("result", "삭제 실패"); } mv.addObject("path", "./qnaList");
+		 * mv.setViewName("common/result");
+		 */
+
 		return mv;
 	}
 
 	@RequestMapping(value = "reviewUpdate", method = RequestMethod.GET)
 	public String boardUpdate(long num, Model model) throws Exception {
+
 		BoardVO boardVO = reviewService.boardSelect(num);
 		model.addAttribute("vo", boardVO);
 		ReviewVO reviewVO = (ReviewVO) boardVO;
@@ -122,6 +154,10 @@ public class ReviewController {
 
 	@GetMapping("reviewReply")
 	public ModelAndView boardReply(ModelAndView mv, long num) throws Exception {
+
+		BoardVO boardVO = reviewService.boardSelect(num);
+		mv.addObject("vo", boardVO);
+		
 		mv.addObject("num", num);
 		mv.setViewName("board/boardReply");
 		return mv;

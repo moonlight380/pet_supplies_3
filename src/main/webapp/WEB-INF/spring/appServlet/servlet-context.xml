@@ -64,10 +64,12 @@
 		</interceptor>
 
 		<!-- review -->
-<!-- 		<interceptor>
+		<interceptor>
 			<mapping path="/review/*" />
+			<exclude-mapping path="/review/reviewList"/>
+			<exclude-mapping path="/review/reviewSelect"/>
 			<beans:ref bean="reviewInterceptor" />
-		</interceptor> -->
+		</interceptor>
 
 	</interceptors>
 

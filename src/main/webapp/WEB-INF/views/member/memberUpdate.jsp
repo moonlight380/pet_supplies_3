@@ -17,14 +17,16 @@
 		
 		<c:import url="./memberSide.jsp"></c:import>
 	
-<div class="col" style="margin-top: 0px;">
+<div class="col">
 <form action="./memberUpdate" method="post" id="frm" style="font-style: inherit; font-size: small;">
 
-<div class="path"  style="margin-top: 50px;" >
-
-<div style="text-align: center; display: block; border-bottom: 3px solid black;height: 100px; margin-top: 20px;">
-<h1 style=" margin-top: 50px; font-weight: bold; font-size: 36px; margin-bottom: 30px;">회원 정보 수정</h1>
-</div>
+				<div class="row">
+					<div class="col-sm-1"></div>
+					<div class="col">
+						<div class="row mb-4"
+							style="border-bottom: solid 1px black; font-weight: bold; color: black;">
+							<div style="margin-left: 21px; font-size: medium;">회원 정보 수정</div>
+						</div>
 
 <h4 style="float: right; margin-top: 20px; font-size: 14px;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h4>
 
@@ -127,13 +129,16 @@
 </tbody>
 </table>
 </div>
+
+</div>
+
 </form>
 
-<div class="row center"  style="margin: 0 auto; margin-top: 10px; float: left;">
+<div class="row center"  style="margin-left:110px; ; margin-top: 50px; float: left;">
 	<button type="button" id="button" class="btn btn-default">수정</button>
 	<button type="button" id="cancel" class="btn btn-primary" onclick="goback()">취소</button>
 </div>
-<div style="float: right; margin-top: 30px;">
+<div style="float: right; margin-top: 10px;">
 	<button type="button" id="delete" class="btn btn-danger btn-sm">회원탈퇴</button>
 </div>
 

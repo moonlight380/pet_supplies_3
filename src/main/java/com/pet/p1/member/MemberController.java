@@ -600,16 +600,16 @@ public class MemberController {
 		
 		String id = ((MemberVO)session.getAttribute("member")).getId();
 		memberVO.setId(id);
-		System.out.println(id);
+		
 		int result = memberService.memberDelete(memberVO);
-		System.out.println("id in");
+		
 		if(result>0) {
 			session.invalidate();
-			mv.addObject("result", "Delete Success");
+			mv.addObject("result", "회원탈퇴에 성공하였습니다");
 			mv.addObject("path", "../");
 			mv.setViewName("common/result");
 		}else {
-			mv.addObject("result", "Delete Fail");
+			mv.addObject("result", "다시 시도해주세요");
 			mv.addObject("path", "../");
 			mv.setViewName("common/result");
 		}

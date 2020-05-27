@@ -212,9 +212,10 @@ body, code {
 													</h6>
 													<div class="product_price">
 														<span class="price"><fmt:formatNumber value="${dnvo.price}" type="number"></fmt:formatNumber></span>
+														
 
 													</div>
-													
+
 												</div>
 											</div>
 										</div>
@@ -280,7 +281,9 @@ body, code {
 												</h6>
 												<div class="product_price">
 													<span class="price"><fmt:formatNumber value="${dnvo.price}" type="number"></fmt:formatNumber></span>
+													
 												</div>
+												
 											</div>
 										</div>
 									</div>

@@ -25,6 +25,7 @@
 	padding: 50px 0;
 }
 .bg_gray{
+	margin-top:100px;
 	width: auto;
 	height: 60px;
 }

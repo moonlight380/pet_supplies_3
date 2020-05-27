@@ -23,8 +23,24 @@
 
 
 <style type="text/css">
-p{
-	display: inline-block;
+
+.rest_btn_close{
+	display: none;
+}
+.rest_img{
+	width: 150px;
+	height: 150px;
+	border-radius: 10px;
+	margin-left:10px;
+	margin-right:10px;
+	display: none;
+}
+.comment_img{
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 .bg_gray{
 	width: auto;
@@ -198,6 +214,7 @@ $('#close_popup2').click(function(){
 });
 });
 </script> -->
+
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
@@ -338,7 +355,7 @@ $('#close_popup2').click(function(){
 			                       
 			                       <span class="sum">
 			                       <strong><!-- 총가격 -->
-			                       <span  id="sum_price"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></span> 
+			                       <span  id="sum_price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span> 
 			                       </strong> <!-- 수량 -->
 			                       
 			                       (<span id="quantityNum_amount">1</span>)
@@ -356,7 +373,7 @@ $('#close_popup2').click(function(){
 	               			num=num*1;
 	               			
 	               			num--;
-	               			alert("minus :"+num);
+	               			//alert("minus :"+num);
 	               			$("#quantityNum").val(num);
 	               			
 	               			
@@ -376,9 +393,9 @@ $('#close_popup2').click(function(){
 	               		$(".plus").click(function(){
 	               			num = $("#quantityNum").val();
 	               			num=num*1;
-	               			alert(num);
+	               			//alert(num);
 	               			num++;
-	               			alert("plus:"+num);
+	               			//alert("plus:"+num);
 	               			//$("#quantityNum").val(num);
 
 	               			$("#quantityNum_amount").text(num); 
@@ -665,23 +682,40 @@ $('#close_popup2').click(function(){
                         	<div class="comments">
                             	<h5 class="product_tab_title"></h5>
                                 <ul class="list_none comment_list mt-4">
-                                    <c:forEach items="${list}" var="review">                                 
+                                    <c:forEach items="${list}" var="review" varStatus="i">                                 
                                     <li>
-	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
+                                   		<img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['0'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['0'].fileName}" alt="review_img1"/>
+ 	                                    
+ 	                                     
+ 	                                     
+ 	                                     <%--<c:forEach items="${review.boardFileVOs}" var="review2">
 	                                        <div class="comment_img">										 
-												<img alt="" src="../resources/riviewUpload/${review2.fileName}">			
+												<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
 											
 	                                        </div>
-	                                        </c:forEach>
+	                                        </c:forEach> --%>
                                         <div class="comment_block">
                                             
                                             <p class="customer_meta">
                                                 <span class="review_author">${review.id}</span>
+                                                <span class="comment-date">${review. title}</span>
                                                 <span class="comment-date">${review.regDate}</span>
                                             </p>
-                                            <div class="description" style="word-break:break-all">
+                                            
+                                            <div id="moreContent" class="description" style="word-break:break-all">
                                                 <p>${review.contents}</p>
-                                            </div>
+
+											</div>
+
+					                            <c:forEach items="${review.boardFileVOs}" var="review2">
+		                                        <span class="rest_img" >										 
+													<img class="rest_img" id="rest_img${i.index}" alt="" src="../resources/reviewUpload/${review2.fileName}">															
+		                                        </span>		                             
+		                                        </c:forEach>
+                                            
+ 	                                     	<button class="rest_btn btn-info btn-sm" id="rest_btn${i.index}"style="font-size:12px;padding:8px" onclick="more(${i.index})">사진 더보기 <i class="fa fa-file-image-o"></i></button>
+                                            <button class="rest_btn_close btn-info btn-sm" id="rest_btn_close${i.index}" style="font-size:12px;padding:8px" onclick="close(${i.index})">사진 닫기 <i class="fa fa-file-image-o"></i></button>
+
                                         </div>
                                     </li>
   									</c:forEach>
@@ -695,9 +729,26 @@ $('#close_popup2').click(function(){
                 </div>
             </div>
         </div>
-        
 
-    <!-- ---------------------------------------------------------------------------------------------------- -->    
+  
+<!------------------------------- 클릭 시 리뷰 이미지 가져오기/닫기---------------------->
+<script type="text/javascript">
+function more(num){
+	$(".rest_img").css("display","inline-block");
+	$("#rest_btn"+num).css("display","none");
+	$("#rest_btn_close"+num).css("display","inline-block");
+}
+
+$(".rest_btn_close").click(function(){
+	$(".rest_img").css("display","none");
+	$(this).css("display","none");
+	$(".rest_btn").css("display","inline-block");
+});
+
+</script>
+
+
+<!-- ---------------------------------------------------------------------------------------------------- -->    
         
 <!--         <div class="row">
         	<div class="col-12">

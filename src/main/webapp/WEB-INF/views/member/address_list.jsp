@@ -34,8 +34,10 @@
                 </ul>
 			</div>
         </div>
-
         <div class="ec-base-table typeList">
+        <div style="margin-left: 20px;">
+		<a href="#" class="deleteBtn"class="btn_pop btncolor_basic"><span>선택 주소록 삭제</span></a> 
+		</div>
             <table border="1" style="text-align: center;">
 					<caption></caption>
 					                <colgroup>
@@ -103,9 +105,8 @@
 
 
 <!-- 하단 버튼 -->
-<div class="ec-base-button">
-		<a href="#" class="deleteBtn"class="btn_pop btncolor_basic "><span>선택 주소록 삭제</span></a> 
-		<a href="./address" class="btn_pop btncolor_subordinate .attr_set_spacebtn"><span>배송지 등록</span></a>
+<div class="ec-base-button" style="margin-left: 20px;">
+		<a href="./address" class="btn_pop btncolor_subordinate .attr_set_spacebtn"><span>새로운 배송지 등록</span></a>
 		<!-- <input type="button" class="button addr_button" value="삭제"> -->
 		<br>
 		<br>
@@ -113,6 +114,7 @@
 </div> 
 
 <script src="../resources/script/address_list.js" type="text/javascript"></script> <!-- 스크립트 불러올때 -->
+
 
 </form>
 

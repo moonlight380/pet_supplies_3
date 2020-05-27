@@ -678,7 +678,7 @@
  <span style="font-size: medium;">최종결제 금액</span>
 </h4>
 
-<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="Ap" id="AllPrice">0원</div>
+<div style="color: #FF324D; font-weight: bold; font-size: 36px; width: 100%; text-align: center; height:100px; border-bottom: 1px solid gray; margin-top: 18px;" class="Ap paymentPrice" id="AllPrice">0원</div>
 <div class="paymentAgree" id="chk_purchase_agreement" style="margin-left: 10px; margin-top: 20px;">
 <input id="chk_purchase_agreement0" name="chk_purchase_agreement" type="checkbox" style="display: inline; float: left; width: 30px; margin-top: 7px;"><label for="chk_purchase_agreement0" style="font-size: small;">결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
 </div>

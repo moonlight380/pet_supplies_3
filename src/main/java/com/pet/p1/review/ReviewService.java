@@ -122,4 +122,19 @@ public class ReviewService implements BoardService {
 		return reviewDAO.boardDelete(num);
 	}
 
+	public long minNum(long num) throws Exception {
+		// TODO Auto-generated method stub
+		return reviewDAO.minNum(num);
+	}
+
+	public long maxNum(long num) throws Exception {
+		// TODO Auto-generated method stub
+		return reviewDAO.maxNum(num);
+	}
+
+	public List<Long> rNum() throws Exception {
+		// TODO Auto-generated method stub
+		return reviewDAO.rNum();
+	}
+
 }

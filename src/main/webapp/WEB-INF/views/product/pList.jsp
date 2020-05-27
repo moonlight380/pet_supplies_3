@@ -20,20 +20,42 @@
 
 
 <style type="text/css">
-
-.product_header_right{
-	margin-left: 92%;
-
+.breadcrumb_section.page-title-mini {
+	padding: 50px 0;
+}
+#right1,#right2{
+	margin-right: 10.5px;
+	color: black;
 }
 
+#right3{
+	float: right;
+	
+}
 .bg_gray{
 	width: auto;
-	height: 60px;
+	height: 0px;
+}
+#product_header_right2{
+	float: right;
+}
+
+#right1 >input[type=checkbox]
+{
+	margin-right:10px;
+	margin-top:15px;
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2.5); /* IE */
+  -moz-transform: scale(2.5); /* FF */
+  -webkit-transform: scale(2.5); /* Safari and Chrome */
+  -o-transform: scale(2.5); /* Opera */
+  	padding: 10px;
+  
 }
 </style>
 </head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
- <body>
+<body id="reset">
 
 <!--    <br>
     <b><font size="5" color="gray">부모창</font></b>
@@ -79,13 +101,12 @@ $("#address_management").click(function(){
         <div class="row align-items-center">
         	<div class="col-md-6">
                 <div class="page-title">
-            		<h1>Shop Load More</h1>
                 </div>
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
                     <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="#">상품 전체 리스트</a></li>                    
+                    <li class="breadcrumb-item"><a href="#"><strong>상품 전체 리스트</strong></a></li>                    
                 </ol>
             </div>
         </div>
@@ -127,20 +148,25 @@ $("#address_management").click(function(){
                         <div class="product_header">
                             
                             
-                            <div class="product_header_right">
-                            <div class="product_header_right">
+                           
+                            
 <!------------------------------------------------------admin 계정만 write 버튼이 보일 수 있도록//  -------------------------------------------------------------------- -->
-                            	<div class="products_view1">
-
+                            	
+								<div class="product_header_right" id="product_header_right">
 								<c:if test="${member.id eq 'admin' }">
-								
-									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
 									
+									<span id="right2"><a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a></span>	
 								</c:if>
-                                </div>
+                               </div>
+                               <div class="product_header_right2" id="product_header_right2">
+                                <c:if test="${member.id eq 'admin' }">
+                                	<span id="right1"><input type="checkbox" id="product_all" style='font-size:44px;color:#FF324D'>모두체크</span>
+									<span id="right3"><button  class="product_del_btn" style='font-size:20px'>삭제 <i class='far fa-trash-alt' style='color:#FF324D'></i></button></span>
+								</c:if>
+								</div>
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->      
-                            </div>
-                            </div>
+                            
+                            
                         </div>
                     </div>
                 </div> 
@@ -151,9 +177,16 @@ $("#address_management").click(function(){
                     
                     <c:forEach items="${list}" var="vo" varStatus="status" begin="0" end="300"> 
                     <c:if test="${vo.sale le 0}">
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
+                   
+                    <div class="col-lg-3 col-md-4 col-6 grid_item" id="${vo.productNum}">
                         
-                        <div class="product">
+                        <c:if test="${member.id eq 'admin' }">
+                        <div class="">
+                        <input class="product_row_check" id="product_row_check" type="checkbox" name="${vo.productNum}"><span>선택삭제</span>
+                        </div> 
+                        </c:if> 
+             
+                        <div class="product"> 
                             <div class="product_img">
                                 <a href="./${p}Select?productNum=${vo.productNum}">                            
                                     <img src="${pageContext.request.contextPath}/resources/dogUpload/${vo.productFileVOs['0'].fileName}" alt="X">
@@ -179,13 +212,13 @@ $("#address_management").click(function(){
 			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>	
 			                          
 			                           <c:if test="${vo.sale gt 0}">
-						                <dl class="time_sale_price">
-									       <dt>타임세일</dt>
-									          <dd>
-									            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
-									              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
-									          </dd>
-									     </dl>
+							                <dl class="time_sale_price">
+										       <dt>타임세일</dt>
+										          <dd>
+										            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
+										              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+										          </dd>
+										     </dl>
 						                </c:if>   
 			                                                            
                                     </a>                               
@@ -220,6 +253,8 @@ $("#address_management").click(function(){
 <div id="quantityNum_amount"hidden="hidden">1</div>
 <c:import url="../cart/addCart.jsp"></c:import>
 
+                         
+<script type="text/javascript" src="../resources/script/pList.js"> </script>  
 
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>

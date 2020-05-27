@@ -22,8 +22,8 @@ public class Pager {
 	public void makeRow() {
 		//curPage로 DB에 일정한 수 조회
 		
-		System.out.println("curpage:"+this.getCurPage());
-		System.out.println(this.getPerPage());
+//		System.out.println("curpage:"+this.getCurPage());
+//		System.out.println(this.getPerPage());
 		this.startRow =((this.getCurPage()-1)*this.getPerPage()+1);
 		this.lastRow=(this.getCurPage()*this.getPerPage());
 	}

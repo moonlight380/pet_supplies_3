@@ -25,16 +25,6 @@ public class ProductFileController {
 		return mv;
 	}
 	
-//	@GetMapping("fileDown")
-//	public ModelAndView fileDown(ProductFileVO productFileVO)throws Exception{
-//		ModelAndView mv = new ModelAndView();
-//		productFileVO=productFileService.fileSelect(productFileVO);
-//		mv.addObject("file",productFileVO);
-//		mv.setViewName("fileDown");
-//		
-//		return mv;
-//	}
-
 
 //fileList
 @GetMapping("fileList")

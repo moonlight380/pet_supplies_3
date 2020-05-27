@@ -40,6 +40,7 @@
 
 	</div>
 
+	<input type="hidden" value="${vo.id}">
 	<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>

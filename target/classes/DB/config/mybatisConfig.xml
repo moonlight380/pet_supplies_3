@@ -11,7 +11,7 @@
   		<typeAlias type="com.pet.p1.util.Pager" alias="Pager"/>
   		
   		<typeAlias type="com.pet.p1.product.DogVO" alias="DogVO"/>
-
+		
   		<typeAlias type="com.pet.p1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.pet.p1.coupon.CouponVO" alias="CouponVO"/>
   		

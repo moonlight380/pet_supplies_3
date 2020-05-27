@@ -1,4 +1,5 @@
 package com.pet.p1.notice;
+
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -14,7 +15,7 @@ import com.pet.p1.util.FileSaver;
 import com.pet.p1.util.Pager;
 
 @Service
-public class NoticeService implements BoardService{
+public class NoticeService implements BoardService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	@Autowired
@@ -105,5 +106,20 @@ public class NoticeService implements BoardService{
 		boardFileDAO.fileDeleteAll(num);
 		return noticeDAO.boardDelete(num);
 
+	}
+
+	public long minNum(long num) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.minNum(num);
+	}
+
+	public long maxNum(long num) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.maxNum(num);
+	}
+
+	public List<Long> rNum() throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.rNum();
 	}
 }

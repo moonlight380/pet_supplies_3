@@ -22,24 +22,29 @@
     </div>
     
    <div class="form-group">
-      <label for="price">price :</label>
-      <input type="text" class="form-control" id="price " placeholder="Enter price " name="price" >
-      <!-- 밸류값을 줘서 로그인 하고 들어가야 함 -->
+      <label for="price">price(숫자만입력) :</label>
+      <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
+     
     </div>
-
+    
+	<div id="priceContents"></div>
+	
    <div class="form-group" >
 		    <label for="contents">Contents:</label>
 		    <textarea rows="20" cols="" class="form-control" id="contents" name="contents"></textarea>
 	</div> 
 	
     <div class="form-group">
-      <label for="point">POINT:</label>
+      <label for="point">POINT(숫자만입력):</label>
       <input type="text" class="form-control" id="point" placeholder="Enter point" name="point" >
     </div>
+    <div id="pointContents"></div>
+    
     <div class="form-group">
       <label for="point">SALE%(숫자만입력):</label>
-      <input type="text" class="form-control" id="sale" placeholder="Enter sale%" name="sale" >
+      <input type="text" class="form-control" id="sale" placeholder="Enter sale %" name="sale" >
     </div>
+    <div id="saleContents"></div>
     
 	<!-- 이 버튼을 클릭하면 파일 추가하는 버튼이 생기는 것 // 받을 때는 배열로 받음-->
 		<input type="button" id="add" class="btn btn-info" value="AddFile"><br>
@@ -56,8 +61,7 @@
 </div>
 
 
-<!-- 썸머노트경로를 준다. -->
-<script type="text/javascript" src="../resources/script/productForm.js"> </script>  
+<script type="text/javascript" src="../resources/script/product.js"> </script> 
 
 </body>
 </html>

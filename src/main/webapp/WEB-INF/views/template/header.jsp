@@ -27,7 +27,7 @@
 				href="${pageContext.request.contextPath}/member/memberLogin"
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
-				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
+				src="${pageContext.request.contextPath}/resources/images/chatbot_10.gif"
 				alt="상담챗봇 창 열림" id="chatBotBtFloating"
 				style="bottom: 20px; display: block; width: 100px; height: 100px">
 			</a>
@@ -45,7 +45,7 @@
 				onclick="window.open('${pageContext.request.contextPath}/echo/chatWindow','window_name','width=510,height=890,location=no,status=no,scrollbars=yes');"
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
-				src="${pageContext.request.contextPath}/resources/images/chatbot_icon2.gif"
+				src="${pageContext.request.contextPath}/resources/images/chatbot_10.gif"
 				alt="상담챗봇 창 열림" id="chatBotBtFloating"
 				style="bottom: 20px; display: block; width: 100px; height: 100px">
 			</a>
@@ -60,7 +60,8 @@
 
 
 <!-- START HEADER -->
-<header class="header_wrap fixed-top header_with_topbar">
+<header class="header_wrap fixed-top header_with_topbar psfx"
+	style="position: fixed;">
 	<div class="bottom_header dark_skin main_menu_uppercase">
 		<div class="container conmod">
 			<nav class="navbar navbar-expand-lg">
@@ -159,9 +160,8 @@
 
 
 					<c:if test="${empty member}">
-						<li><a
-							href="#"
-							class="nav-link"><i class="linearicons-user"></i></a>
+						<li><a href="#" class="nav-link"><i
+								class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item "
@@ -178,21 +178,20 @@
 							</div></li>
 					</c:if>
 
- 					<c:if test="${not empty member}">
-						<li><a
-							href="#"
-							class="nav-link"><i class="linearicons-user"></i></a>
+					<c:if test="${not empty member}">
+						<li><a href="#" class="nav-link"><i
+								class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item "
 										href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
-										href="${pageContext.request.contextPath}/member/memberPage">마이페이지</a></li>
+										href="${pageContext.request.contextPath}/member/memberOrderInfo">마이페이지</a></li>
 								</ul>
 							</div></li>
 					</c:if>
 
-<%-- 					<li class="dropdown cart_dropdown"><a
+					<%-- 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
 							class="linearicons-cart"></i><span class="cart_count"> <c:if
 									test="${empty member.id}">

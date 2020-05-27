@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,18 +211,11 @@ body, code {
 															href="./product/dogSelect?productNum=${dnvo.productNum}">${dnvo.contents}</a>
 													</h6>
 													<div class="product_price">
-														<span class="price">${dnvo.price}</span>
-														<del>할인 전 가격</del>
-														<div class="on_sale">
-															<span>35% Off</span>
-														</div>
+														<span class="price"><fmt:formatNumber value="${dnvo.price}" type="number"></fmt:formatNumber></span>
+														
+
 													</div>
-													<div class="rating_wrap"></div>
-													<div class="pr_desc">
-														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-															elit. Phasellus blandit massa enim. Nullam id varius nunc
-															id varius nunc.</p>
-													</div>
+
 												</div>
 											</div>
 										</div>
@@ -287,18 +280,10 @@ body, code {
 													<a href="shop-product-detail.html">${dbvo.contents}</a>
 												</h6>
 												<div class="product_price">
-													<span class="price">${dbvo.price}</span>
-													<del>할인 전 가격</del>
-													<div class="on_sale">
-														<span>35% Off</span>
-													</div>
+													<span class="price"><fmt:formatNumber value="${dnvo.price}" type="number"></fmt:formatNumber></span>
+													
 												</div>
-												<div class="rating_wrap"></div>
-												<div class="pr_desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Phasellus blandit massa enim. Nullam id varius nunc
-														id varius nunc.</p>
-												</div>
+												
 											</div>
 										</div>
 									</div>

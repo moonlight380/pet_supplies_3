@@ -23,6 +23,9 @@
 
 
 <style type="text/css">
+p{
+	display: inline-block;
+}
 .bg_gray{
 	width: auto;
 	height: 60px;
@@ -310,7 +313,6 @@ $('#close_popup2').click(function(){
 						     <dl class="item_discount_mileage dn">
 						            <dt>구매혜택</dt>
 						              <dd>
-						              
 						              		<c:if test="${vo.sale gt 0}">
 						                   <span class="item_discount">할인 : ${vo.sale}%</span>
 						                     </c:if>
@@ -517,11 +519,7 @@ $('#close_popup2').click(function(){
                       	<li class="nav-item">
                         	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 후기</a>
                         	
-                      	</li>
-                      	
-                      	<li class="nav-item">
-                        	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 문의</a>
-                      	</li>
+                      	</li>                     	
                       	
                     </ul>
                     
@@ -592,33 +590,7 @@ $('#close_popup2').click(function(){
 							
 							<div class="line"></div>
 							
-							<div class="comments">
-                            	<h5 class="product_tab_title"></h5>
-                                <ul class="list_none comment_list mt-4">
-                                    <c:forEach items="${list}" var="review">                                 
-                                    <li>
-	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
-	                                        <div class="comment_img">										 
-												<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
-											
-	                                        </div>
-	                                        </c:forEach>
-                                        <div class="comment_block">
-                                          
-                                            <p class="customer_meta">
-                                                <span class="review_author">${review.id}</span>
-                                                <span class="comment-date">${review.regDate}</span>
-                                            </p>
-                                            <div class="description">
-                                                <p>${review.contents}</p>
-                                            </div>
-                                        </div>
-                                    </li>
-  									</c:forEach>
-  
-  
-                                </ul>
-                        	</div>
+							
 							
                       	</div> <!-- 첫번째 탭 끝 -->
                       	
@@ -687,8 +659,8 @@ $('#close_popup2').click(function(){
                       	</div>
                       	
    				<!-- 상품후기 -->              
-   
-   						<%-- <span class="price">${}</span>    --%> 	
+   			
+   						<%-- <span class="price">${}</span>    --%> 
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
                             	<h5 class="product_tab_title"></h5>
@@ -707,7 +679,7 @@ $('#close_popup2').click(function(){
                                                 <span class="review_author">${review.id}</span>
                                                 <span class="comment-date">${review.regDate}</span>
                                             </p>
-                                            <div class="description">
+                                            <div class="description" style="word-break:break-all">
                                                 <p>${review.contents}</p>
                                             </div>
                                         </div>

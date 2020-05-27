@@ -22,20 +22,33 @@
  	<input type="hidden"  id="productNum" name="productNum" value="${vo.productNum}">
  	
     <div class="form-group">
-     <label for="productName"> productName:</label>
+     <label for="productName">상품 번호:</label>
       <input type="text" class="form-control" id="productName" placeholder="Enter productName" name="productName" value="${vo.productName}"  >
     </div>
 
    <div class="form-group">
-      <label for="price">price:</label>
+      <label for="price">상품 가격(숫자만 입력):</label>
       <input type="text" class="form-control" id="price" placeholder="Enter price" name="price" value="${vo.price}">
     </div>
-
+	<div id="priceContents"></div>
+	
+	
     <div class="form-group" >
-		    <label for="contents">Contents:</label>
+		    <label for="contents">상품 내용:</label>
 		<textarea rows="5" cols="" class="form-control" id="contents" name="contents">${vo.contents}</textarea>
 	</div>
 
+    <div class="form-group">
+      <label for="point">포인트(숫자만 입력):</label>
+      <input type="text" class="form-control" id="point" placeholder="Enter point" name="point" value="${vo.point}" >
+    </div>
+    <div id="pointContents"></div>
+    
+    <div class="form-group">
+      <label for="point">세일%(숫자만 입력):</label>
+      <input type="text" class="form-control" id="sale" placeholder="Enter sale %" name="sale" value="${vo.sale}" >
+    </div>
+    <div id="saleContents"></div>
       	
      <div class="container"> 	
       	<!-- 이미지가 여러개 이므로 반복문 -->	
@@ -57,7 +70,7 @@
 		</div>
   <br>
   <br>
- <input type="button" id="btn" class="btn btn-danger" value="Write">
+ <input type="submit" id="btn" class="btn btn-danger" value="Write">
 	</div>
  </form>  <!-- form으로 넘어가는 파라미터를 모두 감싸줘야 모두 넘어간다. -->
  </div>  
@@ -66,9 +79,9 @@
  
  
 <!-- 썸머노트경로를 준다. -->
-<script type="text/javascript" src="../resources/script/productForm.js"> </script>  
+<script type="text/javascript" src="../resources/script/product.js"> </script> 
 	
-	<script type="text/javascript">
+<script type="text/javascript">
 		$("#contents").summernote('code', '${vo.contents}');
 		/* 1. 컨트롤러에서 사이즈 받아오기 */
 		var size = ${size};

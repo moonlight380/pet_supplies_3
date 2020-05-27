@@ -29,6 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pet.p1.cart.CartService;
 import com.pet.p1.cart.CartVO;
 import com.pet.p1.mail.JavaMailInfo;
+import com.pet.p1.memberReview.MemberReviewVO;
 import com.pet.p1.order.OrderService;
 import com.pet.p1.order.OrderVO;
 import com.pet.p1.orderInfo.OrderInfoVO;
@@ -54,13 +55,25 @@ public class MemberController {
 
 
 	  @PostMapping("pointUpdate")
-	  @ResponseBody public void pointUpdate(MemberVO memberVO,HttpSession session)throws Exception{
+	  @ResponseBody 
+	  public void pointUpdate(MemberVO memberVO,HttpSession session)throws Exception{
 		  session.setAttribute("pointUpdate", memberVO);
 	  
 	  }
+	  
 
+	  
+	  @GetMapping("memberReview")
+	  public ModelAndView memberReview(HttpSession session,ModelAndView mv)throws Exception{
+		  MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		  List<MemberReviewVO> ar = memberService.memberReview(memberVO);
+		  mv.addObject("mr", ar);
+		  mv.setViewName("member/memberReview");
+		  return mv;
+	  }
 	
 	
+
 	@GetMapping("memberPurchase")
 	public ModelAndView memberOrderInfo2(HttpSession session,ModelAndView mv,HttpServletRequest request)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -265,10 +278,8 @@ public class MemberController {
 
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
-			 long cartCount = memberService.memberCart(memberVO);
-			 long couponCount = memberService.couponCount(memberVO);
-			 session.setAttribute("cartCount", cartCount);
-			 session.setAttribute("couponCount", couponCount);
+			 long count = memberService.memberCart(memberVO);
+			 session.setAttribute("cartCount", count);
 			 mv.setViewName("redirect:../");
 		 }else {
 			 mv.addObject("result", "아이디와 비밀번호를 확인해주세요");
@@ -314,10 +325,8 @@ public class MemberController {
 		
 			memberVO = memberService.snsLogin(memberVO);
 			 session.setAttribute("member", memberVO);
-			 long cartCount = memberService.memberCart(memberVO);
-			 long couponCount = memberService.couponCount(memberVO);
-			 session.setAttribute("cartCount", cartCount);
-			 session.setAttribute("couponCount", couponCount);
+			 long count = memberService.memberCart(memberVO);
+			 session.setAttribute("cartCount", count);
 			 mv.setViewName("redirect:../");
 		}else {
 			
@@ -529,19 +538,12 @@ public class MemberController {
 	//-- 결제 성공시
 	@GetMapping("kakaopaySuccess")
 	public ModelAndView kakaopaySuccess(HttpSession session)throws Exception{
-		
-		MemberVO pointUpdate = (MemberVO)session.getAttribute("pointUpdate");
-		memberService.pointUpdate(pointUpdate);
-		Long point = pointUpdate.getPoint();
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		point = point+memberVO.getPoint();
-		memberVO.setPoint(point);
 		ModelAndView mv = new ModelAndView();
 		OrderVO orderVO = new OrderVO();
 		orderVO = orderService.orderSelectOne(memberVO);
 		mv.addObject("order", orderVO);
 		mv.setViewName("member/kakaopaySuccess");
-		session.setAttribute("member", memberVO);
 		return mv;
 		
 	}

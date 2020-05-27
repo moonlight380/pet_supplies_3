@@ -36,6 +36,7 @@
   where addressNum=#{addressNum}
   </update>
   
+		
   <!-- address_delete -->
  <delete id="address_delete" parameterType="List">
  	delete address where addressNum in

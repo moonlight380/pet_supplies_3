@@ -27,15 +27,20 @@ public class DogService {
 	private FileSaver fileSaver;
 	@Autowired
 	private ProductFileDAO productFileDAO;
+
+	
+//product_list_delete
+	public int product_list_delete (List<Long> deleteProduct)throws Exception{
+		System.out.println("product_list_delete service");
+		return dogDAO.product_list_delete(deleteProduct);
+	}
 	
 //dogList	
 	public List<DogVO> dogList(Pager pager) throws Exception{
-		pager.makeRow();
-		
+		pager.makeRow(); 
 		long totalCount= dogDAO.dogCount(pager);
 		pager.makePage(totalCount);
-		
-		
+
 		return dogDAO.dogList(pager);
 	}
 //dogNewList	
@@ -48,9 +53,9 @@ public class DogService {
 	}	
 //dogBestList	
 	public List<DogVO> dogBestList(Pager pager) throws Exception{
-		pager.makeRow();
+		pager.makeRow(); 
 		long totalCount= dogDAO.dogCount(pager);
-		pager.makePage(totalCount);		
+		pager.makePage(totalCount);
 		return dogDAO.dogBestList(pager);
 	}	
 
@@ -59,7 +64,6 @@ public class DogService {
 		pager.makeRow();
 		long totalCount= dogDAO.dogCount(pager);
 		pager.makePage(totalCount);
-		System.out.println("dogTimeSale	sevice in");
 		return dogDAO.dogTimeSale(pager);
 	}	
 	
@@ -68,8 +72,7 @@ public class DogService {
 		String path = servletContext.getRealPath("/resources/dogUpload");
 		
 		System.out.println(path);
-		
-		
+
 		//시퀀스 번호 받기 dual로 맵퍼에서 가져옴
 		dogVO.setProductNum(dogDAO.dogNum());
 		
@@ -109,7 +112,6 @@ public class DogService {
 	
 	
 //select
-	
 	public DogVO dogSelect(DogVO dogVO) throws Exception {
 		dogDAO.hitUpdate(dogVO);
 		return dogDAO.dogSelect(dogVO);
@@ -120,12 +122,17 @@ public class DogService {
 		dogDAO.hitUpdate(dogVO);
 		return dogDAO.dogSelectTimeSale(dogVO);
 	}
-	
+
+//timeSaleUpdate
+	public int timeSaleUpdate(List<Long> list)throws Exception{
+		System.out.println("타임세일업데이트 서비스");
+		return dogDAO.timeSaleUpdate(list);
+	}
+
 //update
 	public int dogUpdate (DogVO dogVO,MultipartFile firstFile, MultipartFile[] files) throws Exception{	
 		
 String path = servletContext.getRealPath("/resources/dogUpload");
-		
 		System.out.println(path);
 		
 		//dogDAO table insert
@@ -160,10 +167,7 @@ String path = servletContext.getRealPath("/resources/dogUpload");
 		}
 		
 		return result;
-		
-		
-		
-		
+
 	}
 	
 //delete

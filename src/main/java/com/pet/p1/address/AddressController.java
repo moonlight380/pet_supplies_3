@@ -122,7 +122,8 @@ public class AddressController {
 		
 		List<Long> list = Arrays.asList(deleteAddress); //배열을 리스트로 바꾸기
 		int result=addressService.address_delete(list);
-			String path;
+		
+		String path;
 		if(result>0) {
 			path="redirect:./address_list";
 			System.out.println("삭제 성공");

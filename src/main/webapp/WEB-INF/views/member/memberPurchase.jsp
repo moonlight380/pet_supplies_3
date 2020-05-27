@@ -9,7 +9,7 @@
 
 <style type="text/css">
 	.table_body td{
-		border : 1px solid gray;
+		
 		
 	}
 	
@@ -215,8 +215,8 @@
 		console.log(id);
 		$("#" + id)
 				.before(
-						'<tr style="line-height: 30px;">' + '<th>&nbsp;</th>'
-								+ '</tr>');
+						'<tr style="line-height: 30px; border-bottom:solid 1px #bbbfc3;">' + '<th>&nbsp;</th><th></th><th></th><th></th><th></th><th></th><th></th>'
+						+ '</tr> <tr><th>&nbsp;</th></tr>');
 	}
 
 	$(".comma").each(function() {

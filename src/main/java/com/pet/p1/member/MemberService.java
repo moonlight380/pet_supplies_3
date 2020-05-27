@@ -261,6 +261,13 @@ public class MemberService {
 	public long orderCount(MemberVO memberVO) throws Exception{
 		return memberDAO.orderCount(memberVO);
 	}
+	public int pointUpdate(MemberVO memberVO)throws Exception{
+		return memberDAO.pointUpdate(memberVO);
+	}
+	
+	public Long couponCount(MemberVO memberVO)throws Exception{
+		return memberDAO.couponCount(memberVO);
+	}
 	
 
 }

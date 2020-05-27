@@ -23,7 +23,7 @@
 <style type="text/css">
 
 .product_header_right{
-	margin-left: 96%;
+	margin-left: 92%;
 
 }
 .bg_gray{
@@ -86,20 +86,16 @@
 
                             
                             <div class="product_header_right">
-                            	<div class="products_view">
 <!------------------------------------------------------admin 계정만 write 버튼이 보일 수 있도록//  -------------------------------------------------------------------- -->
+                            	<div class="products_view1">
 
 								<c:if test="${member.id eq 'admin' }">
 								
 									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
 									
 								</c:if>
-               
                                 </div>
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->      
-                            	  <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
-      
-
                             </div>
                         </div>
                     </div>
@@ -138,15 +134,12 @@
                             </div>
                             <div class="product_info">
                                 <h6 class="product_title"><a href="./${p}SelectTimeSale?productNum=${vo.productNum}">${vo.productName} </a></h6>
-                                <div class="product_contents">
-                                
-                                <span class="contents"><a href="./${p}SelectTimeSale?productNum=${vo.productNum}">${vo.contents}</a></span>				
+
 								<!-- 타이머기능 -->                 			
                  				<div class="notice">               						
 									<script type="text/javascript" src="../resources/script/timeSale.js"> </script>
 								</div>  
-  
-                                </div>
+
                                 <div class="product_price">
 		                              <span class="price">
 		                              <fmt:formatNumber value=" ${vo.price*(vo.sale*0.01)}" type="number"></fmt:formatNumber></span>

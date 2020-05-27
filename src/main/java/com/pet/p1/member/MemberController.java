@@ -53,6 +53,14 @@ public class MemberController {
 //--------------------------------------------------------------------------------------------------------------
 
 
+	  @PostMapping("pointUpdate")
+	  @ResponseBody public void pointUpdate(MemberVO memberVO,HttpSession session)throws Exception{
+		  session.setAttribute("pointUpdate", memberVO);
+	  
+	  }
+
+	
+	
 	@GetMapping("memberPurchase")
 	public ModelAndView memberOrderInfo2(HttpSession session,ModelAndView mv,HttpServletRequest request)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -257,8 +265,10 @@ public class MemberController {
 
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
-			 long count = memberService.memberCart(memberVO);
-			 session.setAttribute("cartCount", count);
+			 long cartCount = memberService.memberCart(memberVO);
+			 long couponCount = memberService.couponCount(memberVO);
+			 session.setAttribute("cartCount", cartCount);
+			 session.setAttribute("couponCount", couponCount);
 			 mv.setViewName("redirect:../");
 		 }else {
 			 mv.addObject("result", "아이디와 비밀번호를 확인해주세요");
@@ -304,8 +314,10 @@ public class MemberController {
 		
 			memberVO = memberService.snsLogin(memberVO);
 			 session.setAttribute("member", memberVO);
-			 long count = memberService.memberCart(memberVO);
-			 session.setAttribute("cartCount", count);
+			 long cartCount = memberService.memberCart(memberVO);
+			 long couponCount = memberService.couponCount(memberVO);
+			 session.setAttribute("cartCount", cartCount);
+			 session.setAttribute("couponCount", couponCount);
 			 mv.setViewName("redirect:../");
 		}else {
 			
@@ -517,12 +529,19 @@ public class MemberController {
 	//-- 결제 성공시
 	@GetMapping("kakaopaySuccess")
 	public ModelAndView kakaopaySuccess(HttpSession session)throws Exception{
+		
+		MemberVO pointUpdate = (MemberVO)session.getAttribute("pointUpdate");
+		memberService.pointUpdate(pointUpdate);
+		Long point = pointUpdate.getPoint();
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		point = point+memberVO.getPoint();
+		memberVO.setPoint(point);
 		ModelAndView mv = new ModelAndView();
 		OrderVO orderVO = new OrderVO();
 		orderVO = orderService.orderSelectOne(memberVO);
 		mv.addObject("order", orderVO);
 		mv.setViewName("member/kakaopaySuccess");
+		session.setAttribute("member", memberVO);
 		return mv;
 		
 	}

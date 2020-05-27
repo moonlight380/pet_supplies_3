@@ -11,6 +11,12 @@
 <c:import url="../template/css.jsp"></c:import>
 <style type="text/css">
 
+.sum_text{
+	color:#FF324D;
+	font-weight: bold;
+
+}
+
 .addr_button{
 	color: #323232;
     background: #ffffff;
@@ -76,6 +82,7 @@
 	
 
 <!-- 기본배송 -->
+
 <div class="ec-base-table typeList gBorder">
 <div style="text-align: center;">
 <div>
@@ -119,7 +126,7 @@
 
 
 								<c:forEach items="${cartSelect }" var="cart">
-								
+									<div hidden="hidden" id="${cart.id}${cart.cnum}_sd"></div>
 									<tbody>
 										<tr class="table_title">
 											<td hidden="hidden">
@@ -129,12 +136,22 @@
 											</td>
 
 											<td><img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
-											<td>${cart.productName }</td>
 
-											<td><img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;"></td>
 											<td id="productName">${cart.productName }</td>
-
-											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
+	
+											<c:if test="${cart.sale gt 0 }">
+												
+												<td>
+													<del id="${cart.id}${cart.cnum}_price" class="price" style="color: black;">${cart.price }</del><span>(${cart.sale }%)</span>
+													<div class="price" id="${cart.id}${cart.cnum}_sale" title="${cart.sale*(cart.price/100)}">${cart.price-(cart.sale*(cart.price/100) )}</div>
+												</td>
+											</c:if>
+											<c:if test="${cart.sale eq 0 }">
+												<div hidden="hidden" class="price" id="${cart.id}${cart.cnum}_sale" title="${cart.sale*(cart.price/100)}"></div>
+												<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
+											</c:if>
+											
+											
 											<td>
 												
 													<button hidden="hidden" class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
@@ -146,9 +163,19 @@
 												
 											</td>
 
-											<td id="${cart.id}${cart.cnum}_point" name="${cart.point }"></td>
+											<td><span id="${cart.id}${cart.cnum}_point" name="${cart.point }"></span></td>
 
-											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+											<td>
+												
+												<c:if test="${cart.sale gt 0}">
+													<span hidden="hidden" id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+													<span id="${cart.id}${cart.cnum}_dc" class="sum_text"></span>
+												</c:if>
+												<c:if test="${cart.sale eq 0}">
+													<span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+													
+												</c:if>
+												
 											</td>
 
 										</tr>
@@ -158,6 +185,7 @@
 											<tr class="table table-hove">
 										<td colspan="8" style="text-align: right;">
 										상품구매금액 <strong id="all_sum" class="all_sum">0원</strong>
+										- 상품할인금액<strong id="discount"></strong>
 										 + 배송비 <span id="deli">0원</span>
 										   = 합계 : <strong class="txtEm gIndent10">
 										   <span id="payment" class="paymentPrice">0</span></strong>
@@ -444,7 +472,7 @@
 
 <td class="option "><div class="box txt16">
 <strong>-</strong>
-<span id="discount" class="txt23"><strong>0원</strong></span>
+<span id="discount2" class="txt23"><strong>0원</strong></span>
 </div></td>
 <td><div class="box txtEm txt16">
 <strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="Ap paymentPrice">0원</span>
@@ -662,15 +690,12 @@
 <div class="mileage" style="margin-top: 30px; ">
 <dl class="ec-base-desc gLarge right" style="height:50px; font-size: small; border-bottom: 1px solid gray; border-top: 1px solid gray;">
 <dt style=" float: left; margin-left: 20px;margin-top: 12px;"><strong>총 적립예정금액</strong></dt>
-<dd id="mAllMileageSum" class="txtWarn" style=" float: right; margin-top: 12px; margin-right: 20px;">0원</dd>
+<dd id="mAllMileageSum" class="txtWarn" style=" float: right; margin-top: 12px; margin-right: 20px;"></dd>
 </dl>
 
 <dl class="ec-base-desc gLarge right" style="font-size: small;">
 
-<dt style=" float: left; margin-left: 20px;">상품별 적립금</dt>
-<dd id="mProductMileage" style="text-align: right; margin-right: 20px;">0원</dd>
-<dt style=" float: left; margin-left: 20px;">회원 적립금</dt>
-<dd id="mMemberMileage" style="text-align: right; margin-right: 20px;">0원</dd>
+
 
 </dl>
 
@@ -683,17 +708,56 @@
 </div>
 </div>
 </div>
-<div class="col-sm-2">1123</div>
+<div class="col-sm-2"></div>
 </div>
 </div>
 </div>
 </div>
+<div id="member_id" hidden="hidden">${member.id}</div>
 <div id="direct_cnum" hidden="hidden">${cnum}</div>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
 <script type="text/javascript" src="../resources/js/cart.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script type="text/javascript">
+	var sumP = 0;
+	var save = 0;
+	
+	var text;
+	$(".plus").each(function(){
+		var title = $(this).attr("title");
+		var amount = $("#"+title+"_amount").val();
+		var point = $("#"+title+"_point").attr("name");
+		sumP = sumP + (amount*point);
+		save = sumP;
+		
+
+	});
+	sumP=save;
+	
+$("#input_point").blur(function(){
+		sumP=save;
+	 	var minus_p = $(this).val()*1;
+		var memberPoint1 = $("#memberPoint").text();
+		var memberPoint = memberPoint1*1;
+
+		if(minus_p <= memberPoint){
+			sumP = sumP-minus_p;
+		} else{
+			sumP=save;
+		}
+		
+	});
+	
+	
+
+</script>
 
 
 <script>
+	
+	
+	
 	
 	/* 배송정보 유효성검사 */
 	//-- 이름
@@ -766,7 +830,10 @@
  		var c = true;
 		var check = $(".input_Join");
 		var agree = $("#chk_purchase_agreement0").prop("checked"); 
-		
+		var point = sumP;
+		var id = $("#member_id").text();
+		console.log(point);
+		console.log(id);
 		
 	 	for(i=0;i<check.length;i++){
 			if(check[i].value.length<=0){
@@ -805,6 +872,15 @@
 				}else if(pay.length<=0){
 					alert("결제방식을 선택해주세요");
 				}
+		 	 	$.ajax({
+		 			type:"post",
+		 			url:"./member/pointUpdate",
+		 			data:{
+		 				point:point,
+		 				id:id
+		 			}
+		 			
+		 		}); 
 			} 
 
 	});
@@ -932,16 +1008,17 @@
 			if(input_point > memberPoint){
 				alert("사용가능한 적립금액을 확인해주세요");
 				$("#input_point").val(" ");
+				input_point=0;
 			}
 	
 			var coupon1 = $("#c_in").val();
 			var coupon = coupon1*1;
 			
 			var dis = coupon+input_point;
-			
+			console.log("dis : " +dis);
 	 		
 	 		$("#total_addsale_price_view").html("<strong>"+dis+"원</strong>");
-	 		$("#discount").html("<strong>"+dis+"원</strong>");;
+	 		$("#discount2").html("<strong>"+dis+"원</strong>");;
 	 		
 	 		//-- 최종결제금액
 	 		var pay = $("#pp").text();
@@ -1029,31 +1106,6 @@
         }
  
 </script>
-<!-- <script type="text/javascript">
-	
-		var ids=[];
-		var cnum=$("#direct_cnum").text();
-		ids.push(cnum);
-		$.ajax({
-			type:"post",
-			traditional : true,
-			url:"./memberPaymentList",
-			data:{
-				ids:ids
-			},
-			success:function(data){
-				
-			},error : function(request, status, error) {
-				alert("code = " + request.status + " message = "
-						+ request.responseText + " error = " + error);
-			}
-		});
-		
-		
-		
-
-
-</script> -->
 
 </body>
 </html>

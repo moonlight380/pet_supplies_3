@@ -8,6 +8,7 @@ public class CartVO {
 	private String productName;
 	private long price;
 	private String fileName;
+	private long sale;
 	
 	
 	
@@ -61,6 +62,12 @@ public class CartVO {
 	}
 	public void setcAmount(long cAmount) {
 		this.cAmount = cAmount;
+	}
+	public long getSale() {
+		return sale;
+	}
+	public void setSale(long sale) {
+		this.sale = sale;
 	}
 	
 	

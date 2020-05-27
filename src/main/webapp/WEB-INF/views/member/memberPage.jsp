@@ -70,7 +70,7 @@
 							<div class="col text-center border fa fa-credit-card" style="color:#6699ff">
 								<span>보유 쿠폰</span>
 								<div>
-								 	<span style="font-size: 30px">${member.point }</span>
+								 	<span style="font-size: 30px">${couponCount}</span>
 								 </div>	
 							</div>
 									

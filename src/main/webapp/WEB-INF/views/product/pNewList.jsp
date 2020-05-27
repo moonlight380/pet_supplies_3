@@ -23,7 +23,7 @@
 <style type="text/css">
 
 .product_header_right{
-	margin-left: 96%;
+	margin-left: 92%;
 
 }
 
@@ -86,18 +86,18 @@
                         <div class="product_header">
 
                             <div class="product_header_right">
-                            	<div class="products_view">
+                            <div class="product_header_right">
 <!------------------------------------------------------admin 계정만 write 버튼이 보일 수 있도록//  -------------------------------------------------------------------- -->
+                            	<div class="products_view1">
 
 								<c:if test="${member.id eq 'admin' }">
 								
 									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
 									
 								</c:if>
-               
                                 </div>
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->      
-                                <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
+                            </div>
                                     
                             </div>
                         </div>
@@ -109,6 +109,7 @@
                 <div class="row shop_container grid_container loadmore" data-item="8" data-item-show="4" data-finish-message="No More Item to Show" data-btn="Load More">
                     
                     <c:forEach items="${list}" var="vo" varStatus="status" begin="0" end="300"> 
+                    <c:if test="${vo.sale le 0}">
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
                         <div class="product">
                             <div class="product_img">
@@ -138,12 +139,20 @@
                                 <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
                                 <div class="product_contents">
                                 
-                                <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
 	               				<span class="contents"><a href="./${p}Select?productNum=${vo.productNum}"> date: ${vo.regDate}</a></span>                         
                                 </div>
                                 <div class="product_price">
 		                              <a href="./${p}Select?productNum=${vo.productNum}">   
 			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>
+                                   			                           <c:if test="${vo.sale gt 0}">
+						                <dl class="time_sale_price">
+									       <dt>타임세일</dt>
+									          <dd>
+									            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
+									              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+									          </dd>
+									     </dl>
+						                </c:if>  
                                     </a>                               
                                     
                                 </div>
@@ -151,7 +160,7 @@
                             </div><!-- product_info" -->
                         </div> <!-- product -->
                     </div> <!-- "col-lg-3 col-md-4 col-6 grid_item" -->
-
+					</c:if>
                   </c:forEach>  
                 </div><!-- "row shop_container grid_container loadmore" -->
                 

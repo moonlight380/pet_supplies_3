@@ -38,7 +38,7 @@
 
 
 						<div class="row mb-4"
-							style="border-bottom: solid 1px black; font-weight: bold; color: black;">
+							style="border-bottom: solid 1px black; font-weight: bold; color: black; margin-top: 150px;">
 							<div style="margin-left: 21px;">주문 조회</div>
 						</div>
 

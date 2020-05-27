@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Simple Map</title>
+<title>매장 위치 안내</title>
 <meta name="viewport" content="initial-scale=1.0">
 <meta charset="utf-8">
 
@@ -38,8 +38,9 @@ html, body {
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-<body>
-	<div id="store-bigtitle">
+
+<body style="padding-top: 150px;">
+	<div id="store-bigtitle" style="padding-bottom: 20px;">
 		<h1>매장 위치 안내</h1>
 	</div>
 	<div id="map"></div>

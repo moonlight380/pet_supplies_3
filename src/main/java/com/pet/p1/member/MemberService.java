@@ -260,5 +260,9 @@ public class MemberService {
 		return memberDAO.pointUpdate(memberVO);
 	}
 	
+	public Long couponCount(MemberVO memberVO)throws Exception{
+		return memberDAO.couponCount(memberVO);
+	}
+	
 
 }

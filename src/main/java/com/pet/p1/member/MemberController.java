@@ -274,8 +274,10 @@ public class MemberController {
 
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
-			 long count = memberService.memberCart(memberVO);
-			 session.setAttribute("cartCount", count);
+			 long cartCount = memberService.memberCart(memberVO);
+			 long couponCount = memberService.couponCount(memberVO);
+			 session.setAttribute("cartCount", cartCount);
+			 session.setAttribute("couponCount", couponCount);
 			 mv.setViewName("redirect:../");
 		 }else {
 			 mv.addObject("result", "아이디와 비밀번호를 확인해주세요");
@@ -320,8 +322,10 @@ public class MemberController {
 		
 			memberVO = memberService.snsLogin(memberVO);
 			 session.setAttribute("member", memberVO);
-			 long count = memberService.memberCart(memberVO);
-			 session.setAttribute("cartCount", count);
+			 long cartCount = memberService.memberCart(memberVO);
+			 long couponCount = memberService.couponCount(memberVO);
+			 session.setAttribute("cartCount", cartCount);
+			 session.setAttribute("couponCount", couponCount);
 			 mv.setViewName("redirect:../");
 		}else {
 			

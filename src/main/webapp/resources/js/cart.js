@@ -367,16 +367,13 @@ $("#result").on("click","#del",function() {
 			var a=amount*sale;
 			
 			price = amount*(price-sale);
-			console.log("price : "+price);
 			if(check){
 				discount=discount+a;
 			}
 			$("#discount").text(addCommas(discount)+"원");
 			price = addCommas(price);
 			price = price+"원";
-			console.log(price);
 			$("#"+title+"_dc").text(price);
-			console.log("-------------------------");
 		});
 		
 		

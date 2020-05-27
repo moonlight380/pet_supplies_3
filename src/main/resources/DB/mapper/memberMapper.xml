@@ -6,6 +6,11 @@
   
   <mapper namespace="com.pet.p1.member.MemberDAO">
   
+  
+  	<select id="couponCount" resultType="Long" parameterType="MemberVO">
+  		select count(*) from couponinfo where id=#{id}
+  	</select>
+  
   	<select id="orderCount" parameterType="MemberVO" resultType="Long">
   		select count(DISTINCT ordernum) from orderinfo where id=#{id} and ordercheck=0
   	</select>

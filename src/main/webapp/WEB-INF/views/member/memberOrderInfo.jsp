@@ -9,7 +9,8 @@
 
 <style type="text/css">
 .table_body td {
-	border: 1px solid gray;
+	border: 0;
+	
 }
 
 .table_title th {

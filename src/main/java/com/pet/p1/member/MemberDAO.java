@@ -19,6 +19,11 @@ public class MemberDAO {
 	
 	private final String NAMESPACE="com.pet.p1.member.MemberDAO.";
 	
+	
+	public Long couponCount(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"couponCount",memberVO);
+	}
+	
 	public int pwUpdate(MemberVO memberVO)throws Exception{
 		return sqlSession.update(NAMESPACE+"pwUpdate", memberVO);
 	}

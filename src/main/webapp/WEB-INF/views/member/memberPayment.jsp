@@ -472,7 +472,7 @@
 
 <td class="option "><div class="box txt16">
 <strong>-</strong>
-<span id="discount" class="txt23"><strong>0원</strong></span>
+<span id="discount2" class="txt23"><strong>0원</strong></span>
 </div></td>
 <td><div class="box txtEm txt16">
 <strong>=</strong> <span style="color: #FF324D; font-weight: bold;" class="Ap paymentPrice">0원</span>
@@ -1015,10 +1015,10 @@ $("#input_point").blur(function(){
 			var coupon = coupon1*1;
 			
 			var dis = coupon+input_point;
-			
+			console.log("dis : " +dis);
 	 		
 	 		$("#total_addsale_price_view").html("<strong>"+dis+"원</strong>");
-	 		$("#discount").html("<strong>"+dis+"원</strong>");;
+	 		$("#discount2").html("<strong>"+dis+"원</strong>");;
 	 		
 	 		//-- 최종결제금액
 	 		var pay = $("#pp").text();

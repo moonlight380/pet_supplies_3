@@ -23,8 +23,14 @@
 
 
 <style type="text/css">
-p{
-	display: inline-block;
+.rest_img{
+	display: none;
+}
+.comment_img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	margin-left: 20px;
 }
 .bg_gray{
 	width: auto;
@@ -667,12 +673,16 @@ $('#close_popup2').click(function(){
                                 <ul class="list_none comment_list mt-4">
                                     <c:forEach items="${list}" var="review">                                 
                                     <li>
-	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
+                                   		<img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['0'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['0'].fileName}" alt="review_img1"/>
+ 	                                    
+ 	                                     
+ 	                                     
+ 	                                     <%--<c:forEach items="${review.boardFileVOs}" var="review2">
 	                                        <div class="comment_img">										 
 												<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
 											
 	                                        </div>
-	                                        </c:forEach>
+	                                        </c:forEach> --%>
                                         <div class="comment_block">
                                             
                                             <p class="customer_meta">
@@ -682,6 +692,19 @@ $('#close_popup2').click(function(){
                                             <div id="wrap" class="description" style="word-break:break-all">
                                                 <p>${review.contents}</p>
                                             </div>
+                                            
+                                            <div class="rest_img">
+                                            <span><img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['2'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['1'].fileName}" alt="review_img1"/> 
+ 	                                     	</span>
+                                            <span><img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['3'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['1'].fileName}" alt="review_img1"/> 
+ 	                                     	</span>
+ 	                                     	<span><img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['4'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['1'].fileName}" alt="review_img1"/> 
+ 	                                     	</span>
+ 	                                     	<span><img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['5'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['1'].fileName}" alt="review_img1"/> 
+ 	                                     	</span>
+ 	                                     	
+                                            </div>
+                                            
                                             <!-- 펼침시 그라데이션 효과-->
 											<div id="gradient"></div>
 											
@@ -701,6 +724,15 @@ $('#close_popup2').click(function(){
                 </div>
             </div>
         </div>
+        
+<!------------------------------- 클릭 시 리뷰 이미지 보임 ---------------------->
+<script type="text/javascript">
+$(".rest_img").click(function(){
+	$(this).css("display","none");
+	
+});
+
+</script>
 <!-------------------------------- 더보기------------------------------- -->       
 <script type="text/javascript">
 $(function(){

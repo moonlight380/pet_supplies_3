@@ -34,18 +34,19 @@
                 </ul>
 			</div>
         </div>
-
         <div class="ec-base-table typeList">
-            <table border="1" >
+        <div style="margin-left: 20px;">
+		<a href="#" class="deleteBtn"class="btn_pop btncolor_basic"><span>선택 주소록 삭제</span></a> 
+		</div>
+            <table border="1" style="text-align: center;">
 					<caption></caption>
 					                <colgroup>
 					<col style="width:27px">
-					<col style="width:80px">
 					<col style="width:100px">
 					<col style="width:90px">
 					<col style="width:100px">
 					<col style="width:100px">
-					<col style="width:auto">
+					<col style="width:300px">
 					<col style="width:87px">
 					</colgroup>
 <tbody class="head">
@@ -53,7 +54,7 @@
 <td scope="col">
 <span class=""><input id="allCheck" type="checkbox" ></span> 
 </td>
-                        <td scope="col">주소록 고정</td>
+    
 						<td scope="col">배송지명</td>
                         <td scope="col">수령인</td>
                         <td scope="col">일반전화</td>
@@ -67,7 +68,7 @@
 						<td scope="col">
 						<span class=""><input class="rowCheck check" id="rowCheck del" type="checkbox" name="${vo.addressNum}"></span> 
 						</td>
-                        <td scope="col"><input type="button" class="button addr_button gray "  value="고정"></td>
+     
                         
 						<td scope="col">${vo.addr_name}</td>
 						
@@ -104,9 +105,8 @@
 
 
 <!-- 하단 버튼 -->
-<div class="ec-base-button">
-		<a href="#" class="deleteBtn"class="btn_pop btncolor_basic "><span>선택 주소록 삭제</span></a> 
-		<a href="./address" class="btn_pop btncolor_subordinate .attr_set_spacebtn"><span>배송지 등록</span></a>
+<div class="ec-base-button" style="margin-left: 20px;">
+		<a href="./address" class="btn_pop btncolor_subordinate .attr_set_spacebtn"><span>새로운 배송지 등록</span></a>
 		<!-- <input type="button" class="button addr_button" value="삭제"> -->
 		<br>
 		<br>
@@ -114,6 +114,7 @@
 </div> 
 
 <script src="../resources/script/address_list.js" type="text/javascript"></script> <!-- 스크립트 불러올때 -->
+
 
 </form>
 

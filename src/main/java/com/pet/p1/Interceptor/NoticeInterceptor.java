@@ -8,36 +8,39 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.pet.p1.board.BoardVO;
 import com.pet.p1.member.MemberVO;
 
-
 @Component
-public class MemberIntercepter extends HandlerInterceptorAdapter{
+public class NoticeInterceptor extends HandlerInterceptorAdapter {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
+
 		boolean check = false;
+		MemberVO memberVO = (MemberVO) request.getSession().getAttribute("member");
+
+		//ModelAndView modelAndView = new ModelAndView();
+		//BoardVO boardVO = (BoardVO) modelAndView.getModel().get("vo");
+		//String board = (String) modelAndView.getModel().get("board");
+		//board = "./" + board + "List";
 		
-		Object object = request.getSession().getAttribute("member");
-		
-		if(object != null) {
+		//String snum = String.valueOf(boardVO.getNum());
+
+		if (memberVO != null && memberVO.getId().equals("admin")) {
 			check = true;
-		}else {
-			
-			request.setAttribute("result", "로그인 후 이용하실 수 있습니다");
+			System.out.println("관리자");
+		} else if (memberVO != null) {
+			response.sendRedirect("./noticeList");
+
+		} else {
+			request.setAttribute("result", "권한이 없습니다");
 			request.setAttribute("path", "../member/memberLogin");
-			
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
 			view.forward(request, response);
-		
 		}
-		
-		
+
 		return check;
 	}
-	
-	
-	
 }

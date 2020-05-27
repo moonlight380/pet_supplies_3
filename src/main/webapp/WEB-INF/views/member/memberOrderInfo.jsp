@@ -9,7 +9,8 @@
 
 <style type="text/css">
 .table_body td {
-	border: 1px solid gray;
+	
+	
 }
 
 .table_title th {
@@ -33,8 +34,6 @@
 				<div class="row">
 					<div class="col-sm-1"></div>
 					<div class="col">
-
-
 
 
 
@@ -124,7 +123,7 @@
 												<td class="comma" title="point"><c:set var="point"
 														value="${order.amount * order.point}" /> <c:out
 														value="${point}" /></td>
-												<td><a href="https://tracker.delivery/#/:carrier_id/:track_id" target="_blank">배송조회</a></td>
+												<td class="${order.orderNum}_row2 comma price" title="price">${order.priceAll }</td>
 
 											</tr>
 
@@ -192,18 +191,27 @@
 	$(".table_start").each(function() {
 		var title = $(this).attr("title");
 		var cname = "." + title + "_row";
+		var cname2 = "." + title + "_row2";
 		$(cname).each(function() {
 			var rows = $(cname + ":contains('" + $(this).text() + "')");
+			var rows2= rows.siblings(cname2);
+			
 			if (rows.length > 1) {
 				rows.eq(0).attr("rowspan", rows.length);
+				rows2.eq(0).attr("rowspan", rows.length);
 				rows.not(":eq(0)").remove();
+				rows2.not(":eq(0)").remove();
+
 			} else if (rows.length == 1) {
 				var id = rows.first().attr("title");
 				id = "id_" + id;
 				ids.push(id);
 			}
+			
 
 		});
+		
+
 
 	});
 	var list = ids.reduce(function(a, b) {
@@ -217,8 +225,8 @@
 		var id = list[i];
 		$("#" + id)
 				.before(
-						'<tr style="line-height: 30px;">' + '<th>&nbsp;</th>'
-								+ '</tr>');
+						'<tr style="line-height: 30px; border-bottom:solid 1px #bbbfc3;">' + '<th>&nbsp;</th><th></th><th></th><th></th><th></th><th></th><th></th>'
+								+ '</tr> <tr><th>&nbsp;</th></tr>');
 	}
 
 

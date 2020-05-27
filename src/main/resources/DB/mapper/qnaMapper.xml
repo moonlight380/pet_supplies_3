@@ -126,5 +126,22 @@
 
 	</insert>
 
+	<select id="minNum" resultType="Long">
+		select nvl(min(num),#{num}) from
+		qna where
+		num > #{num}
+	</select>
+
+	<select id="maxNum" resultType="Long">
+		select nvl(max(num),#{num}) from
+		qna where
+		num &lt; #{num}
+	</select>
+
+	<select id="rNum" resultType="Long">
+		select rownum from qna order by
+		rownum desc
+	</select>
+
 
 </mapper>  

@@ -2,9 +2,6 @@ package com.pet.p1.notice;
 
 import java.util.List;
 
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +17,7 @@ import com.pet.p1.util.Pager;
 @Controller
 @RequestMapping("/notice/**")
 public class NoticeController {
-	
+
 	@Autowired
 	private NoticeService noticeService;
 
@@ -93,6 +90,11 @@ public class NoticeController {
 	public ModelAndView boardSelect(long num) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		BoardVO boardVO = noticeService.boardSelect(num);
+		long minNum = noticeService.minNum(num);
+		long maxNum = noticeService.maxNum(num);
+
+		mv.addObject("maxNum", maxNum);
+		mv.addObject("minNum", minNum);
 		mv.addObject("vo", boardVO);
 		mv.setViewName("board/boardSelect");
 		return mv;
@@ -102,6 +104,9 @@ public class NoticeController {
 	public ModelAndView boardList(Pager pager, ModelAndView mv) throws Exception {
 
 		List<BoardVO> ar = noticeService.boardList(pager);
+		List<Long> rNumber = noticeService.rNum();
+
+		mv.addObject("listNo", rNumber);
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("board/boardList");

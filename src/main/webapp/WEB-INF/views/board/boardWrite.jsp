@@ -13,7 +13,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
-		<h1>${board}WriteForm</h1>
+		<h1>${board} 작성 폼</h1>
 
 
 		<form action="./${board}Write" id="frm" method="post"
@@ -48,6 +48,7 @@
 
 	</div>
 
+	<input type="hidden" value="" name="produnctNum" id="productNum">
 
 	<script type="text/javascript" src="../resources/script/boardForm.js"></script>
 	<c:import url="../template/footer.jsp"></c:import>

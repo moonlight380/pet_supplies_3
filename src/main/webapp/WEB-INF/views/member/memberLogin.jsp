@@ -34,7 +34,7 @@
 
 	<div class="text-center">
 	<a href="${pageContext.request.contextPath}">
-	<img class="m-5 mb-4" 
+	<img class="m-5 mb-4" style="height: 60px;" 
 		src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 		alt="" width="182" height="47">
 	</a>

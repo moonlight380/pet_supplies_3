@@ -2,7 +2,6 @@ package com.pet.p1.notice;
 
 import java.util.List;
 
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -60,4 +59,17 @@ public class NoticeDAO implements BoardDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.update(NAMESPACE + "hitUpdate", num);
 	}
+
+	public long minNum(long num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "minNum", num);
+	}
+
+	public long maxNum(long num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "maxNum", num);
+	}
+
+	public List<Long> rNum() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "rNum");
+	}
+
 }

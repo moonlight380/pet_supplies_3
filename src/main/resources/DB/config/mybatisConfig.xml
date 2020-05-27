@@ -25,7 +25,7 @@
   		<typeAlias type="com.pet.p1.orderInfo.OrderInfoVO" alias="OrderInfoVO"/>
   		
 
-  		
+  		<typeAlias type="com.pet.p1.memberReview.MemberReviewVO" alias="MemberReviewVO"/>
   		<typeAlias type="com.pet.p1.product.file.ProductFileVO" alias="ProductFileVO"/>
 		<typeAlias type="com.pet.p1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.pet.p1.board.file.BoardFileVO" alias="BoardFileVO"/>

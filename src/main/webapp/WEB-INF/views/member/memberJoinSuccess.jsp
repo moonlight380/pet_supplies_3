@@ -36,7 +36,7 @@
 <h3><img style="height: 100px;" src="${pageContext.request.contextPath}/resources/images/catdog.jpg" alt="회원가입"></h3>
 
 <p class="desc" style="font-size: 30px;"><i class='fas fa-paw' style="font-size: 28px;"></i>
-<strong style="color: #FF324D;">(주)Pet</strong> 회원가입을 축하합니다!
+<strong style="color: #FF324D;">OH!DALI</strong> 회원가입을 축하합니다!
 <i class='fas fa-paw' style="font-size: 28px;"></i></p>
 
 <div class="ec-base-box typeMember gMessage">

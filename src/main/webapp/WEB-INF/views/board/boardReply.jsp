@@ -9,8 +9,9 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
-<body>
-	<c:import url="../template/header.jsp"></c:import>
+<c:import url="../template/header.jsp"></c:import>
+<body style="padding-top: 70px">
+	
 	<div class="container">
 		<h1>${board}replyForm</h1>
 

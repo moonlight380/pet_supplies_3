@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.pet.p1.memberReview.MemberReviewVO;
 import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
@@ -18,6 +19,10 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	
 	private final String NAMESPACE="com.pet.p1.member.MemberDAO.";
+	
+	public List<MemberReviewVO> memberReview(MemberVO memberVO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"memberReview",memberVO);
+	}
 	
 	
 	public Long couponCount(MemberVO memberVO)throws Exception{

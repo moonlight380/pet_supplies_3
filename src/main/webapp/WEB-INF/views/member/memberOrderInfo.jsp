@@ -9,7 +9,7 @@
 
 <style type="text/css">
 .table_body td {
-	border: 0;
+	
 	
 }
 
@@ -203,11 +203,13 @@
 				rows2.eq(0).attr("rowspan", rows.length);
 				rows.not(":eq(0)").remove();
 				rows2.not(":eq(0)").remove();
+
 			} else if (rows.length == 1) {
 				var id = rows.first().attr("title");
 				id = "id_" + id;
 				ids.push(id);
 			}
+			
 
 		});
 		
@@ -225,8 +227,8 @@
 		var id = list[i];
 		$("#" + id)
 				.before(
-						'<tr style="line-height: 30px;">' + '<th>&nbsp;</th>'
-								+ '</tr>');
+						'<tr style="line-height: 30px; border-bottom:solid 1px #bbbfc3;">' + '<th>&nbsp;</th><th></th><th></th><th></th><th></th><th></th><th></th>'
+								+ '</tr> <tr><th>&nbsp;</th></tr>');
 	}
 
 

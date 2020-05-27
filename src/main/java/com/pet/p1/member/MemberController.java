@@ -29,6 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pet.p1.cart.CartService;
 import com.pet.p1.cart.CartVO;
 import com.pet.p1.mail.JavaMailInfo;
+import com.pet.p1.memberReview.MemberReviewVO;
 import com.pet.p1.order.OrderService;
 import com.pet.p1.order.OrderVO;
 import com.pet.p1.orderInfo.OrderInfoVO;
@@ -54,11 +55,22 @@ public class MemberController {
 
 
 	  @PostMapping("pointUpdate")
-	  @ResponseBody public void pointUpdate(MemberVO memberVO,HttpSession session)throws Exception{
+	  @ResponseBody 
+	  public void pointUpdate(MemberVO memberVO,HttpSession session)throws Exception{
 		  session.setAttribute("pointUpdate", memberVO);
 	  
 	  }
+	  
 
+	  
+	  @GetMapping("memberReview")
+	  public ModelAndView memberReview(HttpSession session,ModelAndView mv)throws Exception{
+		  MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		  List<MemberReviewVO> ar = memberService.memberReview(memberVO);
+		  mv.addObject("mr", ar);
+		  mv.setViewName("member/memberReview");
+		  return mv;
+	  }
 	
 	
 	@GetMapping("memberPurchase")

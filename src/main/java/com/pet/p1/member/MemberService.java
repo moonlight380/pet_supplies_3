@@ -26,6 +26,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.pet.p1.memberReview.MemberReviewVO;
 import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
@@ -267,6 +268,10 @@ public class MemberService {
 	
 	public Long couponCount(MemberVO memberVO)throws Exception{
 		return memberDAO.couponCount(memberVO);
+	}
+	
+	public List<MemberReviewVO> memberReview(MemberVO memberVO)throws Exception{
+		return memberDAO.memberReview(memberVO);
 	}
 	
 

@@ -133,8 +133,8 @@
 	<button type="button" id="button" class="btn btn-default">수정</button>
 	<button type="button" id="cancel" class="btn btn-primary" onclick="goback()">취소</button>
 </div>
-<div style="float: right; margin-top: 10px; ">
-	<button type="button" id="delete" class="btn btn-danger">회원탈퇴</button>
+<div style="float: right; margin-top: 30px;">
+	<button type="button" id="delete" class="btn btn-danger btn-sm">회원탈퇴</button>
 </div>
 
 	
@@ -206,6 +206,11 @@ var pwCheck = true;
 					success : function(data){
 						if(data == 0){
 							alert("같은 비밀번호를 사용하실 수 없습니다");
+							$("#pw").val('');
+						}else{
+							$("#pwt").html(" 사용가능한 비밀번호입니다");
+							$("#pwt").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
+							pwCheck = true;
 						}
 					},
 					error:function(request,status,error){
@@ -213,9 +218,6 @@ var pwCheck = true;
 					
 				});   
 	    	
-			$("#pwt").html(" 사용가능한 비밀번호입니다");
-			$("#pwt").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
-			pwCheck = true;
 		}
 	
 });
@@ -269,7 +271,7 @@ var birthCheck = true;
       alert("년도를 확인하세요. "+adultYear+"년생 이전 출생자만 등록 가능합니다.");
       birthCheck = false;
       
- }else if (month <1 || month > 12) { 
+ }else if (month < 1 || month > 12) { 
       alert("달은 1월부터 12월까지 입력 가능합니다.");
       birthCheck = false;
       

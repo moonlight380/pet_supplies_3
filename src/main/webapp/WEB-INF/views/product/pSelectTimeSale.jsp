@@ -567,9 +567,6 @@ $('#close_popup2').click(function(){
                         	
                       	</li>
                       	
-                      	<li class="nav-item">
-                        	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 문의</a>
-                      	</li>
                       	
                     </ul>
                     
@@ -755,7 +752,7 @@ $('#close_popup2').click(function(){
                                                 <span class="review_author">${review.id}</span>
                                                 <span class="comment-date">${review.regDate}</span>
                                             </p>
-                                            <div class="description">
+                                            <div class="description" style="word-break:break-all">
                                                 <p>${review.contents}</p>
                                             </div>
                                         </div>

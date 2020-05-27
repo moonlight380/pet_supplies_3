@@ -20,8 +20,9 @@
 
 
 <style type="text/css">
-
-
+.breadcrumb_section.page-title-mini {
+	padding: 50px 0;
+}
 #right1,#right2{
 	margin-right: 10.5px;
 	color: black;
@@ -33,7 +34,7 @@
 }
 .bg_gray{
 	width: auto;
-	height: 60px;
+	height: 0px;
 }
 #product_header_right2{
 	float: right;
@@ -100,7 +101,6 @@ $("#address_management").click(function(){
         <div class="row align-items-center">
         	<div class="col-md-6">
                 <div class="page-title">
-            		<h1>Shop Load More</h1>
                 </div>
             </div>
             <div class="col-md-6">
@@ -178,7 +178,7 @@ $("#address_management").click(function(){
                     <c:forEach items="${list}" var="vo" varStatus="status" begin="0" end="300"> 
                     <c:if test="${vo.sale le 0}">
                    
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
+                    <div class="col-lg-3 col-md-4 col-6 grid_item" id="${vo.productNum}">
                         
                         <c:if test="${member.id eq 'admin' }">
                         <div class="">

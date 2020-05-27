@@ -47,12 +47,10 @@
       						data:{
       							deleteProduct:deleteProduct
       						},
-      						success: function(data){
-      							$.get("./pList_reset",function(data){
-      								console.log(data);
-      								$("#reset").html(data.trim());
-      								
-      							});
+      						success: function(data)
+      						{	alert("삭제성공")
+      							//$("#"+deleteProduct).remove();
+      							location.reload();
       						},error : function(request, status, error) {
       							alert("code = " + request.status + " message = "
       									+ request.responseText + " error = " + error);

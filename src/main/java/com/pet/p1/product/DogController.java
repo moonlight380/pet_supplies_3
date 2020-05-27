@@ -43,33 +43,20 @@ public String getBoard()throws Exception{
 	@GetMapping("product_list_delete")
 	@ResponseBody
 	public void product_list_delete(Long [] deleteProduct) throws Exception{
-		System.out.println("controller");
 		List<Long> list = Arrays.asList(deleteProduct); //배열을 리스트로 바꾸기
 		int result=dogService.product_list_delete(list);
-		System.out.println("result:"+result);
-		System.out.println("controller2");
+		
 		String path;
 		if(result>0) {
 			path="redirect:./dogList";
 			System.out.println("리스트페이지에서 상품 삭제 성공");
 		}
-		
-		System.out.println("controller3");
-	}
-	@GetMapping("pList_reset")
-	public ModelAndView pList_reset(ModelAndView mv,DogVO dogVO,Pager pager,HttpSession session)throws Exception{
-		List<DogVO> ar =dogService.dogList(pager);
-		
-		mv.addObject("list",ar);
-		mv.addObject("pager",pager);
-		
-		mv.setViewName("product/pList");
 
-		return mv;
 	}
-//------------------------------List페이지에서 전체삭제, 개별삭제 끝-------------------------------------//
+
+
 	
-//List
+//-----------------------------------------------List-------------------------------------------------------------//
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
 	public ModelAndView dogList (ModelAndView mv,Pager pager,HttpSession session)throws Exception {
 		

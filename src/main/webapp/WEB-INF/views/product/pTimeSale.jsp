@@ -21,7 +21,9 @@
 <c:import url="../template/summer.jsp"></c:import>
 
 <style type="text/css">
-
+.breadcrumb_section.page-title-mini {
+	padding: 50px 0;
+}
 .product_header_right{
 	margin-left: 92%;
 	
@@ -54,7 +56,7 @@
         <div class="row align-items-center">
         	<div class="col-md-6">
                 <div class="page-title">
-            		<h1>Shop Load More</h1>
+            		
                 </div>
             </div>
             <div class="col-md-6">

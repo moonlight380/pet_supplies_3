@@ -21,6 +21,9 @@
 <c:import url="../template/summer.jsp"></c:import>
 
 <style type="text/css">
+.breadcrumb_section.page-title-mini {
+	padding: 50px 0;
+}
 .bg_gray{
 	width: auto;
 	height: 60px;
@@ -100,7 +103,7 @@
         <div class="row align-items-center">
         	<div class="col-md-6">
                 <div class="page-title">
-            		<h1>Shop Load More</h1>
+            		
                 </div>
             </div>
             <div class="col-md-6">

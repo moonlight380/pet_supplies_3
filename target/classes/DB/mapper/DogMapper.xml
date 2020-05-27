@@ -189,7 +189,7 @@
 
 <!-- update -->
  	<update id="dogUpdate" parameterType="DogVO">
-  		UPDATE product set productName =#{productName}, price=#{price},contents=#{contents},#{sale} where productNum=#{productNum}
+  		UPDATE product set productName=#{productName},price=#{price},contents=#{contents},sale=#{sale},point=#{point} where productNum=#{productNum}
   	</update>
 
 

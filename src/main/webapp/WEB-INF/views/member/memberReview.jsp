@@ -15,7 +15,7 @@
 		<div class="row">
 			<c:import url="./memberSide.jsp"></c:import>
 			<div class="col-sm-1"></div>
-			<div class="col">
+			<div class="col" style="margin-top: 100px;">
 				<div class="row mt-5 mb-5" style="border-bottom: 1px solid black;padding-left: 15px;" >리뷰 목록</div>
 				
 				<c:if test="${empty mr}">

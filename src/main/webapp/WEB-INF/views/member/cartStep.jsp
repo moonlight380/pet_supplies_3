@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-		<div class="row">
+		<div class="row" style="margin-top: 150px;">
 			<div class="col-sm-1"></div>
 			<div class="col ">
 				<div class="row" style="/*  border-bottom: 1px solid #333333; */">

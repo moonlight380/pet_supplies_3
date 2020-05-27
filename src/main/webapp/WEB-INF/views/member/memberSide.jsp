@@ -6,7 +6,7 @@
 
 
 
-<div class="col-sm-2" style="margin-top: 30px;">
+<div class="col-sm-2" style="margin-top: 150px;">
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col" style="border: 1px solid black; margin-bottom: 10px;">

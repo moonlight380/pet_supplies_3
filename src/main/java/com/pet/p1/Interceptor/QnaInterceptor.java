@@ -1,4 +1,4 @@
-package com.pet.p1.interceptor;
+package com.pet.p1.Interceptor;
 
 import javax.servlet.RequestDispatcher;
 

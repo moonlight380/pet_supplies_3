@@ -133,7 +133,8 @@
 		(select step from review
 		where
 		num=#{num})+1,
-		(select depth from review where num=#{num})+1
+		(select depth from review where
+		num=#{num})+1,#{productNum}
 		)
 
 	</insert>

@@ -1,5 +1,6 @@
 package com.pet.p1.Interceptor;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,15 +27,16 @@ public class ReviewInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 
-		boolean check = false;
-
 		MemberVO memberVO = (MemberVO) request.getSession().getAttribute("member");
 
-		if (memberVO.getId() != null && memberVO.getId().equals("admin")) {
+		boolean check;
+
+		if (memberVO != null && memberVO.getId().equals("admin")) {
 			check = true;
-		} else if (memberVO.getId() != null) {
+		} else if (memberVO != null) {
 			check = true;
 		} else {
+			check = false;
 			response.sendRedirect("../member/memberLogin");
 		}
 

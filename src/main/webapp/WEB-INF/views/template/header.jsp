@@ -60,7 +60,8 @@
 
 
 <!-- START HEADER -->
-<header class="header_wrap fixed-top header_with_topbar">
+<header class="header_wrap fixed-top header_with_topbar psfx"
+	style="position: fixed;">
 	<div class="bottom_header dark_skin main_menu_uppercase">
 		<div class="container conmod">
 			<nav class="navbar navbar-expand-lg">
@@ -159,9 +160,8 @@
 
 
 					<c:if test="${empty member}">
-						<li><a
-							href="#"
-							class="nav-link"><i class="linearicons-user"></i></a>
+						<li><a href="#" class="nav-link"><i
+								class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item "
@@ -178,21 +178,20 @@
 							</div></li>
 					</c:if>
 
- 					<c:if test="${not empty member}">
-						<li><a
-							href="#"
-							class="nav-link"><i class="linearicons-user"></i></a>
+					<c:if test="${not empty member}">
+						<li><a href="#" class="nav-link"><i
+								class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item "
 										href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
-										href="${pageContext.request.contextPath}/member/memberPage">마이페이지</a></li>
+										href="${pageContext.request.contextPath}/member/memberOrderInfo">마이페이지</a></li>
 								</ul>
 							</div></li>
 					</c:if>
 
-<%-- 					<li class="dropdown cart_dropdown"><a
+					<%-- 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
 							class="linearicons-cart"></i><span class="cart_count"> <c:if
 									test="${empty member.id}">

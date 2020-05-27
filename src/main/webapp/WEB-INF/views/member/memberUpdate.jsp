@@ -17,7 +17,7 @@
 		
 		<c:import url="./memberSide.jsp"></c:import>
 	
-<div class="col">
+<div class="col" style="margin-top: 150px;">
 <form action="./memberUpdate" method="post" id="frm" style="font-style: inherit; font-size: small;">
 
 				<div class="row">

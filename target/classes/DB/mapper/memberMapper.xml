@@ -5,7 +5,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.pet.p1.member.MemberDAO">
-  
+  	<select id="memberReview" parameterType="MemberVO" resultType="MemberReviewVO">
+  		select title,id,review.contents,review.hit,review.regdate,product.productname,productfile.filename,review.productNum,review.num
+		from review
+        inner join product on(review.productnum = product.productnum)
+		inner join productfile on(review.productnum=productfile.num)
+		where productfile.firstfile=0 and id=#{id}
+  		
+  	</select>
   
   	<select id="couponCount" resultType="Long" parameterType="MemberVO">
   		select count(*) from couponinfo where id=#{id}
@@ -96,14 +103,12 @@
 	</select>
 	
   	
-
-
-
   	<update id="pointUpdate" parameterType="MemberVO">
   		update member set point=point+#{point} where id=#{id}
   	</update>
-  	
+
   	<delete id="memberDelete" parameterType="MemberVO">
+
   		delete member where id = #{id}
   	</delete>	
   	

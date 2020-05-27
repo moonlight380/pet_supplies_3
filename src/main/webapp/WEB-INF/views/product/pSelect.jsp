@@ -29,8 +29,9 @@
 .comment_img{
 	width: 100px;
 	height: 100px;
-	border-radius: 50px;
+	border-radius: 30px;
 	margin-left: 20px;
+	margin-right: 20px;
 }
 .bg_gray{
 	width: auto;
@@ -693,15 +694,14 @@ $('#close_popup2').click(function(){
                                                 <p>${review.contents}</p>
                                             </div>
                                             
+                                            <button class="rest_btn" style="font-size:18px">사진더보기 <i class="fa fa-file-image-o"></i></button>
                                             <div class="rest_img">
-                                            <span><img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['2'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['1'].fileName}" alt="review_img1"/> 
- 	                                     	</span>
-                                            <span><img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['3'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['1'].fileName}" alt="review_img1"/> 
- 	                                     	</span>
- 	                                     	<span><img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['4'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['1'].fileName}" alt="review_img1"/> 
- 	                                     	</span>
- 	                                     	<span><img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['5'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['1'].fileName}" alt="review_img1"/> 
- 	                                     	</span>
+	                                           <c:forEach items="${review.boardFileVOs}" var="review2">
+		                                        <span class="comment_img">										 
+													<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
+												
+		                                        </span>
+		                                        </c:forEach>
  	                                     	
                                             </div>
                                             
@@ -727,8 +727,8 @@ $('#close_popup2').click(function(){
         
 <!------------------------------- 클릭 시 리뷰 이미지 보임 ---------------------->
 <script type="text/javascript">
-$(".rest_img").click(function(){
-	$(this).css("display","none");
+$(".rest_btn").click(function(){
+	$(".rest_img").css("display","inline");
 	
 });
 

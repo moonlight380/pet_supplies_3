@@ -280,7 +280,7 @@ $("#result").on("click","#del",function() {
 		var view_point=0;
 		var sumP=0;
 		var title;
-		var sd=0;
+		
 		$(".plus").each(function() {
 			title = $(this).attr("title");
 
@@ -305,7 +305,7 @@ $("#result").on("click","#del",function() {
 			var check = $("#" + title + "_check").prop("checked");
 
 			if (check) {
-				sd = sd + $("#"+title+"_sd").text()*1;
+				
 				sum = sum + set;
 			}
 			
@@ -313,9 +313,8 @@ $("#result").on("click","#del",function() {
 			text = text + "원";
 			$("#" + title + "_total").text(text);
 		});
-		sd = addCommas(sd);
-		sd = sd+"원";
-		$("#discount").text(sd);
+		
+		
 		
 			
 		

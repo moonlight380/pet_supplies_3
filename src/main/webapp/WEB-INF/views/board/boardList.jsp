@@ -31,9 +31,10 @@
 
 </head>
 
-<body>
+<c:import url="../template/header.jsp"></c:import>
+<body style="padding-top: 70px">
 
-	<c:import url="../template/header.jsp"></c:import>
+
 	<div class="section2"></div>
 	<div class="container">
 

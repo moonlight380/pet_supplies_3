@@ -16,10 +16,10 @@
 }
 </style>
 </head>
+<c:import url="../template/header.jsp"></c:import>
+<body style="padding-top: 70px">
 
-<body>
 
-	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="section">
 		<div class="container">

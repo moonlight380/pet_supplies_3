@@ -10,10 +10,12 @@
 <c:import url="../template/summer.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
-<body>
-	<c:import url="../template/header.jsp"></c:import>
+
+<c:import url="../template/header.jsp"></c:import>
+<body style="padding-top: 150px">
+
 	<div class="container">
-		<h1>${board} 작성 폼</h1>
+		<h1>${board}작성폼</h1>
 
 
 		<form action="./${board}Write" id="frm" method="post"

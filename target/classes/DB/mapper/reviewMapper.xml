@@ -97,7 +97,7 @@
 		#{num},
 		0,
 		0,
-		#{productNum}
+		100
 		)
 	</insert>
 
@@ -134,7 +134,7 @@
 		where
 		num=#{num})+1,
 		(select depth from review where
-		num=#{num})+1,#{productNum}
+		num=#{num})+1,100
 		)
 
 	</insert>

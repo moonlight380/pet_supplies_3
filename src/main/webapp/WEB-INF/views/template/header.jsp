@@ -60,8 +60,8 @@
 
 
 <!-- START HEADER -->
-<header class="header_wrap fixed-top header_with_topbar">
-	<div class="bottom_header dark_skin main_menu_uppercase">
+<header class="header_wrap fixed-top header_with_topbar psfx" style="position: fixed; ">
+	<div class="bottom_header dark_skin main_menu_uppercase" >
 		<div class="container conmod">
 			<nav class="navbar navbar-expand-lg">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}">
@@ -187,7 +187,7 @@
 									<li><a class="dropdown-item nav-link nav_item "
 										href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
-										href="${pageContext.request.contextPath}/member/memberPage">마이페이지</a></li>
+										href="${pageContext.request.contextPath}/member/memberOrderInfo">마이페이지</a></li>
 								</ul>
 							</div></li>
 					</c:if>

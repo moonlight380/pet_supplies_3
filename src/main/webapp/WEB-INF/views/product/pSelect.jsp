@@ -599,7 +599,7 @@ $('#close_popup2').click(function(){
                                     <li>
 	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
 	                                        <div class="comment_img">										 
-												<img alt="" src="../resources/riviewUpload/${review2.fileName}">			
+												<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
 											
 	                                        </div>
 	                                        </c:forEach>

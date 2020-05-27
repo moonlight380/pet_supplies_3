@@ -83,7 +83,7 @@
 						
 						<div class="row mb-5">
 							<div class="col text-center" style="font-weight: 2px; color: black;">
-								장바구니가 담긴 상품이 없습니다.
+								장바구니에 담긴 상품이 없습니다.
 							</div>
 						</div>
 					
@@ -137,7 +137,8 @@
 
 
 								<c:forEach items="${cart }" var="cart">
-								
+									
+									
 									<tbody>
 										<tr class="table_title">
 											<td>
@@ -149,7 +150,7 @@
 											
 											<td>
 												<a href="${pageContext.request.contextPath}/product/dogSelect?productNum=${cart.productNum}" target="_blank">
-													<img src="../resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;">
+													<img src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }" style="width: 100px;height: 100px; margin: 15px 0px 15px 0px;">
 												</a>
 											</td>
 											<td>
@@ -159,8 +160,17 @@
 											</td>
 											
 											
-											
-											<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
+											<c:if test="${cart.sale gt 0 }">
+												
+												<td>
+													<del id="${cart.id}${cart.cnum}_price" class="price" style="color: black;">${cart.price }</del><span>(${cart.sale }%)</span>
+													<div class="price" id="${cart.id}${cart.cnum}_sale" title="${cart.sale*(cart.price/100)}">${cart.price-(cart.sale*(cart.price/100) )}</div>
+												</td>
+											</c:if>
+											<c:if test="${cart.sale eq 0 }">
+												<div hidden="hidden" class="price" id="${cart.id}${cart.cnum}_sale" title="${cart.sale*(cart.price/100)}"></div>
+												<td id="${cart.id}${cart.cnum}_price" class="price">${cart.price }</td>
+											</c:if>
 											<td>
 												<div class="row " style="height: 20px; width: 112px; padding-left: 28px;">
 													<button class="minus" title="${cart.id}${cart.cnum}" style="width: 20px; border: 1px solid #d9dde0;">-</button>
@@ -174,7 +184,15 @@
 
 											<td id="${cart.id}${cart.cnum}_point" name="${cart.point}"></td>
 
-											<td><span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+											<td>
+												<c:if test="${cart.sale gt 0}">
+													<span hidden="hidden" id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+													<span id="${cart.id}${cart.cnum}_dc" class="sum_text"></span>
+												</c:if>
+												<c:if test="${cart.sale eq 0}">
+													<span id="${cart.id}${cart.cnum}_total" class="sum_text"></span>
+													
+												</c:if>
 											</td>
 
 										</tr>
@@ -184,7 +202,6 @@
 
 								</c:forEach>
 							</table>
-
 						</div>
 						<div class="row">
 							<div class="col">

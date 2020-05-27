@@ -19,6 +19,11 @@ public class MemberDAO {
 	
 	private final String NAMESPACE="com.pet.p1.member.MemberDAO.";
 	
+	
+	public Long couponCount(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"couponCount",memberVO);
+	}
+	
 	public int pwUpdate(MemberVO memberVO)throws Exception{
 		return sqlSession.update(NAMESPACE+"pwUpdate", memberVO);
 	}
@@ -43,8 +48,20 @@ public class MemberDAO {
 		return sqlSession.insert(NAMESPACE+"memberJoin", memberVO);
 	}
 	
+	public int snsJoin(MemberVO memberVO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"snsJoin", memberVO);
+	}
+	
+	public MemberVO snsLogin(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"snsLogin", memberVO);
+	}
+	
 	public int memberUpdate(MemberVO memberVO)throws Exception{
 		return sqlSession.update(NAMESPACE+"memberUpdate", memberVO);
+	}
+	
+	public MemberVO selectPW(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"selectPW", memberVO);
 	}
 	
 	public int memberDelete(MemberVO memberVO)throws Exception{
@@ -65,6 +82,14 @@ public class MemberDAO {
 	
 	public int memberDeletes(List<String> list)throws Exception{
 		return sqlSession.delete(NAMESPACE+"memberDeletes", list);
+	}
+	
+	public Long orderCount(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"orderCount",memberVO);
+	}
+	
+	public int pointUpdate(MemberVO memberVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"pointUpdate",memberVO);
 	}
 
 }

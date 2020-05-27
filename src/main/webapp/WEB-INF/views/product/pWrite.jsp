@@ -36,6 +36,10 @@
       <label for="point">POINT:</label>
       <input type="text" class="form-control" id="point" placeholder="Enter point" name="point" >
     </div>
+    <div class="form-group">
+      <label for="point">SALE%(숫자만입력):</label>
+      <input type="text" class="form-control" id="sale" placeholder="Enter sale%" name="sale" >
+    </div>
     
 	<!-- 이 버튼을 클릭하면 파일 추가하는 버튼이 생기는 것 // 받을 때는 배열로 받음-->
 		<input type="button" id="add" class="btn btn-info" value="AddFile"><br>

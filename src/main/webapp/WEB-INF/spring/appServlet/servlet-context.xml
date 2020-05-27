@@ -36,6 +36,7 @@
 		<beans:property name="order" value="0"></beans:property>
 	</beans:bean>
 
+
 	<context:component-scan
 		base-package="com.pet.p1" />
 
@@ -85,5 +86,54 @@
 		class="com.pet.p1.echoHandler.EchoHandler"></beans:bean>
 
 
+
+
+	
+	<context:component-scan base-package="com.pet.p1" />
+	
+
+
+	<interceptors>
+		<interceptor>	
+			<mapping path="/product/*"/>
+			<!-- 제외할 부분 -->
+			<exclude-mapping path="/product/dogList"/>
+			<exclude-mapping path="/product/dogBestList"/>
+			<exclude-mapping path="/product/dogNewList"/>
+			<exclude-mapping path="/product/dogTimeSale"/>
+			<exclude-mapping path="/product/dogSelect"/>
+			<exclude-mapping path="/product/dogSelectTimeSale"/>
+				
+			<beans:bean class="com.pet.p1.Interceptor.AdminIntercepter" id="AdminInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>	
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/*"/>
+			
+			<exclude-mapping path="/member/memberLogin"/>
+			<exclude-mapping path="/member/memberLogout"/>
+			<exclude-mapping path="/member/memberJoin"/>
+			<exclude-mapping path="/member/memberID"/>
+			<exclude-mapping path="/member/memberPW"/>
+			<exclude-mapping path="/member/idFindFail"/>
+			<exclude-mapping path="/member/idFindSuccess"/>
+			<exclude-mapping path="/member/pwFindSuccess"/>
+			<exclude-mapping path="/member/findEmail"/>
+			<exclude-mapping path="/member/findPhone"/>
+			<exclude-mapping path="/member/memberPCheck"/>
+			<exclude-mapping path="/member/sendMail"/>
+			<exclude-mapping path="/member/kakaoLogin"/>
+			<exclude-mapping path="/member/snsJoin"/>
+			<exclude-mapping path="/member/memberEmailCheck"/>
+			<exclude-mapping path="/member/memberIdCheck"/>
+
+
+			<beans:bean class="com.pet.p1.Interceptor.MemberIntercepter" id="memberIntercepter"></beans:bean>
+		</interceptor>
+	</interceptors>
+
+	
 
 </beans:beans>

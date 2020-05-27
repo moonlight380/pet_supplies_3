@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col ">
-				<div class="row" style=" border-bottom: 1px solid #333333;">
+				<div class="row" style="/*  border-bottom: 1px solid #333333; */">
 					<div class="col" style="font-size: 38px;line-height: 56px; color: #363636;
 					font-weight: bold; letter-spacing: -1px;" id="step_text">장바구니
 					</div>

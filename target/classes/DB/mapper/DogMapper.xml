@@ -15,6 +15,7 @@
   		<result column="hit" property="hit"/>	
   		<result column="regDate" property="regDate"/>
   		<result column="point" property="point"/>
+  		<result column="sale" property="sale"/>
   		
   		<collection property="productFileVOs" javaType="List" ofType="ProductFileVO">
   			<id column="fileNum" property="fileNum"/>
@@ -91,7 +92,7 @@
 				</choose>
 				like '%'||#{search}||'%' and productNum>=1 order by regDate desc) N )
 				where R between #{startRow} and #{lastRow}) P  left join productFile F
-				on (P.productNum=F.num) order by F.firstFile asc
+				on (P.productNum=F.num) order by F.firstFile asc,regDate desc
 	</select>  
  
 <!--dogBestList-->
@@ -139,8 +140,8 @@
 								productNum
 							</otherwise>
 						</choose> 
-		                like '%'||#{search}||'%' and  productNum>=1 order by hit asc) N) 
-		                    where rowNum between 1 and 9)P left join productFile F 
+		                like '%'||#{search}||'%' and  productNum>=1 and sale>0 order by sale desc) N) 
+		                    )P left join productFile F 
 		                        on (P.productNum=F.num) order by F.firstFile asc
 	
 	</select>
@@ -149,17 +150,23 @@
  
  
  <!-- select --> 		
-  	<select id="dogSelect" parameterType="Long" resultMap="selectResult">		
+  	<select id="dogSelect" parameterType="DogVO" resultMap="selectResult">		
 			select N.*,F.*
 			from product N left join productFile F
 			ON (N.productNum=F.num)
 			WHERE N.productNum=#{productNum} 
   	</select> 
   	
- 
+<!-- dogSelectTimeSale -->
+  	<select id="dogSelectTimeSale" parameterType="DogVO" resultMap="selectResult">		
+			select N.*,F.*
+			from product N left join productFile F
+			ON (N.productNum=F.num)
+			WHERE N.productNum=#{productNum} 
+  	</select> 
 
 <!-- num 가상테이블 dual -->
-	<select id="dogNum" resultType="Long">
+	<select id="dogNum" resultType="Long" >
   			select product_seq.nextval from dual
   		<!-- inset 하기 전에 가상의 테이블에서 먼저 시퀀스 번호를 가져온다 -->
   	</select>
@@ -168,18 +175,18 @@
 <!-- WRITE -->
 	<insert id="dogWrite" parameterType="DogVO">
 	INSERT INTO product
-	VALUES (#{productNum},#{productName},#{price},#{contents},0,1,SYSDATE,#{point})
+	VALUES (#{productNum},#{productName},#{price},#{contents},1,1,SYSDATE,#{point},#{sale})
 	</insert>
 
 
 <!-- update -->
  	<update id="dogUpdate" parameterType="DogVO">
-  		UPDATE product set productName =#{productName}, price=#{price},contents=#{contents} where productNum=#{productNum}
+  		UPDATE product set productName =#{productName}, price=#{price},contents=#{contents},#{sale} where productNum=#{productNum}
   	</update>
 
 
 <!-- hitupdate -->
-	 <update id="hitUpdate" parameterType="Long">
+	 <update id="hitUpdate" parameterType="DogVO">
 	  	UPDATE product set hit=hit+1 where productNum=#{productNum}
 	</update> 
 	

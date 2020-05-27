@@ -10,8 +10,8 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="widget">
 						<div class="footer_logo">
-							<a href="#"><img src="" alt="logo" /></a>
-						</div>
+							<a href="#"><img src="" alt="" /></a>
+						</div>logo
 						<p>
 							회사명 : (주)펫샵 <br> 대표 : 김쌍용 <br>전화 : 1234-5678 <br>사업자등록번호
 							: 1234-5678-90<br> 통신판매업 신고 : 제 2020-서울마포-2020호 <br>

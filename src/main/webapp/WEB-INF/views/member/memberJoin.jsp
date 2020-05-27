@@ -112,11 +112,11 @@
 <tr class="">
 <th scope="row">주소 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
  <td>
-   <input style="width: 80px;" id="postcode1" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" value="우편번호" type="text">
+   <input style="width: 80px;" id="postcode1" name="address" class="input_Join" placeholder="우편번호" readonly="readonly" maxlength="14" type="text">
    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
-   <input style="width: 400px;" id="addr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" value="기본주소" type="text" ><br>
-   <input style="width: 250px;" id="addr2" name="addr2" class="input_Join" placeholder="" value="상세주소" type="text">
- 
+   <input style="width: 400px;" id="addr1" name="addr1" class="input_Join" placeholder="기본주소" readonly="readonly"type="text" ><br>
+   <input style="width: 250px;" id="addr2" name="addr2" class="input_Join" placeholder="상세주소" type="text">
+ </td>
 </tr>
 <tr class="">
 <th scope="row">휴대전화 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
@@ -136,8 +136,8 @@
 <tr class="">
 <th scope="row">생년월일</th>
 <td>
-<input id="birth" name="birth_year" placeholder="ex)20200101" maxlength="8" value="" type="text"> 
-
+<input id="birth" name="birth_year" placeholder="ex)19991104" maxlength="8" value="" type="text"> 
+<input hidden="hidden" name=age id=age>
 <input id="calendar0" name="calendar" value="T" type="radio" checked="checked"><label for="is_solar_calendar0">양력</label>
 <input id="calendar1" name="calendar" value="F" type="radio"><label for="is_solar_calendar1">음력</label>
 <span id="msg"></span>
@@ -215,24 +215,32 @@
 	
 	</div>
 	
-</div>
-</div>
-
-	<div class="agreeBtn" style="margin: 0 auto; margin-top: 50px; width: 100%; display: inline; height: 100%; float: left; text-align: center;" >
+	<div class="agreeBtn" style=" margin: 0 auto; margin-top: 50px; width: 100%; height: 100%; text-align: center; margin-bottom: 100px;" >
 	
 		<button id="btnJoin" type="submit" class="btn btn-info" style="font-size: small;">회원가입</button>
 		
 		<button id="btnCancel" type="submit" class="btn btn-danger" onclick="goback()" style="font-size: small;">취소하기</button>
 		
 	</div>
+	
+	
+</div>
+</div>
+
+
+	
+	
 
 </div>
 </div>
 </div>
 </div>
+
 </div>
 
 
+
+<c:import url="../template/footer.jsp"></c:import>
 
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -285,7 +293,6 @@ function sample6_execDaumPostcode() {
 			
 			$("#addr2").focus();
 
-			console.log(data);
         }
     }).open();
 
@@ -294,7 +301,7 @@ function sample6_execDaumPostcode() {
 </script>
 
 	
-<script type="text/javascript" src="../resources/js/join.js"></script>
+<script type="text/javascript" src="../resources/js/memberjoin.js"></script>
 
 
 </body>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,17 @@
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 
+<style type="text/css">
+.bg_gray{
+	width: auto;
+	height: 60px;
+}
 
+.product_header_right{
+	margin-left: 92%;
+
+}
+</style>
 
 
 </head>
@@ -94,8 +105,8 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Shop Load More</li>
+                   <li class="breadcrumb-item"><a href="../">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#">베스트 리스트</a></li>   
                 </ol>
             </div>
         </div>
@@ -117,32 +128,19 @@
             	<div class="row align-items-center mb-4 pb-1">
                     <div class="col-12">
                         <div class="product_header">
-                            <div class="product_header_left">
-                                <div class="custom_select">
-                                    <select class="form-control form-control-sm">
-                                        <option value="order">Default sorting</option>
-                                        <option value="popularity">Sort by popularity</option>
-                                        <option value="date">Sort by newness</option>
-                                        <option value="price">Sort by price: low to high</option>
-                                        <option value="price-desc">Sort by price: high to low</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
                             <div class="product_header_right">
-                            	<div class="products_view">
-                            	 	<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
-                                    <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
-                                    <a href="javascript:Void(0);" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>
+                            <div class="product_header_right">
+<!------------------------------------------------------admin 계정만 write 버튼이 보일 수 있도록//  -------------------------------------------------------------------- -->
+                            	<div class="products_view1">
+
+								<c:if test="${member.id eq 'admin' }">
+								
+									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
+									
+								</c:if>
                                 </div>
-                                <div class="custom_select">
-                                    <select class="form-control form-control-sm">
-                                        <option value="">Showing</option>
-                                        <option value="9">9</option>
-                                        <option value="12">12</option>
-                                        <option value="18">18</option>
-                                    </select>
-                                </div>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->      
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -151,8 +149,8 @@
                 
                 <!-- 시작 -->
                 <div class="row shop_container grid_container loadmore" data-item="8" data-item-show="4" data-finish-message="No More Item to Show" data-btn="Load More">
-                    
                     <c:forEach items="${list}" var="vo" varStatus="status" begin="0" end="300"> 
+                    <c:if test="${vo.sale le 0}">
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
                         <div class="product">
                             <div class="product_img">
@@ -168,35 +166,34 @@
 		                                         Add To Cart
 	                                         </a>
                                          </li>
-                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                             <div class="product_info">
                                 <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
                                 <div class="product_contents">
-                                
-                                <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
+
                  				<span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">view: ${vo.hit}</a></span>                          
                                 </div>
+                                
                                 <div class="product_price">
-		                              <span class="price">${vo.price}</span>
-                                    <del>$55.25</del>
-                                    <div class="on_sale">
-                                        <span>35% Off</span>
-                                    </div>
+		                              <a href="./${p}Select?productNum=${vo.productNum}">   
+			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>
+                                   		
+<%--                                    		<c:if test="${vo.sale eq 0}">
+						                <dl class="time_sale_price">
+									       <dt>타임세일</dt>
+									          <dd>
+									            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
+									              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+									          </dd>
+									     </dl>
+						                </c:if>  --%> 
+                                    </a>                               
+                                    
                                 </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:80%"></div>
-                                    </div>
-                                    <span class="rating_num">(21)</span>
-                                </div>
-                                <div class="pr_desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                                </div>
+
                            
                                 <div class="list_product_action_box">
                                     <ul class="list_none pr_action_btn">
@@ -212,6 +209,7 @@
                     </div> <!-- "col-lg-3 col-md-4 col-6 grid_item" -->
 
                     
+                  </c:if>  
                   </c:forEach>  
                 </div><!-- "row shop_container grid_container loadmore" -->
                 
@@ -226,27 +224,6 @@
 
 <!-- END SECTION SHOP -->
 
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-<div class="section bg_default small_pt small_pb">
-	<div class="container">	
-    	<div class="row align-items-center">	
-            <div class="col-md-6">
-                <div class="heading_s1 mb-md-0 heading_light">
-                    <h3>Subscribe Our Newsletter</h3>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="newsletter_form">
-                    <form>
-                        <input type="text" required="" class="form-control rounded-0" placeholder="Enter Email Address">
-                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> 
-</div>
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
 </div>
 <!-- END MAIN CONTENT -->

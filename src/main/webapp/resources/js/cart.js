@@ -72,7 +72,6 @@ $("#result").on("click","#del",function() {
 			ids.push($(this).attr("name"));
 		}
 	});
-	console.log(ids);
 	
 	
 
@@ -143,7 +142,8 @@ $("#result").on("click","#del",function() {
 		var eachsum = each_sum(title);
 		var allsum = $("#all_sum").text();
 		allsum = removeCommas(allsum) * 1;
-
+		
+		
 		if ($(this).prop("checked")) {
 			allsum = allsum + eachsum;
 
@@ -170,6 +170,7 @@ $("#result").on("click","#del",function() {
 		} else {
 			uncheck(name);
 		}
+		set();
 
 	});
 
@@ -189,7 +190,7 @@ $("#result").on("click","#del",function() {
 		var num = $("#" + title + "_amount").val();
 		num--;
 		if (num < 1) {
-			num = 1;
+			num = 0;
 		} else {
 
 			$("#" + title + "_amount").val(num);
@@ -250,6 +251,8 @@ $("#result").on("click","#del",function() {
 			var text = addCommas(price);
 			text = text + "원";
 			$("#" + id).text(text);
+			
+			
 
 		});
 		inout(); //--blur함수 적용
@@ -276,12 +279,20 @@ $("#result").on("click","#del",function() {
 		var sum = 0;
 		var view_point=0;
 		var sumP=0;
+		var title;
+		var sd=0;
 		$(".plus").each(function() {
-			var title = $(this).attr("title");
+			title = $(this).attr("title");
 
 			var amount = $("#" + title + "_amount").val();
 			var price = $("#" + title + "_price").text();
 			var point = $("#"+title+"_point").attr("name");
+			var discount = $("#"+title+"_sale").attr("title");
+			$("#"+title+"_sd").text(discount*amount);
+			
+			
+			
+			
 			
 			view_point = amount*point;
 			sumP=sumP+view_point;
@@ -294,14 +305,26 @@ $("#result").on("click","#del",function() {
 			var check = $("#" + title + "_check").prop("checked");
 
 			if (check) {
-
+				sd = sd + $("#"+title+"_sd").text()*1;
 				sum = sum + set;
 			}
+			
 			var text = addCommas(set); // set은 각각의 합계 , sum은 모든 합계
 			text = text + "원";
 			$("#" + title + "_total").text(text);
 		});
-		/*$("#input_mile").val(sumP);*/
+		sd = addCommas(sd);
+		sd = sd+"원";
+		$("#discount").text(sd);
+		
+			
+		
+		
+		sumP=addCommas(sumP);
+		sumP=sumP+"P";
+		
+		$("#mAllMileageSum").text(sumP);
+		
 		return sum;
 	}
 
@@ -310,8 +333,9 @@ $("#result").on("click","#del",function() {
 
 		var amount = $("#" + title + "_amount").val();
 		var price = $("#" + title + "_price").text();
+		
 		price = removeCommas(price);
-
+		
 		var set = (price * amount);
 
 		return set;
@@ -329,22 +353,38 @@ $("#result").on("click","#del",function() {
 		});
 		$("#all_sum").text(text);
 
+		//------------쿠폰 적립금 사용시-----------------------
+	/*	var discount = $("#discount").text();
+		discount = removeCommas(discount);*/
+		var discount=0;
+		$(".plus").each(function() {
+			var title = $(this).attr("title");
+			var price = $("#" + title + "_price").text();
+			price = removeCommas(price);
+			var amount = $("#" + title + "_amount").val();
+			var sale = $("#"+title+"_sale").attr("title");
+			var check = $("#" + title + "_check").prop("checked");
+			var a=amount*sale;
+			
+			price = amount*(price-sale);
+			if(check){
+				discount=discount+a;
+			}
+			$("#discount").text(addCommas(discount)+"원");
+			price = addCommas(price);
+			price = price+"원";
+			$("#"+title+"_dc").text(price);
+		});
+		
+		
 		//--------------배송비----------------------------
 		var deli = 3000;
-		if (sum > 100000 || sum == 0) {
+		if (sum-discount > 100000 || sum == 0) {
 			deli = 0;
 		}
 		var text = addCommas(deli) + "원";
 		$("#deli").text(text);
-		//------------쿠폰 적립금 사용시-----------------------
-		if (sum > 0) {
-			var discount = 0; //나중에 값 받아올곳 
-		} else {
-			discount = 0;
-		}
 
-		text = addCommas(discount) + "원";
-		$("#discount").text(text);
 
 		//-----------최종 결제 금액------------------
 		var payment = sum + deli - discount;
@@ -352,7 +392,7 @@ $("#result").on("click","#del",function() {
 		$(".paymentPrice").each(function(){
 			$(this).text(text);
 			
-		});
+		});  
 		$("#payment").text(text);
 
 	}

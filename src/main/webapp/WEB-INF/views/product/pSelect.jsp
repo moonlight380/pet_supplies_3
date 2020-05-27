@@ -669,7 +669,7 @@ $('#close_popup2').click(function(){
                                     <li>
 	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
 	                                        <div class="comment_img">										 
-												<img alt="" src="../resources/riviewUpload/${review2.fileName}">			
+												<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
 											
 	                                        </div>
 	                                        </c:forEach>
@@ -679,9 +679,15 @@ $('#close_popup2').click(function(){
                                                 <span class="review_author">${review.id}</span>
                                                 <span class="comment-date">${review.regDate}</span>
                                             </p>
-                                            <div class="description" style="word-break:break-all">
+                                            <div id="wrap" class="description" style="word-break:break-all">
                                                 <p>${review.contents}</p>
                                             </div>
+                                            <!-- 펼침시 그라데이션 효과-->
+											<div id="gradient"></div>
+											
+                                            <!-- more  링크-->
+											<div id="read-more"></div>
+											
                                         </div>
                                     </li>
   									</c:forEach>
@@ -695,7 +701,35 @@ $('#close_popup2').click(function(){
                 </div>
             </div>
         </div>
-        
+<!-------------------------------- 더보기------------------------------- -->       
+<script type="text/javascript">
+$(function(){
+	var slideHeight = 50; // 최소 보여질 텍스트 세로폭(단위 px)
+	var defHeight = $('#wrap').height();
+	if(defHeight >= slideHeight){
+		$('#wrap').css('height' , slideHeight + 'px');
+		$('#read-more').append('<a href="#">..더 보기</a>');
+		$('#read-more a').click(function(){
+			var curHeight = $('#wrap').height();
+			if(curHeight == slideHeight){
+				$('#wrap').animate({
+				  height: defHeight
+				}, "normal");
+				$('#read-more a').html('닫기');
+				$('#gradient').fadeOut();
+			}else{
+				$('#wrap').animate({
+				  height: slideHeight
+				}, "normal");
+				$('#read-more a').html('..더 보기');
+				$('#gradient').fadeIn();
+			}
+			return false;
+		});		
+	}
+});
+</script>
+
 
     <!-- ---------------------------------------------------------------------------------------------------- -->    
         

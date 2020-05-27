@@ -163,6 +163,7 @@
 			 cresult.value=result; 
 			 
 			 window.opener.postMessage(result, "http://localhost:8080/p1/member/memberPayment");
+			 
 			 close();
 			
 		});

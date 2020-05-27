@@ -68,9 +68,8 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}">
 					<img class="logo_light"
 					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
-					alt="logo" /> <img class="logo_dark"
-					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 					alt="logo" />
+					<img class="logo_dark" src="${pageContext.request.contextPath}/resources/images/catdog.jpg" alt="logo" />
 				</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"

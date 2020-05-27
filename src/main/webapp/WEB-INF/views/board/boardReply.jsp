@@ -33,13 +33,11 @@
 					name="contents"></textarea>
 			</div>
 
-
-
-
 			<input type="submit" id="btn" class="btn btn-info" value="작성하기" style="margin-bottom: 3%;">
 		</form>
 
 	</div>
+	
 
 	<input type="hidden" value="${vo.id}">
 	<c:import url="../template/footer.jsp"></c:import>

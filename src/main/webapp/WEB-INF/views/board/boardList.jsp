@@ -9,7 +9,15 @@
 <c:import url="../template/css.jsp"></c:import>
 <style type="text/css"></style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+		<c:if test="${board eq 'notice'}">
+			<title>공지 게시판</title>
+		</c:if>
+		<c:if test="${board eq 'qna'}">
+			<title>QnA 게시판</title>
+		</c:if>
+		<c:if test="${board eq 'review'}">
+			<title>리뷰게시판</title>
+		</c:if>
 
 <style type="text/css">
 /* .form-control-sm, .form-control-sm:focus, .custom_select select.form-control-sm,

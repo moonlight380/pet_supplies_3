@@ -75,7 +75,7 @@ body, code {
 	padding: 0 20px;
 }
 </style>
-
+<title>OH!DALI</title>
 
 </head>
 <body>

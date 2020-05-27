@@ -35,8 +35,14 @@
 					name="contents"></textarea>
 			</div>
 
-			<input type="button" id="add" class="btn btn-info" value="파일추가"
-				style="margin-bottom: 3%;">
+			<%
+				String cpage = request.getParameter("productNum");
+			%>
+			<!-- <div id="num_1"></div> -->
+
+			<input type="hidden" value="<%=cpage%>" name="productNum"
+				id="productNum"> <input type="button" id="add"
+				class="btn btn-info" value="파일추가" style="margin-bottom: 3%;">
 			<div id="file"></div>
 
 			<!-- contents Server null이 될때 
@@ -50,7 +56,14 @@
 
 	</div>
 
-	<input type="hidden" value="" name="produnctNum" id="productNum">
+
+
+	<!-- 	<script type="text/javascript">
+	
+	var pnum_1 = $("#.num_1").text;
+	$("#.productNum").val = pnum_1;
+	
+	</script> -->
 
 	<script type="text/javascript" src="../resources/script/boardForm.js"></script>
 	<c:import url="../template/footer.jsp"></c:import>

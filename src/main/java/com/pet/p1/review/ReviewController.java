@@ -104,7 +104,8 @@ public class ReviewController {
 	}
 
 	@GetMapping("reviewWrite")
-	public ModelAndView boardWrite(ModelAndView mv) throws Exception {
+	public ModelAndView boardWrite(ModelAndView mv, long productNum) throws Exception {
+		System.out.println(productNum);
 		mv.setViewName("board/boardWrite");
 		return mv;
 	}

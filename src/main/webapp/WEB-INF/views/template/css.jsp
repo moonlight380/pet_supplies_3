@@ -4,7 +4,7 @@
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="${pageContext.request.contextPath}/resources/images/favicon.png">
+	href="${pageContext.request.contextPath}/resources/images/favicon_1.ico">
 <!-- Animation CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.css">
 <!-- Latest Bootstrap min CSS -->

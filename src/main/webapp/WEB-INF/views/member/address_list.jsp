@@ -63,13 +63,13 @@
                         <td scope="col">배송지관리</td>
                     </tr>
                     
-              <c:forEach items="${list}" var="vo" varStatus="i">   
+              <c:forEach items="${list}" var="vo" varStatus="i"> 
+                <input type="hidden" name="${member.id}">  
 					<tr>
 						<td scope="col">
 						<span class=""><input class="rowCheck check" id="rowCheck del" type="checkbox" name="${vo.addressNum}"></span> 
 						</td>
-     
-                        
+
 						<td scope="col">${vo.addr_name}</td>
 						
                         <td scope="col" id="rname${i.index}">${vo.rname}</td>

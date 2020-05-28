@@ -423,7 +423,7 @@ $('#close_popup2').click(function(){
         
   <!--마이너스 플러스 스크립트---------------------------------------------------------------------------------------------------------------- -->     
 	               		<script type="text/javascript">
-	               		var perPrice='${vo.price}';
+	               		var perPrice='${vo.price*(vo.sale/1000)}';
 	               		var num =1;
 	               		$(".minus").click(function(){
 	               			if(num==1){
@@ -537,11 +537,11 @@ $('#close_popup2').click(function(){
                     <div class="product_share">
                         <span>Share:</span>
                         <ul class="social_icons">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                            <li><a href="https://www.facebook.com"><i class="ion-social-facebook"></i></a></li>
+                            <li><a href="https://www.twitter.com"><i class="ion-social-twitter"></i></a></li>
+                            <li><a href="https://www.google.com"><i class="ion-social-googleplus"></i></a></li>
+                            <li><a href="https://www.youtube.com"><i class="ion-social-youtube-outline"></i></a></li>
+                            <li><a href="https://www.instagram.com"><i class="ion-social-instagram-outline"></i></a></li>   
                         </ul>
                     </div> <!--  END class="product_share" -->
                     

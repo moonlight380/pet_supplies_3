@@ -189,56 +189,11 @@ body, th, td, input, select, textarea {
 }
 </style>
 
-<!-- 팝업창띄우기 -->
-
-<!-- <script type="text/javascript">
-	
-function goPopup(){
-		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
-
-		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
-		//크롬에서는 속성값이 먹지 않음
-		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
-	}
-	
-</script> -->
-
-<!-- 레이어팝업 -->
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-//오늘 하루 팝업 열지 않기
-$('#close_popup').click(function(){
-	$.cookie('page_free','ck',{expires:1,path:'/'});
-	$("#page_free").hide();
-});
-//팝업 닫기
-$('#close_popup2').click(function(){
-	$("#page_free").hide();
-});
-});
-</script> -->
 
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
 <body>
-<!-- <body onload="goPopup()"> -->
-
-<%-- 
-<!-- 레이어팝업 시작 -->
-<div style="" id="page_free">
-	<img src="${pageContext.request.contextPath}/resources/images/goPopup.jpg">
-	<div class="new_btn">오늘 하루 열지 않기 <input type="checkbox" name="close_popup" id="close_popup"> &nbsp; &nbsp; &nbsp; &nbsp;닫기
-	<input type="checkbox" name="close_popup2" id="close_popup2">
-	</div>
-</div>
-
-<!--레이어팝업  끝--> --%>
-
-
-
-
-
 
 <div id="header"> <!-- 추가한부분  header reset -->
 	<c:import url="../template/header.jsp"></c:import>
@@ -316,7 +271,10 @@ $('#close_popup2').click(function(){
 			      <dt>짧은설명</dt>
 			           <dd>내 반려견을 위한 ${vo.productName}</dd>
 			    </dl>
-			    
+			    <dl>
+					<dt>상품 가격</dt>
+						 <dd><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</dd>
+				</dl>
 		      <dl>
 		          <dt>상품수량</dt>
 		              <dd>
@@ -493,11 +451,11 @@ $('#close_popup2').click(function(){
                     <div class="product_share">
                         <span>Share:</span>
                         <ul class="social_icons">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                            <li><a href="https://www.facebook.com"><i class="ion-social-facebook"></i></a></li>
+                            <li><a href="https://www.twitter.com"><i class="ion-social-twitter"></i></a></li>
+                            <li><a href="https://www.google.com"><i class="ion-social-googleplus"></i></a></li>
+                            <li><a href="https://www.youtube.com"><i class="ion-social-youtube-outline"></i></a></li>
+                            <li><a href="https://www.instagram.com"><i class="ion-social-instagram-outline"></i></a></li>    
                         </ul>
                     </div> <!--  END class="product_share" -->
                     

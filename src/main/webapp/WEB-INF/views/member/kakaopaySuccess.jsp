@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>kakaopaySuccess</title>
+<title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
@@ -15,7 +15,7 @@
 <c:import url="../template/header.jsp"></c:import>
 </div>
 
-<div class="container"style="margin-top: 150px;margin-bottom: 150px;">
+<div class="container"style="margin-top: 150px;">
 
 <div class="path" style="display: block; height: auto; width:100%; margin-top: 150px; text-align: right;">
 		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home ></a></li>
@@ -73,7 +73,7 @@
 
 </body>
 
-<c:import url="../template/footer.jsp"></c:import>
+
 <script type="text/javascript">
 	var today = new Date();
 	var dd = today.getDate();

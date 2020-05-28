@@ -24,7 +24,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.cart.CartService;
 import com.pet.p1.cart.CartVO;
-import com.pet.p1.coupon.CouponService;
 import com.pet.p1.mail.JavaMailInfo;
 import com.pet.p1.memberReview.MemberReviewVO;
 import com.pet.p1.order.OrderService;
@@ -45,8 +44,7 @@ public class MemberController {
 	private OrderService orderService;
 	@Autowired
 	private JavaMailInfo javaMailInfo; 
-	@Autowired
-	private CouponService couponService; 
+	
 //--------------------------------------------------------------------------------------------------------------
 
 
@@ -257,12 +255,7 @@ public class MemberController {
 		  int result = memberService.memberJoin(memberVO,session);
 
 		  if(result>0) {
-			  int result2 = couponService.coupon(memberVO);
-			  if(result2>0) {
-				  System.out.println("성공");
-			  }
 			  mv.setViewName("member/memberJoinSuccess");
-			  
 			}else {
 				 mv.addObject("result", "회원가입에 실패했습니다 다시 시도해주세요");
 				 mv.addObject("path", "./memberJoin");
@@ -620,10 +613,10 @@ public class MemberController {
 		
 		if(result>0) {
 			session.setAttribute("member", memberVO);
-			mv.setViewName("redirect:./memberUpdate");
+			mv.setViewName("redirect:./memberPage");
 		}else {
 			 mv.addObject("result", "Update Fail");
-			 mv.addObject("path", "./memberUpdate");
+			 mv.addObject("path", "./memberPage");
 			 mv.setViewName("common/result");
 		}
 		

@@ -114,7 +114,7 @@
 	                    
 	                    <!-- 타이머기능 -->                 			
 	                <div class="notice enter">               						
-						<script class="notice enter" type="text/javascript" src="../resources/script/timeSale.js"> </script>
+						<!-- <script class="notice enter" type="text/javascript" src="../resources/script/timeSale.js"> </script> -->
 					</div>  
 							
 				</c:if>	
@@ -569,7 +569,7 @@
             </div>
         </div>
 
-  
+<script class="notice enter" type="text/javascript" src="../resources/script/timeSale.js"> </script>  
 <!------------------------------- 클릭 시 리뷰 이미지 가져오기/닫기---------------------->
 <script type="text/javascript">
 function more(num){

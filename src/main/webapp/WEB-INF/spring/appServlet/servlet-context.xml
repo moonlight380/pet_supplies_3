@@ -91,7 +91,7 @@
 
 	
 	<context:component-scan base-package="com.pet.p1" />
-	
+
 
 	<interceptors>
 		<interceptor>	
@@ -106,6 +106,8 @@
 <!-- 			<exclude-mapping path="/product/product_list_delete"/> -->
 			<exclude-mapping path="/product/productFile/fileInsert"/>
 			<exclude-mapping path="/product/productFile/summerDelete"/>
+			<exclude-mapping path="/product/product/timeSaleUpdate"/>
+			
 			<beans:bean class="com.pet.p1.Interceptor.AdminIntercepter" id="AdminInterceptor"></beans:bean>
 		</interceptor>
 	</interceptors>	

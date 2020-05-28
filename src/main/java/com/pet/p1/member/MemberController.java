@@ -613,10 +613,10 @@ public class MemberController {
 		
 		if(result>0) {
 			session.setAttribute("member", memberVO);
-			mv.setViewName("redirect:./memberPage");
+			mv.setViewName("redirect:./memberUpdate");
 		}else {
 			 mv.addObject("result", "Update Fail");
-			 mv.addObject("path", "./memberPage");
+			 mv.addObject("path", "./memberUpdate");
 			 mv.setViewName("common/result");
 		}
 		

@@ -7,7 +7,7 @@
 <!--위치는 WEBAPP 밑에 //보안으로 하려면 web-inf 우선은 테스트-->
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>address</title>
 <c:import url="../template/boot.jsp"></c:import>
 <link href="../resources/css/address.css" rel="styleSheet" /> <!--style 불러올때-->
 

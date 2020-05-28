@@ -80,10 +80,7 @@
 													</a>
 												</td>
 												<td>
-													${mr.regDate }<br>
-													조회수 : ${mr.hit }<br>
-													작성자 : ${mr.id }
-													
+													${mr.regDate }
 												</td>
 	
 											</tr>

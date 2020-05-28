@@ -21,10 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler;
-
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.pet.p1.cart.CartService;
 import com.pet.p1.cart.CartVO;
@@ -33,8 +29,6 @@ import com.pet.p1.memberReview.MemberReviewVO;
 import com.pet.p1.order.OrderService;
 import com.pet.p1.order.OrderVO;
 import com.pet.p1.orderInfo.OrderInfoVO;
-import com.pet.p1.product.DogService;
-import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 

@@ -8,14 +8,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +22,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.pet.p1.memberReview.MemberReviewVO;
-import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 @Service
@@ -35,7 +29,7 @@ public class MemberService {
 	
 	@Autowired
 	private MemberDAO memberDAO;
-	private ServletRequest request;
+
 
 	public String getAccessToken(String code) {
 		String access_Token = "";

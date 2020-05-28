@@ -308,10 +308,6 @@
 <th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
 <td>
 <input id="oemail1" name="email" class="mailId" value="${member.email}" type="text">
-<ul style="list-style: none; margin-top: 10px;">
-<li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
-<li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
-</ul>
 </td>
 </tr>
 

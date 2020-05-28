@@ -126,17 +126,16 @@ public class MemberService {
 			JsonElement element = parser.parse(result);
 			
 			JsonObject properties = element.getAsJsonObject().getAsJsonObject("properties").getAsJsonObject();
-			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+//			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject().get("profile").getAsJsonObject();
 			long id = element.getAsJsonObject().get("id").getAsLong();
 			
-			
+//			String image = kakao_account.getAsJsonObject().get("profile_image_url").getAsString(); //카카오 프로필사진가져오기
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 			String kakaoId = Long.toString(id);
 			
 			memberInfo.put("nickname", nickname);
 			memberInfo.put("kakaoId", kakaoId);
-	
-
+//			memberInfo.put("image", image);
 			
 		}catch (Exception e) {
 			 e.printStackTrace();

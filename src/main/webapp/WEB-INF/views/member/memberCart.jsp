@@ -45,7 +45,7 @@
 		<div class="row">
 			<c:import url="./memberSide.jsp"></c:import>
 
-			<div class="col">
+			<div class="col" style="margin-left: 250px;">
 				<c:import url="./cartStep.jsp"></c:import>
 				<div class="row">
 					<div class="col-sm-1"></div>

@@ -30,7 +30,7 @@
 	<div class="container-fulid  mt-5">
 		<div class="row">
 			<c:import url="./memberSide.jsp"></c:import>
-			<div class="col">
+			<div class="col" style="margin-left: 250px;">
 				<div class="row">
 					<div class="col-sm-1"></div>
 					<div class="col">

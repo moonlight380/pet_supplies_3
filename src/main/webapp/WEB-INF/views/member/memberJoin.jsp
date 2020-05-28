@@ -100,7 +100,7 @@
    <input style="width: 80px;" id="postcode1" name="address" class="input_Join" placeholder="우편번호" readonly="readonly" maxlength="14" type="text">
    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
    <input style="width: 400px;" id="addr1" name="addr1" class="input_Join" placeholder="기본주소" readonly="readonly"type="text" ><br>
-   <input style="width: 250px;" id="addr2" name="addr2" class="input_Join" placeholder="상세주소" type="text">
+   <input style="width: 250px;" id="addr2" name="addr2" placeholder="상세주소" type="text">
  </td>
 </tr>
 <tr class="">

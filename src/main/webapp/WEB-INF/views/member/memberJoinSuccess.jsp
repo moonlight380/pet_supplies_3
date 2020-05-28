@@ -41,7 +41,7 @@
 
 <div class="ec-base-box typeMember gMessage">
 <strong class="message">회원가입이 완료되었습니다</strong>
-<p style="font-size: small;">가입 시 받은 적립금은 바로 사용하실 수 있습니다.</p>
+<p style="font-size: small; color: #FF324D">가입 시 받은 적립금은 바로 사용하실 수 있습니다.</p>
 
 </div>
  

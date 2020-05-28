@@ -360,7 +360,7 @@
    <input style="width: 80px;" id="raddress" name="address" class="input_Join ds" placeholder="" readonly="readonly" maxlength="14" type="text">
    <input type="button" onclick="sample6_execDaumPostcode1()" value="우편번호"><br>
    <input style="width: 300px;" id="raddr1" name="addr1" class="input_Join ds" placeholder="" readonly="readonly" type="text" ><span> 기본주소</span> <br>
-   <input style="width: 300px;" id="raddr2" name="addr2" class="input_Join ds" placeholder="" type="text"><span> 나머지 주소</span>
+   <input style="width: 300px;" id="raddr2" name="addr2" class="ds" placeholder="" type="text"><span> 나머지 주소</span>
  
 </tr>
 <!-- 일반전화 -->
@@ -983,7 +983,7 @@ $("#input_point").blur(function(){
  		var coupon = e.data*1;
 
  		$("#total_addsale_price_view").html("<strong>"+coupon+"원</strong>");
- 		$("#discount").html("<strong>"+coupon+"원</strong>");
+ 		$("#discount2").html("<strong>"+coupon+"원</strong>");
  		
 		//-- 최종결제금액
  		var pay = $("#pp").text();

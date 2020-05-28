@@ -33,6 +33,9 @@
     background: url(../resources/images/bg_sale.png) no-repeat 0 0;
     text-align: center;
 }
+.topSize{
+	font-size: 20px;
+}
 </style>
 
 <link href="../resources/css/pSelect.css" rel="styleSheet" />
@@ -40,7 +43,7 @@
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
-<body>
+<body style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 
 <div id="header"> <!-- 추가한부분  header reset -->
 	<c:import url="../template/header.jsp"></c:import>
@@ -69,8 +72,8 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">홈</a></li>  
-                    <li class="breadcrumb-item active">상품 디테일</li>
+                    <li class="breadcrumb-item"><a href="../" class="topSize">홈</a></li>  
+                    <li class="breadcrumb-item active" class="topSize">상품 디테일</li>
                 </ol>
             </div>
         </div>

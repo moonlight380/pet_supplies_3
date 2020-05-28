@@ -78,11 +78,9 @@ body, code {
 <title>OH!DALI</title>
 
 </head>
-<body>
+<c:import url="./template/header.jsp"></c:import>
 
-	<c:import url="./template/header.jsp"></c:import>
-
-
+<body style="font-family: 'Do Hyeon', sans-serif; font-size: 17px;">
 
 	<!-- START SECTION BANNER -->
 	<div id="carouselExampleFade" class="carousel slide carousel-fade"
@@ -160,7 +158,7 @@ body, code {
 				<div class="row justify-content-center">
 					<div class="col-md-6">
 						<div class="heading_s1 text-center">
-							<h2>신상품</h2>
+							<h2 style="font-family: 'Do Hyeon', sans-serif;">신상품</h2>
 						</div>
 					</div>
 				</div>
@@ -195,9 +193,9 @@ body, code {
 													</a>
 													<div class="product_action_box">
 														<ul class="list_none pr_action_btn">
-															<li class="add-to-cart"><a
-																href="#"><i
-																	class="icon-basket-loaded cart"  data-target="#myModal" data-toggle="modal"></i> Add To Cart</a></li>
+															<li class="add-to-cart"><a href="#"><i
+																	class="icon-basket-loaded cart" data-target="#myModal"
+																	data-toggle="modal"></i> Add To Cart</a></li>
 															<li><a
 																href="${pageContext.request.contextPath}/resources/dogUpload/${dnvo.productFileVOs['0'].fileName}"
 																class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
@@ -211,8 +209,18 @@ body, code {
 															href="./product/dogSelect?productNum=${dnvo.productNum}">${dnvo.contents}</a>
 													</h6>
 													<div class="product_price">
+
+														<span class="price">${dnvo.price}</span>
+													</div>
+													<div class="rating_wrap"></div>
+													<div class="pr_desc">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Phasellus blandit massa enim. Nullam id varius nunc
+															id varius nunc.</p>
+
 														<span class="price"><fmt:formatNumber value="${dnvo.price}" type="number"></fmt:formatNumber></span>
 														
+
 
 													</div>
 
@@ -242,7 +250,7 @@ body, code {
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<div class="heading_s1 text-center">
-						<h2>히트상품</h2>
+						<h2 style="font-family: 'Do Hyeon', sans-serif;">히트상품</h2>
 					</div>
 				</div>
 			</div>
@@ -280,8 +288,18 @@ body, code {
 													<a href="shop-product-detail.html">${dbvo.contents}</a>
 												</h6>
 												<div class="product_price">
+
+													<span class="price">${dbvo.price}</span>
+												</div>
+												<div class="rating_wrap"></div>
+												<div class="pr_desc">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Phasellus blandit massa enim. Nullam id varius nunc
+														id varius nunc.</p>
+
 													<span class="price"><fmt:formatNumber value="${dnvo.price}" type="number"></fmt:formatNumber></span>
 													
+
 												</div>
 												
 											</div>
@@ -395,7 +413,7 @@ body, code {
 						class="xans-element- xans-board xans-board-listpackage-1 xans-board-listpackage xans-board-1 mboard ">
 						<h2
 							class="xans-element- xans-board xans-board-title-1 xans-board-title xans-board-1 ">
-							<span><font color="#666666">공지사항</font></span>
+							<span><font color="#666666" style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;">공지사항</font></span>
 						</h2>
 						<ul
 							class="xans-element- xans-board xans-board-list-1 xans-board-list xans-board-1">
@@ -420,7 +438,7 @@ body, code {
 						class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 mboard ">
 						<h2
 							class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-							<span><font color="#666666">구매후기</font></span>
+							<span><font color="#666666" style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;">구매후기</font></span>
 						</h2>
 						<ul
 							class="xans-element- xans-board xans-board-list-4 xans-board-list xans-board-4">
@@ -439,7 +457,7 @@ body, code {
 					</div>
 					<div class="minfo">
 						<h2>
-							<span><font color="#666666">신규 회원 혜택</font></span>
+							<span><font color="#666666" style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;" >신규 회원 혜택</font></span>
 						</h2>
 						<div>
 							<strong>가입 즉시 5% 할인<br> 최대 6,000원 할인 쿠폰 3종 세트 지급
@@ -460,7 +478,7 @@ body, code {
 								<i class="flaticon-shipped"></i>
 							</div>
 							<div class="icon_box_content">
-								<h5>무료 배송</h5>
+								<h5 style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">무료 배송</h5>
 								<p>저희 쇼핑몰의 모든 상품은 무료배송입니다.</p>
 							</div>
 						</div>
@@ -471,7 +489,7 @@ body, code {
 								<i class="flaticon-money-back"></i>
 							</div>
 							<div class="icon_box_content">
-								<h5>한달 동안 무료 환불</h5>
+								<h5 style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">한달 동안 무료 환불</h5>
 								<p>저희는 제품에 문제가 발생할 경우를 대비해, 한달간 무료 반품 서비스를 제공합니다.</p>
 							</div>
 						</div>
@@ -482,7 +500,7 @@ body, code {
 								<i class="flaticon-support"></i>
 							</div>
 							<div class="icon_box_content">
-								<h5>24시간 고객 지원</h5>
+								<h5 style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">24시간 고객 지원</h5>
 								<p>챗봇 서비스와 고객센터를 통해 24시간 서비스를 지원합니다.</p>
 							</div>
 						</div>

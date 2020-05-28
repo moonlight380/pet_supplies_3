@@ -44,7 +44,7 @@ public class QnaService implements BoardService {
 
 	@Override
 	public BoardVO boardSelect(long num) throws Exception {
-		//qnaDAO.hitUpdate(num);
+		// qnaDAO.hitUpdate(num);
 		return qnaDAO.boardSelect(num);
 	}
 
@@ -127,6 +127,11 @@ public class QnaService implements BoardService {
 	public List<Long> rNum() throws Exception {
 		// TODO Auto-generated method stub
 		return qnaDAO.rNum();
+	}
+
+	public BoardVO refNum(long num) throws Exception {
+		// TODO Auto-generated method stub
+		return qnaDAO.refNum(num);
 	}
 
 }

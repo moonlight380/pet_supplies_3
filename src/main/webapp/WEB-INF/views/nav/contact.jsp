@@ -41,7 +41,7 @@ html, body {
 
 <body style="padding-top: 150px;">
 	<div id="store-bigtitle" style="padding-bottom: 20px;">
-		<h1>매장 위치 안내</h1>
+		<h1 style="font-family: 'Do Hyeon', sans-serif;">매장 위치 안내</h1>
 	</div>
 	<div id="map"></div>
 	<script>

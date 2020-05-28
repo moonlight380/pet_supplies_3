@@ -71,7 +71,7 @@ public String getBoard()throws Exception{
 
 		return mv;
 	}
-//dogNewList
+//-----------------------------------------------dogNewList-----------------------------------------------//
 	@RequestMapping(value ="dogNewList", method = RequestMethod.GET )
 	public ModelAndView dogNewList(ModelAndView mv,Pager pager)throws Exception {
 			
@@ -88,7 +88,7 @@ public String getBoard()throws Exception{
 		
 		}	
 	
-//dogBestList	
+//-----------------------------------------------dogBestList-----------------------------------------------//	
 	@RequestMapping(value ="dogBestList", method = RequestMethod.GET )
 	public ModelAndView dogBestList	(ModelAndView mv,Pager pager)throws Exception {
 			
@@ -108,7 +108,7 @@ public String getBoard()throws Exception{
 		return mv;
 		
 		}	
-//dogTimeSale	
+//-----------------------------------------------dogTimeSale-----------------------------------------------//	
 	@RequestMapping(value ="dogTimeSale", method = RequestMethod.GET )
 	public ModelAndView dogTimeSale	(ModelAndView mv,Pager pager)throws Exception {
 	
@@ -123,18 +123,15 @@ public String getBoard()throws Exception{
 		return mv;
 		
 		}	
-	
 
-	
-	
-//write_get	(insert)
+//-----------------------------------------------write_get(insert)-----------------------------------------------//
 	@RequestMapping(value = "dogWrite",method = RequestMethod.GET)
 	public ModelAndView dogWrite (ModelAndView mv) throws Exception{
 		mv.setViewName("product/pWrite");
 		
 		return mv;
 	}
-//Write_post(insert)
+//-----------------------------------------------Write_post(insert)-----------------------------------------------//
 	@RequestMapping(value ="dogWrite", method = RequestMethod.POST)
 	public ModelAndView dogWrite(DogVO dogVO , ModelAndView mv,MultipartFile firstFile, MultipartFile[] files) throws Exception{	
 		
@@ -152,7 +149,7 @@ public String getBoard()throws Exception{
 		return mv;
 	}	
 	
-//Select
+//-----------------------------------------------Select-----------------------------------------------//
 	@GetMapping("dogSelect") 
 		public ModelAndView dogSelect(long productNum,DogVO dogVO, HttpSession session) throws Exception{
 			dogVO=dogService.dogSelect(dogVO);
@@ -170,7 +167,7 @@ public String getBoard()throws Exception{
 			return mv;
 		}	
 	
-//dogSelectTimeSale		
+//-----------------------------------------------dogSelectTimeSale-----------------------------------------------//		
 	@GetMapping("dogSelectTimeSale") 
 	public ModelAndView dogSelectTimeSale(long productNum,DogVO dogVO, HttpSession session) throws Exception{
 		dogVO=dogService.dogSelectTimeSale(dogVO);
@@ -185,7 +182,7 @@ public String getBoard()throws Exception{
 		return mv;
 	}	
 	
-//timeSaleUpdate
+//-----------------------------------------------timeSaleUpdate-----------------------------------------------//
 	 	@RequestMapping(value="timeSaleUpdate", method=RequestMethod.GET)
 	    @ResponseBody
 		public void timeSaleUpdate(Long[] ids)throws Exception{
@@ -198,18 +195,11 @@ public String getBoard()throws Exception{
 	
 		if(result>0) {
 			System.out.println("성공");
-		}
-		
-//		for(int i =0;i<list.size();i++) {
-//			long productNum = list.get(i);
-//			dogService.timeSaleUpdate(productNum);
-//		}
-
-		
+		}	
 		}	
 			
 	
-//update_get
+//-----------------------------------------------update_get-----------------------------------------------//
 	@GetMapping("dogUpdate")
 	public ModelAndView dogUpdate(Model model,ModelAndView mv,DogVO dogVO)throws Exception{
 		dogVO =dogService.dogSelect(dogVO);
@@ -219,7 +209,7 @@ public String getBoard()throws Exception{
 		model.addAttribute("size", dogVO.getProductFileVOs().size());
 		return mv;
 	}
-//update_post	
+//-----------------------------------------------update_post-----------------------------------------------//
 	@RequestMapping(value = "dogUpdate", method=RequestMethod.POST)
 	public String boardUpdate(ModelAndView mv,Model model,DogVO dogVO,long productNum,MultipartFile firstFile, MultipartFile[] files) throws Exception {
 		for(MultipartFile multipartFile:files) {
@@ -238,7 +228,7 @@ public String getBoard()throws Exception{
 		
 		return path;		
 	}
-//delete
+//-----------------------------------------------delete-----------------------------------------------//
 		@RequestMapping(value = "dogDelete", method=RequestMethod.GET)
 		public ModelAndView dogDelete(long productNum,DogVO dogVO,ModelAndView mv) throws Exception {
 			int result=dogService.dogDelete(productNum);

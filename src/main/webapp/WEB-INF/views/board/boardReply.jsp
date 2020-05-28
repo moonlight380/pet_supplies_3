@@ -5,16 +5,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+<c:if test="${board eq 'notice'}">
+	<title>공지 답글 작성폼</title>
+</c:if>
+<c:if test="${board eq 'qna'}">
+	<title>QnA 답글 작성폼</title>
+</c:if>
+<c:if test="${board eq 'review'}">
+	<title>리뷰 답글 작성폼</title>
+</c:if>
+
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
 <c:import url="../template/header.jsp"></c:import>
-<body style="padding-top: 70px">
-	
-	<div class="container">
-		<h1>${board}replyForm</h1>
 
+<body style="padding-top: 150px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
+
+	<div class="container">
+
+		<c:if test="${board eq 'notice'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">공지 답글
+				작성폼</h2>
+		</c:if>
+		<c:if test="${board eq 'qna'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">QnA 답글
+				작성폼</h2>
+		</c:if>
+		<c:if test="${board eq 'review'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">리뷰 답글
+				작성폼</h2>
+		</c:if>
 
 		<form action="./${board}Reply" id="frm" method="post">
 			<input type="hidden" name="num" value="${num}">
@@ -33,11 +55,12 @@
 					name="contents"></textarea>
 			</div>
 
-			<input type="submit" id="btn" class="btn btn-info" value="작성하기" style="margin-bottom: 3%;">
+			<input type="submit" id="btn" class="btn btn-info" value="작성하기"
+				style="margin-bottom: 3%;">
 		</form>
 
 	</div>
-	
+
 
 	<input type="hidden" value="${vo.id}">
 	<c:import url="../template/footer.jsp"></c:import>

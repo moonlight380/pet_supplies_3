@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 
@@ -15,9 +15,20 @@
 	position: relative;
 }
 </style>
+
+<c:if test="${board eq 'notice'}">
+	<title>공지 게시판</title>
+</c:if>
+<c:if test="${board eq 'qna'}">
+	<title>QnA 게시판</title>
+</c:if>
+<c:if test="${board eq 'review'}">
+	<title>리뷰 게시판</title>
+</c:if>
+
 </head>
 <c:import url="../template/header.jsp"></c:import>
-<body style="padding-top: 70px">
+<body style="padding-top: 70px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 
 
 

@@ -84,10 +84,10 @@
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<div class="custom_select">
-									<select class="fom-control" id="sel1" name="kind">
-										<option value="pn">제품이름</option>
-										<option value="pc">제품내용</option>
-										<option value="pnum">제품번호</option>
+									<select class="fom-control" id="sel1" name="kind" style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
+										<option value="pn" style="font-family: 'Do Hyeon', sans-serif; font-size: 19x;">제품이름</option>
+										<option value="pc" style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">제품내용</option>
+										<option value="pnum" style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">제품번호</option>
 									</select>
 								</div>
 							</div>

@@ -11,8 +11,9 @@
 		select max(cnum) from cart where id=#{id}
 	</select>
 	
-	<select id="cartCheck" parameterType="CartVO" resultType="CartVO">
-		select * from cart where id=#{id} and productNum=#{productNum}
+	<select id="cartCheck" parameterType="MemberVO" resultType="Long">
+		select DISTINCT(productNum) from cart where id=#{id}
+
 	</select>
 	
 	<select id="cartSelect" parameterType="List" resultType="CartVO">
@@ -55,6 +56,10 @@
 		update cart set camount=#{cAmount} where cnum=#{cnum}
 	
 	
+	</update>
+	
+	<update id="overUpdate" parameterType="CartVO">
+		update cart set camount=camount+1 where id=#{id} and productnum=#{productNum}
 	</update>
 	
 </mapper>

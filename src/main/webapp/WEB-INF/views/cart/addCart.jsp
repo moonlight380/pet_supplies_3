@@ -57,47 +57,73 @@
 			var id = $("#memberId").val();
 			var productNum = $(this).attr("id");
 			var cAmount = 1*$("#quantityNum_amount").text();
+			var list=[];
+			var check=0;
 			
-			$.ajax({
-				 type:"post",
-				 url:"../cart/cartCheck",
-				 data:{
-					 id:id,
-					 productNum:productNum
-				 },error : function(request, status, error) {
-						console.log("code = " + request.status + " message = "
-								+ request.responseText + " error = " + error);
-					},success:function(){
-							<% CartVO cartVO = (CartVO)request.getAttribute("check");
-							String id = "check123123";%>
-							var check = '<%= id %>    ';
-							alert(check);
-							alert("id");
-							
-							
-							
-					}
-			});
-			
-			if(confirm("장바구니에 추가하시겠습니까?")){
-			$.ajax({
-					type:"post",
-					url:"../cart/cartInsert",
-					data:{
-						cAmount : cAmount,
-						productNum:productNum,
-						id:id
-					},success : function(data){
-						$.get("../member/memberCartHeader",function(data){
-							$("#header").html(data.trim());
-						});
+			<%
+				if(session.getAttribute("ids")!=null){
+					Long ids[] = (Long[])session.getAttribute("ids");
+					for(int i=0;i<ids.length;i++){
+						%>
+						list.push('<%= ids[i]%>');
 						
+					<%	
 					}
-				});  
+				}
+			%>
+			for(var i=0;i<list.length;i++){
+				if(productNum==list[i]){
+					check++;
+				}
+			}
+			console.log(check);
+			
+			if(check>0){
+				if(confirm("장바구니에 동일한 상품이 있습니다.\n장바구니에 추가하시겠습니까?")){
+					$.ajax({
+						type:"post",
+						url:"../cart/overUpdate",
+						data:{
+							id:id,
+							productNum:productNum
+						},error : function(request, status, error) {
+							alert(productNum);
+							console.log("code = " + request.status + " message = "
+									+ request.responseText + " error = " + error);
+						}
+					});
+				} else{
+					
+					$(this).attr("data-target","");
+					alert("취소 됐습니다.");
+				}
+				
 				
 			} else{
-				$(this).attr("data-target","");
-				alert("취소 됐습니다.");
+			
+				if(confirm("장바구니에 추가하시겠습니까?")){
+				$.ajax({
+						type:"post",
+						url:"../cart/cartInsert",
+						data:{
+							cAmount : cAmount,
+							productNum:productNum,
+							id:id
+						},success : function(data){
+							$.get("../member/memberCartHeader",function(data){
+								$("#header").html(data.trim());
+								console.log("asdasd");
+							});
+							$.get("../member/memberCartRefresh");
+							console.log("check");
+							
+						} 
+					});  
+					} else{
+						
+						$(this).attr("data-target","");
+						alert("취소 됐습니다.");
+				}
 			}
 			
 		});

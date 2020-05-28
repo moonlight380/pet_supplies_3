@@ -191,33 +191,7 @@
 							</div></li>
 					</c:if>
 
-					<%-- 					<li class="dropdown cart_dropdown"><a
-						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
-							class="linearicons-cart"></i><span class="cart_count"> <c:if
-									test="${empty member.id}">
-									0
-								</c:if> <c:if test="${not empty member.id}">
-									${cartCount } <!-- 합칠 때 숫자 0 -->
-								</c:if>
-						</span></a>
-						<div class="cart_box dropdown-menu dropdown-menu-right">
-							<ul class="cart_list">
-								<c:forEach items="${headerCart }" var="cart">
-									<li><a href="#" class="item_remove"> <i
-											class="ion-close"></i>
-									</a> <a href="#"> <img
-											src="${pageContext.request.contextPath}/resources/dogUpload/${cart.fileName }"
-											alt="cart_thumb1">Variable product
-									</a> <span class="cart_quantity"> ${cart.cAmount } x <span
-											class="cart_amount"> <span class="price_symbole">$</span>
-										</span> ${cart.price }
-									</span></li>
-								</c:forEach>
-
-
-
-							</ul>
-						</div></li> --%>
+				
 
 
 					<c:if test="${not empty member}">

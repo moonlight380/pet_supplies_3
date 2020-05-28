@@ -1,5 +1,7 @@
 package com.pet.p1.cart;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.member.MemberService;
 import com.pet.p1.member.MemberVO;
@@ -24,22 +27,11 @@ public class CartController {
 	
 	
 	
-	@PostMapping("cartCheck")
+	@PostMapping("overUpdate")
 	@ResponseBody
-	public void cartCheck(CartVO cartVO,HttpServletRequest request)throws Exception{
-		System.out.println(cartVO.getId());
-		System.out.println(cartVO.getProductNum());
-		CartVO check = cartService.cartCheck(cartVO);
-		request.setAttribute("check", check);
-		CartVO a = (CartVO)request.getAttribute("check");
-		System.out.println(check);
+	public void cartCheck(CartVO cartVO)throws Exception{
 		
-		System.out.println("---------------------");
-		
-		System.out.println("request : "+a);
-		
-		
-		
+		cartService.overUpdate(cartVO);
 		
 		
 	}

@@ -43,6 +43,7 @@
 	<c:import url="../template/header.jsp"></c:import>
 </div>
 
+
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">

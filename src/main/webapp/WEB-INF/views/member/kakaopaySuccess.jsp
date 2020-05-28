@@ -129,12 +129,12 @@
 					data:{
 						ids:ids
 					},
+					
 					success:function(data){
-						$.get("./memberCartRefresh")
-					} ,success:function(data){
 						$.get("../member/memberCartHeader",function(data){
 							$("#header").html(data.trim());
 						});
+						$.get("../member/memberCartRefresh");
 					} 
 					
 					

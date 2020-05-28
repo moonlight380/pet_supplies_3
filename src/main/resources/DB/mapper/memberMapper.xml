@@ -11,6 +11,7 @@
         inner join product on(review.productnum = product.productnum)
 		inner join productfile on(review.productnum=productfile.num)
 		where productfile.firstfile=0 and id=#{id}
+		order by regdate desc
   		
   	</select>
   

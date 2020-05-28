@@ -141,7 +141,7 @@ public class OrderInfoPager {
 	public Integer getPerPage() {
 		//파라미터 값이 null일때 자동으로 들어올 수 있도록
 		if(this.perPage==null || this.perPage==0) {
-			this.perPage=5;
+			this.perPage=10;
 		}
 		return perPage;
 	}

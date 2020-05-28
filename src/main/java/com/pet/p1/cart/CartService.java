@@ -12,6 +12,14 @@ public class CartService {
 	@Autowired
 	private CartDAO cartDAO;
 	
+	public int overUpdate(CartVO cartVO) throws Exception{
+		return cartDAO.overUpdate(cartVO);
+	}
+	
+	public List<Long> cartCheck(MemberVO memberVO)throws Exception{
+		return cartDAO.cartCheck(memberVO);
+	}
+	
 	public List<CartVO> cartList(MemberVO memberVO) throws Exception{
 		return cartDAO.cartList(memberVO);
 	}

@@ -10,7 +10,9 @@
 <c:import url="../template/css.jsp"></c:import>
 </head>
 <body>
+<div id="header">
 <c:import url="../template/header.jsp"></c:import>
+</div>
 
 
 <div class="container" style="margin-top: 150px;margin-bottom: 150px;">
@@ -129,11 +131,12 @@
 						ids:ids
 					},
 					success:function(data){
-						$.get("./memberCartRefresh")
-					} ,success:function(data){
+						$.get("../member/memberCartRefresh");
 						$.get("../member/memberCartHeader",function(data){
 							$("#header").html(data.trim());
 						});
+						console.log("check");
+						
 					} 
 					
 					

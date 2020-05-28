@@ -1,5 +1,8 @@
 package com.pet.p1.cart;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,16 @@ public class CartController {
 	@Autowired
 	private MemberService memberService;
 	
+	
+	
+	@PostMapping("overUpdate")
+	@ResponseBody
+	public void cartCheck(CartVO cartVO)throws Exception{
+		
+		cartService.overUpdate(cartVO);
+		
+		
+	}
 	
 	@PostMapping("cartInsert")
 	@ResponseBody

@@ -68,6 +68,11 @@
  		  <input type="hidden" name="contents" id="con">
  		-->
 
+			
+			<%
+				String productNum =request.getParameter("productNum");
+			%>
+				<input hidden="hidden"  value="<%= productNum %>" name="productNum" id="productNum">
 
 			<input type="button" id="btn" class="btn btn-danger" value="글쓰기"
 				style="margin-bottom: 3%;">
@@ -77,12 +82,14 @@
 
 
 
+
 	<!-- 	<script type="text/javascript">
 	
 	var pnum_1 = $("#.num_1").text;
 	$("#.productNum").val = pnum_1;
 	
 	</script> -->
+
 
 	<script type="text/javascript" src="../resources/script/boardForm.js"></script>
 	<c:import url="../template/footer.jsp"></c:import>

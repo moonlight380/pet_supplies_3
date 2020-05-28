@@ -159,7 +159,7 @@ $("#contents").summernote({
  		var p2 = $("#contents").summernote('isEmpty');
  		
  		
- 		if(p1 &&!p2 && p3&& priceCheck&& pointCheck&& saleCheck){
+ 		if(p1 && p2 && p3&& priceCheck&& pointCheck&& saleCheck){
  			//form 전송(submit event 강제 발생)
 // 			<!-- contents Server null이 될때-->
  			$("#con").val(contents);

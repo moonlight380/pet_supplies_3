@@ -30,7 +30,7 @@
 }
 
 .bg_gray{
-	margin-top:100px;
+	margin-top:0px;
 	width: auto;
 	height: 60px;
 }
@@ -67,7 +67,7 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../" class="topSize">홈</a></li>
+                    <li class="breadcrumb-item"><a href="../"><span class="topSize">홈</span></a></li>
                     <li class="breadcrumb-item"><a href="#"><strong class="topSize">신상품 리스트</strong></a></li>                    
                 </ol>
             </div>

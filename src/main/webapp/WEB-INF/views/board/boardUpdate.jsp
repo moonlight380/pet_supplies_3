@@ -7,19 +7,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+<c:if test="${board eq 'notice'}">
+	<title>공지 수정폼</title>
+</c:if>
+<c:if test="${board eq 'qna'}">
+	<title>QnA 수정폼</title>
+</c:if>
+<c:if test="${board eq 'review'}">
+	<title>리뷰 수정폼</title>
+</c:if>
+
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 
 </head>
 <c:import url="../template/header.jsp"></c:import>
-<body style="padding-top: 70px">
+
+<body style="padding-top: 150px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 
 
 
 	<div class="container">
-		<h1>${fn:toUpperCase(board)}UpdateForm</h1>
+
+		<c:if test="${board eq 'notice'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">공지
+				수정폼</h2>
+		</c:if>
+		<c:if test="${board eq 'qna'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">QnA
+				수정폼</h2>
+		</c:if>
+		<c:if test="${board eq 'review'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">리뷰
+				수정폼</h2>
+		</c:if>
 
 
 		<form action="./${board}Update" id="frm" method="post"

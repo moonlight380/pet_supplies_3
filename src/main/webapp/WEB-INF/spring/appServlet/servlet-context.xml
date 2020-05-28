@@ -69,6 +69,7 @@
 			<mapping path="/review/*" />
 			<exclude-mapping path="/review/reviewList"/>
 			<exclude-mapping path="/review/reviewSelect"/>
+			<exclude-mapping path="/review/reviewWrite"/>
 			<beans:ref bean="reviewInterceptor" />
 		</interceptor>
 

@@ -1,5 +1,7 @@
 package com.pet.p1.Interceptor;
 
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +13,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.pet.p1.board.BoardVO;
 import com.pet.p1.member.MemberVO;
+import com.pet.p1.order.OrderDAO;
+import com.pet.p1.order.OrderService;
+import com.pet.p1.orderInfo.OrderInfoVO;
 import com.pet.p1.review.ReviewDAO;
 import com.pet.p1.review.ReviewService;
 
@@ -22,6 +27,12 @@ public class ReviewInterceptor extends HandlerInterceptorAdapter {
 
 	@Autowired
 	private ReviewService reviewService;
+
+	@Autowired
+	private OrderDAO orderDAO;
+
+	@Autowired
+	OrderService orderService;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -115,7 +126,7 @@ public class ReviewInterceptor extends HandlerInterceptorAdapter {
 
 		// delete
 		if (path.equals("/reviewDeleteReal") && method.equals("GET")) {
-			
+
 			if (memberVO != null) {
 				if (memberVO.getId().equals("admin") || memberVO.getId().equals(boardVO.getId())) {
 					System.out.println(boardVO.getNum());

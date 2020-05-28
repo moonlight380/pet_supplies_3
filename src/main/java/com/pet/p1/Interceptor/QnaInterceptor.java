@@ -1,5 +1,7 @@
 package com.pet.p1.Interceptor;
 
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +17,7 @@ import com.pet.p1.member.MemberVO;
 import com.pet.p1.qna.QnaController;
 import com.pet.p1.qna.QnaDAO;
 import com.pet.p1.qna.QnaService;
+import com.pet.p1.qna.QnaVO;
 
 @Component
 public class QnaInterceptor extends HandlerInterceptorAdapter {
@@ -62,29 +65,34 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 		System.out.println(board);
 
 		// select
-		if (path.equals("/qnaSelect")) {
-
-			if (memberVO != null) {
-				if (memberVO.getId().equals("admin") || memberVO.getId().equals(boardVO.getId())) {
-					System.out.println(boardVO.getNum());
-					qnaDAO.hitUpdate(boardVO.getNum());
-				}
-			}
-
-			if (memberVO != null) {
-				if (!memberVO.getId().equals("admin")) {
-					if (!memberVO.getId().equals(boardVO.getId())) {
-						modelAndView.setViewName("redirect:" + board);
-					}
-				}
-
-			} else {
-				modelAndView.addObject("result", "권한이 없음");
-				modelAndView.addObject("path", board);
-				modelAndView.setViewName("common/result");
-			}
-		} // end select
-
+		/*
+		 * if (path.equals("/qnaSelect")) {
+		 * 
+		 * // ref가 같으면 admin 것도 조회가능
+		 * 
+		 * QnaVO qnaVO = (QnaVO) qnaService.boardSelect(boardVO.getNum()); QnaVO qnaVO2
+		 * = (QnaVO) qnaService.refNum(boardVO.getNum());
+		 * 
+		 * if(qnaVO2.getId() == memberVO.getId()) {
+		 * 
+		 * }
+		 * 
+		 * 
+		 * 
+		 * if (memberVO != null) { if (qnaVO.getRef() == boardVO.getNum()) { if
+		 * (memberVO.getId().equals("admin") ||
+		 * memberVO.getId().equals(boardVO.getId())) {
+		 * System.out.println(boardVO.getNum()); qnaDAO.hitUpdate(boardVO.getNum()); } }
+		 * }
+		 * 
+		 * if (memberVO != null) { if (!memberVO.getId().equals("admin")) { if
+		 * (!memberVO.getId().equals(boardVO.getId())) {
+		 * modelAndView.setViewName("redirect:" + board); } }
+		 * 
+		 * } else { modelAndView.addObject("result", "권한이 없음");
+		 * modelAndView.addObject("path", board);
+		 * modelAndView.setViewName("common/result"); } } // end select
+		 */
 		// update
 		if (path.equals("/qnaUpdate") && method.equals("GET")) {
 
@@ -136,10 +144,10 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 				if (memberVO.getId().equals("admin") || memberVO.getId().equals(boardVO.getId())) {
 					System.out.println(boardVO.getNum());
 					int result = qnaService.boardDelete(boardVO.getNum());
-					
-					if(result>0) {
+
+					if (result > 0) {
 						modelAndView.setViewName("redirect:" + board);
-					} 
+					}
 				}
 			}
 

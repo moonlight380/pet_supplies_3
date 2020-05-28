@@ -38,4 +38,9 @@ public class OrderService {
 			memberVO.makePage(totalCount);
 			return orderDAO.orderInfoList(memberVO);
 		}
+		
+		public List<OrderInfoVO> orderSelect(String id) throws Exception {
+			// TODO Auto-generated method stub
+			return orderDAO.orderSelect(id);
+		}
 }

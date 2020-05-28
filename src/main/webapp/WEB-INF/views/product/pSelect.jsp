@@ -23,6 +23,11 @@
 
 
 <style type="text/css">
+.bg_gray{
+	margin-top:100px;
+	width: auto;
+	height: 0px;
+}
 .time_sale , .time_sale_num {
     width: 59px;
     height: 44px;
@@ -63,13 +68,13 @@
         <div class="row align-items-center">
         	<div class="col-md-6">
                 <div class="page-title">
-            		<h1>Product Detail</h1>
+            		
                 </div>
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">Home</a></li>  
-                    <li class="breadcrumb-item active">Product Detail</li>
+                    <li class="breadcrumb-item"><a href="../">홈</a></li>  
+                    <li class="breadcrumb-item active">상품 디테일</li>
                 </ol>
             </div>
         </div>

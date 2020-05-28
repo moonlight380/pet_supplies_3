@@ -47,4 +47,9 @@ public class OrderService {
 			return orderDAO.adminUpdate(orderInfoVO);
 		}
 		
+		public List<OrderInfoVO> orderSelect(String id) throws Exception {
+			
+			return orderDAO.orderSelect(id);
+		}
+		
 }

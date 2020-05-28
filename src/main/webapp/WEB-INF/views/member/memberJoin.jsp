@@ -14,7 +14,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div id="wrap">
+<div id="wrap" style="margin-top: 150px;">
    <div id="container">
         <div id="contents">
             

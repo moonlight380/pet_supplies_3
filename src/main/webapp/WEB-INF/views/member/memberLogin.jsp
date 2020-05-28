@@ -13,7 +13,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div class="container">
+<div class="container" style="margin-top: 150px;">
 
 
 <div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">
@@ -35,9 +35,8 @@
 
 	<div class="text-center">
 	<a href="${pageContext.request.contextPath}">
-	<img class="m-5 mb-4" style="height: 60px;" 
-		src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
-		alt="" width="182" height="47">
+	<img class="m-5 mb-4" style="height: 100px;" 
+		src="${pageContext.request.contextPath}/resources/images/logo_index.jpeg">
 	</a>
 	</div>
 	

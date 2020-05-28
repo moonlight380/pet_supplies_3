@@ -15,6 +15,14 @@ public class CartDAO {
 	
 	private final String NAMESPACE="com.pet.p1.cart.CartDAO.";
 	
+	public int overUpdate(CartVO cartVO)throws Exception{
+		return sqlSessions.update(NAMESPACE+"overUpdate",cartVO);
+	}
+	
+	public List<Long>  cartCheck(MemberVO memberVO)throws Exception{
+		return sqlSessions.selectList(NAMESPACE+"cartCheck",memberVO);
+	}
+	
 	public List<CartVO> cartSelect(List<Long> list) throws Exception{
 		return sqlSessions.selectList(NAMESPACE+"cartSelect",list);
 	}

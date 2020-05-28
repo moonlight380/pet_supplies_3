@@ -110,6 +110,8 @@ public class MemberController {
 		Long curPage2 = Long.parseLong(curPage);
 		
 		memberVO.setCurPage(curPage2);
+		
+		
 		List<OrderInfoVO> ar = orderService.orderInfoList(memberVO);
 
 		List<OrderInfoVO> ar2 = orderService.aorderList(memberVO);
@@ -207,12 +209,19 @@ public class MemberController {
 	@GetMapping("memberCartRefresh")
 	public ModelAndView memberCartRefresh(HttpSession session)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		List<Long> ar2 = cartService.cartCheck(memberVO);
+		Long [] ids =  ar2.toArray(new Long[ar2.size()]) ;
+		session.setAttribute("ids", ids);
+		
+		
 		ModelAndView mv = new ModelAndView();
 		List<CartVO> ar = cartService.cartList(memberVO);
 		mv.addObject("cart",ar);
 		mv.setViewName("member/memberCartRefresh");
 		long count = memberService.memberCart(memberVO);
 		session.setAttribute("cartCount", count);
+		
+		System.out.println("cart refresh check");
 		return mv;
 	}
 	
@@ -258,7 +267,7 @@ public class MemberController {
 
 		  if(result>0) {
 			  int result2 = couponService.coupon(memberVO);
-			  if(result2>0) {
+			  if(result2>0) { 
 				  System.out.println("성공");
 			  }
 			  mv.setViewName("member/memberJoinSuccess");
@@ -292,6 +301,9 @@ public class MemberController {
 		 memberVO = memberService.memberLogin(memberVO);
 
 		 if(memberVO != null) {
+			 List<Long> ar = cartService.cartCheck(memberVO);
+			 Long [] ids =  ar.toArray(new Long[ar.size()]) ;
+			 session.setAttribute("ids", ids);
 			 session.setAttribute("member", memberVO);
 			 long count = memberService.memberCart(memberVO);
 			 session.setAttribute("cartCount", count);

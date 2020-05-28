@@ -34,7 +34,7 @@
 	
 }
 .bg_gray{
-	margin-top:100px;
+	margin-top:0px;
 	width: auto;
 	height: 0px;
 }
@@ -54,10 +54,13 @@
   	padding: 10px;
   
 }
+.topSize{
+	font-size: 20px;
+}
 </style>
 </head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
-<body>
+<body style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
 </div>
@@ -82,8 +85,8 @@
             </div>
             <div class="col-md-6">
  				<ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="#"><strong>타임세일 리스트</strong></a></li>                    
+                    <li class="breadcrumb-item"><a href="../" class="topSize">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#"><strong class="topSize">타임세일 리스트</strong></a></li>                    
                 </ol>
             </div>
         </div>
@@ -159,7 +162,7 @@
                                 </div>
                             </div>
                             <div class="product_info">
-                                <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
+                                <div class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></div>
 								
 								<!-- 타임세일시작 -->
 								<!-- 타이머기능 -->                 			
@@ -180,7 +183,7 @@
                                 </div>
                                
                                  <div class="product_price">
-		                              <span class="price oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber></span>
+		                              <span class="price oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber>원</span>
 		                         </div>
                                
                                 <!-- 타임세일끝 -->

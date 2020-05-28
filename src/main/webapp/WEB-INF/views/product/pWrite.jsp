@@ -20,9 +20,12 @@
 	width: auto;
 	height: 0px;
 }
+.topSize{
+	font-size: 20px;
+}
 </style>
 </head>
-<body>
+<body style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
@@ -36,9 +39,9 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="./dogList"><strong>상품 전체 리스트</strong></a></li>
-                    <li class="breadcrumb-item"><a href="#"><strong>상품 입력 폼</strong></a></li>                    
+                    <li class="breadcrumb-item"><a href="../" class="topSize">홈</a></li>
+                    <li class="breadcrumb-item"><a href="./dogList" class="topSize">상품 전체 리스트</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="topSize"><strong>상품 입력 폼</strong></a></li>                    
                 </ol>
             </div>
         </div>
@@ -81,7 +84,7 @@
 		
 		</div> 
 	<br>
-    <input type="submit" id="btn" class="btn btn-danger" value="submit">
+    <input type="button" id="btn" class="btn btn-danger" value="submit">
   </form>
 
 </div>

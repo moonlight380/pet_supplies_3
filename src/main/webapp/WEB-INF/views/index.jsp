@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,51 +20,42 @@
 	width: 100%;
 	background: #fffff0;
 }
-
 body, code {
 	color: #666666;
 	background: #fff;
 }
-
 .template_width {
 	position: relative;
 	max-width: 1230px;
 	margin: 0 auto;
 	padding: 0 10px;
 }
-
 .main_bottom_info div.inner {
 	padding: 35px 10px 25px;
 }
-
 .main_bottom_info div.inner:after {
 	content: "";
 	display: block;
 	clear: both;
 }
-
 .main_bottom_info div.inner>div {
 	float: left;
 	border-right: 1px solid #333;
 }
-
 .main_bottom_info .mboard:first-child {
 	width: 33%;
 	padding-left: 0;
 }
-
 .main_bottom_info .mboard {
 	width: 37%;
 	padding: 0 45px;
 	box-sizing: border-box;
 	position: relative;
 }
-
 .main_bottom_info .mboard h2 {
 	margin: 0 0 25px;
 	word-spacing: -1px;
 }
-
 .main_bottom_info .minfo {
 	padding: 0 25px;
 	box-sizing: border-box;
@@ -193,9 +184,10 @@ body, code {
 													</a>
 													<div class="product_action_box">
 														<ul class="list_none pr_action_btn">
-															<li class="add-to-cart"><a href="#"><i
-																	class="icon-basket-loaded cart" data-target="#myModal"
-																	data-toggle="modal"></i> Add To Cart</a></li>
+															<li class="add-to-cart"><a><i
+																	class="icon-basket-loaded cart" id="${dnvo.productNum}"
+																	data-toggle="modal" data-target="#myModal"></i> Add To
+																	Cart </a></li>
 															<li><a
 																href="${pageContext.request.contextPath}/resources/dogUpload/${dnvo.productFileVOs['0'].fileName}"
 																class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
@@ -206,22 +198,18 @@ body, code {
 												<div class="product_info">
 													<h6 class="product_title">
 														<a
-															href="./product/dogSelect?productNum=${dnvo.productNum}">${dnvo.contents}</a>
+															href="./product/dogSelect?productNum=${dnvo.productNum}">${dnvo.productName}</a>
 													</h6>
 													<div class="product_price">
 
-														<span class="price">${dnvo.price}</span>
+														<span class="price"><fmt:formatNumber
+																value="${dnvo.price}" type="number"></fmt:formatNumber></span>
 													</div>
 													<div class="rating_wrap"></div>
 													<div class="pr_desc">
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 															elit. Phasellus blandit massa enim. Nullam id varius nunc
 															id varius nunc.</p>
-
-														<span class="price"><fmt:formatNumber value="${dnvo.price}" type="number"></fmt:formatNumber></span>
-														
-
-
 													</div>
 
 												</div>
@@ -267,15 +255,17 @@ body, code {
 									<div class="col-lg-3 col-md-4 col-6">
 										<div class="product">
 											<div class="product_img">
-												<a href="./dog/dogSelect?productNum=${dnvo.productNum}">
+												<a href="./dog/dogSelect?productNum=${dbvo.productNum}">
 													<img
 													src="${pageContext.request.contextPath}/resources/dogUpload/${dbvo.productFileVOs['0'].fileName}"
 													alt="product_img1">
 												</a>
 												<div class="product_action_box">
 													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded"></i> Add To Cart</a></li>
+														<li class="add-to-cart"><a><i
+																class="icon-basket-loaded cart" id="${dbvo.productNum}"
+																data-toggle="modal" data-target="#myModal"></i> Add To
+																Cart </a></li>
 														<li><a
 															href="${pageContext.request.contextPath}/resources/dogUpload/${dbvo.productFileVOs['0'].fileName}"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
@@ -285,23 +275,20 @@ body, code {
 											</div>
 											<div class="product_info">
 												<h6 class="product_title">
-													<a href="shop-product-detail.html">${dbvo.contents}</a>
+													<a href="shop-product-detail.html">${dbvo.productName}</a>
 												</h6>
 												<div class="product_price">
 
-													<span class="price">${dbvo.price}</span>
+													<span class="price"><fmt:formatNumber
+															value="${dbvo.price}" type="number"></fmt:formatNumber></span>
 												</div>
 												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
-
-													<span class="price"><fmt:formatNumber value="${dnvo.price}" type="number"></fmt:formatNumber></span>
-													
-
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -413,7 +400,8 @@ body, code {
 						class="xans-element- xans-board xans-board-listpackage-1 xans-board-listpackage xans-board-1 mboard ">
 						<h2
 							class="xans-element- xans-board xans-board-title-1 xans-board-title xans-board-1 ">
-							<span><font color="#666666" style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;">공지사항</font></span>
+							<span><font color="#666666"
+								style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;">공지사항</font></span>
 						</h2>
 						<ul
 							class="xans-element- xans-board xans-board-list-1 xans-board-list xans-board-1">
@@ -438,7 +426,8 @@ body, code {
 						class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 mboard ">
 						<h2
 							class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-							<span><font color="#666666" style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;">구매후기</font></span>
+							<span><font color="#666666"
+								style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;">구매후기</font></span>
 						</h2>
 						<ul
 							class="xans-element- xans-board xans-board-list-4 xans-board-list xans-board-4">
@@ -457,7 +446,9 @@ body, code {
 					</div>
 					<div class="minfo">
 						<h2>
-							<span><font color="#666666" style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;" >신규 회원 혜택</font></span>
+							<span><font color="#666666"
+								style="font-family: 'Do Hyeon', sans-serif; font-size: 49px;">신규
+									회원 혜택</font></span>
 						</h2>
 						<div>
 							<strong>가입 즉시 5% 할인<br> 최대 6,000원 할인 쿠폰 3종 세트 지급
@@ -478,7 +469,9 @@ body, code {
 								<i class="flaticon-shipped"></i>
 							</div>
 							<div class="icon_box_content">
-								<h5 style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">무료 배송</h5>
+								<h5
+									style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">무료
+									배송</h5>
 								<p>저희 쇼핑몰의 모든 상품은 무료배송입니다.</p>
 							</div>
 						</div>
@@ -489,7 +482,9 @@ body, code {
 								<i class="flaticon-money-back"></i>
 							</div>
 							<div class="icon_box_content">
-								<h5 style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">한달 동안 무료 환불</h5>
+								<h5
+									style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">한달
+									동안 무료 환불</h5>
 								<p>저희는 제품에 문제가 발생할 경우를 대비해, 한달간 무료 반품 서비스를 제공합니다.</p>
 							</div>
 						</div>
@@ -500,7 +495,9 @@ body, code {
 								<i class="flaticon-support"></i>
 							</div>
 							<div class="icon_box_content">
-								<h5 style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">24시간 고객 지원</h5>
+								<h5
+									style="font-family: 'Do Hyeon', sans-serif; font-size: 39px;">24시간
+									고객 지원</h5>
 								<p>챗봇 서비스와 고객센터를 통해 24시간 서비스를 지원합니다.</p>
 							</div>
 						</div>

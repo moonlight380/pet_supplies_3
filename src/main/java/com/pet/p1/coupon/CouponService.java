@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.ls.LSInput;
 
 import com.pet.p1.member.MemberVO;
 
@@ -17,5 +16,11 @@ public class CouponService {
 	public List<CouponVO> couponList(MemberVO memberVO)throws Exception{
 		return couponDAO.couponList(memberVO);
 	}
+	
+	public int coupon(MemberVO memberVO)throws Exception{
+		return couponDAO.coupon(memberVO);
+	}
+
+
 
 }

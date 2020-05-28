@@ -33,7 +33,7 @@
 	
 }
 .bg_gray{
-	margin-top:100px;
+	margin-top:0px;
 	width: auto;
 	height: 0px;
 }
@@ -54,10 +54,13 @@
   	padding: 10px;
   
 }
+.topSize{
+	font-size: 20px;
+}
 </style>
 </head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
-<body id="reset">
+<body id="reset" style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
@@ -82,8 +85,8 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="#"><strong>상품 전체 리스트</strong></a></li>                    
+                    <li class="breadcrumb-item"><a href="../" class="topSize">홈</a></li>
+                    <li class="breadcrumb-item"><a href="#"><strong class="topSize">상품 전체 리스트</strong></a></li>                    
                 </ol>
             </div>
         </div>
@@ -157,7 +160,7 @@
                    
                     <div class="col-lg-3 col-md-4 col-6 grid_item" id="${vo.productNum}">
                         
-                        <c:if test="${member.id eq 'admin' }">
+                        <c:if test="${member.id eq 'admin'}">
                         <div class="">
                         <input class="product_row_check" id="product_row_check" type="checkbox" name="${vo.productNum}"><span>선택삭제</span>
                         </div> 
@@ -182,11 +185,11 @@
                                 </div>
                             </div>
                             <div class="product_info">
-                                <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
+                                <div class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></div>
 
                                 <div class="product_price">
 		                              <a href="./${p}Select?productNum=${vo.productNum}">   
-			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>	
+			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</span>	
 			                          
 			                           <c:if test="${vo.sale gt 0}">
 							                <dl class="time_sale_price">

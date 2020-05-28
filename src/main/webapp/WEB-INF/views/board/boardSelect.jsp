@@ -28,7 +28,8 @@
 
 </head>
 <c:import url="../template/header.jsp"></c:import>
-<body style="padding-top: 70px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
+<body
+	style="padding-top: 70px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 
 
 
@@ -90,16 +91,17 @@
 									</div>
 								</div>
 
+								<c:if test="${board ne 'qna'}">
+									<div style="float: left;">
+										<a href="./${board}Select?num=${maxNum}" class="btn btn-link"
+											id="previous" title="${maxNum}">이전글로</a>
+									</div>
 
-								<div style="float: left;">
-									<a href="./${board}Select?num=${maxNum}" class="btn btn-link"
-										id="previous" title="${maxNum}">이전글로</a>
-								</div>
-
-								<div style="float: right;">
-									<a href="./${board}Select?num=${minNum}" class="btn btn-link"
-										id="next" title="${minNum}">다음글로</a>
-								</div>
+									<div style="float: right;">
+										<a href="./${board}Select?num=${minNum}" class="btn btn-link"
+											id="next" title="${minNum}">다음글로</a>
+									</div>
+								</c:if>
 
 							</div>
 						</div>

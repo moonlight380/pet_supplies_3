@@ -30,15 +30,18 @@
 }
 
 .bg_gray{
-	margin-top:100px;
+	margin-top:0px;
 	width: auto;
 	height: 60px;
+}
+.topSize{
+	font-size: 20px;
 }
 </style>
 
 </head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
-<body>
+<body style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
 </div>
@@ -64,8 +67,8 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="#"><strong>신상품 리스트</strong></a></li>                    
+                    <li class="breadcrumb-item"><a href="../"><span class="topSize">홈</span></a></li>
+                    <li class="breadcrumb-item"><a href="#"><strong class="topSize">신상품 리스트</strong></a></li>                    
                 </ol>
             </div>
         </div>
@@ -122,12 +125,6 @@
                                 </a>
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
-
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal"></i> Add To Cart</a></li>
-                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="//bestwebcreator.com/shopwise/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-
                                        <li class="add-to-cart">
                                              <a>	<!-- 추가한부분 class에 cart id,data-toggle,data-target -->
 		                                        <i class="icon-basket-loaded cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal"></i>
@@ -139,14 +136,14 @@
                                 </div>
                             </div>
                             <div class="product_info">
-                                <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
+                                <div class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></div>
                                 <div class="product_contents">
                                 
 	               				<span class="contents"><a href="./${p}Select?productNum=${vo.productNum}"> date: ${vo.regDate}</a></span>                         
                                 </div>
                                 <div class="product_price">
 		                              <a href="./${p}Select?productNum=${vo.productNum}">   
-			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>
+			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</span>
                                    			                           <c:if test="${vo.sale gt 0}">
 						                <dl class="time_sale_price">
 									       <dt>타임세일</dt>

@@ -110,8 +110,9 @@ public class MemberController {
 		memberVO.setCurPage(curPage2);
 		List<OrderInfoVO> ar = orderService.orderInfoList(memberVO);
 
+		List<OrderInfoVO> ar2 = orderService.aorderList(memberVO);
 		
-		
+		mv.addObject("aorderList", ar2);
 		mv.addObject("orderList",ar);
 		mv.addObject("pager",memberVO);
 		mv.setViewName("member/memberOrderInfo");
@@ -132,6 +133,19 @@ public class MemberController {
 		session.setAttribute("cartSelect", null);
 		
 		
+	}
+	
+	@GetMapping("adminUpdate")
+	public ModelAndView adminUpdate(ModelAndView mv,OrderInfoVO orderInfoVO)throws Exception{
+		int result =  orderService.adminUpdate(orderInfoVO);
+		
+		if(result>0) {
+			 mv.addObject("result", "Update Success");
+			 mv.addObject("path", "./memberOrderInfo");
+			 mv.setViewName("common/result");
+		}
+		
+		return mv;
 	}
 	
 	@GetMapping("memberCartHeader")

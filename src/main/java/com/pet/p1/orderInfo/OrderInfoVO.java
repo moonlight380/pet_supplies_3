@@ -16,6 +16,15 @@ public class OrderInfoVO {
 	private String fileName;
 	private long priceAll;
 	private long charge;
+	private long orderCheck;
+	
+	
+	public long getOrderCheck() {
+		return orderCheck;
+	}
+	public void setOrderCheck(long orderCheck) {
+		this.orderCheck = orderCheck;
+	}
 	public long getPriceAll() {
 		return priceAll;
 	}

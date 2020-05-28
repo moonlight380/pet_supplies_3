@@ -53,6 +53,13 @@
   	
   	</select>
   	
+  	<select id="aorderList" resultType="OrderInfoVO" parameterType="MemberVO">
+  		select * from OrderInfo ORDER by regdate desc
+  	</select>
+  	
+  	<update id="adminUpdate" parameterType="OrderInfoVO">
+  		update orderinfo SET ordercheck = '1' where ordernum=#{orderNum}
+  	</update>
   	
   	
   	

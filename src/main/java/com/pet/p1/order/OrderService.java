@@ -38,4 +38,13 @@ public class OrderService {
 			memberVO.makePage(totalCount);
 			return orderDAO.orderInfoList(memberVO);
 		}
+		
+		public List<OrderInfoVO> aorderList(MemberVO memberVO)throws Exception{
+			return orderDAO.aorderList(memberVO);
+		}
+		
+		public int adminUpdate(OrderInfoVO orderInfoVO)throws Exception{
+			return orderDAO.adminUpdate(orderInfoVO);
+		}
+		
 }

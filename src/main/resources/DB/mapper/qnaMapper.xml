@@ -143,5 +143,10 @@
 		rownum desc
 	</select>
 
+	<!-- interceptor -->
 
+	<select id="refNum" parameterType="Long" resultType="QnaVO">
+		select *
+		from qna where ref = #{ref} and depth=0;
+	</select>
 </mapper>  

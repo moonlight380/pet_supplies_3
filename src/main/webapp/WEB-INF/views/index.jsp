@@ -158,7 +158,7 @@ body, code {
 				<div class="row justify-content-center">
 					<div class="col-md-6">
 						<div class="heading_s1 text-center">
-							<h2>신상품</h2>
+							<h2 style="font-family: 'Do Hyeon', sans-serif;">신상품</h2>
 						</div>
 					</div>
 				</div>
@@ -250,7 +250,7 @@ body, code {
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<div class="heading_s1 text-center">
-						<h2>히트상품</h2>
+						<h2 style="font-family: 'Do Hyeon', sans-serif;">히트상품</h2>
 					</div>
 				</div>
 			</div>

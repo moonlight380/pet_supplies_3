@@ -77,10 +77,7 @@
 						<td style="padding-left: 1.5em;">${listNo[status.index]}</td>
 						<td width="50%"><c:catch>
 								<!-- for(int i=0;i<=0;i++) -->
-								<c:forEach begin="1" end="${vo.depth}">
-					--
-					<!-- &nbsp;&nbsp; -->
-								</c:forEach>
+								<c:forEach begin="1" end="${vo.depth}">┗</c:forEach>
 							</c:catch> <a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
 						<td style="padding-left: 0em;">${vo.id}</td>
 						<td style="padding-left: 0;">${vo.regDate}</td>
@@ -101,9 +98,11 @@
 				</c:when>
 				<c:otherwise>
 					<c:if test="${not empty member}">
-						<div align="right">
-							<a href="./${board}Write" class="btn btn-danger">글쓰기</a>
-						</div>
+						<c:if test="${board ne 'review'}">
+							<div align="right">
+								<a href="./${board}Write" class="btn btn-danger">글쓰기</a>
+							</div>
+						</c:if>
 					</c:if>
 				</c:otherwise>
 			</c:choose>
@@ -141,7 +140,8 @@
 			<div class="form-group row justify-content-center">
 				<div class="w100" style="padding-right: 10px">
 					<select class="form-control form-control-sm" name="kind"
-						id="searchType" style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
+						id="searchType"
+						style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 						<option value="bt"
 							style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">제목</option>
 						<option value="bc"

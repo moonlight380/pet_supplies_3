@@ -36,4 +36,10 @@ public class OrderDAO {
 	public long orderInfoCount(MemberVO memberVO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"orderInfoCount",memberVO);
 	}
+	
+	//interceptor
+	public List<OrderInfoVO> orderSelect(String id)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"orderSelect",id);
+	}
+	
 }

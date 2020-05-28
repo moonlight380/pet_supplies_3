@@ -20,51 +20,42 @@
 	width: 100%;
 	background: #fffff0;
 }
-
 body, code {
 	color: #666666;
 	background: #fff;
 }
-
 .template_width {
 	position: relative;
 	max-width: 1230px;
 	margin: 0 auto;
 	padding: 0 10px;
 }
-
 .main_bottom_info div.inner {
 	padding: 35px 10px 25px;
 }
-
 .main_bottom_info div.inner:after {
 	content: "";
 	display: block;
 	clear: both;
 }
-
 .main_bottom_info div.inner>div {
 	float: left;
 	border-right: 1px solid #333;
 }
-
 .main_bottom_info .mboard:first-child {
 	width: 33%;
 	padding-left: 0;
 }
-
 .main_bottom_info .mboard {
 	width: 37%;
 	padding: 0 45px;
 	box-sizing: border-box;
 	position: relative;
 }
-
 .main_bottom_info .mboard h2 {
 	margin: 0 0 25px;
 	word-spacing: -1px;
 }
-
 .main_bottom_info .minfo {
 	padding: 0 25px;
 	box-sizing: border-box;

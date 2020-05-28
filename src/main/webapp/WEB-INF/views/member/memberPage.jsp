@@ -36,7 +36,7 @@
 
 
 <meta charset="UTF-8">
-<title>memberPage</title>
+<title>Insert title here</title>
 
 
 

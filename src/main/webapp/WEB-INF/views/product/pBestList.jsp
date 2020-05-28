@@ -25,7 +25,7 @@
 	padding: 50px 0;
 }
 .bg_gray{
-	margin-top:100px;
+	margin-top:0px;
 	width: auto;
 	height: 60px;
 }
@@ -69,8 +69,8 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                   <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="#"><strong>베스트 리스트</strong></a></li>   
+                    <li class="breadcrumb-item"><a href="../"><span class="topSize">홈</span></a></li>
+                    <li class="breadcrumb-item"><a href="#"><strong class="topSize">신상품 리스트</strong></a></li>   
                 </ol>
             </div>
         </div>
@@ -143,7 +143,7 @@
                                 
                                 <div class="product_price">
 		                              <a href="./${p}Select?productNum=${vo.productNum}">   
-			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>
+			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</span>
                                    		
 <%--                                    		<c:if test="${vo.sale eq 0}">
 						                <dl class="time_sale_price">

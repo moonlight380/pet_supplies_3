@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>memberOrderInfo</title>
+<title>Insert title here</title>
 
 <style type="text/css">
 .table_body td {
@@ -321,7 +321,7 @@
 		var id = list[i];
 		$("#" + id)
 				.before(
-						'<tr style="line-height: 30px; border-bottom:solid 1px #bbbfc3;">' + '<th>&nbsp;</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>'
+						'<tr style="line-height: 30px; border-bottom:solid 1px #bbbfc3;">' + '<th>&nbsp;</th><th></th><th></th><th></th><th></th><th></th><th></th>'
 								+ '</tr> <tr><th>&nbsp;</th></tr>');
 	}
 

@@ -46,6 +46,8 @@ public class AddressController {
 //-----------------------------address_list (get)-----------------------------//
 	@RequestMapping(value = "address_list",method = RequestMethod.GET)
 	public ModelAndView address_list (ModelAndView mv,AddressVO addressVO) throws Exception{
+		
+		
 		List<AddressVO> ar=addressService.address_list(addressVO);
 		
 		System.out.println("addressList/get");
@@ -61,6 +63,7 @@ public class AddressController {
 		System.out.println("addressList/post");
 		return path;
 	}
+	
 	@GetMapping("address_reset")
 	public ModelAndView address_reset(ModelAndView mv,AddressVO addressVO)throws Exception{
 		List<AddressVO> ar=addressService.address_list(addressVO);

@@ -258,7 +258,7 @@ public class MemberController {
 
 		  if(result>0) {
 			  int result2 = couponService.coupon(memberVO);
-			  if(result2>0) {
+			  if(result2>0) { 
 				  System.out.println("성공");
 			  }
 			  mv.setViewName("member/memberJoinSuccess");

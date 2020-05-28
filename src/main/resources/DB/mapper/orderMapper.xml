@@ -61,6 +61,12 @@
   		update orderinfo SET ordercheck = '1' where ordernum=#{orderNum}
   	</update>
   	
+  	<!-- for review interceptor SQL -->
+
+	<select id="orderSelect" parameterType="String"
+		resultType="OrderInfoVO">
+		select * from orderinfo where id = #{id}
+	</select>
   	
   	
   

@@ -211,19 +211,14 @@ body, code {
 													</h6>
 													<div class="product_price">
 
-														<span class="price">${dnvo.price}</span>
+														<span class="price"><fmt:formatNumber
+																value="${dnvo.price}" type="number"></fmt:formatNumber></span>
 													</div>
 													<div class="rating_wrap"></div>
 													<div class="pr_desc">
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 															elit. Phasellus blandit massa enim. Nullam id varius nunc
 															id varius nunc.</p>
-
-														<span class="price"><fmt:formatNumber
-																value="${dnvo.price}" type="number"></fmt:formatNumber></span>
-
-
-
 													</div>
 
 												</div>
@@ -293,18 +288,14 @@ body, code {
 												</h6>
 												<div class="product_price">
 
-													<span class="price">${dbvo.price}</span>
+													<span class="price"><fmt:formatNumber
+															value="${dbvo.price}" type="number"></fmt:formatNumber></span>
 												</div>
 												<div class="rating_wrap"></div>
 												<div class="pr_desc">
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
 														elit. Phasellus blandit massa enim. Nullam id varius nunc
 														id varius nunc.</p>
-
-													<span class="price"><fmt:formatNumber
-															value="${dnvo.price}" type="number"></fmt:formatNumber></span>
-
-
 												</div>
 
 											</div>

@@ -67,9 +67,10 @@
 			<nav class="navbar navbar-expand-lg">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}">
 					<img class="logo_light"
-					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
-					alt="logo" />
-					<img class="logo_dark" src="${pageContext.request.contextPath}/resources/images/catdog.jpg" alt="logo" />
+					src="${pageContext.request.contextPath}/resources/images/logo_index.jpeg"
+					alt="logo" /> <img class="logo_dark"
+					src="${pageContext.request.contextPath}/resources/images/logo_index.jpeg"
+					alt="logo" style="width: 77px; height: auto;" />
 				</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -107,37 +108,37 @@
 				<div class="collapse navbar-collapse justify-content-end"
 					id="navbarSupportedContent">
 					<ul class="navbar-nav">
-						<li class="dropdown"><a class="dropdown-toggle nav-link"
+						<li class="dropdown"><a class="dropdown-toggle nav-link" style="font-family: 'Do Hyeon', sans-serif; font-size: 25px;"
 							href="#" data-toggle="dropdown">게시판</a>
 							<div class="dropdown-menu">
 								<ul>
-									<li><a class="dropdown-item nav-link nav_item"
+									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/review/reviewList">리뷰
 											게시판</a></li>
-									<li><a class="dropdown-item nav-link nav_item"
+									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/notice/noticeList">공지
 											사항</a></li>
-									<li><a class="dropdown-item nav-link nav_item"
+									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
 								</ul>
 							</div></li>
 						<li class="dropdown"><a class="dropdown-toggle nav-link"
-							href="#" data-toggle="dropdown">제품</a>
+							href="#" data-toggle="dropdown" style="font-family: 'Do Hyeon', sans-serif; font-size: 25px;">제품</a>
 							<div class="dropdown-menu">
 								<ul>
-									<li><a class="dropdown-item nav-link nav_item"
+									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/product/dogList">상품
 											리스트</a></li>
-									<li><a class="dropdown-item nav-link nav_item"
+									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/product/dogBestList">베스트</a></li>
-									<li><a class="dropdown-item nav-link nav_item"
+									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/product/dogNewList">신상품</a></li>
-									<li><a class="dropdown-item nav-link nav_item"
+									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/product/dogTimeSale">행사상품</a></li>
 								</ul>
 							</div></li>
 
-						<li><a class="nav-link nav_item"
+						<li><a class="nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 25px;"
 							href="${pageContext.request.contextPath}/nav/contact">매장 위치</a></li>
 
 					</ul>
@@ -163,14 +164,14 @@
 								class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
-									<li><a class="dropdown-item nav-link nav_item "
+									<li><a class="dropdown-item nav-link nav_item " style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/member/memberLogin">로그인</a></li>
 									<c:if test="${empty member}">
-										<li><a class="dropdown-item nav-link nav_item"
+										<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 											href="${pageContext.request.contextPath}/member/memberLogin">마이페이지</a></li>
 									</c:if>
 									<c:if test="${not empty member}">
-										<li><a class="dropdown-item nav-link nav_item"
+										<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 											href="${pageContext.request.contextPath}/member/memberPage">마이페이지</a></li>
 									</c:if>
 								</ul>
@@ -182,9 +183,9 @@
 								class="linearicons-user"></i></a>
 							<div class="dropdown-menu">
 								<ul>
-									<li><a class="dropdown-item nav-link nav_item "
+									<li><a class="dropdown-item nav-link nav_item " style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a></li>
-									<li><a class="dropdown-item nav-link nav_item"
+									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"
 										href="${pageContext.request.contextPath}/member/memberOrderInfo">마이페이지</a></li>
 								</ul>
 							</div></li>
@@ -221,7 +222,7 @@
 
 					<c:if test="${not empty member}">
 						<li><h6
-								style="font-size: 14px; padding-top: 6px; padding-left: 6px;">${member.id}님
+								style="font-family: 'Do Hyeon', sans-serif; font-size: 20px; padding-top: 6px; padding-left: 6px;">${member.id}님
 								환영합니다.</h6></li>
 					</c:if>
 				</ul>

@@ -78,7 +78,7 @@ body, code {
 <title>OH!DALI</title>
 
 </head>
-<body>
+<body style="font-family: 'Do Hyeon', sans-serif; font-size: 17px;">
 
 	<c:import url="./template/header.jsp"></c:import>
 

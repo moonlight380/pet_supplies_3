@@ -23,8 +23,9 @@
 	margin-right: 20px;
 }
 .bg_gray{
+	margin-top:100px;
 	width: auto;
-	height: 60px;
+	height: 0px;
 }
 .sum{
 float: right;
@@ -51,10 +52,9 @@ float: right;
 	border-width: 1px;
 	cursor: pointer;
 	line-height: normal;
-	padding: 12px 12px;
+	padding: 12px 30px;
 	text-transform: capitalize;
-	transition: all 0.3s ease-in-out;
-	background-color: rgba(255,238,51,0.99);
+	transition: all 0.3s ease-in-out;	
 	float: right;
 	margin-bottom: 20px;
 	margin-right: 20px;

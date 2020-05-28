@@ -43,6 +43,7 @@
 
 #right1 >input[type=checkbox]
 {
+	cursor: pointer;
 	margin-right:10px;
 	margin-top:15px;
   /* Double-sized Checkboxes */

@@ -23,11 +23,7 @@
 
 
 <style type="text/css">
-.bg_gray{
-	margin-top:100px;
-	width: auto;
-	height: 0px;
-}
+
 .time_sale , .time_sale_num {
     width: 59px;
     height: 44px;
@@ -253,7 +249,7 @@
 
                        <span class="cart_btn">
 
-                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
+                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal" type="button"><i class="icon-basket-loaded"></i>장바구니</button> 
 
                         </span> <!-- "cart_btn" -->
                         <div id="quantityNum_amount"hidden="hidden">1</div>
@@ -262,7 +258,7 @@
 
                    <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"  data-toggle="modal" data-target="#myModal"><i class='fas fa-comment' id='kakao'></i>kakao pay</button>
+                        	<button class="btn btn-fill-out btn-addtocart kakao-purchase" type="button"  id="${vo.productNum}" data-toggle="modal" data-target="#myModal"><span id='kakao'><i class='fas fa-dog' style='font-size:17px'></i></span>바로구매</button>
                          
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
@@ -275,7 +271,7 @@
 
 
 
-<!------------------------카카오 자바스크립트-------------------------->
+<!------------------------카카오(바로구매) 자바스크립트-------------------------->
 
 
 
@@ -322,7 +318,7 @@
 	}); 
 	
     </script>               
-<!------------------------카카오 자바스크립트  끝-------------------------->                   
+<!------------------------카카오 (바로구매)자바스크립트  끝-------------------------->                   
                      
                      
                      <div class="line"></div>

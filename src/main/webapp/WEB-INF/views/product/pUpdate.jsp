@@ -18,10 +18,13 @@
 	width: auto;
 	height: 0px;
 }
+.topSize{
+	font-size: 20px;
+}
 </style>
 
 </head>
-<body>
+<body style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 <c:import url="../template/header.jsp"></c:import>
  <div class="breadcrumb_section bg_gray page-title-mini">
      <div class="container"><!-- STRART CONTAINER -->
@@ -32,9 +35,9 @@
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">홈</a></li>
-                    <li class="breadcrumb-item"><a href="./dogList"><strong>상품 전체 리스트</strong></a></li>
-                    <li class="breadcrumb-item"><a href="#"><strong>상품 업데이트 폼</strong></a></li>                    
+                    <li class="breadcrumb-item"><a href="../" class="topSize">홈</a></li>
+                    <li class="breadcrumb-item"><a href="./dogList"><span class="topSize">상품 전체 리스트</span></a></li>
+                    <li class="breadcrumb-item"><a href="#"><strong class="topSize">상품 업데이트 폼</strong></a></li>                    
                 </ol>
             </div>
         </div>

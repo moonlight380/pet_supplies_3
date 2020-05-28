@@ -17,5 +17,9 @@ public class CouponService {
 	public List<CouponVO> couponList(MemberVO memberVO)throws Exception{
 		return couponDAO.couponList(memberVO);
 	}
+	
+	public int coupon(MemberVO memberVO)throws Exception{
+		return couponDAO.coupon(memberVO);
+	}
 
 }

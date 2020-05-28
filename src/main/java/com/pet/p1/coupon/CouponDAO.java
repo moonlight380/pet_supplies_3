@@ -20,4 +20,7 @@ public class CouponDAO {
 		return sqlSession.selectList(NAMESPACE+"couponList",memberVO);
 	}
 
+	public int coupon(MemberVO memberVO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"coupon", memberVO);
+	}
 }

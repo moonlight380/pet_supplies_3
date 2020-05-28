@@ -34,12 +34,15 @@
 	margin-left: 92%;
 
 }
+.topSize{
+	font-size: 20px;
+}
 </style>
 
 
 </head>
 
-<body>
+<body style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 <div id="header"> <!-- 추가한부분  header reset -->
 	<c:import url="../template/header.jsp"></c:import>
 </div>
@@ -131,7 +134,7 @@
                                 </div>
                             </div>
                             <div class="product_info">
-                                <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
+                                <div class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></div>
                                 <div class="product_contents">
 
                  				<span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">view: ${vo.hit}</a></span>                          

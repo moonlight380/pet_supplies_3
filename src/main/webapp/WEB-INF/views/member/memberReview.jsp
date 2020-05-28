@@ -75,8 +75,8 @@
 												</td>
 												<td>
 													<a href="${pageContext.request.contextPath}/review/reviewSelect?num=${mr.num}">
-														${mr.title }
-														${mr.contents }
+														<span>${mr.title }</span>
+														<div style="height: 100px; overflow: scroll;word-break:break-all;">${mr.contents }</div>
 													</a>
 												</td>
 												<td>

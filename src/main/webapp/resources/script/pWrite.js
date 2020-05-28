@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -79,8 +80,12 @@ $("#contents").summernote({
  	$("#price").blur(function() {
 	
 	 	var price = $(this).val(); 
-
-	 	if(isNaN(price)||price==""||price<0){
+	    
+	 	if((price/1<1)||price==""){
+	 		$("#priceContents").html("가격은 1이상의 숫자만 가능합니다.");
+	    	$("#priceContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
+	    	priceCheck= false;
+	 	}else if(isNaN(price)){
 	 		$("#priceContents").html("가격은 숫자만 가능합니다.");
 	    	$("#priceContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
 	    	priceCheck= false;
@@ -91,14 +96,18 @@ $("#contents").summernote({
 	 	}
 	
 	});
- 	
+	
 //----------------------------------------------------------------------------//	
 	var priceCheck= true;
  	$("#point").blur(function() {
 	
 	 	var point = $(this).val(); 
 
-	 	if(isNaN(point)||point==""||point<0){
+	 	if((point/1<1)||point==""){
+	 		$("#pointContents").html("포인트는 1이상의 숫자만 가능합니다.");
+	    	$("#pointContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
+	    	pointCheck= false;
+	 	}else if(isNaN(point)){
 	 		$("#pointContents").html("포인트는 숫자만 가능합니다.");
 	    	$("#pointContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
 	    	pointCheck= false;
@@ -115,10 +124,15 @@ $("#contents").summernote({
 	
 	 	var sale= $(this).val(); 
 
-	 	if(isNaN(sale)||sale==""||sale<0){
+	 	if((sale/1<1)||sale==""){
+	 		$("#saleContents").html("세일%은 1이상의 숫자만 넣어주세요.");
+	    	$("#saleContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
+	    	saleCheck= false;
+	 	}else if(isNaN(sale)){
 	 		$("#saleContents").html("세일%은 숫자만 넣어주세요.");
 	    	$("#saleContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
 	    	saleCheck= false;
+	 	 
 	 	}else{
 	 		$("#saleContents").html(" ");
 	    	$("#saleContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
@@ -145,7 +159,7 @@ $("#contents").summernote({
  		var p2 = $("#contents").summernote('isEmpty');
  		
  		
- 		if(p1 &&!p2&&p3&& priceCheck&&pointCheck&&saleCheck){
+ 		if(p1 &&!p2 && p3&& priceCheck&& pointCheck&& saleCheck){
  			//form 전송(submit event 강제 발생)
 // 			<!-- contents Server null이 될때-->
  			$("#con").val(contents);
@@ -157,3 +171,6 @@ $("#contents").summernote({
  		}
 
  	});
+
+
+

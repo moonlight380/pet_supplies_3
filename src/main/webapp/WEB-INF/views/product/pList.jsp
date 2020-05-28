@@ -46,10 +46,10 @@
 	margin-right:10px;
 	margin-top:15px;
   /* Double-sized Checkboxes */
-  -ms-transform: scale(2.5); /* IE */
-  -moz-transform: scale(2.5); /* FF */
-  -webkit-transform: scale(2.5); /* Safari and Chrome */
-  -o-transform: scale(2.5); /* Opera */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
   	padding: 10px;
   
 }

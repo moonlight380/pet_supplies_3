@@ -3,6 +3,8 @@ package com.pet.p1.address;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.pet.p1.member.MemberVO;
 
 
 @Controller
@@ -45,12 +49,12 @@ public class AddressController {
 
 //-----------------------------address_list (get)-----------------------------//
 	@RequestMapping(value = "address_list",method = RequestMethod.GET)
-	public ModelAndView address_list (ModelAndView mv,AddressVO addressVO) throws Exception{
-		
-		
-		List<AddressVO> ar=addressService.address_list(addressVO);
+	public ModelAndView address_list (ModelAndView mv,HttpSession session,AddressVO addressVO) throws Exception{
 		
 		System.out.println("addressList/get");
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		addressVO.setId(memberVO.getId());
+		List<AddressVO> ar=addressService.address_list(addressVO);
 		mv.addObject("list", ar);
 		mv.addObject("addressVO", addressVO);	
 		mv.setViewName("member/address_list");	
@@ -63,6 +67,7 @@ public class AddressController {
 		System.out.println("addressList/post");
 		return path;
 	}
+	
 	
 	@GetMapping("address_reset")
 	public ModelAndView address_reset(ModelAndView mv,AddressVO addressVO)throws Exception{

@@ -193,9 +193,10 @@ body, code {
 													</a>
 													<div class="product_action_box">
 														<ul class="list_none pr_action_btn">
-															<li class="add-to-cart"><a href="#"><i
-																	class="icon-basket-loaded cart" data-target="#myModal"
-																	data-toggle="modal"></i> Add To Cart</a></li>
+															<li class="add-to-cart"><a><i
+																	class="icon-basket-loaded cart" id="${dnvo.productNum}"
+																	data-toggle="modal" data-target="#myModal"></i> Add To
+																	Cart </a></li>
 															<li><a
 																href="${pageContext.request.contextPath}/resources/dogUpload/${dnvo.productFileVOs['0'].fileName}"
 																class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
@@ -206,7 +207,7 @@ body, code {
 												<div class="product_info">
 													<h6 class="product_title">
 														<a
-															href="./product/dogSelect?productNum=${dnvo.productNum}">${dnvo.contents}</a>
+															href="./product/dogSelect?productNum=${dnvo.productNum}">${dnvo.productName}</a>
 													</h6>
 													<div class="product_price">
 
@@ -268,16 +269,17 @@ body, code {
 									<div class="col-lg-3 col-md-4 col-6">
 										<div class="product">
 											<div class="product_img">
-												<a href="./dog/dogSelect?productNum=${dnvo.productNum}">
+												<a href="./dog/dogSelect?productNum=${dbvo.productNum}">
 													<img
 													src="${pageContext.request.contextPath}/resources/dogUpload/${dbvo.productFileVOs['0'].fileName}"
 													alt="product_img1">
 												</a>
 												<div class="product_action_box">
 													<ul class="list_none pr_action_btn">
-														<li class="add-to-cart"><a href="#"><i
-																class="icon-basket-loaded cart" data-target="#myModal"
-																data-toggle="modal"></i> Add To Cart</a></li>
+														<li class="add-to-cart"><a><i
+																class="icon-basket-loaded cart" id="${dbvo.productNum}"
+																data-toggle="modal" data-target="#myModal"></i> Add To
+																Cart </a></li>
 														<li><a
 															href="${pageContext.request.contextPath}/resources/dogUpload/${dbvo.productFileVOs['0'].fileName}"
 															class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
@@ -287,7 +289,7 @@ body, code {
 											</div>
 											<div class="product_info">
 												<h6 class="product_title">
-													<a href="shop-product-detail.html">${dbvo.contents}</a>
+													<a href="shop-product-detail.html">${dbvo.productName}</a>
 												</h6>
 												<div class="product_price">
 

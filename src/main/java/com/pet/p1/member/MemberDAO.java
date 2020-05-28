@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pet.p1.memberReview.MemberReviewVO;
-import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 @Repository

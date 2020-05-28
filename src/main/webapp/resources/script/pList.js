@@ -48,15 +48,22 @@
       							deleteProduct:deleteProduct
       						},
       						success: function(data)
-      						{	alert("삭제성공")
+      						{	alert("삭제 성공!")
       							//$("#"+deleteProduct).remove();
       							location.reload();
       						},error : function(request, status, error) {
       							alert("code = " + request.status + " message = "
       									+ request.responseText + " error = " + error);
-      						}					
+      						} 					
       				}); //END ajax  
-      				
-      				
-      				
+	
       	});
+/*      	
+    에러코드  	error:function(data){
+      							alert("삭제가 불가한 상품입니다.")
+      						}	
+      	,error : function(request, status, error) {
+				alert("code = " + request.status + " message = "
+						+ request.responseText + " error = " + error);
+			}     */	
+      	

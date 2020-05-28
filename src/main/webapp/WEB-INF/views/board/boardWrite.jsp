@@ -5,15 +5,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+<c:if test="${board eq 'notice'}">
+	<title>공지 작성폼</title>
+</c:if>
+<c:if test="${board eq 'qna'}">
+	<title>QnA 작성폼</title>
+</c:if>
+<c:if test="${board eq 'review'}">
+	<title>리뷰 작성폼</title>
+</c:if>
+
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
-<body>
-	<c:import url="../template/header.jsp"></c:import>
+
+<c:import url="../template/header.jsp"></c:import>
+<body style="padding-top: 150px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
+
 	<div class="container">
-		<h1>${board} 작성 폼</h1>
+
+		<c:if test="${board eq 'notice'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">공지 작성폼</h2>
+		</c:if>
+		<c:if test="${board eq 'qna'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">QnA 작성폼</h2>
+		</c:if>
+		<c:if test="${board eq 'review'}">
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">리뷰 작성폼</h2>
+		</c:if>
 
 
 		<form action="./${board}Write" id="frm" method="post"
@@ -33,8 +54,14 @@
 					name="contents"></textarea>
 			</div>
 
-			<input type="button" id="add" class="btn btn-info" value="파일추가"
-				style="margin-bottom: 3%;">
+			<%
+				String cpage = request.getParameter("productNum");
+			%>
+			<!-- <div id="num_1"></div> -->
+
+			<input type="hidden" value="<%=cpage%>" name="productNum"
+				id="productNum"> <input type="button" id="add"
+				class="btn btn-info" value="파일추가" style="margin-bottom: 3%;">
 			<div id="file"></div>
 
 			<!-- contents Server null이 될때 
@@ -52,6 +79,17 @@
 		</form>
 
 	</div>
+
+
+
+
+	<!-- 	<script type="text/javascript">
+	
+	var pnum_1 = $("#.num_1").text;
+	$("#.productNum").val = pnum_1;
+	
+	</script> -->
+
 
 	<script type="text/javascript" src="../resources/script/boardForm.js"></script>
 	<c:import url="../template/footer.jsp"></c:import>

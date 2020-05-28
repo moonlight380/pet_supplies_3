@@ -2,6 +2,8 @@ package com.pet.p1.qna;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.board.BoardVO;
+import com.pet.p1.member.MemberVO;
 import com.pet.p1.util.Pager;
 
 @Controller
@@ -37,7 +40,7 @@ public class QnaController {
 
 		mv.addObject("vo", boardVO);
 		mv.addObject("path", "./qnaSelect?num=" + num);
-		mv.addObject("truePath", "./qnaDeleteReal?num="+num);
+		mv.addObject("truePath", "./qnaDeleteReal?num=" + num);
 
 		mv.setViewName("common/deleteResult");
 
@@ -48,21 +51,21 @@ public class QnaController {
 	public ModelAndView boardDeleteReal(long num) throws Exception {
 
 		ModelAndView mv = new ModelAndView();
-		
+
 		BoardVO boardVO = qnaService.boardSelect(num);
-		
+
 		mv.addObject("vo", boardVO);
-		//mv.setViewName("board/boardList");
-		
+		// mv.setViewName("board/boardList");
+
 		mv.addObject("result", "권한이 없음");
 		mv.addObject("path", "./qnaList");
 		mv.setViewName("common/result");
-		
-		//mv.addObject("path", "./qnaSelect?num=" + num);
-		
-		//mv.addObject("result","실행 완료");
-		//mv.setViewName("./qnaList");
-		
+
+		// mv.addObject("path", "./qnaSelect?num=" + num);
+
+		// mv.addObject("result","실행 완료");
+		// mv.setViewName("./qnaList");
+
 		/*
 		 * int result = qnaService.boardDelete(num);
 		 * 
@@ -150,17 +153,33 @@ public class QnaController {
 	}
 
 	@GetMapping("qnaSelect")
-	public ModelAndView boardSelect(Long num, ModelAndView mv) throws Exception {
+	public ModelAndView boardSelect(Long num, ModelAndView mv, HttpSession session) throws Exception {
 
+		// interceptor
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		// 조회글
 		BoardVO boardVO = qnaService.boardSelect(num);
-		long minNum = qnaService.minNum(num);
-		long maxNum = qnaService.maxNum(num);
+		QnaVO qnaVO = (QnaVO) qnaService.boardSelect(num);
+		// 원글
+		String idCompare = qnaService.refId(qnaVO.getRef());
+		System.out.println(idCompare);
 
-		mv.addObject("maxNum", maxNum);
-		mv.addObject("minNum", minNum);
+		mv.setViewName("nav/page404");
 
-		mv.addObject("vo", boardVO);
-		mv.setViewName("board/boardSelect");
+		if (boardVO.getId().equals(memberVO.getId()) || memberVO.getId().equals("admin")
+				|| memberVO.getId().equals(idCompare)) {
+
+			long minNum = qnaService.minNum(num);
+			long maxNum = qnaService.maxNum(num);
+
+			mv.addObject("maxNum", maxNum);
+			mv.addObject("minNum", minNum);
+
+			mv.addObject("vo", boardVO);
+			mv.setViewName("board/boardSelect");
+		}
+		//
+
 		return mv;
 	}
 
@@ -177,13 +196,26 @@ public class QnaController {
 	}
 
 	@GetMapping("qnaReply")
-	public ModelAndView boardReply(ModelAndView mv, long num) throws Exception {
+	public ModelAndView boardReply(ModelAndView mv, long num, HttpSession session) throws Exception {
 
+		// interceptor
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		// 조회글
 		BoardVO boardVO = qnaService.boardSelect(num);
-		mv.addObject("vo", boardVO);
+		QnaVO qnaVO = (QnaVO) qnaService.boardSelect(num);
+		// 원글
+		String idCompare = qnaService.refId(qnaVO.getRef());
+		System.out.println(idCompare);
 
-		mv.addObject("num", num);
-		mv.setViewName("board/boardReply");
+		mv.setViewName("nav/page404");
+
+		if (boardVO.getId().equals(memberVO.getId()) || memberVO.getId().equals("admin")
+				|| memberVO.getId().equals(idCompare)) {
+			mv.addObject("vo", boardVO);
+
+			mv.addObject("num", num);
+			mv.setViewName("board/boardReply");
+		}
 		return mv;
 	}
 

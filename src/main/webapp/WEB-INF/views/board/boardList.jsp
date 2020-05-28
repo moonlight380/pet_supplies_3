@@ -7,10 +7,8 @@
 <head>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
-<style type="text/css"></style>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 
+<meta charset="UTF-8">
 <style type="text/css">
 /* .form-control-sm, .form-control-sm:focus, .custom_select select.form-control-sm,
 	.custom_select select.form-control-sm:focus {
@@ -29,22 +27,36 @@
 }
 </style>
 
+<c:if test="${board eq 'notice'}">
+	<title>공지 게시판</title>
+</c:if>
+<c:if test="${board eq 'qna'}">
+	<title>QnA 게시판</title>
+</c:if>
+<c:if test="${board eq 'review'}">
+	<title>리뷰게시판</title>
+</c:if>
+
 </head>
 
-<body>
+<c:import url="../template/header.jsp"></c:import>
 
-	<c:import url="../template/header.jsp"></c:import>
+
+
+<body
+	style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
+
 	<div class="section2"></div>
 	<div class="container">
 
 		<c:if test="${board eq 'notice'}">
-			<h2>공지</h2>
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">공지</h2>
 		</c:if>
 		<c:if test="${board eq 'qna'}">
-			<h2>QnA</h2>
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">QnA</h2>
 		</c:if>
 		<c:if test="${board eq 'review'}">
-			<h2>리뷰게시판</h2>
+			<h2 style="font-family: 'Do Hyeon', sans-serif; font-size: 59px;">리뷰게시판</h2>
 		</c:if>
 
 		<div class="section2"></div>
@@ -65,10 +77,7 @@
 						<td style="padding-left: 1.5em;">${listNo[status.index]}</td>
 						<td width="50%"><c:catch>
 								<!-- for(int i=0;i<=0;i++) -->
-								<c:forEach begin="1" end="${vo.depth}">
-					--
-					<!-- &nbsp;&nbsp; -->
-								</c:forEach>
+								<c:forEach begin="1" end="${vo.depth}">┗</c:forEach>
 							</c:catch> <a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
 						<td style="padding-left: 0em;">${vo.id}</td>
 						<td style="padding-left: 0;">${vo.regDate}</td>
@@ -89,9 +98,11 @@
 				</c:when>
 				<c:otherwise>
 					<c:if test="${not empty member}">
-						<div align="right">
-							<a href="./${board}Write" class="btn btn-danger">글쓰기</a>
-						</div>
+						<c:if test="${board ne 'review'}">
+							<div align="right">
+								<a href="./${board}Write" class="btn btn-danger">글쓰기</a>
+							</div>
+						</c:if>
 					</c:if>
 				</c:otherwise>
 			</c:choose>
@@ -104,7 +115,7 @@
 						class="pagination mt-3 justify-content-center pagination_style1">
 						<c:if test="${pager.curBlock gt 1}">
 							<li class="page-item active"><a class="page-link"
-								href="./${board}List?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">이전</a></li>
+								href="./${board}List?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">&lt;</a></li>
 						</c:if>
 						<c:forEach begin="${pager.startNum}" end="${pager.lastNum}"
 							var="i">
@@ -113,7 +124,7 @@
 						</c:forEach>
 						<c:if test="${pager.curBlock lt pager.totalBlock}">
 							<li class="page-item"><a class="page-link"
-								href="./${board}List?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">다음</a></li>
+								href="./${board}List?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">&gt;</a></li>
 						</c:if>
 					</ul>
 				</div>
@@ -129,10 +140,14 @@
 			<div class="form-group row justify-content-center">
 				<div class="w100" style="padding-right: 10px">
 					<select class="form-control form-control-sm" name="kind"
-						id="searchType">
-						<option value="bt">제목</option>
-						<option value="bc">본문</option>
-						<option value="bw">작성자</option>
+						id="searchType"
+						style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
+						<option value="bt"
+							style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">제목</option>
+						<option value="bc"
+							style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">본문</option>
+						<option value="bw"
+							style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">작성자</option>
 					</select>
 				</div>
 
@@ -143,7 +158,8 @@
 
 				<div>
 					<button class="btn btn-sm btn-primary" type="submit"
-						name="btnSearch" id="btnSearch">검색</button>
+						name="btnSearch" id="btnSearch"
+						style="font-family: 'Do Hyeon', sans-serif; font-size: 19px;">검색</button>
 				</div>
 			</div>
 		</form>

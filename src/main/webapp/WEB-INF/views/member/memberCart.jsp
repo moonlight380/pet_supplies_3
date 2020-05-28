@@ -45,7 +45,7 @@
 		<div class="row">
 			<c:import url="./memberSide.jsp"></c:import>
 
-			<div class="col">
+			<div class="col" style="margin-left: 250px;">
 				<c:import url="./cartStep.jsp"></c:import>
 				<div class="row">
 					<div class="col-sm-1"></div>
@@ -253,10 +253,10 @@
 						</div>
 					</div>
 						
-						<div class="row">
-							<div class="col-sm-8" style="padding-right: 7.5px;">
+						<div class="row" style="float: left; width: 500px; margin-left: 350px;">
+							<div class="col-sm-8" style="text-align: center;">
 								<a href="${pageContext.request.contextPath}"
-									class="btn btn-danger" style="float: right; font-size: 16px;">쇼핑
+									class="btn btn-info" style="float: right; font-size: 16px;">쇼핑
 									홈 가기</a>
 							</div>
 							<div class="col-sm-4" style="padding-left: 0px;">

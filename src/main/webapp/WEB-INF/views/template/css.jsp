@@ -5,19 +5,21 @@
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="${pageContext.request.contextPath}/resources/images/favicon.png">
+	href="${pageContext.request.contextPath}/resources/images/favicon_1.ico">
 <!-- Animation CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.css">
 <!-- Latest Bootstrap min CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css">
 <!-- Google Font -->
-<link
+<!-- <link
 	href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap"
 	rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap"
-	rel="stylesheet">
+	rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">	
+	
 <!-- Icon Font CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/all.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/ionicons.min.css">
@@ -43,3 +45,4 @@
 
 <!-- 추가 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+

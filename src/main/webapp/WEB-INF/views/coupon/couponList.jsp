@@ -88,14 +88,14 @@
 </div>
 
 <div class="ec-base-button" style="text-align: center; word-spacing: 20px; height: 50px;">
-	<input type="button" onclick="couponSelect.setCpnResult()" id="btncolor_subordinate" value="쿠폰 적용하기" style="background-color: red; color: white; height: 40px; width: 120PX;">
-	<input type="button" onclick="couponSelect.initCpn()" id="btncolor_basic" value="적용 취소하기" style="height: 40px; width: 120PX;">
+	<input type="button" id="btncolor_subordinate" value="쿠폰 적용하기" style="background-color: #FF324D; color: white; height: 40px; width: 120PX; border: none;">
+	<input type="button" id="btncolor_basic" value="적용 취소하기" style="background-color: #d7d5d5; border:none; height: 40px; width: 120PX;">
 </div>
 
 </form>
 
 
-            
+           
 <script type="text/javascript">
 
 
@@ -172,6 +172,10 @@
 			 window.location.reload()
 		});
 	 
+	});
+	
+	$("#btncolor_basic").click(function() {
+		close();
 	});
 	
 

@@ -17,7 +17,7 @@
   
   <!-- address_list -->
   <select id="address_list" parameterType="AddressVO" resultType="AddressVO">
-	select * from address order by addressNum desc
+	select * from address where id=#{id} order by addressNum desc
   </select>
  
  

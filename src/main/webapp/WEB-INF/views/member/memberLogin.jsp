@@ -8,11 +8,12 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
+
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div class="container">
+<div class="container" style="margin-top: 150px;">
 
 
 <div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">
@@ -34,9 +35,8 @@
 
 	<div class="text-center">
 	<a href="${pageContext.request.contextPath}">
-	<img class="m-5 mb-4" style="height: 60px;" 
-		src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
-		alt="" width="182" height="47">
+	<img class="m-5 mb-4" style="height: 100px;" 
+		src="${pageContext.request.contextPath}/resources/images/logo_index.jpeg">
 	</a>
 	</div>
 	
@@ -51,11 +51,12 @@
 	
 	<button class="btn btn-lg btn-block" id="btn"style="background-color: #FF324D; width: 400px; margin: 0 auto; color: white;">로그인</button>
 	
-	<div class="text-center" style="font-size:medium; height: 50px; margin-top: 15px;">
-		<a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a> |
+	<div class="text-center" style="font-size:medium; height: 50px; margin-top: 15px; float: left; margin-left: 120px;">
+		<a id="join" href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a> |
 		<a href="${pageContext.request.contextPath}/member/memberID">아이디 찾기</a> |
 		<a href="${pageContext.request.contextPath}/member/memberPW">비밀번호 찾기</a>
 	</div>
+	
 	
 </form>
 
@@ -97,6 +98,13 @@
 
 <c:import url="../template/footer.jsp"></c:import>
 
+<script type="text/javascript">
+$("#join").mouseover(function() {
+	
+	$("#dd").show();
+});
+
+</script>
 
 <!-- 
 

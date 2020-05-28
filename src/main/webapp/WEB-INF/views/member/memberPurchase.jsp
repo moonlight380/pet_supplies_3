@@ -33,13 +33,13 @@
 	<div class="container-fulid  mt-5">
 		<div class="row">
 			<c:import url="./memberSide.jsp"></c:import>
-			<div class="col">
+			<div class="col" style="margin-left: 250px;">
 				<div class="row">
 					<div class="col-sm-1"></div>
 					<div class="col">
 
 						<div class="row mb-4"
-							style="border-bottom: solid 1px black; font-weight: bold; color: black;">
+							style="border-bottom: solid 1px black; font-weight: bold; color: black; margin-top: 150px;">
 							<div style="margin-left: 21px;">구매 내역</div>
 						</div>
 

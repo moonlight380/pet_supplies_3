@@ -23,202 +23,24 @@
 
 
 <style type="text/css">
-p{
-	display: inline-block;
-}
-.bg_gray{
-	width: auto;
-	height: 60px;
-}
-.sum{
-float: right;
 
-}
-.line{
-	clear:both;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: 0;
-    border-top: 1px solid rgba(0,0,0,.1);
-}
-
-.total_price{
-	margin-bottom: 50px;
-}
-
-.cart_margin{
-	float:right;
-	margin-bottom: 20px;
-}
-
-.kakao-purchase{
-	border-width: 1px;
-	cursor: pointer;
-	line-height: normal;
-	padding: 12px 12px;
-	text-transform: capitalize;
-	transition: all 0.3s ease-in-out;
-	background-color: rgba(255,238,51,0.99);
-	float: right;
-	margin-bottom: 20px;
-	margin-right: 20px;
-}
-
-.admin_btn{
-	float: right;
-	margin-left: 20px;
-}
-#prdInfo .cont h3 {
-    font-family: 'NotokrBold',sans-serif;
-    font-size: 22px;
-    color: #111;
-    margin-bottom: 20px;
-    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
-}
-
-#prdInfo .prdInfo-cont .cont {
-	font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
-    display: inline-block;
-    width: 50%;
-    vertical-align: top;
-    box-sizing: border-box;
-    font-size: 13px;
-    color: #999;
-    margin-bottom: 3px;
-    line-height: 1.8;
-}
-.contents_div_1{
-	width: 45%;
-	border: solid 1px #687188;
-	line-height: auto;
-	float: left;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-bottom: 70px;
-	padding: 30px;
-}
-.contents_div_2{
-	width: auto;
-	border: solid 1px #687188;
-	line-height: auto;
-	clear:both;
-	margin-left: 30px;
-	margin-right: 30px;
-	padding: 30px;
-}
-
-#page_free{
-	z-index:99;
-	position:absolute;
-	top:10px;
-	left:10px;
-	text-align:left;
-	border:1px solid #000;
-	width: 720px;
-	height: 850px;
-	margin: 300px 1000px;
-	padding: 10px;
-}
-#page_free img{border:10px soild #FFF;}
-#page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
-body, th, td, input, select, textarea {
-    font-size: 15px;
-    line-height: 1.5;
-    font-family: 'Montserrat','Noto Sans KR',-apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;
-    color: #333;
-}
-.item_choice_list table tbody:last-child tr td {
-    border-bottom: 1px solid #dbdbdb;
-}
-.item_choice_list .cart_prdt_name {
-    text-align: left;
-    padding: 20px 0 20px 20px;
-}
-.item_choice_list table colgroup+tbody tr td {
-    border: none;
-}
- #quantity_minus{
-	 width: 30px;
-	 height: 30px;
-	 text-align: center;
-	 padding: 0px; 
-	 
-}
-#quantityNum{
-	height: 30px;
-	width: 30px; 
-	text-align: center;
-}
-
-#quantity_plus{
-	 width: 30px;
-	 height:30px;
-	 text-align: center;
-	 padding: 0px;
-} 
-
-.item_detail_list dt {
-    float: left;
-    width: 70px;
-    margin: 0 10px 0 0;
-    color: #888888;
-    font-weight: normal;
-    word-wrap: break-word;
-}
-.item_mileage{
-	margin-left: 10px;
+.time_sale , .time_sale_num {
+    width: 59px;
+    height: 44px;
+    padding: 5px 0 0 0;
+    color: #ffffff;
+    font-size: 18px;
+    background: url(../resources/images/bg_sale.png) no-repeat 0 0;
+    text-align: center;
 }
 </style>
 
-<!-- 팝업창띄우기 -->
+<link href="../resources/css/pSelect.css" rel="styleSheet" />
 
-<!-- <script type="text/javascript">
-	
-function goPopup(){
-		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
-
-		var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
-		//크롬에서는 속성값이 먹지 않음
-		window.open( popUrl ,"popup name","width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no");
-	}
-	
-</script> -->
-
-<!-- 레이어팝업 -->
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-//오늘 하루 팝업 열지 않기
-$('#close_popup').click(function(){
-	$.cookie('page_free','ck',{expires:1,path:'/'});
-	$("#page_free").hide();
-});
-//팝업 닫기
-$('#close_popup2').click(function(){
-	$("#page_free").hide();
-});
-});
-</script> -->
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
 <body>
-<!-- <body onload="goPopup()"> -->
-
-<%-- 
-<!-- 레이어팝업 시작 -->
-<div style="" id="page_free">
-	<img src="${pageContext.request.contextPath}/resources/images/goPopup.jpg">
-	<div class="new_btn">오늘 하루 열지 않기 <input type="checkbox" name="close_popup" id="close_popup"> &nbsp; &nbsp; &nbsp; &nbsp;닫기
-	<input type="checkbox" name="close_popup2" id="close_popup2">
-	</div>
-</div>
-
-<!--레이어팝업  끝--> --%>
-
-
-
-
-
 
 <div id="header"> <!-- 추가한부분  header reset -->
 	<c:import url="../template/header.jsp"></c:import>
@@ -242,13 +64,13 @@ $('#close_popup2').click(function(){
         <div class="row align-items-center">
         	<div class="col-md-6">
                 <div class="page-title">
-            		<h1>Product Detail</h1>
+            		
                 </div>
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="../">Home</a></li>  
-                    <li class="breadcrumb-item active">Product Detail</li>
+                    <li class="breadcrumb-item"><a href="../">홈</a></li>  
+                    <li class="breadcrumb-item active">상품 디테일</li>
                 </ol>
             </div>
         </div>
@@ -285,8 +107,18 @@ $('#close_popup2').click(function(){
             <div class="col-lg-6 col-md-6">
     
                 <div class="pr_detail ">
-
-                        <h4 class="product_title"><a href="#">${vo.productName}</a></h4>                       
+               	<c:if test="${vo.sale gt 0}">
+	                <div id="displayTimeSale" class="time_sale enter">
+	                    <strong class="time_sale_num">${vo.sale}<span>%</span></strong>
+	                </div>
+	                    
+	                    <!-- 타이머기능 -->                 			
+	                <div class="notice enter">               						
+						<!-- <script class="notice enter" type="text/javascript" src="../resources/script/timeSale.js"> </script> -->
+					</div>  
+							
+				</c:if>	
+                 <h4 class="product_title"><a href="#">${vo.productName}</a></h4>                       
    
            <!-- ------------------------------------------------------------------------------------------------------------ -->            
                   
@@ -296,7 +128,16 @@ $('#close_popup2').click(function(){
 			      <dt>짧은설명</dt>
 			           <dd>내 반려견을 위한 ${vo.productName}</dd>
 			    </dl>
-			    
+			    <dl>
+					<dt>상품 가격</dt>
+						 <c:if test="${vo.sale gt 0}">
+				            <del ><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</del>
+				              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/100)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+				          </c:if>
+				         <c:if test="${vo.sale eq 0}">   
+				              <span class="oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber>원</span>
+				          </c:if>
+				</dl>
 		      <dl>
 		          <dt>상품수량</dt>
 		              <dd>
@@ -311,13 +152,13 @@ $('#close_popup2').click(function(){
 		      </dl>
 			     
 						     <dl class="item_discount_mileage dn">
-						            <dt>구매혜택</dt>
-						              <dd>
-						              		<c:if test="${vo.sale gt 0}">
-						                   <span class="item_discount">할인 : ${vo.sale}%</span>
-						                     </c:if>
-						                    <span class="item_mileage">적립 마일리지 : ${vo.point}점</span>
-						              </dd>
+						         <dt>구매혜택</dt>
+						           <dd>
+						             <c:if test="${vo.sale gt 0}">
+						                <span class="item_discount">할인 : ${vo.sale}%</span>
+						             </c:if>
+						                <span class="item_mileage">적립 마일리지 : ${vo.point}점</span>
+						           </dd>
 						     </dl>
 						      <dl>
 						            <dt>배송비</dt>
@@ -338,7 +179,13 @@ $('#close_popup2').click(function(){
 			                       
 			                       <span class="sum">
 			                       <strong><!-- 총가격 -->
-			                       <span  id="sum_price"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></span> 
+			                        <c:if test="${vo.sale eq 0}">   
+			                       <span id="sum_price1"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</span> 
+			                     	</c:if>
+			                     	
+			                       <c:if test="${vo.sale gt 0}">
+			                       <span id="sum_price2"><fmt:formatNumber value="${vo.price*(vo.sale/100)}" type="number"></fmt:formatNumber></span> 
+			                       </c:if>
 			                       </strong> <!-- 수량 -->
 			                       
 			                       (<span id="quantityNum_amount">1</span>)
@@ -346,7 +193,8 @@ $('#close_popup2').click(function(){
 			                       </div> <!-- 총상품금액 끝 -->
   <!--마이너스 플러스 스크립트---------------------------------------------------------------------------------------------------------------- -->     
 	               		<script type="text/javascript">
-	               		var perPrice='${vo.price}';
+	               		var perPrice1='${vo.price}';
+	               		var perPrice2=Math.floor('${vo.price*(vo.sale/100)}');   
 	               		var num =1;
 	               		$(".minus").click(function(){
 	               			if(num==1){
@@ -356,16 +204,19 @@ $('#close_popup2').click(function(){
 	               			num=num*1;
 	               			
 	               			num--;
-	               			alert("minus :"+num);
+	               			//alert("minus :"+num);
 	               			$("#quantityNum").val(num);
 	               			
 	               			
 	               			/* alert("#quantityNum_amount".text()); */
 	               			$("#quantityNum_amount").text(num); 
 	               			
-	               				
-	               			$("#sum_price").text(num*perPrice);
-	               			
+		               			
+		               			$("#sum_price1").text(num*perPrice1);
+		               			if('${vo.price}'>0){
+		          
+		               			$("#sum_price2").text(num*perPrice2);
+	               				}
 	               			}
 	               		});/*minus*/
 	               		
@@ -376,14 +227,18 @@ $('#close_popup2').click(function(){
 	               		$(".plus").click(function(){
 	               			num = $("#quantityNum").val();
 	               			num=num*1;
-	               			alert(num);
+	               			//alert(num);
 	               			num++;
-	               			alert("plus:"+num);
+	               			//alert("plus:"+num);
 	               			//$("#quantityNum").val(num);
 
 	               			$("#quantityNum_amount").text(num); 
 
-	               			$("#sum_price").text(num*perPrice);
+	               			
+		               			$("#sum_price1").text(num*perPrice1);
+		               		if('${vo.price}'>0){
+		               			$("#sum_price2").text(num*perPrice2);
+	               			}
 	               			
 	               		});/*plus*/
 	
@@ -394,7 +249,7 @@ $('#close_popup2').click(function(){
 
                        <span class="cart_btn">
 
-                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal" type="button"><i class="icon-basket-loaded"></i> Add to cart</button> 
+                            <button class="btn btn-fill-out btn-addtocart cart_margin cart" id="${vo.productNum}" data-toggle="modal" data-target="#myModal" type="button"><i class="icon-basket-loaded"></i>장바구니</button> 
 
                         </span> <!-- "cart_btn" -->
                         <div id="quantityNum_amount"hidden="hidden">1</div>
@@ -403,7 +258,7 @@ $('#close_popup2').click(function(){
 
                    <!-- 카카오버튼 -->
                        <span class="kakao_purchase">
-                        	<button class=" btn kakao-purchase" type="button"  data-toggle="modal" data-target="#myModal"><i class='fas fa-comment' id='kakao'></i>kakao pay</button>
+                        	<button class="btn btn-fill-out btn-addtocart kakao-purchase" type="button"  id="${vo.productNum}" data-toggle="modal" data-target="#myModal"><span id='kakao'><i class='fas fa-dog' style='font-size:17px'></i></span>바로구매</button>
                          
                         </span>
                     </div><!-- END class="cart-product-quantity" -->
@@ -416,7 +271,7 @@ $('#close_popup2').click(function(){
 
 
 
-<!------------------------카카오 자바스크립트-------------------------->
+<!------------------------카카오(바로구매) 자바스크립트-------------------------->
 
 
 
@@ -434,8 +289,8 @@ $('#close_popup2').click(function(){
 			var id ="${member.id}";
 			var productNum = "${vo.productNum}";
 			var cAmount = 1*$("#quantityNum_amount").text();
-			alert("수량:"+cAmount);
-			if(confirm("카카오페이로 주문 하시겠습니까?")){
+			//alert("수량:"+cAmount);
+			if(confirm("바로결제로 주문 하시겠습니까?")){
 			$.ajax({
 					type:"post",
 					url:"../cart/cartInsert",
@@ -463,7 +318,7 @@ $('#close_popup2').click(function(){
 	}); 
 	
     </script>               
-<!------------------------카카오 자바스크립트  끝-------------------------->                   
+<!------------------------카카오 (바로구매)자바스크립트  끝-------------------------->                   
                      
                      
                      <div class="line"></div>
@@ -473,11 +328,11 @@ $('#close_popup2').click(function(){
                     <div class="product_share">
                         <span>Share:</span>
                         <ul class="social_icons">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                            <li><a href="https://www.facebook.com"><i class="ion-social-facebook"></i></a></li>
+                            <li><a href="https://www.twitter.com"><i class="ion-social-twitter"></i></a></li>
+                            <li><a href="https://www.google.com"><i class="ion-social-googleplus"></i></a></li>
+                            <li><a href="https://www.youtube.com"><i class="ion-social-youtube-outline"></i></a></li>
+                            <li><a href="https://www.instagram.com"><i class="ion-social-instagram-outline"></i></a></li>    
                         </ul>
                     </div> <!--  END class="product_share" -->
                     
@@ -665,23 +520,41 @@ $('#close_popup2').click(function(){
                         	<div class="comments">
                             	<h5 class="product_tab_title"></h5>
                                 <ul class="list_none comment_list mt-4">
-                                    <c:forEach items="${list}" var="review">                                 
+                                    <c:forEach items="${list}" var="review" varStatus="i">                                 
                                     <li>
-	                                     <c:forEach items="${review.boardFileVOs}" var="review2">
+                                   		<img class="comment_img" src="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['0'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/reviewUpload/${review.boardFileVOs['0'].fileName}" alt="review_img1"/>
+ 	                                    
+ 	                                     
+ 	                                     
+ 	                                     <%--<c:forEach items="${review.boardFileVOs}" var="review2">
 	                                        <div class="comment_img">										 
-												<img alt="" src="../resources/riviewUpload/${review2.fileName}">			
+												<img alt="" src="../resources/reviewUpload/${review2.fileName}">			
 											
 	                                        </div>
-	                                        </c:forEach>
+	                                        </c:forEach> --%>
                                         <div class="comment_block">
                                             
                                             <p class="customer_meta">
                                                 <span class="review_author">${review.id}</span>
+                                                <span class="comment-date">${review. title}</span>
                                                 <span class="comment-date">${review.regDate}</span>
                                             </p>
-                                            <div class="description" style="word-break:break-all">
+                                            
+                                            <div id="moreContent" class="description" style="word-break:break-all">
                                                 <p>${review.contents}</p>
-                                            </div>
+
+											</div>
+
+					                            <c:forEach items="${review.boardFileVOs}" var="review2">
+		                                        <span class="rest_img${i.index} rest" >										 
+													<img class="rest_img${i.index} rest" id="rest_img${i.index}" alt="" src="../resources/reviewUpload/${review2.fileName}">															
+		                                        </span>		                             
+		                                        </c:forEach>
+                                            
+ 	                                     	<button class="rest_btn btn-info btn-sm" id="rest_btn${i.index}"style="font-size:12px;padding:8px" onclick="more(${i.index})">사진 더보기 <i class="fa fa-file-image-o"></i></button>
+                                            
+                                            <button class="rest_btn_close btn-info btn-sm" title="${i.index}" id="rest_btn_close${i.index}" style="font-size:12px;padding:8px">사진 닫기 <i class="fa fa-file-image-o"></i></button>
+											
                                         </div>
                                     </li>
   									</c:forEach>
@@ -695,9 +568,27 @@ $('#close_popup2').click(function(){
                 </div>
             </div>
         </div>
-        
 
-    <!-- ---------------------------------------------------------------------------------------------------- -->    
+<script class="notice enter" type="text/javascript" src="../resources/script/timeSale.js"> </script>  
+<!------------------------------- 클릭 시 리뷰 이미지 가져오기/닫기---------------------->
+<script type="text/javascript">
+function more(num){
+	$(".rest_img"+num).css("display","inline-block");
+ 	$("#rest_btn"+num).css("display","none");
+	$("#rest_btn_close"+num).css("display","inline-block"); 
+}
+
+$(".comments").on("click",".rest_btn_close",function(){
+	var i=$(this).attr("title");
+	$(".rest_img"+i).css("display","none");
+	$("#rest_btn_close"+i).css("display","none");
+	$("#rest_btn"+i).css("display","inline-block");
+});
+
+</script>
+
+
+<!-- ---------------------------------------------------------------------------------------------------- -->    
         
 <!--         <div class="row">
         	<div class="col-12">

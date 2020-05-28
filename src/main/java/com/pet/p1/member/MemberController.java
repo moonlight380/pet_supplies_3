@@ -21,10 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler;
-
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.pet.p1.cart.CartService;
 import com.pet.p1.cart.CartVO;
@@ -33,8 +29,6 @@ import com.pet.p1.memberReview.MemberReviewVO;
 import com.pet.p1.order.OrderService;
 import com.pet.p1.order.OrderVO;
 import com.pet.p1.orderInfo.OrderInfoVO;
-import com.pet.p1.product.DogService;
-import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 
@@ -116,8 +110,9 @@ public class MemberController {
 		memberVO.setCurPage(curPage2);
 		List<OrderInfoVO> ar = orderService.orderInfoList(memberVO);
 
+		List<OrderInfoVO> ar2 = orderService.aorderList(memberVO);
 		
-		
+		mv.addObject("aorderList", ar2);
 		mv.addObject("orderList",ar);
 		mv.addObject("pager",memberVO);
 		mv.setViewName("member/memberOrderInfo");
@@ -138,6 +133,19 @@ public class MemberController {
 		session.setAttribute("cartSelect", null);
 		
 		
+	}
+	
+	@GetMapping("adminUpdate")
+	public ModelAndView adminUpdate(ModelAndView mv,OrderInfoVO orderInfoVO)throws Exception{
+		int result =  orderService.adminUpdate(orderInfoVO);
+		
+		if(result>0) {
+			 mv.addObject("result", "Update Success");
+			 mv.addObject("path", "./memberOrderInfo");
+			 mv.setViewName("common/result");
+		}
+		
+		return mv;
 	}
 	
 	@GetMapping("memberCartHeader")
@@ -359,15 +367,14 @@ public class MemberController {
 	
 		int result = memberService.snsJoin(memberVO, session);
 		
-		  String msg ="Member Join Fail";
+		 
 		  if(result>0) { 
-			msg = "회원가입 완료!"
-					+ "로그인을해주세요";
+			  mv.setViewName("member/memberJoinSuccess");
+			}else {
+				 mv.addObject("result", "회원가입에 실패했습니다 다시 시도해주세요");
+				 mv.addObject("path", "./memberJoin");
+				 mv.setViewName("common/result");
 			}
-		  
-		  mv.addObject("result", msg); 
-		  mv.addObject("path", "../");
-		  mv.setViewName("common/result");
 		  
 		return mv;
 

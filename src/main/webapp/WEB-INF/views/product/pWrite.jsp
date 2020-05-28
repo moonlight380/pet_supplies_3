@@ -9,22 +9,48 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
+
+
+<style type="text/css">
+.productName_div{
+	margin-top: 30px;
+}
+.bg_gray{
+	margin-top:100px;
+	width: auto;
+	height: 0px;
+}
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
 <form action="./${p}Write" method="post" enctype="multipart/form-data" id="frm">
-
-    <div class="form-group">
-      <label for="productName">productName:</label>
-      <input type="text" class="form-control" id="productName" placeholder="Enter productName" name="productName" >
+ <div class="breadcrumb_section bg_gray page-title-mini">
+     <div class="container"><!-- STRART CONTAINER -->
+        <div class="row align-items-center">
+        	<div class="col-md-6">
+                <div class="page-title">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ol class="breadcrumb justify-content-md-end">
+                    <li class="breadcrumb-item"><a href="../">홈</a></li>
+                    <li class="breadcrumb-item"><a href="./dogList"><strong>상품 전체 리스트</strong></a></li>
+                    <li class="breadcrumb-item"><a href="#"><strong>상품 입력 폼</strong></a></li>                    
+                </ol>
+            </div>
+        </div>
+    </div><!-- END CONTAINER-->
+</div>
+    <div class="form-group productName_div">
+    	<label for="productName">productName:</label>
+    	<input type="text" class="form-control" id="productName" placeholder="Enter productName" name="productName" >
     </div>
-    
    <div class="form-group">
       <label for="price">price(숫자만입력) :</label>
       <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
-     
     </div>
     
 	<div id="priceContents"></div>
@@ -55,13 +81,15 @@
 		
 		</div> 
 	<br>
-    <input type="button" id="btn" class="btn btn-danger" value="submit">
+    <input type="submit" id="btn" class="btn btn-danger" value="submit">
   </form>
 
 </div>
 
 
-<script type="text/javascript" src="../resources/script/product.js"> </script> 
+<script type="text/javascript" src="../resources/script/pWrite.js"> </script>
+
+
 
 </body>
 </html>

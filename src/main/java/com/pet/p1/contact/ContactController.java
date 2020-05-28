@@ -19,4 +19,10 @@ public class ContactController {
 	public void TestPage() throws Exception {
 
 	}
+
+	@GetMapping("page404")
+	public ModelAndView Page404() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
 }

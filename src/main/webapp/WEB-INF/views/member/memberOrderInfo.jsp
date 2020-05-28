@@ -30,7 +30,7 @@
 	<div class="container-fulid  mt-5">
 		<div class="row">
 			<c:import url="./memberSide.jsp"></c:import>
-			<div class="col">
+			<div class="col" style="margin-left: 250px;">
 				<div class="row">
 					<div class="col-sm-1"></div>
 					<div class="col">
@@ -38,9 +38,86 @@
 
 
 						<div class="row mb-4"
-							style="border-bottom: solid 1px black; font-weight: bold; color: black;">
+							style="border-bottom: solid 1px black; font-weight: bold; color: black; margin-top: 150px;">
 							<div style="margin-left: 21px;">주문 조회</div>
 						</div>
+						
+						
+							<c:if test="${member.id eq 'admin' }">
+									<div class="row">
+								<table>
+									<colgroup>
+										<col style="width: 130px" />
+										<col style="width: 250px" />
+										<col style="width: 300px" />
+										<col style="width: 150px" />
+										<col style="width: 120px" />
+										<col style="width: 100px" />
+										<col style="width: 130px" />
+										<col style="width: 200px"/>
+									</colgroup>
+
+									<thead>
+
+										<tr class="table_title"
+											style="text-align: center; line-height: 50px;">
+											<th>주문 번호</th>
+											<th>이미지</th>
+											<th>상품정보</th>
+											<th>판매가</th>
+											<th>수량</th>
+											<th>적립금</th>
+											<th>금액</th>
+											<th>결제상황</th>
+
+										</tr>
+										<tr style="line-height: 30px;">
+											<th>&nbsp;</th>
+										</tr>
+
+
+									</thead>
+
+
+
+
+									<tbody>
+									
+									<c:forEach items="${aorderList}" var="List" varStatus="index">
+											<tr class="table_start table_body" id="id_${index.index}"
+												title="${List.orderNum}" style="text-align: center;">
+												<!-- for문으로 뿌리고 자바스크립트로 테이블 고치기 -->
+												<td class="${List.orderNum}_row" title="${index.index}">${List.orderNum }<br>${List.regDate }
+												<br><c:if test="${List.orderCheck eq '0'}">
+												<button id ="orderbtn" title="${List.orderNum}">결제완료</button>
+												</c:if>
+												</td>
+												<td><a
+													href="${pageContext.request.contextPath}/product/dogSelect?productNum=${List.productNum}"
+													target="_blank"> <img
+														src="${pageContext.request.contextPath}/resources/dogUpload/${List.fileName }"
+														style="width: 100px; height: 100px; margin: 15px 0px 15px 0px;">
+												</a></td>
+												<td><a
+													href="${pageContext.request.contextPath}/product/dogSelect?productNum=${List.productNum}"
+													target="_blank"> ${List.productName } </a></td>
+												<td class="price comma" title="price">${List.price}</td>
+												<td class="comma" title="amount">${List.amount}</td>
+												<td class="comma" title="point"><c:set var="point"
+														value="${List.amount * List.point}" /> <c:out
+														value="${point}" /></td>
+												<td class="${List.orderNum}_row2 comma price" title="price">${List.priceAll }</td>
+												
+												<td>${List.orderCheck}</td>
+												
+											</tr>
+
+										</c:forEach>
+									
+									
+									
+									</tbody></table></div>
+									</c:if>
 
 
 						<c:if test="${empty orderList}">
@@ -102,7 +179,7 @@
 
 
 									<tbody>
-
+								
 
 										<c:forEach items="${ orderList}" var="order" varStatus="index">
 											<tr class="table_start table_body" id="id_${index.index}"
@@ -134,16 +211,11 @@
 
 									</tbody>
 								</table>
+	</div>
+	
 
 
-
-
-
-
-
-
-
-							</div>
+							
 							<div class="row">
 								<div class="col-12">
 									<ul
@@ -250,5 +322,10 @@
 	function addCommas(x) {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
+	
+	$("#orderbtn").click(function() {
+		var orderNum = $(this).attr("title");
+		location.href="./adminUpdate?orderNum="+orderNum;
+	});
 </script>
 </html>

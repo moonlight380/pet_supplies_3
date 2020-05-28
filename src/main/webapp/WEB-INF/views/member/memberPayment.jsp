@@ -75,7 +75,7 @@
 		
 			<div class="col">
 				<c:import url="./cartStep.jsp"></c:import>
-					<div class="row">
+<div class="row" style="margin-top: 20px;">
 <div class="col-sm-1"></div>
 <div class="col">
 <div class="orderListArea">
@@ -308,10 +308,6 @@
 <th scope="row">이메일 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
 <td>
 <input id="oemail1" name="email" class="mailId" value="${member.email}" type="text">
-<ul style="list-style: none; margin-top: 10px;">
-<li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
-<li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
-</ul>
 </td>
 </tr>
 
@@ -352,15 +348,15 @@
 </tr>
 <tr>
 <th scope="row">받으시는 분 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수"></th>
-<td><input class="input_Join" id="rname" name="rname" class="inputTypeText" placeholder="" size="15"  type="text"></td>
+<td><input class="input_Join ds" id="rname" name="rname" class="inputTypeText" placeholder="" size="15"  type="text"></td>
 </tr>
 <tr class="">
 <th scope="row">주소 <img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" class="" alt="필수"></th>
  <td>
-   <input style="width: 80px;" id="raddress" name="address" class="input_Join" placeholder="" readonly="readonly" maxlength="14" type="text">
-   <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호"><br>
-   <input style="width: 300px;" id="raddr1" name="addr1" class="input_Join" placeholder="" readonly="readonly" type="text" ><span> 기본주소</span> <br>
-   <input style="width: 300px;" id="raddr2" name="addr2" class="input_Join" placeholder="" type="text"><span> 나머지 주소</span>
+   <input style="width: 80px;" id="raddress" name="address" class="input_Join ds" placeholder="" readonly="readonly" maxlength="14" type="text">
+   <input type="button" onclick="sample6_execDaumPostcode1()" value="우편번호"><br>
+   <input style="width: 300px;" id="raddr1" name="addr1" class="input_Join ds" placeholder="" readonly="readonly" type="text" ><span> 기본주소</span> <br>
+   <input style="width: 300px;" id="raddr2" name="addr2" class="ds" placeholder="" type="text"><span> 나머지 주소</span>
  
 </tr>
 <!-- 일반전화 -->
@@ -401,8 +397,8 @@
 			<option value="019">019</option>
 			<option value="0508">0508</option>
 	</select>
-	-<input id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text">
-	-<input id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text">
+	-<input class="ds" id="rphone1_2" name="rphone1_2" maxlength="4" size="4" type="text">
+	-<input class="ds" id="rphone1_3" name="rphone1_3" maxlength="4" size="4" type="text">
 	</td>
 </tr>
 <!-- 휴대전화 -->
@@ -416,7 +412,7 @@
 <option value="017">017</option>
 <option value="018">018</option>
 <option value="019">019</option>
-</select>-<input class="input_Join" id="rphone1" maxlength="4"size="4" type="text">-<input class="input_Join" id="rphone2" maxlength="4"size="4"type="text"></td>
+</select>-<input class="input_Join ds" id="rphone1" maxlength="4"size="4" type="text">-<input class="input_Join ds" id="rphone2" maxlength="4"size="4"type="text"></td>
 </tr>
 
 </tbody>
@@ -776,9 +772,15 @@ $("#input_point").blur(function(){
 		if($(this).val().length<=0){
 			alert("주소가 입력되지않았습니다");
 			addrCheck = false;
-		}
-			
+		}	
 	});
+	
+   	$("#raddr2").blur(function() {
+		if($(this).val().length=0){
+			AddrCheck = true;
+		}
+	});
+   	
 	//-- 번호
 	var phoneCheck = true;
 	$("#rphone1").blur(function() {
@@ -906,13 +908,7 @@ $("#input_point").blur(function(){
 	});
 	
 	$("#sameaddr1").click(function() {
-		$("#rname").val("");
-		$("#raddress").val("");
-		$("#raddr1").val("");
-		$("#raddr2").val("");
-		$("#rphone").val("");
-		$("#rphone1").val("");
-		$("#rphone2").val("");
+		$(".ds").val('');
 
 	});
 	
@@ -983,7 +979,7 @@ $("#input_point").blur(function(){
  		var coupon = e.data*1;
 
  		$("#total_addsale_price_view").html("<strong>"+coupon+"원</strong>");
- 		$("#discount").html("<strong>"+coupon+"원</strong>");
+ 		$("#discount2").html("<strong>"+coupon+"원</strong>");
  		
 		//-- 최종결제금액
  		var pay = $("#pp").text();
@@ -1068,27 +1064,80 @@ $("#input_point").blur(function(){
                     extraAddr = ' (' + extraAddr + ')';
                 }
                 // 조합된 참고항목을 해당 필드에 넣는다.
-                $("#addr2").val(extraAddr);
+                $("#oaddr2").val(extraAddr);
             
             } else {
-            	 $("#addr2").val(''); 
+            	 $("#oaddr2").val(''); 
           /*       document.getElementById("sample6_extraAddress").value = ''; */
             }
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-			$("#postcode1").val(data.zonecode);
+			$("#oaddress").val(data.zonecode);
 
-			$("#addr1").val(data.address);
+			$("#oaddr1").val(data.address);
 			
-			$("#addr2").focus();
+			$("#oaddr2").focus();
 
-			console.log(data);
+
         }
     }).open();
 
     }
 
+	function sample6_execDaumPostcode1() {
+	    new daum.Postcode({
+	        oncomplete: function(data) {
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
+	            
+	            
+	            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+	            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+	            var addr = ''; // 주소 변수
+	            var extraAddr = ''; // 참고항목 변수
+
+	            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+	            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+	                addr = data.roadAddress;
+	            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+	                addr = data.jibunAddress;
+	            }
+
+	            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+	            if(data.userSelectedType === 'R'){
+	                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+	                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+	                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+	                    extraAddr += data.bname;
+	                }
+	                // 건물명이 있고, 공동주택일 경우 추가한다.
+	                if(data.buildingName !== '' && data.apartment === 'Y'){
+	                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+	                }
+	                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+	                if(extraAddr !== ''){
+	                    extraAddr = ' (' + extraAddr + ')';
+	                }
+	                // 조합된 참고항목을 해당 필드에 넣는다.
+	                $("#raddr2").val(extraAddr);
+	            
+	            } else {
+	            	 $("#raddr2").val(''); 
+	          /*       document.getElementById("sample6_extraAddress").value = ''; */
+	            }
+
+	            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+				$("#raddress").val(data.zonecode);
+
+				$("#raddr1").val(data.address);
+				
+				$("#raddr2").focus();
+
+	
+	        }
+	    }).open();
+
+	    }
 
 
 </script>

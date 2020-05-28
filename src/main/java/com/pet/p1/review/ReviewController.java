@@ -2,6 +2,8 @@ package com.pet.p1.review;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.board.BoardVO;
+import com.pet.p1.member.MemberVO;
+import com.pet.p1.order.OrderDAO;
+import com.pet.p1.order.OrderService;
+import com.pet.p1.orderInfo.OrderInfoVO;
 import com.pet.p1.util.Pager;
 
 @Controller
@@ -23,6 +29,12 @@ public class ReviewController {
 
 	@Autowired
 	private ReviewService reviewService;
+
+	@Autowired
+	private OrderDAO orderDAO;
+
+	@Autowired
+	private OrderService orderService;
 
 	@ModelAttribute("board")
 	public String getBoard() throws Exception {
@@ -104,8 +116,32 @@ public class ReviewController {
 	}
 
 	@GetMapping("reviewWrite")
-	public ModelAndView boardWrite(ModelAndView mv) throws Exception {
-		mv.setViewName("board/boardWrite");
+	public ModelAndView boardWrite(ModelAndView mv, long productNum, HttpSession session) throws Exception {
+
+		System.out.println(productNum);
+
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		List<OrderInfoVO> orderInfoVO = orderService.orderSelect(memberVO.getId());
+		List<BoardVO> reviewVO = reviewService.reviewNull(productNum);
+
+		mv.setViewName("nav/page404");
+
+		for (OrderInfoVO ar : orderInfoVO) {
+			if (ar.getProductNum() != productNum) {
+				// mv.setViewName("nav/page404");
+			}
+			if (ar.getProductNum() == productNum) {
+				mv.setViewName("board/boardWrite");
+			}
+
+		}
+
+		for (BoardVO ar2 : reviewVO) {
+			if (ar2.getId().equals(memberVO.getId())) {
+				mv.setViewName("nav/page404");
+			}
+		}
+		
 		return mv;
 	}
 
@@ -157,7 +193,7 @@ public class ReviewController {
 
 		BoardVO boardVO = reviewService.boardSelect(num);
 		mv.addObject("vo", boardVO);
-		
+
 		mv.addObject("num", num);
 		mv.setViewName("board/boardReply");
 		return mv;

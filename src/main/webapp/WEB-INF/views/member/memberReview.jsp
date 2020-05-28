@@ -14,9 +14,9 @@
 	<div class="container-fulid mt-5">
 		<div class="row">
 			<c:import url="./memberSide.jsp"></c:import>
-			<div class="col-sm-1"></div>
-			<div class="col">
-				<div class="row mt-5 mb-5" style="border-bottom: 1px solid black;padding-left: 15px;" >리뷰 목록</div>
+			<div class="col-sm-1" style="margin-left: 250px;"></div>
+			<div class="col" style="margin-top: 100px;">
+				<div class="row mt-5 mb-5" style="border-bottom: 1px solid black;padding-left: 15px; font-weight: bold;" >내 리뷰 목록</div>
 				
 				<c:if test="${empty mr}">
 							<div class="row mt-5 mb-5">
@@ -75,15 +75,14 @@
 												</td>
 												<td>
 													<a href="${pageContext.request.contextPath}/review/reviewSelect?num=${mr.num}">
+
 														<span style="color: red;">${mr.title }</span>
 														<div style="height: 100px; word-break:break-all; overflow: scroll;">${mr.contents }</div>
+
 													</a>
 												</td>
 												<td>
-													${mr.regDate }<br>
-													조회수 : ${mr.hit }<br>
-													작성자 : ${mr.id }
-													
+													${mr.regDate }
 												</td>
 	
 											</tr>

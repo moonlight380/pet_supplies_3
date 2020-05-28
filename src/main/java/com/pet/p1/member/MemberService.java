@@ -8,14 +8,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +22,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.pet.p1.memberReview.MemberReviewVO;
-import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 @Service
@@ -35,7 +29,7 @@ public class MemberService {
 	
 	@Autowired
 	private MemberDAO memberDAO;
-	private ServletRequest request;
+
 
 	public String getAccessToken(String code) {
 		String access_Token = "";
@@ -126,17 +120,16 @@ public class MemberService {
 			JsonElement element = parser.parse(result);
 			
 			JsonObject properties = element.getAsJsonObject().getAsJsonObject("properties").getAsJsonObject();
-			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+//			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject().get("profile").getAsJsonObject();
 			long id = element.getAsJsonObject().get("id").getAsLong();
 			
-			
+//			String image = kakao_account.getAsJsonObject().get("profile_image_url").getAsString(); //카카오 프로필사진가져오기
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 			String kakaoId = Long.toString(id);
 			
 			memberInfo.put("nickname", nickname);
 			memberInfo.put("kakaoId", kakaoId);
-	
-
+//			memberInfo.put("image", image);
 			
 		}catch (Exception e) {
 			 e.printStackTrace();

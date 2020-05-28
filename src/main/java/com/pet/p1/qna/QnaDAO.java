@@ -72,4 +72,8 @@ public class QnaDAO implements BoardDAO {
 		return sqlSession.selectList(NAMESPACE + "rNum");
 	}
 
+	public String refId(long num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "refId",num);
+	}
+
 }

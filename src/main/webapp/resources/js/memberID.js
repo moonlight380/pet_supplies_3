@@ -77,7 +77,6 @@
 						email:email
 					},	//parameter
 					success : function(data){
-						alert(data);
 						if(data.email == null){
 							location.href="./idFindFail";
 						}else{

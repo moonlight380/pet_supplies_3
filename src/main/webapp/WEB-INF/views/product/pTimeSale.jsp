@@ -24,15 +24,36 @@
 .breadcrumb_section.page-title-mini {
 	padding: 50px 0;
 }
-.product_header_right{
-	margin-left: 92%;
+#right1,#right2{
+	margin-right: 10.5px;
+	color: black;
+}
+
+#right3{
+	float: right;
 	
 }
 .bg_gray{
+	margin-top:100px;
 	width: auto;
-	height: 60px;	
+	height: 0px;
+}
+#product_header_right2{
+	float: right;
 }
 
+#right1 >input[type=checkbox]
+{
+	margin-right:10px;
+	margin-top:15px;
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  	padding: 10px;
+  
+}
 </style>
 </head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
@@ -84,20 +105,23 @@
             	<div class="row align-items-center mb-4 pb-1">
                     <div class="col-12">
                         <div class="product_header">
-
-                            
-                            <div class="product_header_right">
+              
 <!------------------------------------------------------admin 계정만 write 버튼이 보일 수 있도록//  -------------------------------------------------------------------- -->
-                            	<div class="products_view1">
-
+                            	
+								<div class="product_header_right" id="product_header_right">
 								<c:if test="${member.id eq 'admin' }">
-								
-									<a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a>	
 									
+									<span id="right2"><a href="./${p}Write"><i class='far fa-edit' style='font-size:44px;color:#FF324D'></i></a></span>	
 								</c:if>
-                                </div>
+                               </div>
+                               <div class="product_header_right2" id="product_header_right2">
+                                <c:if test="${member.id eq 'admin' }">
+                                	<span id="right1"><input type="checkbox" id="product_all" style='font-size:44px;color:#FF324D'>모두체크</span>
+									<span id="right3"><button  class="product_del_btn" style='font-size:20px'>삭제 <i class='far fa-trash-alt' style='color:#FF324D'></i></button></span>
+								</c:if>
+								</div>
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->      
-                            </div>
+
                         </div>
                     </div>
                 </div> 
@@ -108,7 +132,12 @@
                     
                     <c:forEach items="${list}" var="vo" varStatus="status" begin="0" end="300"> 
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        
+                        <c:if test="${member.id eq 'admin' }">
+                        <div class="">
+                        <input class="product_row_check" id="product_row_check" type="checkbox" name="${vo.productNum}"><span>선택삭제</span>
+                        </div> 
+                        </c:if> 
+                          
                         <div class="product pnum" title="${vo.productNum }">
                             <div class="product_img">
                                 <a href="./${p}Select?productNum=${vo.productNum}">                             
@@ -130,7 +159,7 @@
                                 </div>
                             </div>
                             <div class="product_info">
-                                <h6 class="product_title"><a href="./${p}SelectTimeSale?productNum=${vo.productNum}">${vo.productName} </a></h6>
+                                <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
 								
 								<!-- 타임세일시작 -->
 								<!-- 타이머기능 -->                 			
@@ -202,7 +231,7 @@
 <!-- 추가한부분 div addCart -->
 <div id="quantityNum_amount"hidden="hidden">1</div>
 <c:import url="../cart/addCart.jsp"></c:import>
-
+<script type="text/javascript" src="../resources/script/pList.js"> </script>  
 
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>

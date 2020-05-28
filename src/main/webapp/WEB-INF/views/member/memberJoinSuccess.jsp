@@ -12,7 +12,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div class="wrap">
+<div class="wrap"  style="margin-bottom: 200px; margin-top: 150px;">
 <div class="container">
 
 <div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">
@@ -33,15 +33,15 @@
 
 <div class="joinComplete" style="margin: 0 auto; width: 80%; height: 250px; margin-top: 50px;">
 
-<h3><img style="height: 100px;" src="${pageContext.request.contextPath}/resources/images/catdog.jpg" alt="회원가입"></h3>
+<h3><img style="height: 100px;" src="${pageContext.request.contextPath}/resources/images/logo_index.jpeg" alt="회원가입"></h3>
 
-<p class="desc" style="font-size: 30px;"><i class='fas fa-paw' style="font-size: 28px;"></i>
+<p class="desc" style="font-size: 30px; margin-top: 30px;"><i class='fas fa-paw' style="font-size: 28px;"></i>
 <strong style="color: #FF324D;">OH!DALI</strong> 회원가입을 축하합니다!
 <i class='fas fa-paw' style="font-size: 28px;"></i></p>
 
 <div class="ec-base-box typeMember gMessage">
 <strong class="message">회원가입이 완료되었습니다</strong>
-<p style="font-size: small;">가입 시 받은 적립금은 바로 사용하실 수 있습니다.</p>
+<p style="font-size: small; color: #FF324D">가입 시 받은 적립금은 바로 사용하실 수 있습니다.</p>
 
 </div>
  

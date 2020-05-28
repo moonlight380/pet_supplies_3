@@ -22,64 +22,10 @@
 <c:import url="../template/summer.jsp"></c:import>
 
 
-<style type="text/css">
 
 
+<link href="../resources/css/pSelect.css" rel="styleSheet" />
 
-
-
-
-
-
-
-
-
-
-
-
-#timeSale_st{
-	font-size: 20px;	
-	font-style: normal;
-}
-
-
-#timeSalePrice_top , #timeSalePrice_unit{
-	 color: #28d893;
-	 font-size: 17px;
-	 
-}
-
-
-
-.time_sale , .time_sale_num {
-    width: 59px;
-    height: 44px;
-    padding: 5px 0 0 0;
-    color: #ffffff;
-    font-size: 18px;
-    background: url(../resources/images/bg_sale.png) no-repeat 0 0;
-    text-align: center;
-}
-
-
-.item_info_box .time_sale {
-    overflow: hidden;
-    height: 49px;
-    margin: 0 0 20px 0;
-    padding: 10px 10px 0 10px;
-    border-bottom: 1px solid #dbdbdb;
-    background: #f5f5f5;
-}
-.enter{
-	float: left;
-	margin-bottom: 20px;
-}
-.product_title{
-	
-	clear: left;
-}
-
-</style>
 
 <!-- 팝업창띄우기 -->
 

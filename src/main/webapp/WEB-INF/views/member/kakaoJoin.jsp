@@ -14,7 +14,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div id="wrap">
+<div id="wrap" style="margin-bottom: 200px;">
    <div id="container">
         <div id="contents">
             
@@ -193,7 +193,7 @@
 </div>
 
 
-
+<c:import url="../template/footer.jsp"></c:import>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 

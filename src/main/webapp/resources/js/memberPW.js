@@ -98,7 +98,6 @@
   		var check = $(".pc");
   		var phone = $("#mobile2").val();
   		
-  		console.log(phone);
   		
   		for(i=0;i<check.length;i++){
   			if(check[i].value.length==0){

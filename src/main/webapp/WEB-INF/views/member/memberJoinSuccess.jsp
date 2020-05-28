@@ -12,7 +12,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div class="wrap">
+<div class="wrap"  style="margin-bottom: 200px;">
 <div class="container">
 
 <div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">

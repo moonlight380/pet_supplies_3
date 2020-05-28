@@ -13,7 +13,7 @@
 <c:import url="../template/header.jsp"></c:import>
 
 
-<div class="container">
+<div class="container" style="margin-bottom: 200px;">
 
 <div class="path" style="display: block; height: auto; width:100%; margin-top: 80px; text-align: right;">
 	<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
@@ -46,7 +46,7 @@
 
 </div>
 </div>
-
+<c:import url="../template/footer.jsp"></c:import>
 <script type="text/javascript">
 
 	function goback() {

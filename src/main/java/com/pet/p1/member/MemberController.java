@@ -349,15 +349,14 @@ public class MemberController {
 	
 		int result = memberService.snsJoin(memberVO, session);
 		
-		  String msg ="Member Join Fail";
+		 
 		  if(result>0) { 
-			msg = "회원가입 완료!"
-					+ "로그인을해주세요";
+			  mv.setViewName("member/memberJoinSuccess");
+			}else {
+				 mv.addObject("result", "회원가입에 실패했습니다 다시 시도해주세요");
+				 mv.addObject("path", "./memberJoin");
+				 mv.setViewName("common/result");
 			}
-		  
-		  mv.addObject("result", msg); 
-		  mv.addObject("path", "../");
-		  mv.setViewName("common/result");
 		  
 		return mv;
 

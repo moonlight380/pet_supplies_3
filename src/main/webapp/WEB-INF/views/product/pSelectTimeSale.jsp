@@ -23,161 +23,25 @@
 
 
 <style type="text/css">
-.rest_btn_close{
-	display: none;
-}
-.rest_img{
-	width: 150px;
-	height: 150px;
-	border-radius: 10px;
-	margin-left:10px;
-	margin-right:10px;
-	display: none;
-}
-.comment_img{
-	width: 100px;
-	height: 100px;
-	border-radius: 10px;
-	margin-left: 20px;
-	margin-right: 20px;
-}
-.bg_gray{
-	width: auto;
-	height: 60px;
-}
-.sum{
-float: right;
 
-}
-.line{
-	clear:both;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: 0;
-    border-top: 1px solid rgba(0,0,0,.1);
-}
 
-.total_price{
-	margin-bottom: 50px;
-}
 
-.cart_margin{
-	float:right;
-	margin-bottom: 20px;
-}
 
-.kakao-purchase{
-	border-width: 1px;
-	cursor: pointer;
-	line-height: normal;
-	padding: 12px 12px;
-	text-transform: capitalize;
-	transition: all 0.3s ease-in-out;
-	background-color: rgba(255,238,51,0.99);
-	float: right;
-	margin-bottom: 20px;
-	margin-right: 20px;
-}
 
-.admin_btn{
-	float: right;
-	margin-left: 20px;
-}
-#prdInfo .cont h3 {
-    font-family: 'NotokrBold',sans-serif;
-    font-size: 22px;
-    color: #111;
-    margin-bottom: 20px;
-    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
-}
 
-#prdInfo .prdInfo-cont .cont {
-	font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
-    display: inline-block;
-    width: 50%;
-    vertical-align: top;
-    box-sizing: border-box;
-    font-size: 13px;
-    color: #999;
-    margin-bottom: 3px;
-    line-height: 1.8;
-}
-.contents_div_1{
-	width: 45%;
-	border: solid 1px #687188;
-	line-height: auto;
-	float: left;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-bottom: 70px;
-	padding: 30px;
-}
-.contents_div_2{
-	width: auto;
-	border: solid 1px #687188;
-	line-height: auto;
-	clear:both;
-	margin-left: 30px;
-	margin-right: 30px;
-	padding: 30px;
-}
 
-#page_free{
-	z-index:99;
-	position:absolute;
-	top:10px;
-	left:10px;
-	text-align:left;
-	border:1px solid #000;
-	width: 720px;
-	height: 850px;
-	margin: 300px 1000px;
-	padding: 10px;
-}
 
-#page_free img{border:10px soild #FFF;}
-#page_free .new_btn{width:417px; height: 20px; background: #FFF; padding-top: 10px;text-align: right; border: 10px solid #FFF;}
+
+
+
+
+
 
 #timeSale_st{
 	font-size: 20px;	
 	font-style: normal;
 }
 
-body, th, td, input, select, textarea {
-    font-size: 15px;
-    line-height: 1.5;
-    font-family: 'Montserrat','Noto Sans KR',-apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;
-    color: #333;
-}
-.item_choice_list table tbody:last-child tr td {
-    border-bottom: 1px solid #dbdbdb;
-}
-.item_choice_list .cart_prdt_name {
-    text-align: left;
-    padding: 20px 0 20px 20px;
-}
-.item_choice_list table colgroup+tbody tr td {
-    border: none;
-}
- #quantity_minus{
-	 width: 30px;
-	 height: 30px;
-	 text-align: center;
-	 padding: 0px; 
-	 
-}
-#quantityNum{
-	height: 30px;
-	width: 30px; 
-	text-align: center;
-}
-
-#quantity_plus{
-	 width: 30px;
-	 height:30px;
-	 text-align: center;
-	 padding: 0px;
-} 
 
 #timeSalePrice_top , #timeSalePrice_unit{
 	 color: #28d893;
@@ -185,14 +49,6 @@ body, th, td, input, select, textarea {
 	 
 }
 
-.item_detail_list dt {
-    float: left;
-    width: 70px;
-    margin: 0 10px 0 0;
-    color: #888888;
-    font-weight: normal;
-    word-wrap: break-word;
-}
 
 
 .time_sale , .time_sale_num {
@@ -239,20 +95,7 @@ function goPopup(){
 	
 </script>  
 
-<!-- 레이어팝업 -->
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-//오늘 하루 팝업 열지 않기
-$('#close_popup').click(function(){
-	$.cookie('page_free','ck',{expires:1,path:'/'});
-	$("#page_free").hide();
-});
-//팝업 닫기
-$('#close_popup2').click(function(){
-	$("#page_free").hide();
-});
-});
-</script> -->
+
 </head>
 
 <!-- ------------------------------------body 시작---------------------------------- -->
@@ -264,16 +107,6 @@ $('#close_popup2').click(function(){
 
 
 
-<%-- 
-<!-- 레이어팝업 시작 -->
-<div style="" id="page_free">
-	<img src="${pageContext.request.contextPath}/resources/images/goPopup.jpg">
-	<div class="new_btn">오늘 하루 열지 않기 <input type="checkbox" name="close_popup" id="close_popup"> &nbsp; &nbsp; &nbsp; &nbsp;닫기
-	<input type="checkbox" name="close_popup2" id="close_popup2">
-	</div>
-</div>
-
-<!--레이어팝업  끝--> --%>
 
 
 <!-- LOADER -->
@@ -363,7 +196,7 @@ $('#close_popup2').click(function(){
 				          <dd>
 				          <c:if test="${vo.sale gt 0}">
 				            <del ><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</del>
-				              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+				              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/100)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
 				          </c:if>
 				         <c:if test="${vo.sale eq 0}">   
 				              <span class="oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber>원</span>
@@ -414,7 +247,7 @@ $('#close_popup2').click(function(){
                        
                        <span class="sum">
                        <strong><!-- 총가격 -->
-                       <span  id="sum_price"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></span> 
+                       <span  id="sum_price"><fmt:formatNumber value="${vo.price*(vo.sale/100)}" type="number"></fmt:formatNumber></span> 
                        </strong> <!-- 수량 -->
                        
                        (<span id="quantityNum_amount">1</span>)
@@ -423,7 +256,7 @@ $('#close_popup2').click(function(){
         
   <!--마이너스 플러스 스크립트---------------------------------------------------------------------------------------------------------------- -->     
 	               		<script type="text/javascript">
-	               		var perPrice='${vo.price*(vo.sale/1000)}';
+	               		var perPrice=Math.floor('${vo.price*(vo.sale/100)}');           		
 	               		var num =1;
 	               		$(".minus").click(function(){
 	               			if(num==1){

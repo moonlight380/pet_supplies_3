@@ -11,7 +11,9 @@
 		select max(cnum) from cart where id=#{id}
 	</select>
 	
-	
+	<select id="cartCheck" parameterType="CartVO" resultType="CartVO">
+		select * from cart where id=#{id} and productNum=#{productNum}
+	</select>
 	
 	<select id="cartSelect" parameterType="List" resultType="CartVO">
 		select id,cnum,cart.productnum,camount,productname,price,point,productfile.filename,sale

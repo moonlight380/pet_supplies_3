@@ -1,3 +1,4 @@
+<%@page import="com.pet.p1.cart.CartVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -41,8 +42,8 @@
       </div>
     </div>
   </div>
-  
 <script type="text/javascript">
+	
 	$(".cart").mouseover(function(){
 		$(".cart").css({
 			'cursor':'pointer'
@@ -56,6 +57,27 @@
 			var id = $("#memberId").val();
 			var productNum = $(this).attr("id");
 			var cAmount = 1*$("#quantityNum_amount").text();
+			
+			$.ajax({
+				 type:"post",
+				 url:"../cart/cartCheck",
+				 data:{
+					 id:id,
+					 productNum:productNum
+				 },error : function(request, status, error) {
+						console.log("code = " + request.status + " message = "
+								+ request.responseText + " error = " + error);
+					},success:function(){
+							<% CartVO cartVO = (CartVO)request.getAttribute("check");
+							String id = "check123123";%>
+							var check = '<%= id %>    ';
+							alert(check);
+							alert("id");
+							
+							
+							
+					}
+			});
 			
 			if(confirm("장바구니에 추가하시겠습니까?")){
 			$.ajax({
@@ -84,3 +106,6 @@
 
 
 </script>
+
+
+

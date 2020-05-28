@@ -15,6 +15,10 @@ public class CartDAO {
 	
 	private final String NAMESPACE="com.pet.p1.cart.CartDAO.";
 	
+	public CartVO cartCheck(CartVO cartVO)throws Exception{
+		return sqlSessions.selectOne(NAMESPACE+"cartCheck",cartVO);
+	}
+	
 	public List<CartVO> cartSelect(List<Long> list) throws Exception{
 		return sqlSessions.selectList(NAMESPACE+"cartSelect",list);
 	}

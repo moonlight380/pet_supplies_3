@@ -1,5 +1,6 @@
 package com.pet.p1.cart;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.member.MemberService;
 import com.pet.p1.member.MemberVO;
@@ -22,6 +22,27 @@ public class CartController {
 	@Autowired
 	private MemberService memberService;
 	
+	
+	
+	@PostMapping("cartCheck")
+	@ResponseBody
+	public void cartCheck(CartVO cartVO,HttpServletRequest request)throws Exception{
+		System.out.println(cartVO.getId());
+		System.out.println(cartVO.getProductNum());
+		CartVO check = cartService.cartCheck(cartVO);
+		request.setAttribute("check", check);
+		CartVO a = (CartVO)request.getAttribute("check");
+		System.out.println(check);
+		
+		System.out.println("---------------------");
+		
+		System.out.println("request : "+a);
+		
+		
+		
+		
+		
+	}
 	
 	@PostMapping("cartInsert")
 	@ResponseBody

@@ -46,7 +46,7 @@
 						<table>
 										<colgroup>
 											<col style="width: 200px" />
-											<col style="width: 700px" />
+											<col style="width: 700px"  />
 											<col style="width: 150px" />
 											
 										</colgroup>
@@ -75,8 +75,8 @@
 												</td>
 												<td>
 													<a href="${pageContext.request.contextPath}/review/reviewSelect?num=${mr.num}">
-														${mr.title }
-														${mr.contents }
+														<span style="color: red;">${mr.title }</span>
+														<div style="height: 100px; word-break:break-all; overflow: scroll;">${mr.contents }</div>
 													</a>
 												</td>
 												<td>

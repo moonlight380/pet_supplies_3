@@ -11,11 +11,11 @@ $("#file").on("click", ".remove", function() {
 });
 
 $("#add").click(function() {
-	if(count<3){
+	if(count<6){
 		$("#file").append('<div class="form-group"> <label for="file"> File :</label> <input type="file" class="form-control files" name="files"> <i class="fas fa-paw remove" style="font-size:24px"></i></div>');
 		count++;                     
 	}else {
-		alert("파일은 최대 2개 까지 가능");
+		alert("파일은 최대 5개 까지 가능");
 	}
 });
 

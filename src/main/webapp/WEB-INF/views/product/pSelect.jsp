@@ -23,11 +23,14 @@
 
 
 <style type="text/css">
-
+.rest_btn{
+	margin-left: 10px;
+}
 .rest_btn_close{
+	margin-left: 10px; 
 	display: none;
 }
-.rest_img{
+.rest{
 	width: 150px;
 	height: 150px;
 	border-radius: 10px;
@@ -708,14 +711,15 @@ $('#close_popup2').click(function(){
 											</div>
 
 					                            <c:forEach items="${review.boardFileVOs}" var="review2">
-		                                        <span class="rest_img" >										 
-													<img class="rest_img" id="rest_img${i.index}" alt="" src="../resources/reviewUpload/${review2.fileName}">															
+		                                        <span class="rest_img${i.index} rest" >										 
+													<img class="rest_img${i.index} rest" id="rest_img${i.index}" alt="" src="../resources/reviewUpload/${review2.fileName}">															
 		                                        </span>		                             
 		                                        </c:forEach>
                                             
  	                                     	<button class="rest_btn btn-info btn-sm" id="rest_btn${i.index}"style="font-size:12px;padding:8px" onclick="more(${i.index})">사진 더보기 <i class="fa fa-file-image-o"></i></button>
-                                            <button class="rest_btn_close btn-info btn-sm" id="rest_btn_close${i.index}" style="font-size:12px;padding:8px" onclick="close(${i.index})">사진 닫기 <i class="fa fa-file-image-o"></i></button>
-
+                                            
+                                            <button class="rest_btn_close btn-info btn-sm" title="${i.index}" id="rest_btn_close${i.index}" style="font-size:12px;padding:8px">사진 닫기 <i class="fa fa-file-image-o"></i></button>
+											
                                         </div>
                                     </li>
   									</c:forEach>
@@ -734,15 +738,16 @@ $('#close_popup2').click(function(){
 <!------------------------------- 클릭 시 리뷰 이미지 가져오기/닫기---------------------->
 <script type="text/javascript">
 function more(num){
-	$(".rest_img").css("display","inline-block");
-	$("#rest_btn"+num).css("display","none");
-	$("#rest_btn_close"+num).css("display","inline-block");
+	$(".rest_img"+num).css("display","inline-block");
+ 	$("#rest_btn"+num).css("display","none");
+	$("#rest_btn_close"+num).css("display","inline-block"); 
 }
 
-$(".rest_btn_close").click(function(){
-	$(".rest_img").css("display","none");
-	$(this).css("display","none");
-	$(".rest_btn").css("display","inline-block");
+$(".comments").on("click",".rest_btn_close",function(){
+	var i=$(this).attr("title");
+	$(".rest_img"+i).css("display","none");
+	$("#rest_btn_close"+i).css("display","none");
+	$("#rest_btn"+i).css("display","inline-block");
 });
 
 </script>

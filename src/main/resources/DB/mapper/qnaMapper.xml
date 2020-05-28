@@ -145,8 +145,8 @@
 
 	<!-- interceptor -->
 
-	<select id="refNum" parameterType="Long" resultType="QnaVO">
-		select *
-		from qna where ref = #{ref} and depth=0;
+	<select id="refId" parameterType="Long" resultType="String">
+		select id
+		from qna where ref=#{ref} and depth = 0
 	</select>
 </mapper>  

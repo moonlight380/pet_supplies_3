@@ -142,8 +142,7 @@ $("#contents").summernote({
 	});
  	
 //----------------------------------------------------------------------------// 
- 	var saleCheck= true;
- 	
+
  	
  	$("#btn").click(function() {
  		//productName, contents 데이터 유무 검증

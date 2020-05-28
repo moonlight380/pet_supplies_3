@@ -137,4 +137,9 @@ public class ReviewService implements BoardService {
 		return reviewDAO.rNum();
 	}
 
+	public List<BoardVO> reviewNull(long productNum) throws Exception {
+		// TODO Auto-generated method stub
+		return reviewDAO.reviewNull(productNum);
+	}
+
 }

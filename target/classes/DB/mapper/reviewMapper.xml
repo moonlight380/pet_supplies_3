@@ -156,5 +156,12 @@
 		rownum desc
 	</select>
 
+	<select id="reviewNull" parameterType="Long"
+		resultType="ReviewVO">
+		select * from review where productNum = #{productNum}
+	</select>
+
+
+
 </mapper>  
 	

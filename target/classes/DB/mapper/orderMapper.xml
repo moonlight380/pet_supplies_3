@@ -65,9 +65,7 @@
 
 	<select id="orderSelect" parameterType="String"
 		resultType="OrderInfoVO">
-		select * from orderinfo where id = #{id}
+		select * from orderinfo where id = #{id} and ordercheck =1
 	</select>
-  	
-  	
   
   </mapper>

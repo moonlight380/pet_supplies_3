@@ -122,21 +122,27 @@ public class ReviewController {
 
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		List<OrderInfoVO> orderInfoVO = orderService.orderSelect(memberVO.getId());
+		List<BoardVO> reviewVO = reviewService.reviewNull(productNum);
 
 		mv.setViewName("nav/page404");
 
 		for (OrderInfoVO ar : orderInfoVO) {
 			if (ar.getProductNum() != productNum) {
-				//mv.setViewName("nav/page404");
+				// mv.setViewName("nav/page404");
 			}
 			if (ar.getProductNum() == productNum) {
 				mv.setViewName("board/boardWrite");
-
 			}
 
 		}
-	return mv;
 
+		for (BoardVO ar2 : reviewVO) {
+			if (ar2.getId().equals(memberVO.getId())) {
+				mv.setViewName("nav/page404");
+			}
+		}
+		
+		return mv;
 	}
 
 	@PostMapping("reviewWrite")

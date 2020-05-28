@@ -1,7 +1,5 @@
 package com.pet.p1.Interceptor;
 
-import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,35 +62,6 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 		board = "./" + board + "List";
 		System.out.println(board);
 
-		// select
-		/*
-		 * if (path.equals("/qnaSelect")) {
-		 * 
-		 * // ref가 같으면 admin 것도 조회가능
-		 * 
-		 * QnaVO qnaVO = (QnaVO) qnaService.boardSelect(boardVO.getNum()); QnaVO qnaVO2
-		 * = (QnaVO) qnaService.refNum(boardVO.getNum());
-		 * 
-		 * if(qnaVO2.getId() == memberVO.getId()) {
-		 * 
-		 * }
-		 * 
-		 * 
-		 * 
-		 * if (memberVO != null) { if (qnaVO.getRef() == boardVO.getNum()) { if
-		 * (memberVO.getId().equals("admin") ||
-		 * memberVO.getId().equals(boardVO.getId())) {
-		 * System.out.println(boardVO.getNum()); qnaDAO.hitUpdate(boardVO.getNum()); } }
-		 * }
-		 * 
-		 * if (memberVO != null) { if (!memberVO.getId().equals("admin")) { if
-		 * (!memberVO.getId().equals(boardVO.getId())) {
-		 * modelAndView.setViewName("redirect:" + board); } }
-		 * 
-		 * } else { modelAndView.addObject("result", "권한이 없음");
-		 * modelAndView.addObject("path", board);
-		 * modelAndView.setViewName("common/result"); } } // end select
-		 */
 		// update
 		if (path.equals("/qnaUpdate") && method.equals("GET")) {
 
@@ -108,22 +77,6 @@ public class QnaInterceptor extends HandlerInterceptorAdapter {
 				modelAndView.setViewName("common/result");
 			}
 		} // end update
-
-		// reply
-		if (path.equals("/qnaReply") && method.equals("GET")) {
-
-			if (memberVO != null) {
-				if (!memberVO.getId().equals("admin")) {
-					if (!memberVO.getId().equals(boardVO.getId())) {
-						modelAndView.setViewName("redirect:" + board);
-					}
-				}
-			} else {
-				modelAndView.addObject("result", "권한이 없음");
-				modelAndView.addObject("path", board);
-				modelAndView.setViewName("common/result");
-			}
-		} // end reply
 
 		// delete
 		if (path.equals("/qnaDeleteReal") && method.equals("GET")) {

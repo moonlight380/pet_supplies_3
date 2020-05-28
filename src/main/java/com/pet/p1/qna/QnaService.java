@@ -129,9 +129,9 @@ public class QnaService implements BoardService {
 		return qnaDAO.rNum();
 	}
 
-	public BoardVO refNum(long num) throws Exception {
+	public String refId(long num) throws Exception {
 		// TODO Auto-generated method stub
-		return qnaDAO.refNum(num);
+		return qnaDAO.refId(num);
 	}
 
 }

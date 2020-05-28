@@ -326,6 +326,8 @@
 	$("#orderbtn").click(function() {
 		var orderNum = $(this).attr("title");
 		location.href="./adminUpdate?orderNum="+orderNum;
+		
 	});
 </script>
+
 </html>

@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="product_price">
 		                              <a href="./${p}Select?productNum=${vo.productNum}">   
-			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>
+			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</span>
                                    			                           <c:if test="${vo.sale gt 0}">
 						                <dl class="time_sale_price">
 									       <dt>타임세일</dt>

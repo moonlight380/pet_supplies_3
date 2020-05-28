@@ -183,7 +183,7 @@
                                 </div>
                                
                                  <div class="product_price">
-		                              <span class="price oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber></span>
+		                              <span class="price oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber>원</span>
 		                         </div>
                                
                                 <!-- 타임세일끝 -->

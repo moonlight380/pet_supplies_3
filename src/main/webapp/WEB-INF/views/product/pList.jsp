@@ -160,7 +160,7 @@
                    
                     <div class="col-lg-3 col-md-4 col-6 grid_item" id="${vo.productNum}">
                         
-                        <c:if test="${member.id eq 'admin' }">
+                        <c:if test="${member.id eq 'admin'}">
                         <div class="">
                         <input class="product_row_check" id="product_row_check" type="checkbox" name="${vo.productNum}"><span>선택삭제</span>
                         </div> 
@@ -189,7 +189,7 @@
 
                                 <div class="product_price">
 		                              <a href="./${p}Select?productNum=${vo.productNum}">   
-			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></span>	
+			                              <span class="price"><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</span>	
 			                          
 			                           <c:if test="${vo.sale gt 0}">
 							                <dl class="time_sale_price">

@@ -10,9 +10,36 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
+
+<style type="text/css">
+
+.bg_gray{
+	margin-top:100px;
+	width: auto;
+	height: 0px;
+}
+</style>
+
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+ <div class="breadcrumb_section bg_gray page-title-mini">
+     <div class="container"><!-- STRART CONTAINER -->
+        <div class="row align-items-center">
+        	<div class="col-md-6">
+                <div class="page-title">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ol class="breadcrumb justify-content-md-end">
+                    <li class="breadcrumb-item"><a href="../">홈</a></li>
+                    <li class="breadcrumb-item"><a href="./dogList"><strong>상품 전체 리스트</strong></a></li>
+                    <li class="breadcrumb-item"><a href="#"><strong>상품 업데이트 폼</strong></a></li>                    
+                </ol>
+            </div>
+        </div>
+    </div><!-- END CONTAINER-->
+</div>
 
 <div class="container">
 	

@@ -10,7 +10,9 @@
 <c:import url="../template/css.jsp"></c:import>
 </head>
 <body>
+<div id="header">
 <c:import url="../template/header.jsp"></c:import>
+</div>
 
 <div class="path" style="display: block; float: right; position: relative; height: auto; margin-top: 50px; margin-right: 200px;">
 		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home ></a></li>
@@ -129,10 +131,10 @@
 						ids:ids
 					},
 					success:function(data){
+						$.get("../member/memberCartRefresh");
 						$.get("../member/memberCartHeader",function(data){
 							$("#header").html(data.trim());
 						});
-						$.get("../memberCartRefresh");
 						console.log("check");
 						
 					} 

@@ -76,7 +76,6 @@
 					check++;
 				}
 			}
-			console.log(check);
 			
 			if(check>0){
 				if(confirm("장바구니에 동일한 상품이 있습니다.\n장바구니에 추가하시겠습니까?")){

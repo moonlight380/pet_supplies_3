@@ -54,7 +54,8 @@
 										<col style="width: 120px" />
 										<col style="width: 100px" />
 										<col style="width: 130px" />
-										<col style="width: 200px"/>
+										<col style="width: 200px" />
+										
 									</colgroup>
 
 									<thead>
@@ -68,7 +69,8 @@
 											<th>수량</th>
 											<th>적립금</th>
 											<th>금액</th>
-											<th>결제상황</th>
+											<th>결제 확인</th>
+											
 
 										</tr>
 										<tr style="line-height: 30px;">
@@ -117,9 +119,30 @@
 									
 									
 									</tbody></table></div>
+									<div class="row">
+									<div class="col-12">
+										<ul
+											class="pagination mt-3 justify-content-center pagination_style1">
+											<c:if test="${pager.curBlock gt 1}">
+												<li class="page-item active"><a class="page-link"
+													href="./memberOrderInfo?curPage=${pager.startNum-1}">이전</a></li>
+											</c:if>
+											<c:forEach begin="${pager.startNum}" end="${pager.lastNum}"
+												var="i">
+												<li class="page-item"><a class="page-link"
+													href="./memberOrderInfo?curPage=${i}">${i}</a></li>
+											</c:forEach>
+											<c:if test="${pager.curBlock lt pager.totalBlock}">
+												<li class="page-item"><a class="page-link"
+													href="./memberOrderInfo?curPage=${pager.lastNum+1}">다음</a></li>
+											</c:if>
+										</ul>
+									</div>
+								</div>
 									</c:if>
+									
 
-
+				<c:if test="${member.id ne 'admin' }">
 						<c:if test="${empty orderList}">
 							<div class="row mt-5 mb-5">
 								<div class="col text-center">
@@ -236,6 +259,7 @@
 									</ul>
 								</div>
 							</div>
+						</c:if>
 						</c:if>
 
 

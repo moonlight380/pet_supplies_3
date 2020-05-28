@@ -108,6 +108,8 @@ public class MemberController {
 		Long curPage2 = Long.parseLong(curPage);
 		
 		memberVO.setCurPage(curPage2);
+		
+		
 		List<OrderInfoVO> ar = orderService.orderInfoList(memberVO);
 
 		List<OrderInfoVO> ar2 = orderService.aorderList(memberVO);

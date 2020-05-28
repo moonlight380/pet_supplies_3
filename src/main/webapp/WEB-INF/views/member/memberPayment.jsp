@@ -75,7 +75,7 @@
 		
 			<div class="col">
 				<c:import url="./cartStep.jsp"></c:import>
-					<div class="row">
+<div class="row" style="margin-top: 20px;">
 <div class="col-sm-1"></div>
 <div class="col">
 <div class="orderListArea">

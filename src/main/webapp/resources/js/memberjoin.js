@@ -95,12 +95,16 @@
  	$("#hint_answer").blur(function() {
  		
 		var answer = $(this).val();
-		
+
 		if(answer.length <= 0){
 			$("#answer").html(" 답변을 입력해 주세요");
 			$("#answer").css({'color':'red','font-weight':'bold', 'font-size':'small'});
 			pwanswerCheck = false;
-		} 
+		}else{
+			$("#answer").text(" ");
+			pwanswerCheck = true;
+		
+		}
 	});
  	
  	/* 이름 유효성 검사 */
@@ -198,12 +202,13 @@
 	});
    	
    	$("#addr2").blur(function() {
-		if($(this).val() == null){
+		if($(this).val() == ''){
 			AddrCheck = true;
+			console.log(AddrCheck);
 		}
 	});
 
-   	
+   
    	/* 핸드폰 유효성검사 */
    	
    	var phoneCheck = true;
@@ -261,7 +266,10 @@
      var yearNow = today.getFullYear();
      var adultYear = yearNow-20;
      
-     if (year <1900 || year > adultYear){
+     if($(this).val() == ''){
+    	 birthCheck = true;
+    	 console.log("b:"+birthCheck);
+     }else if (year <1900 || year > adultYear){
           alert("년도를 확인하세요. "+adultYear+"년생 이전 출생자만 등록 가능합니다.");
           birthCheck = false;
           
@@ -313,7 +321,7 @@
 				break;
 			}
 		}
-		console.log("in");
+
 		if(!(idCheck && pwCheck && pw2Check && pwanswerCheck && nameCheck && emailCheck && AddrCheck && birthCheck && c)){
 				alert("정보를 제대로 입력해주세요");
 			}else if(!agree){

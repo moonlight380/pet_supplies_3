@@ -39,8 +39,17 @@ public class OrderService {
 			return orderDAO.orderInfoList(memberVO);
 		}
 		
+		public List<OrderInfoVO> aorderList(MemberVO memberVO)throws Exception{
+			return orderDAO.aorderList(memberVO);
+		}
+		
+		public int adminUpdate(OrderInfoVO orderInfoVO)throws Exception{
+			return orderDAO.adminUpdate(orderInfoVO);
+		}
+		
 		public List<OrderInfoVO> orderSelect(String id) throws Exception {
-			// TODO Auto-generated method stub
+			
 			return orderDAO.orderSelect(id);
 		}
+		
 }

@@ -102,8 +102,8 @@
 			<exclude-mapping path="/product/dogNewList"/>
 			<exclude-mapping path="/product/dogTimeSale"/>
 			<exclude-mapping path="/product/dogSelect"/>
-			<exclude-mapping path="/product/dogSelectTimeSale"/>
-			<exclude-mapping path="/product/product_list_delete"/>
+
+<!-- 			<exclude-mapping path="/product/product_list_delete"/> -->
 			<exclude-mapping path="/product/productFile/fileInsert"/>
 			<exclude-mapping path="/product/productFile/summerDelete"/>
 			<beans:bean class="com.pet.p1.Interceptor.AdminIntercepter" id="AdminInterceptor"></beans:bean>

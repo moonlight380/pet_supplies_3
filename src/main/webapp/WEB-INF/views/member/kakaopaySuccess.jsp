@@ -15,7 +15,7 @@
 <c:import url="../template/header.jsp"></c:import>
 </div>
 
-<div class="container">
+<div class="container"style="margin-top: 150px;">
 
 <div class="path" style="display: block; height: auto; width:100%; margin-top: 150px; text-align: right;">
 		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home ></a></li>

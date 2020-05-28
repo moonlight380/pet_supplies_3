@@ -190,12 +190,14 @@
     
    	$("#postcode1").blur(function() {
 		var postcode = $(this).val();
-		if(postcode == null){
+		console.log("postcode1");
+		if(postcode == ''){
 			AddrCheck = false;
 		}
 	});
    	
    	$("#addr1").blur(function() {
+   		console.log("addr1");
 		if($(this).val().length<=0){
 			AddrCheck = false;
 		}
@@ -204,7 +206,6 @@
    	$("#addr2").blur(function() {
 		if($(this).val() == ''){
 			AddrCheck = true;
-			console.log(AddrCheck);
 		}
 	});
 
@@ -321,7 +322,7 @@
 				break;
 			}
 		}
-
+		
 		if(!(idCheck && pwCheck && pw2Check && pwanswerCheck && nameCheck && emailCheck && AddrCheck && birthCheck && c)){
 				alert("정보를 제대로 입력해주세요");
 			}else if(!agree){

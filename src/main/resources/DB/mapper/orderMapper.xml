@@ -2,68 +2,66 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.pet.p1.order.OrderDAO">
-
+  
+  <mapper namespace="com.pet.p1.order.OrderDAO">
+	
 
 	<insert id="orderCart" parameterType="OrderVO">
 
-		insert into
-		porder(ordernum,priceAll,id,pdate,charge)
-		values(porder_seq.nextval,#{priceAll},#{id},sysdate,#{charge})
-
-	</insert>
-
-	<select id="orderSelectOne" parameterType="MemberVO"
-		resultType="OrderVO">
-		select * from
-		(select * from porder where id=#{id} order by
-		pdate desc)
-		where rownum=1
-
-	</select>
-
-
-	<insert id="orderInfoInsert" parameterType="OrderInfoVO">
-		insert into orderinfo
-		values(#{orderNum},#{id},#{productNum},#{productName},#{price},#{amount},sysdate,#{point},#{fileName},0)
-
-	</insert>
-
-	<!-- <select id="orderInfoList" parameterType="MemberVO" resultType="OrderInfoVO"> 
-		select orderinfo.ordernum,filename,productname,price,amount,regdate,point,porder.priceall,porder.charge 
-		from orderinfo inner join porder on(orderinfo.ordernum=porder.ordernum) where 
-		orderinfo.id=#{id} order by regdate desc </select> -->
-
-
-	<select id="orderInfoCount" parameterType="MemberVO"
-		resultType="Long">
-		select count(ordernum) from orderinfo where id=#{id} and
-		ordercheck=#{ordercheck}
-
-	</select>
-
-	<select id="orderInfoList" resultType="OrderInfoVO"
-		parameterType="MemberVO">
-		select * from
+		insert into porder(ordernum,priceAll,id,pdate,charge) values(porder_seq.nextval,#{priceAll},#{id},sysdate,#{charge})
+	
+	</insert>  
+  
+  	<select id="orderSelectOne" parameterType="MemberVO" resultType="OrderVO">
+  		select * from 
+	    (select * from porder where id=#{id} order by pdate desc)
+	    where rownum=1
+  	
+  	</select>
+  
+  
+  	<insert id="orderInfoInsert" parameterType="OrderInfoVO">
+  		insert into orderinfo values(#{orderNum},#{id},#{productNum},#{productName},#{price},#{amount},sysdate,#{point},#{fileName},0)
+  	
+  	</insert>
+  	
+<!--    	<select id="orderInfoList" parameterType="MemberVO" resultType="OrderInfoVO">
+  		select orderinfo.ordernum,filename,productname,price,amount,regdate,point,porder.priceall,porder.charge
+		from orderinfo
+		inner join porder on(orderinfo.ordernum=porder.ordernum)
+		where orderinfo.id=#{id}
+		order by regdate desc
+  	
+  	</select>  -->
+  	
+  	
+  	<select id="orderInfoCount" parameterType="MemberVO" resultType="Long">
+  		select count(ordernum) from orderinfo where id=#{id} and ordercheck=#{ordercheck}
+  	
+  	</select>
+  	
+  	<select id="orderInfoList" resultType="OrderInfoVO" parameterType="MemberVO">
+  		select * from
 		(select oi.*, rownum R from
-		(select
-		orderinfo.ordernum,productNum,filename,productname,price,amount,regdate,point,porder.priceall,porder.charge
+		(select orderinfo.ordernum,productNum,filename,productname,price,amount,regdate,point,porder.priceall,porder.charge
 		from orderinfo
 		inner join porder on(orderinfo.ordernum=porder.ordernum)
 		where orderinfo.id=#{id} and ordercheck=#{ordercheck}
-		order by regdate
-		desc) oi)
+		order by regdate desc) oi)
 		where R between #{startRow} and
 		#{lastRow}
-
-	</select>
-
-	<!-- for review interceptor SQL -->
-
-	<select id="orderSelect" parameterType="String"
-		resultType="OrderInfoVO">
-		select * from orderinfo where id = #{id}
-	</select>
-
-</mapper>
+  	
+  	</select>
+  	
+  	<select id="aorderList" resultType="OrderInfoVO" parameterType="MemberVO">
+  		select * from OrderInfo ORDER by regdate desc
+  	</select>
+  	
+  	<update id="adminUpdate" parameterType="OrderInfoVO">
+  		update orderinfo SET ordercheck = '1' where ordernum=#{orderNum}
+  	</update>
+  	
+  	
+  	
+  
+  </mapper>

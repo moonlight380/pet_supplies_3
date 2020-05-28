@@ -43,6 +43,7 @@
 
 #right1 >input[type=checkbox]
 {
+	cursor: pointer;
 	margin-right:10px;
 	margin-top:15px;
   /* Double-sized Checkboxes */
@@ -58,31 +59,6 @@
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
 <body id="reset">
 
-<!--    <br>
-    <b><font size="5" color="gray">부모창</font></b>
-    <br><br>
-       배송지명: <input type="text" id="addressName" name="addressName"/> <br/>
-       성명: <input type="text" id="name" name="name"/> <br/>
-       주소: <input type="text" id="adressInput" name="adressInput"/> <br/>
-       일반전화: <input type="tel" id="homePhone" name="homePhone"/> <br/>
-        휴대전화: <input type="tel" id="phone" name="phone"/>
-    <input type="button" value="자식창 열기" onclick="openAddress()"><br>
-
-팝업창  띄우기
-<script type="text/javascript">
-	var openWin;
-$("#address_management").click(function(){
-	var popUrl = "./address";	//팝업창에 출력될 페이지 URL
-
-	var popOption ="width=800,height=900,scrollbars=no,location=no,toolbars=no,status=no"  
-	//크롬에서는 속성값이 먹지 않음
-	openWin=window.open(popUrl ,"address_management",popOption);
-		
-});
-	
-</script> -->
-
-<!--주소록팝업창띄우기끝 =============================================================================================== -->
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
 </div>

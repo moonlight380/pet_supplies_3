@@ -290,7 +290,7 @@
 			var productNum = "${vo.productNum}";
 			var cAmount = 1*$("#quantityNum_amount").text();
 			//alert("수량:"+cAmount);
-			if(confirm("카카오페이로 주문 하시겠습니까?")){
+			if(confirm("바로결제로 주문 하시겠습니까?")){
 			$.ajax({
 					type:"post",
 					url:"../cart/cartInsert",

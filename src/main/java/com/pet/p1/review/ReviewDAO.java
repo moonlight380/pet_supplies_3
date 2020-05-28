@@ -75,4 +75,8 @@ public class ReviewDAO implements BoardDAO {
 	public List<Long> rNum() throws Exception {
 		return sqlSession.selectList(NAMESPACE + "rNum");
 	}
+
+	public List<BoardVO> reviewNull(long productNum) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "reviewNull", productNum);
+	}
 }

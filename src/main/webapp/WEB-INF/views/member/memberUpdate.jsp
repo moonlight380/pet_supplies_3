@@ -139,7 +139,7 @@
 	<button type="button" id="cancel" class="btn btn-primary" onclick="goback()">취소</button>
 </div>
 <div style="float: right; margin-top: 10px;">
-	<button type="button" onclick="removeCheck()" class="btn btn-danger btn-sm">회원탈퇴</button>
+	<button type="button" id="delete" class="btn btn-danger btn-sm">회원탈퇴</button>
 </div>
 
 	
@@ -162,21 +162,9 @@
 document.getElementById('button').style.backgroundColor = '#FF324D';
 document.getElementById('button').style.color = 'white';
 
-function removeCheck() {
-
-	 if (confirm("정말 탈퇴하시겠습니까??") == true){    //확인
-
-		 location.href="./memberDelete";
-
-	 }else{   //취소
-
-	     return false;
-
-	 }
-
-}
-
-
+$("#delete").click(function() {
+	location.href="./memberDelete";
+});
 
 function goback() {
 	history.back();

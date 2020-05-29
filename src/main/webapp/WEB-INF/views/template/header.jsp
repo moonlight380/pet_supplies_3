@@ -42,7 +42,7 @@
 
 		<div>
 			<a id="chatBotBtn" href="#"
-				onclick="window.open('${pageContext.request.contextPath}/echo/chatWindow','window_name','width=510,height=890,location=no,status=no,scrollbars=yes');"
+				onclick="window.open('${pageContext.request.contextPath}/echo/chat','window_name','width=510,height=890,location=no,status=no,scrollbars=yes');"
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
 				src="${pageContext.request.contextPath}/resources/images/chatbot_10.gif"

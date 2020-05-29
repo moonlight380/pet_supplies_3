@@ -607,7 +607,6 @@ $(".comments").on("click",".rest_btn_close",function(){
 </div>
 <!-- END MAIN CONTENT -->
 
-
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>
 <!-- END FOOTER -->

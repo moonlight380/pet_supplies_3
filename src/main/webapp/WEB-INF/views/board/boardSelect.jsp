@@ -38,7 +38,7 @@
 			<div class="row">
 				<div class="container">
 					<div class="single_post">
-						<h2 class="blog_title">${vo.title}</h2>
+						<h2 class="blog_title" style="font-family: 'Do Hyeon', sans-serif;">${vo.title}</h2>
 						<ul class="list_none blog_meta">
 							<li><a><i class="ti-calendar"></i>등록일 : ${vo.regDate} </a></li>
 							<li><a
@@ -48,9 +48,9 @@
 						<div class="blog_content">
 							<div class="blog_text">
 
-								<blockquote class="blockquote_style3">
+								<blockquote class="blockquote_style3" style="color: black">
 									<div
-										style="width: 100%; overflow: hidden; word-wrap: break-word;">${vo.contents}</div>
+										style="width: 100%; overflow: hidden; word-wrap: break-word; color: black;">${vo.contents}</div>
 									<c:forEach items="${vo.boardFileVOs}" var="boardfile">
 										<div>
 											<img alt=""

@@ -7,6 +7,7 @@
 <head>
 <!-- Meta -->
 <meta charset="utf-8">
+<title>OH!DALI PRODUCT SELECT</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="Anil z" name="author">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -612,9 +613,6 @@ $(".comments").on("click",".rest_btn_close",function(){
 <!-- END MAIN CONTENT -->
 
 
-
-
-<c:import url="../cart/addCart.jsp"></c:import>
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>
 <!-- END FOOTER -->

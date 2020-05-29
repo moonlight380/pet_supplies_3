@@ -315,11 +315,11 @@ function sample6_execDaumPostcode() {
              } 
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
- 			$("#postcode1").val(data.zonecode);
+ 			$("#raddress").val(data.zonecode);
 
-			$("#addr1").val(data.address);
+			$("#raddr1").val(data.address);
 			
-			$("#addr2").focus();
+			$("#raddr2").focus();
 
 			console.log(data);
         }

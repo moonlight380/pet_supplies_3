@@ -16,7 +16,7 @@
 	margin-top: 30px;
 }
 .bg_gray{
-	margin-top:100px;
+	margin-top:0px;
 	width: auto;
 	height: 0px;
 }

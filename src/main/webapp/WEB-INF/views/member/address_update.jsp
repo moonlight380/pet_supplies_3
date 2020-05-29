@@ -245,7 +245,7 @@ input ,.addr_interval{
 			-<input id="rphone1" name="rphone1" maxlength="4" size="4" type="text" value="${vo.rphone1}">
 			-<input id="rphone2" name="rphone2" maxlength="4" size="4" type="text" value="${vo.rphone2}">	
 	<span id="mobile"></span>
-	<input id="phoneAll" type="text" name="phone"></td>
+	<input id="phoneAll" type="hidden" name="phone"></td>
 </tr>
 </tbody>
 			

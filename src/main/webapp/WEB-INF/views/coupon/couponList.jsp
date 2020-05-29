@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Coupon Page</title>
+<title>쿠폰페이지</title>
 </head>
 <body>
 

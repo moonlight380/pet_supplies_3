@@ -843,6 +843,13 @@ $("#input_point").blur(function(){
 				break;
 			}
 		}
+	 	
+	 	console.log(nameCheck);
+	 	console.log(addrCheck);
+	 	console.log(phoneCheck);
+	 	console.log(msgCheck);
+	 	console.log(c);
+	 	
 			if(!(nameCheck && addrCheck && phoneCheck && msgCheck && c)){
 				alert("배송정보는 필수 입력입니다");
 			}else if(!agree){

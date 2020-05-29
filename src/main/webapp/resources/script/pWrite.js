@@ -100,7 +100,7 @@ $("#contents").summernote({
 //----------------------------------------------------------------------------//	
 	var pointCheck= true;
  	$("#point").blur(function() {
-	
+ 		pointCheck= true;
 	 	var point = $(this).val(); 
 
 	 	if((point/1<1)||point==""){
@@ -150,8 +150,10 @@ $("#contents").summernote({
 //----------------------------------------------------------------------------// 
 
  	
- 	$("#btn").click(function() {
+ 	$("#btn111").click(function() {
  		//productName, contents 데이터 유무 검증
+ 		console.log("point");
+ 		console.log(pointCheck);
  		var productName = $("#productName").val();
  		var contents = $("#contents").summernote('code');
  		

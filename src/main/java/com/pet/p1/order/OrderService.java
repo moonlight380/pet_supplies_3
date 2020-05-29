@@ -40,9 +40,6 @@ public class OrderService {
 		}
 		
 		public List<OrderInfoVO> aorderList(MemberVO memberVO)throws Exception{
-			memberVO.makeRow();
-			long totalCount = orderDAO.aorderInfoCount();
-			memberVO.makePage(totalCount);
 			return orderDAO.aorderList(memberVO);
 		}
 		

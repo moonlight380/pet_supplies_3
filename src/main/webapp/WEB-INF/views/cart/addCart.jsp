@@ -61,7 +61,18 @@
 			var check=0;
 			
 
-	
+			if(confirm("장바구니에 추가하시겠습니까?")){
+			$.ajax({
+					type:"post",
+					url:"${pageContext.request.contextPath}/cart/cartInsert",
+					data:{
+						cAmount : cAmount,
+						productNum:productNum,
+						id:id
+					},success : function(data){
+						$.get("${pageContext.request.contextPath}/member/memberCartHeader",function(data){
+							$("#header").html(data.trim());
+						});
 
 			<%
 				if(session.getAttribute("ids")!=null){
@@ -85,7 +96,7 @@
 				if(confirm("장바구니에 동일한 상품이 있습니다.\n장바구니에 추가하시겠습니까?")){
 					$.ajax({
 						type:"post",
-						url:"${pageContext.request.contextPath}/cart/overUpdate",
+						url:"../cart/overUpdate",
 						data:{
 							id:id,
 							productNum:productNum
@@ -107,17 +118,17 @@
 				if(confirm("장바구니에 추가하시겠습니까?")){
 				$.ajax({
 						type:"post",
-						url:"${pageContext.request.contextPath}/cart/cartInsert",
+						url:"../cart/cartInsert",
 						data:{
 							cAmount : cAmount,
 							productNum:productNum,
 							id:id
 						},success : function(data){
-							$.get("${pageContext.request.contextPath}/member/memberCartHeader",function(data){
+							$.get("../member/memberCartHeader",function(data){
 								$("#header").html(data.trim());
 								console.log("asdasd");
 							});
-							$.get("${pageContext.request.contextPath}/member/memberCartRefresh");
+							$.get("../member/memberCartRefresh");
 							console.log("check");
 							
 						} 

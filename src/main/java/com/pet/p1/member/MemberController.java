@@ -118,7 +118,6 @@ public class MemberController {
 		
 		mv.addObject("aorderList", ar2);
 		mv.addObject("orderList",ar);
-		mv.addObject("pager2",memberVO);
 		mv.addObject("pager",memberVO);
 		mv.setViewName("member/memberOrderInfo");
 		return mv;

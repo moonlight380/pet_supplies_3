@@ -233,10 +233,10 @@ public String getBoard()throws Exception{
 		public ModelAndView dogDelete(long productNum,DogVO dogVO,ModelAndView mv) throws Exception {
 			int result=dogService.dogDelete(productNum);
 			if(result>0) {
-			mv.addObject("result","dog product Delete Success");
+			mv.addObject("result","삭제 성공");
 	
 			}else {
-			mv.addObject("result","dog product Delete Fail");
+			mv.addObject("result","삭제 실패");
 			}
 			mv.addObject("path","./dogList");
 			mv.setViewName("common/result");

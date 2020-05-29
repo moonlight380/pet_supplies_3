@@ -68,7 +68,7 @@
 	</script>
 
 
-	<input type="text" id="name" value="client" readonly="readonly"
+	<input type="text" id="name" value="${member.id}" readonly="readonly"
 		required />
 	<input type="text" id="messagePub" placeholder="문의내용을 입력해주세요" required />
 	<input type="submit" id="sendPub" value="enter" />

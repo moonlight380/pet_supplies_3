@@ -41,6 +41,7 @@
 									style="font-family: 'Do Hyeon', sans-serif; font-size: 35px;">페이지를
 									찾지 못하였습니다.</h5>
 								<p>해당 페이지가 삭제 또는 수정되었는지 다시 한번 확인해 주세요!</p>
+								<p>또는 해당 페이지에 권한이 없을 수도 있습니다!</p>
 								<div class="search_form pb-3 pb-md-4">
 
 									<!-- 									<form method="post">

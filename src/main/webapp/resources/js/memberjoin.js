@@ -8,19 +8,16 @@
 	var idCheck = true;
 	$("#id").blur(function() {
 		var id = $("#id").val();
-		
-		
+	
 		for (var i = 0; i < id.length; i++) {
             ch = id.charAt(i)
-            if (!(ch >= '0' && ch <= '9') && !(ch >= 'a' && ch <= 'z')&&!(ch >= 'A' && ch <= 'Z')) {
-            	$("#idt").html(" 아이디는 영문 대소문자와 숫자로만 입력해주세요");
+            if (!/^[A-Za-z0-9_\-]{4,12}$/.test(id)) {
+            	$("#idt").html(" 4~12사이의 영문 대소문자와 숫자로만 입력해주세요");
             	$("#idt").css({'color':'red','font-weight':'bold', 'font-size':'small'});
-            	idCheck = false;
-            }else if(id.length<4 || id.length>12){
-            	$("#idt").html(" 아이디는 4~12자 사이로 입력해주세요");
             	idCheck = false;
             }else if(id.indexOf(" ")>=0){
             	$("#idt").html(" 아이디에는 공백을 사용할 수 없습니다");
+            	$("#idt").css({'color':'red','font-weight':'bold', 'font-size':'small'});
             	idCheck = false;
             }else{
             	$.ajax({

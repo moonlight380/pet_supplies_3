@@ -178,7 +178,8 @@
 </body>
 
 <script type="text/javascript">
-
+	
+	
 
 
 
@@ -207,8 +208,6 @@
 		}
 		return a;
 	}, []);
-	console.log("a : " + list);
-	console.log("aasdb : " + list.length);
 
 	for (var i = 0; i < list.length; i++) {
 		var id = list[i];

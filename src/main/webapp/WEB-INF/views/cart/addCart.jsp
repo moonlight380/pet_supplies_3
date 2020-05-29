@@ -85,7 +85,7 @@
 				if(confirm("장바구니에 동일한 상품이 있습니다.\n장바구니에 추가하시겠습니까?")){
 					$.ajax({
 						type:"post",
-						url:"../cart/overUpdate",
+						url:"${pageContext.request.contextPath}/cart/overUpdate",
 						data:{
 							id:id,
 							productNum:productNum
@@ -107,17 +107,17 @@
 				if(confirm("장바구니에 추가하시겠습니까?")){
 				$.ajax({
 						type:"post",
-						url:"../cart/cartInsert",
+						url:"${pageContext.request.contextPath}/cart/cartInsert",
 						data:{
 							cAmount : cAmount,
 							productNum:productNum,
 							id:id
 						},success : function(data){
-							$.get("../member/memberCartHeader",function(data){
+							$.get("${pageContext.request.contextPath}/member/memberCartHeader",function(data){
 								$("#header").html(data.trim());
 								console.log("asdasd");
 							});
-							$.get("../member/memberCartRefresh");
+							$.get("${pageContext.request.contextPath}/member/memberCartRefresh");
 							console.log("check");
 							
 						} 

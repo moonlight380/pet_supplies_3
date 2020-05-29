@@ -66,9 +66,17 @@
 			path = path.split('.jsp').join('');
 			console.log(path);
 			var a = path.split('/');
-			console.log(a);
 			
-			$.ajax({
+			a = a[a.length-1];
+			var b = a;
+			a = a.replace('p','dog');
+			path = path.replace(b,a);
+			
+			console.log("--------------------")
+			console.log(path);
+			
+			
+			/* $.ajax({
 				type:"get",
 				url:path,
 				dataType:"text",
@@ -77,9 +85,11 @@
 							+ request.responseText + " error = " + error);
 				},
 				success:function(data){
+					$("html").html(data.trim());
+					
 					console.log(data);
 				}
-			});
+			}); */
 			
 
 	

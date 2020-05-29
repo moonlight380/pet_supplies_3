@@ -25,9 +25,8 @@ public class MemberIntercepter extends HandlerInterceptorAdapter{
 		if(object != null) {
 			check = true;
 		}else {
-			
 			request.setAttribute("result", "로그인 후 이용하실 수 있습니다");
-			request.setAttribute("path", "../member/memberLogin");
+			request.setAttribute("path","../member/memberLogin");
 			
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
 			view.forward(request, response);

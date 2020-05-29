@@ -53,6 +53,8 @@ public class MemberController {
 	  @PostMapping("pointUpdate")
 	  @ResponseBody 
 	  public void pointUpdate(MemberVO memberVO,HttpSession session)throws Exception{
+		  
+		  System.out.println("p update check");
 		  session.setAttribute("pointUpdate", memberVO);
 	  
 	  }
@@ -565,14 +567,30 @@ public class MemberController {
 	//-- 결제 성공시
 	@GetMapping("kakaopaySuccess")
 	public ModelAndView kakaopaySuccess(HttpSession session)throws Exception{
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		if(session.getAttribute("pointUpdate")!=null) {
+			MemberVO pointUpdate = (MemberVO)session.getAttribute("pointUpdate");
+			
+			memberService.pointUpdate(pointUpdate);
+			Long point = pointUpdate.getPoint();
+			point = point+memberVO.getPoint();
+			memberVO.setPoint(point);
+			System.out.println("not null");
+		} else {
+			System.out.println("null");
+		}
+		
 		ModelAndView mv = new ModelAndView();
 		OrderVO orderVO = new OrderVO();
 		orderVO = orderService.orderSelectOne(memberVO);
 		mv.addObject("order", orderVO);
 		mv.setViewName("member/kakaopaySuccess");
+		session.setAttribute("member", memberVO);
+		session.setAttribute("pointUpdate",null);
 		return mv;
 		
+	
 	}
 
 	//-- 결제 실패시
@@ -585,11 +603,26 @@ public class MemberController {
 	@GetMapping("accountPaySuccess")
 	public ModelAndView accountPaySuccess(HttpSession session)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		if(session.getAttribute("pointUpdate")!=null) {
+			MemberVO pointUpdate = (MemberVO)session.getAttribute("pointUpdate");
+			
+			memberService.pointUpdate(pointUpdate);
+			Long point = pointUpdate.getPoint();
+			point = point+memberVO.getPoint();
+			memberVO.setPoint(point);
+			System.out.println("not null");
+		} else {
+			System.out.println("null");
+		}
+		
 		ModelAndView mv = new ModelAndView();
 		OrderVO orderVO = new OrderVO();
 		orderVO = orderService.orderSelectOne(memberVO);
 		mv.addObject("order", orderVO);
 		mv.setViewName("member/accountPaySuccess");
+		session.setAttribute("member", memberVO);
+		session.setAttribute("pointUpdate",null);
 		return mv;
 	}
 	

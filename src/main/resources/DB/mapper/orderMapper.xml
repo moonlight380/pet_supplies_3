@@ -40,6 +40,10 @@
   	
   	</select>
   	
+  	<select id="aorderInfoCount" resultType="Long">
+  		select count(ordernum) from orderinfo
+  	</select>
+  	
   	<select id="orderInfoList" resultType="OrderInfoVO" parameterType="MemberVO">
   		select * from
 		(select oi.*, rownum R from

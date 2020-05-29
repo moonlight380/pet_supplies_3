@@ -10,4 +10,9 @@
   	select * from coupon where num in(select num from couponinfo where id = #{id})
   </select>
   
+   <insert id="coupon" parameterType="MemberVO">
+  	insert into couponInfo VALUES(1,'회원가입 5000원 할인쿠폰',#{id})
+  </insert>
+  
+  
   </mapper>

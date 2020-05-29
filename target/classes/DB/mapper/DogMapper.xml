@@ -208,7 +208,7 @@
  	delete product where productNum in
  <foreach collection="list" item="productNum" open="(" close=")" separator=",">
  		#{productNum}
- </foreach>
+ </foreach> 
   </delete>
   
 </mapper>

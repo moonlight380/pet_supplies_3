@@ -166,17 +166,7 @@
 document.getElementById('button').style.backgroundColor = '#FF324D';
 document.getElementById('button').style.color = 'white';
 
-<<<<<<< HEAD
-function mdelete() {
-	
-	if(confirm("회원정보을 탈최하시겠습니까 ?") == true){
-		location.href="./memberDelete";
-    }
-    else{
-        return ;
-    }
-}
-=======
+
 function removeCheck() {
 
 	 if (confirm("정말 탈퇴하시겠습니까??") == true){    //확인
@@ -189,10 +179,10 @@ function removeCheck() {
 
 	 }
 
-}
+ });
 
 
->>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
+
 
 function goback() {
 	history.back();

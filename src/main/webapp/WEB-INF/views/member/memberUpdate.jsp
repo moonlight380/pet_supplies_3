@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>memberUpdate</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
@@ -139,7 +139,7 @@
 	<button type="button" id="cancel" class="btn btn-primary" onclick="goback()">취소</button>
 </div>
 <div style="float: right; margin-top: 10px;">
-	<button type="button" onclick="removeCheck()" class="btn btn-danger btn-sm">회원탈퇴</button>
+	<button type="button" id="delete" class="btn btn-danger btn-sm">회원탈퇴</button>
 </div>
 
 	
@@ -162,21 +162,9 @@
 document.getElementById('button').style.backgroundColor = '#FF324D';
 document.getElementById('button').style.color = 'white';
 
-function removeCheck() {
-
-	 if (confirm("정말 탈퇴하시겠습니까??") == true){    //확인
-
-		 location.href="./memberDelete";
-
-	 }else{   //취소
-
-	     return false;
-
-	 }
-
-}
-
-
+$("#delete").click(function() {
+	location.href="./memberDelete";
+});
 
 function goback() {
 	history.back();
@@ -288,7 +276,7 @@ var birthCheck = true;
       alert("년도를 확인하세요. "+adultYear+"년생 이전 출생자만 등록 가능합니다.");
       birthCheck = false;
       
- }else if (month <1 || month > 12) { 
+ }else if (month < 1 || month > 12) { 
       alert("달은 1월부터 12월까지 입력 가능합니다.");
       birthCheck = false;
       

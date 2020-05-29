@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>address_list</title>
 <c:import url="../template/boot.jsp"></c:import> <!-- jsp -->
 
 <link href="../resources/css/address.css" rel="styleSheet" /> <!--style 불러올때-->

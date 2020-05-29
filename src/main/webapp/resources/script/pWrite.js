@@ -124,7 +124,7 @@ $("#contents").summernote({
 	
 	 	var sale= $(this).val(); 
 	 	console.log(sale);
-	 	if((sale/1>0)||sale==""){
+	 	if((sale/1<0)||sale==""){
 	 		$("#saleContents").html("세일%은 0이상의 숫자만 넣어주세요.");
 	    	$("#saleContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
 	    	saleCheck= false;

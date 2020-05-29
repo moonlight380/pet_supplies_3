@@ -35,12 +35,8 @@ function timeout() {
 			data : {
 				ids : ids
 			},success:function(){
-				console.log("성공");
-				location.reload();
-			},
-			error : function() {
-			alert("code = " + request.status + " message = "
-			+ request.responseText + " error = " + error);
+				alert("성공");
+				/*location.reload();*/
 			}
 		});
 

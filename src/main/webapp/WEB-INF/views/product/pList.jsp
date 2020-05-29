@@ -6,8 +6,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>OH!DALI ALLLIST</title>
 <!-- Meta -->
-<meta charset="utf-8">
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="Anil z" name="author">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -156,7 +157,7 @@
                 <div class="row shop_container grid_container loadmore" data-item="8" data-item-show="4" data-finish-message="No More Item to Show" data-btn="Load More">
                     
                     <c:forEach items="${list}" var="vo" varStatus="status" begin="0" end="300"> 
-                    <c:if test="${vo.sale le 0}">
+                   <%--  <c:if test="${vo.sale le 0}"> --%>
                    
                     <div class="col-lg-3 col-md-4 col-6 grid_item" id="${vo.productNum}">
                         
@@ -208,7 +209,7 @@
                             </div><!-- product_info" -->
                         </div> <!-- product -->
                     </div> <!-- "col-lg-3 col-md-4 col-6 grid_item" -->
-         			</c:if>
+         			<%-- </c:if> --%>
                   </c:forEach>  
                 </div><!-- "row shop_container grid_container loadmore" -->
                 

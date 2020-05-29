@@ -7,7 +7,7 @@ function timeout() {
 	 var m = Math.floor((ms -(h*1000*60*60)) / (1000*60));
 	 var s = Math.floor((ms - (h*1000*60*60) -(m*1000*60)) / 1000);
 
-/*    var h = 0;
+/*	var h = 0;
 	var m = 0;
 	var s = 0;*/
 	 
@@ -34,7 +34,8 @@ function timeout() {
 			url : "./timeSaleUpdate",
 			data : {
 				ids : ids
-			},success:function(){alert('성공')
+			},success:function(){
+				console.log("성공");
 				location.reload();
 			},
 			error : function() {

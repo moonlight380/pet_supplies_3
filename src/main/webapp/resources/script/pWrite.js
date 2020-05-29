@@ -102,7 +102,7 @@ $("#contents").summernote({
  	$("#point").blur(function() {
  		pointCheck= true;
 	 	var point = $(this).val(); 
-
+	 	
 	 	if((point/1<1)||point==""){
 	 		$("#pointContents").html("포인트는 1이상의 숫자만 가능합니다.");
 	    	$("#pointContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
@@ -121,7 +121,7 @@ $("#contents").summernote({
 //----------------------------------------------------------------------------//	
 	var saleCheck= true;
  	$("#sale").blur(function() {
-	
+ 		saleCheck= true;
 	 	var sale= $(this).val(); 
 	 	console.log(sale);
 	 	

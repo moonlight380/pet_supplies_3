@@ -207,15 +207,14 @@
 	               			num = $("#quantityNum").val();
 	               			num=num*1;
 	               			
-	               			num--;
+	               			//num--;
 	               			//alert("minus :"+num);
 	               			$("#quantityNum").val(num);
 	               			
 	               			
 	               			/* alert("#quantityNum_amount".text()); */
 	               			$("#quantityNum_amount").text(num); 
-	               			
-		               			
+	
 		               			$("#sum_price1").text(num*perPrice1);
 		               			if('${vo.price}'>0){
 		          
@@ -223,9 +222,6 @@
 	               				}
 	               			}
 	               		});/*minus*/
-	               		
-	               		
-	               		
 						/*plus*/
 						
 	               		$(".plus").click(function(){
@@ -238,7 +234,6 @@
 
 	               			$("#quantityNum_amount").text(num); 
 
-	               			
 		               			$("#sum_price1").text(num*perPrice1);
 		               		if('${vo.price}'>0){
 		               			$("#sum_price2").text(num*perPrice2);

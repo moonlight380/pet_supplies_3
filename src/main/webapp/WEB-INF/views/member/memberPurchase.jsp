@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>memberPurchase</title>
+<title>Insert title here</title>
 
 <style type="text/css">
 	.table_body td{
@@ -178,8 +178,7 @@
 </body>
 
 <script type="text/javascript">
-	
-	
+
 
 
 
@@ -208,6 +207,8 @@
 		}
 		return a;
 	}, []);
+	console.log("a : " + list);
+	console.log("aasdb : " + list.length);
 
 	for (var i = 0; i < list.length; i++) {
 		var id = list[i];

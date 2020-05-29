@@ -3,9 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
 
 <c:import url="./template/boot.jsp"></c:import>
@@ -74,6 +72,10 @@ body, code {
 <div id="header">
 <c:import url="./template/header.jsp"></c:import>
 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
 
 <body style="font-family: 'Do Hyeon', sans-serif; font-size: 17px;">
 

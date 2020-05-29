@@ -614,7 +614,7 @@ $(".comments").on("click",".rest_btn_close",function(){
 
 
 
-<c:import url="../cart/addCart.jsp"></c:import>
+
 <!-- START FOOTER -->
 <c:import url="../template/footer.jsp"></c:import>
 <!-- END FOOTER -->

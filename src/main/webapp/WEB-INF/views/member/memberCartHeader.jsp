@@ -42,11 +42,7 @@
 
 		<div>
 			<a id="chatBotBtn" href="#"
-<<<<<<< HEAD
 				onclick="window.open('${pageContext.request.contextPath}/echo/chat','window_name','width=510,height=890,location=no,status=no,scrollbars=yes');"
-=======
-				onclick="window.open('${pageContext.request.contextPath}/echo/chatWindow','window_name','width=510,height=890,location=no,status=no,scrollbars=yes');"
->>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
 				style="display: block; width: 229px; height: 115px; text-align: right;">
 				<img
 				src="${pageContext.request.contextPath}/resources/images/chatbot_10.gif"
@@ -113,11 +109,7 @@
 					id="navbarSupportedContent">
 					<ul class="navbar-nav">
 						<li class="dropdown"><a class="dropdown-toggle nav-link" style="font-family: 'Do Hyeon', sans-serif; font-size: 25px;"
-<<<<<<< HEAD
-							href="#" data-toggle="dropdown">커뮤니티</a>
-=======
 							href="#" data-toggle="dropdown">게시판</a>
->>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"

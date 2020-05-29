@@ -178,14 +178,7 @@
 </body>
 
 <script type="text/javascript">
-	var path = '${pageContext.request.requestURI}';
-	var p = '${pageContext.request.contextPath}';
-	path = path.split('/WEB-INF/views').join('');
-	path = path.split('.jsp').join('');
-	console.log(path);
-	$.get("./memberSide",function(data){
-		console.log(data.trim());
-	});
+	
 	
 
 

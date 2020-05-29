@@ -60,6 +60,27 @@
 			var list=[];
 			var check=0;
 			
+			var path = '${pageContext.request.requestURI}';
+			var p = '${pageContext.request.contextPath}';
+			path = path.split('/WEB-INF/views').join('');
+			path = path.split('.jsp').join('');
+			console.log(path);
+			var a = path.split('/');
+			console.log(a);
+			
+			$.ajax({
+				type:"get",
+				url:path,
+				dataType:"text",
+				error : function(request, status, error) {
+					alert("code = " + request.status + " message = "
+							+ request.responseText + " error = " + error);
+				},
+				success:function(data){
+					console.log(data);
+				}
+			});
+			
 
 	
 
@@ -113,6 +134,7 @@
 								$("#header").html(data.trim());
 							});
 							$.get("${pageContext.request.contextPath}/member/memberCartRefresh");
+							
 							
 						} 
 					});  

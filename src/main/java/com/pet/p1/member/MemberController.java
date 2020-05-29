@@ -270,6 +270,7 @@ public class MemberController {
 			  if(result2>0) { 
 				  System.out.println("성공");
 			  }
+			  
 			  mv.setViewName("member/memberJoinSuccess");
 			  
 			}else {

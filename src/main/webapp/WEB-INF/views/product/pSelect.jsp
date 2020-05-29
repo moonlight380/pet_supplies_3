@@ -135,7 +135,7 @@
 					<dt>상품 가격</dt>
 						 <c:if test="${vo.sale gt 0}">
 				            <del ><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber>원</del>
-				              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/100)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+				              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(1-(vo.sale/100))}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
 				          </c:if>
 				         <c:if test="${vo.sale eq 0}">   
 				              <span class="oriprice"><fmt:formatNumber value="${vo.price*1}" type="number"></fmt:formatNumber>원</span>
@@ -383,7 +383,7 @@
                     
                 	<div class="tab-content shop_info_tab">
                       	<div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
-                        	
+                        	<div style="word-break:break-all">${vo.contents}</div>
 						  	<!-- 이미지가 여러개 이므로 반복문 -->		
 							 <c:forEach items="${vo.productFileVOs}" var="file">
 									 <div>

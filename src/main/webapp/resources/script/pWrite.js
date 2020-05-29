@@ -80,7 +80,7 @@ $("#contents").summernote({
  	$("#price").blur(function() {
 	
 	 	var price = $(this).val(); 
-	    
+	 	console.log("#price".isEmpty);
 	 	if((price/1<1)||price==" "||price.length <= 1){
 	 		$("#priceContents").html("가격은 1이상의 숫자만 가능합니다.");
 	    	$("#priceContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
@@ -124,6 +124,7 @@ $("#contents").summernote({
 	
 	 	var sale= $(this).val(); 
 	 	console.log(sale);
+	 	
 	 	if((sale/1<0)||sale==""){
 	 		$("#saleContents").html("세일%은 0이상의 숫자만 넣어주세요.");
 	    	$("#saleContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
@@ -159,7 +160,9 @@ $("#contents").summernote({
  		
  		var p1 = productName !="";
  		var p2 = $("#contents").summernote('isEmpty');
- 		
+ 		if("#price".isEmpty){
+ 			
+ 		}
  		if(p1 && p3&& priceCheck&&pointCheck&&saleCheck){
  			//form 전송(submit event 강제 발생)
 // 			<!-- contents Server null이 될때-->

@@ -173,7 +173,7 @@
 								
 								
                                 <div class="product_price">
-		                              <span class="price sale_display_none"><fmt:formatNumber value="${vo.price*(vo.sale*0.01)}" type="number"></fmt:formatNumber></span>
+		                              <span class="price sale_display_none"><fmt:formatNumber value="${vo.price*(1-(vo.sale/100))}" type="number"></fmt:formatNumber></span>
                   
                                     <div class="on_sale">
                                    		<del  class="sale_display_none"><fmt:formatNumber value="${vo.price*1}" type="number" ></fmt:formatNumber></del> 

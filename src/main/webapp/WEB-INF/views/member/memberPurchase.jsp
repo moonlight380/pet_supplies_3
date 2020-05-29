@@ -178,7 +178,15 @@
 </body>
 
 <script type="text/javascript">
-
+	var path = '${pageContext.request.requestURI}';
+	var p = '${pageContext.request.contextPath}';
+	path = path.split('/WEB-INF/views').join('');
+	path = path.split('.jsp').join('');
+	console.log(path);
+	$.get("./memberSide",function(data){
+		console.log(data.trim());
+	});
+	
 
 
 
@@ -207,8 +215,6 @@
 		}
 		return a;
 	}, []);
-	console.log("a : " + list);
-	console.log("aasdb : " + list.length);
 
 	for (var i = 0; i < list.length; i++) {
 		var id = list[i];

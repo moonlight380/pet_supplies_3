@@ -89,10 +89,6 @@
 						data:{
 							id:id,
 							productNum:productNum
-						},error : function(request, status, error) {
-							alert(productNum);
-							console.log("code = " + request.status + " message = "
-									+ request.responseText + " error = " + error);
 						}
 					});
 				} else{
@@ -115,10 +111,8 @@
 						},success : function(data){
 							$.get("${pageContext.request.contextPath}/member/memberCartHeader",function(data){
 								$("#header").html(data.trim());
-								console.log("asdasd");
 							});
 							$.get("${pageContext.request.contextPath}/member/memberCartRefresh");
-							console.log("check");
 							
 						} 
 					});  

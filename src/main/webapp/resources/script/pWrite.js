@@ -103,7 +103,7 @@ $("#contents").summernote({
 	
 	 	var point = $(this).val(); 
 
-	 	if((point/1<1)||point==""||(point==undefined))){
+	 	if((point/1<1)||point==""){
 	 		$("#pointContents").html("포인트는 1이상의 숫자만 가능합니다.");
 	    	$("#pointContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
 	    	pointCheck= false;

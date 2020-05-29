@@ -38,7 +38,8 @@
 			<div class="row">
 				<div class="container">
 					<div class="single_post">
-						<h2 class="blog_title" style="font-family: 'Do Hyeon', sans-serif;">${vo.title}</h2>
+						<h2 class="blog_title"
+							style="font-family: 'Do Hyeon', sans-serif;">${vo.title}</h2>
 						<ul class="list_none blog_meta">
 							<li><a><i class="ti-calendar"></i>등록일 : ${vo.regDate} </a></li>
 							<li><a
@@ -92,15 +93,17 @@
 								</div>
 
 								<c:if test="${board ne 'qna'}">
-									<div style="float: left;">
-										<a href="./${board}Select?num=${maxNum}" class="btn btn-link"
-											id="previous" title="${maxNum}">이전글로</a>
-									</div>
+									<c:if test="${board ne 'review'}">
+										<div style="float: left;">
+											<a href="./${board}Select?num=${maxNum}" class="btn btn-link"
+												id="previous" title="${maxNum}">이전글로</a>
+										</div>
 
-									<div style="float: right;">
-										<a href="./${board}Select?num=${minNum}" class="btn btn-link"
-											id="next" title="${minNum}">다음글로</a>
-									</div>
+										<div style="float: right;">
+											<a href="./${board}Select?num=${minNum}" class="btn btn-link"
+												id="next" title="${minNum}">다음글로</a>
+										</div>
+									</c:if>
 								</c:if>
 
 							</div>

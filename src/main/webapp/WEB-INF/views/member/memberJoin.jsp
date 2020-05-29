@@ -150,7 +150,7 @@
 		<input type="checkbox"  hidden="hidden"  id="checkAll" class="checkAll2" style="float: left;">
 		<div class="col-sm-1 m-2" style="display: inline;">
 		<label for="checkAll"  style="float: left; margin-top: 18px; display: inline; margin-left: 7px;">
-		<span><i class='far fa-check-circle ac m-2 nocheck checkbox' style='font-size: 24px; color: gray;' id='img'></i>
+		<span><i id="abtn" class='far fa-check-circle ac m-2 nocheck checkbox' style='font-size: 24px; color: gray;' id='img'></i>
 		</span></label>
 		</div>
 		

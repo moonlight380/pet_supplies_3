@@ -69,10 +69,7 @@ body, code {
 <title>OH!DALI</title>
 
 </head>
-<div id="header">
 <c:import url="./template/header.jsp"></c:import>
-</div>
-
 
 <body style="font-family: 'Do Hyeon', sans-serif; font-size: 17px;">
 
@@ -538,7 +535,6 @@ body, code {
 
 		<!-- END MAIN CONTENT -->
 	</div>
-	<div id="quantityNum_amount"hidden="hidden">1</div>
 	<c:import url="./cart/addCart.jsp"></c:import>
 	<c:import url="./template/footer.jsp"></c:import>
 </body>

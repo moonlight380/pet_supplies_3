@@ -109,7 +109,7 @@
 					id="navbarSupportedContent">
 					<ul class="navbar-nav">
 						<li class="dropdown"><a class="dropdown-toggle nav-link" style="font-family: 'Do Hyeon', sans-serif; font-size: 25px;"
-							href="#" data-toggle="dropdown">게시판</a>
+							href="#" data-toggle="dropdown">커뮤니티</a>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a class="dropdown-item nav-link nav_item" style="font-family: 'Do Hyeon', sans-serif; font-size: 20px;"

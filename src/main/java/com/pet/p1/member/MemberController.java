@@ -53,6 +53,9 @@ public class MemberController {
 	  @PostMapping("pointUpdate")
 	  @ResponseBody 
 	  public void pointUpdate(MemberVO memberVO,HttpSession session)throws Exception{
+		  
+		  System.out.println(memberVO.getId());
+		  System.out.println(memberVO.getPoint());
 		  session.setAttribute("pointUpdate", memberVO);
 	  
 	  }
@@ -99,6 +102,7 @@ public class MemberController {
 	@GetMapping("memberOrderInfo")
 	public ModelAndView memberOrderInfo(HttpSession session,ModelAndView mv,HttpServletRequest request)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		MemberVO m2 = new MemberVO();
 		memberVO.setOrderCheck(0);
 		String curPage = request.getParameter("curPage");
 		
@@ -108,16 +112,13 @@ public class MemberController {
 			curPage="1";
 		}
 		Long curPage2 = Long.parseLong(curPage);
-		
 		memberVO.setCurPage(curPage2);
-		
-		
 		List<OrderInfoVO> ar = orderService.orderInfoList(memberVO);
-
-		List<OrderInfoVO> ar2 = orderService.aorderList(memberVO);
+		List<OrderInfoVO> ar2 = orderService.aorderList(m2);
 		
 		mv.addObject("aorderList", ar2);
 		mv.addObject("orderList",ar);
+		mv.addObject("pager2",m2);
 		mv.addObject("pager",memberVO);
 		mv.setViewName("member/memberOrderInfo");
 		return mv;
@@ -566,11 +567,22 @@ public class MemberController {
 	@GetMapping("kakaopaySuccess")
 	public ModelAndView kakaopaySuccess(HttpSession session)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		if(session.getAttribute("pointUpdate")!=null) {
+			MemberVO pointUpdate = (MemberVO)session.getAttribute("pointUpdate");
+			memberService.pointUpdate(pointUpdate);
+			Long point = pointUpdate.getPoint();
+			point = point + memberVO.getPoint();
+			memberVO.setPoint(point);
+		}
+		
 		ModelAndView mv = new ModelAndView();
 		OrderVO orderVO = new OrderVO();
 		orderVO = orderService.orderSelectOne(memberVO);
 		mv.addObject("order", orderVO);
 		mv.setViewName("member/kakaopaySuccess");
+		
+		session.setAttribute("member", memberVO);
+		session.setAttribute("pointUpdate", null);
 		return mv;
 		
 	}
@@ -585,11 +597,25 @@ public class MemberController {
 	@GetMapping("accountPaySuccess")
 	public ModelAndView accountPaySuccess(HttpSession session)throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		if(session.getAttribute("pointUpdate")!=null) {
+			MemberVO pointUpdate = (MemberVO)session.getAttribute("pointUpdate");
+			memberService.pointUpdate(pointUpdate);
+			Long point = pointUpdate.getPoint();
+			point = point + memberVO.getPoint();
+			memberVO.setPoint(point);
+			System.out.println("not null");
+		} else {
+			
+			System.out.println("null");
+		}
+		
 		ModelAndView mv = new ModelAndView();
 		OrderVO orderVO = new OrderVO();
 		orderVO = orderService.orderSelectOne(memberVO);
 		mv.addObject("order", orderVO);
 		mv.setViewName("member/accountPaySuccess");
+		session.setAttribute("member", memberVO);
+		session.setAttribute("pointUpdate", null);
 		return mv;
 	}
 	

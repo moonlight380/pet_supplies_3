@@ -31,19 +31,19 @@ public class OrderService {
 		}
 		
 		public List<OrderInfoVO> orderInfoList(MemberVO memberVO)throws Exception{
-			
-			
 			memberVO.makeRow();
 			long totalCount = orderDAO.orderInfoCount(memberVO);
+			System.out.println(" or 카운트 : " + totalCount);
 			memberVO.makePage(totalCount);
 			return orderDAO.orderInfoList(memberVO);
 		}
 		
-		public List<OrderInfoVO> aorderList(MemberVO memberVO)throws Exception{
-			memberVO.makeRow();
+		public List<OrderInfoVO> aorderList(MemberVO m2)throws Exception{
+			m2.makeRow();
 			long totalCount = orderDAO.aorderInfoCount();
-			memberVO.makePage(totalCount);
-			return orderDAO.aorderList(memberVO);
+			System.out.println("aor 카운트 : " + totalCount);
+			m2.makePage(totalCount);
+			return orderDAO.aorderList(m2);
 		}
 		
 		public int adminUpdate(OrderInfoVO orderInfoVO)throws Exception{

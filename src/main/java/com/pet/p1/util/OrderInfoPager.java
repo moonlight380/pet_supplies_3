@@ -24,8 +24,7 @@ public class OrderInfoPager {
 	public void makeRow() {
 		//curPage로 DB에 일정한 수 조회
 		
-		System.out.println("curpage:"+this.getCurPage());
-		System.out.println(this.getPerPage());
+		
 		this.startRow =((this.getCurPage()-1)*this.getPerPage()+1);
 		this.lastRow=(this.getCurPage()*this.getPerPage());
 	}
@@ -39,6 +38,7 @@ public class OrderInfoPager {
 		this.totalPage= totalCount/this.getPerPage();
 		if(totalCount % this.getPerPage() !=0) {
 			this.totalPage++;
+			System.out.println("total : "+this.totalPage);
 		}
 		
 		//3.totalPage 로 totalBlock 계산
@@ -62,20 +62,6 @@ public class OrderInfoPager {
 			this.lastNum=this.totalPage;
 		}
 		
-
-		
-//		//1.총 글의 개수
-//		long totalCount= noticeDAO.boardCount();
-//		System.out.println("totalcount:"+totalCount);
-//		
-//		//2.총 페이지의 개수
-//		long totalPage= totalCount/10;
-//		if(totalCount%10!=0) {
-//			//totalPage=totalPage+1;
-//			totalPage++;
-//		}
-//		System.out.println("totalpage:"+totalPage);
-//		
 	}
 	
 	

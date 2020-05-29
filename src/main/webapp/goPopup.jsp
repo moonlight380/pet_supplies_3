@@ -5,7 +5,7 @@
 <!--위치는 WEBAPP 밑에 -->
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>popUp</title>
 
 <style type="text/css">
 #popClose_btn{

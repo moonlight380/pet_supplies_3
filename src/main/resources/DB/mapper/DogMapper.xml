@@ -65,7 +65,7 @@
 						productNum
 					</otherwise>
 				</choose> 
-				like '%'||#{search}||'%' and productNum>=1 order by price desc) N )
+				like '%'||#{search}||'%' and productNum>=1 order by productNum desc) N )
 				where R between #{startRow} and #{lastRow}) P  left join productFile F
 				on (P.productNum=F.num) order by F.firstFile asc,price desc
 	</select>    
@@ -117,7 +117,7 @@
 				</choose>
 				like '%'||#{search}||'%' and productNum>=1 order by hit desc) N )
 				where R between #{startRow} and #{lastRow})P  left join productFile F
-				on (P.productNum=F.num) order by F.firstFile asc,hit desc
+				on (P.productNum=F.num) order by F.firstFile asc, hit desc
 	</select>  
   
 <!-- dogTimeSale --> 
@@ -142,7 +142,7 @@
 						</choose> 
 		                like '%'||#{search}||'%' and  productNum>=1 and sale>0 order by sale desc) N) 
 		                    )P left join productFile F 
-		                        on (P.productNum=F.num) order by F.firstFile asc
+		                        on (P.productNum=F.num) order by F.firstFile asc,sale desc
 	
 	</select>
  

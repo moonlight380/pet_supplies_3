@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>memberOrderInfo</title>
+<title>Insert title here</title>
 
 <style type="text/css">
 .table_body td {
@@ -41,108 +41,138 @@
 							style="border-bottom: solid 1px black; font-weight: bold; color: black; margin-top: 150px;">
 							<div style="margin-left: 21px;">주문 조회</div>
 						</div>
-						
-						
-							<c:if test="${member.id eq 'admin' }">
+
+
+						<c:if test="${member.id eq 'admin' }">
+							<c:if test="${empty aorderList}">
+								<div class="row mt-5 mb-5">
+									<div class="col text-center">
+										<i class="linearicons-cart" style="font-size: 50px"></i>
+									</div>
+
+								</div>
+
+
+								<div class="row mb-5">
+									<div class="col text-center"
+										style="font-weight: 2px; color: black;">주문내역이 없습니다.</div>
+								</div>
+
+								<div class="row">
+									<div class="col text-center">
+										<a href="${pageContext.request.contextPath}"
+											class="btn btn-danger" style="font-size: 16px;">쇼핑 홈 가기</a>
+									</div>
+								</div>
+							</c:if>
+
+							<c:if test="${not empty aorderList }">>
 									<div class="row">
-								<table>
-									<colgroup>
-										<col style="width: 130px" />
-										<col style="width: 250px" />
-										<col style="width: 300px" />
-										<col style="width: 150px" />
-										<col style="width: 120px" />
-										<col style="width: 100px" />
-										<col style="width: 130px" />
-										<col style="width: 200px" />
-										
-									</colgroup>
+									<table>
+										<colgroup>
+											<col style="width: 130px" />
+											<col style="width: 250px" />
+											<col style="width: 300px" />
+											<col style="width: 150px" />
+											<col style="width: 120px" />
+											<col style="width: 100px" />
+											<col style="width: 130px" />
+											<col style="width: 200px" />
 
-									<thead>
+										</colgroup>
 
-										<tr class="table_title"
-											style="text-align: center; line-height: 50px;">
-											<th>주문 번호</th>
-											<th>이미지</th>
-											<th>상품정보</th>
-											<th>판매가</th>
-											<th>수량</th>
-											<th>적립금</th>
-											<th>금액</th>
-											<th>결제 확인</th>
-											
+										<thead>
 
-										</tr>
-										<tr style="line-height: 30px;">
-											<th>&nbsp;</th>
-										</tr>
+											<tr class="table_title"
+												style="text-align: center; line-height: 50px;">
+												<th>주문 번호</th>
+												<th>이미지</th>
+												<th>상품정보</th>
+												<th>판매가</th>
+												<th>수량</th>
+												<th>적립금</th>
+												<th>금액</th>
+												<th>결제 확인</th>
 
 
-									</thead>
-
-
-
-
-									<tbody>
-									
-									<c:forEach items="${aorderList}" var="List" varStatus="index">
-											<tr class="table_start table_body" id="id_${index.index}"
-												title="${List.orderNum}" style="text-align: center;">
-												<!-- for문으로 뿌리고 자바스크립트로 테이블 고치기 -->
-												<td class="${List.orderNum}_row" title="${index.index}">${List.orderNum }<br>${List.regDate }
-												<br><c:if test="${List.orderCheck eq '0'}">
-												<button id ="orderbtn" title="${List.orderNum}">결제완료</button>
-												</c:if>
-												</td>
-												<td><a
-													href="${pageContext.request.contextPath}/product/dogSelect?productNum=${List.productNum}"
-													target="_blank"> <img
-														src="${pageContext.request.contextPath}/resources/dogUpload/${List.fileName }"
-														style="width: 100px; height: 100px; margin: 15px 0px 15px 0px;">
-												</a></td>
-												<td><a
-													href="${pageContext.request.contextPath}/product/dogSelect?productNum=${List.productNum}"
-													target="_blank"> ${List.productName } </a></td>
-												<td class="price comma" title="price">${List.price}</td>
-												<td class="comma" title="amount">${List.amount}</td>
-												<td class="comma" title="point"><c:set var="point"
-														value="${List.amount * List.point}" /> <c:out
-														value="${point}" /></td>
-												<td class="${List.orderNum}_row2 comma price" title="price">${List.priceAll }</td>
-												
-												<td>${List.orderCheck}</td>
-												
+											</tr>
+											<tr style="line-height: 30px;">
+												<th>&nbsp;</th>
 											</tr>
 
-										</c:forEach>
-									
-									
-									
-									</tbody></table></div>
-									<div class="row">
+
+										</thead>
+
+
+
+
+										<tbody>
+
+											<c:forEach items="${aorderList}" var="List" varStatus="index">
+												<tr class="table_start table_body" id="id_${index.index}"
+													title="${List.orderNum}" style="text-align: center;">
+													<!-- for문으로 뿌리고 자바스크립트로 테이블 고치기 -->
+													<td class="${List.orderNum}_row" title="${index.index}">${List.orderNum }<br>${List.regDate }
+														<br>
+													<c:if test="${List.orderCheck eq '0'}">
+															<button id="orderbtn" title="${List.orderNum}">결제완료</button>
+														</c:if>
+													</td>
+													<td><a
+														href="${pageContext.request.contextPath}/product/dogSelect?productNum=${List.productNum}"
+														target="_blank"> <img
+															src="${pageContext.request.contextPath}/resources/dogUpload/${List.fileName }"
+															style="width: 100px; height: 100px; margin: 15px 0px 15px 0px;">
+													</a></td>
+													<td><a
+														href="${pageContext.request.contextPath}/product/dogSelect?productNum=${List.productNum}"
+														target="_blank"> ${List.productName } </a></td>
+													<td class="price comma" title="price">${List.price}</td>
+													<td class="comma" title="amount">${List.amount}</td>
+													<td class="comma" title="point"><c:set var="point"
+															value="${List.amount * List.point}" /> <c:out
+															value="${point}" /></td>
+													<td class="${List.orderNum}_row2 comma price" title="price">${List.priceAll }</td>
+
+													<td>${List.orderCheck}</td>
+
+												</tr>
+
+											</c:forEach>
+
+
+
+										</tbody>
+									</table>
+								</div>
+								<div class="row">
 									<div class="col-12">
 										<ul
 											class="pagination mt-3 justify-content-center pagination_style1">
-											<c:if test="${pager.curBlock gt 1}">
+											<c:if test="${pager2.curBlock gt 1}">
 												<li class="page-item active"><a class="page-link"
-													href="./memberOrderInfo?curPage=${pager.startNum-1}">이전</a></li>
+													href="./memberOrderInfo?curPage=${pager2.startNum-1}">이전</a></li>
 											</c:if>
-											<c:forEach begin="${pager.startNum}" end="${pager.lastNum}"
+											<c:forEach begin="${pager2.startNum}" end="${pager2.lastNum}"
 												var="i">
 												<li class="page-item"><a class="page-link"
 													href="./memberOrderInfo?curPage=${i}">${i}</a></li>
 											</c:forEach>
-											<c:if test="${pager.curBlock lt pager.totalBlock}">
+											<c:if test="${pager2.curBlock lt pager2.totalBlock}">
 												<li class="page-item"><a class="page-link"
-													href="./memberOrderInfo?curPage=${pager.lastNum+1}">다음</a></li>
+													href="./memberOrderInfo?curPage=${pager2.lastNum+1}">다음</a></li>
 											</c:if>
 										</ul>
 									</div>
 								</div>
-									</c:if>
-									
+							</c:if>
+						</c:if>
 
-				<c:if test="${member.id ne 'admin' }">
+
+
+
+
+						<c:if test="${member.id ne 'admin' }">
 						<c:if test="${empty orderList}">
 							<div class="row mt-5 mb-5">
 								<div class="col text-center">
@@ -321,7 +351,7 @@
 		var id = list[i];
 		$("#" + id)
 				.before(
-						'<tr style="line-height: 30px; border-bottom:solid 1px #bbbfc3;">' + '<th>&nbsp;</th><th></th><th></th><th></th><th></th><th></th><th></th>'
+						'<tr style="line-height: 30px; border-bottom:solid 1px #bbbfc3;">' + '<th>&nbsp;</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>'
 								+ '</tr> <tr><th>&nbsp;</th></tr>');
 	}
 

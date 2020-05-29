@@ -6,7 +6,7 @@ function timeout() {
 	 var h = Math.floor(ms / (1000*60*60));
 	 var m = Math.floor((ms -(h*1000*60*60)) / (1000*60));
 	 var s = Math.floor((ms - (h*1000*60*60) -(m*1000*60)) / 1000);
-
+ 
 /*	var h = 0;
 	var m = 0;
 	var s = 0;*/
@@ -35,12 +35,8 @@ function timeout() {
 			data : {
 				ids : ids
 			},success:function(){
-				console.log("성공");
-				location.reload();
-			},
-			error : function() {
-			alert("code = " + request.status + " message = "
-			+ request.responseText + " error = " + error);
+				alert("성공");
+				/*location.reload();*/
 			}
 		});
 

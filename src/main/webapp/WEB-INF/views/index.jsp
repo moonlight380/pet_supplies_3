@@ -72,6 +72,10 @@ body, code {
 <div id="header">
 <c:import url="./template/header.jsp"></c:import>
 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
 
 <body style="font-family: 'Do Hyeon', sans-serif; font-size: 17px;">
 

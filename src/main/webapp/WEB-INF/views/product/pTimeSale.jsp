@@ -59,9 +59,23 @@
 	font-size: 20px;
 }
 </style>
+
+
+ <script type="text/javascript">
+	
+function goPopup(){
+		var popUrl = "../goPopup.jsp";	//팝업창에 출력될 페이지 URL
+
+		var popOption ="width=490px,height=610px,location=no,toolbars=no,status=no"  
+		//크롬에서는 속성값이 먹지 않음
+		window.open( popUrl ,"popup name",popOption);
+	}
+	
+</script>  
+
 </head>
 <!-- --------------------------------------------------바디시작--------------------------------------------- -->
-<body style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
+<body onload="goPopup()" style="padding-top: 100px; font-family: 'Do Hyeon', sans-serif; font-size: 19px;">
 <div id="header">
 <c:import url="../template/header.jsp"></c:import>
 </div>

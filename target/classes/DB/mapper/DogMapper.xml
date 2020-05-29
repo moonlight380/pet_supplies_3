@@ -65,9 +65,9 @@
 						productNum
 					</otherwise>
 				</choose> 
-				like '%'||#{search}||'%' and productNum>=1 order by price desc) N )
+				like '%'||#{search}||'%' and productNum>=1 order by productNum desc) N )
 				where R between #{startRow} and #{lastRow}) P  left join productFile F
-				on (P.productNum=F.num) order by F.firstFile asc,price desc
+				on (P.productNum=F.num) order by F.firstFile asc
 	</select>    
 	
 <!--dogNewList-->
@@ -117,7 +117,7 @@
 				</choose>
 				like '%'||#{search}||'%' and productNum>=1 order by hit desc) N )
 				where R between #{startRow} and #{lastRow})P  left join productFile F
-				on (P.productNum=F.num) order by F.firstFile asc,hit desc
+				on (P.productNum=F.num) order by F.firstFile asc
 	</select>  
   
 <!-- dogTimeSale --> 
@@ -208,7 +208,7 @@
  	delete product where productNum in
  <foreach collection="list" item="productNum" open="(" close=")" separator=",">
  		#{productNum}
- </foreach>
+ </foreach> 
   </delete>
   
 </mapper>

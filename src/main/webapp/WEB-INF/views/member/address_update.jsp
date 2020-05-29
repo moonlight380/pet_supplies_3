@@ -7,7 +7,7 @@
 <!--위치는 WEBAPP 밑에 //보안으로 하려면 web-inf 우선은 테스트-->
 <head>
 <meta charset="UTF-8">
-<title>address_update</title>
+<title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 
 <style type="text/css">
@@ -245,7 +245,7 @@ input ,.addr_interval{
 			-<input id="rphone1" name="rphone1" maxlength="4" size="4" type="text" value="${vo.rphone1}">
 			-<input id="rphone2" name="rphone2" maxlength="4" size="4" type="text" value="${vo.rphone2}">	
 	<span id="mobile"></span>
-	<input id="phoneAll" type="text" name="phone"></td>
+	<input id="phoneAll" type="hidden" name="phone"></td>
 </tr>
 </tbody>
 			
@@ -315,11 +315,11 @@ function sample6_execDaumPostcode() {
              } 
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
- 			$("#postcode1").val(data.zonecode);
+ 			$("#raddress").val(data.zonecode);
 
-			$("#addr1").val(data.address);
+			$("#raddr1").val(data.address);
 			
-			$("#addr2").focus();
+			$("#raddr2").focus();
 
 			console.log(data);
         }

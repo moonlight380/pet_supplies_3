@@ -80,7 +80,7 @@ $("#contents").summernote({
  	$("#price").blur(function() {
 	
 	 	var price = $(this).val(); 
-
+	 	console.log("#price".isEmpty);
 	 	if((price/1<1)||price==" "||price.length <= 1){
 	 		$("#priceContents").html("가격은 1이상의 숫자만 가능합니다.");
 	    	$("#priceContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
@@ -100,9 +100,9 @@ $("#contents").summernote({
 //----------------------------------------------------------------------------//	
 	var pointCheck= true;
  	$("#point").blur(function() {
-	
+ 		pointCheck= true;
 	 	var point = $(this).val(); 
-
+	 	
 	 	if((point/1<1)||point==""){
 	 		$("#pointContents").html("포인트는 1이상의 숫자만 가능합니다.");
 	    	$("#pointContents").css({'color':'blue','font-weight':'bold', 'font-size':'small'});
@@ -121,14 +121,9 @@ $("#contents").summernote({
 //----------------------------------------------------------------------------//	
 	var saleCheck= true;
  	$("#sale").blur(function() {
-	
+ 		saleCheck= true;
 	 	var sale= $(this).val(); 
 	 	console.log(sale);
-	 	
-	 	console.log(point==undefined);
-	 	
-	 	var point = $(this).val(); 
-	 	console.log(point);
 	 	
 	 	if((sale/1<0)||sale==""){
 	 		$("#saleContents").html("세일%은 0이상의 숫자만 넣어주세요.");
@@ -150,8 +145,10 @@ $("#contents").summernote({
 //----------------------------------------------------------------------------// 
 
  	
- 	$("#btn").click(function() {
+ 	$("#btn111").click(function() {
  		//productName, contents 데이터 유무 검증
+ 		console.log("point");
+ 		console.log(pointCheck);
  		var productName = $("#productName").val();
  		var contents = $("#contents").summernote('code');
  		

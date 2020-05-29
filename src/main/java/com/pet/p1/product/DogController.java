@@ -43,6 +43,7 @@ public String getBoard()throws Exception{
 	@GetMapping("product_list_delete")
 	@ResponseBody
 	public void product_list_delete(Long [] deleteProduct) throws Exception{
+		System.out.println("컨트롤러");
 		List<Long> list = Arrays.asList(deleteProduct); //배열을 리스트로 바꾸기
 		int result=dogService.product_list_delete(list);
 		
@@ -50,6 +51,8 @@ public String getBoard()throws Exception{
 		if(result>0) {
 			path="redirect:./dogList";
 			System.out.println("리스트페이지에서 상품 삭제 성공");
+		}else {
+			System.out.println("실패");
 		}
 
 	}
@@ -231,12 +234,13 @@ public String getBoard()throws Exception{
 //-----------------------------------------------delete-----------------------------------------------//
 		@RequestMapping(value = "dogDelete", method=RequestMethod.GET)
 		public ModelAndView dogDelete(long productNum,DogVO dogVO,ModelAndView mv) throws Exception {
+		
 			int result=dogService.dogDelete(productNum);
 			if(result>0) {
-			mv.addObject("result","dog product Delete Success");
+			mv.addObject("result","삭제 성공");
 	
 			}else {
-			mv.addObject("result","dog product Delete Fail");
+			mv.addObject("result","삭제 실패");
 			}
 			mv.addObject("path","./dogList");
 			mv.setViewName("common/result");

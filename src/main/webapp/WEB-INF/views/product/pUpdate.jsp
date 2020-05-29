@@ -14,7 +14,7 @@
 <style type="text/css">
 
 .bg_gray{
-	margin-top:100px;
+	margin-top:0px;
 	width: auto;
 	height: 0px;
 }
@@ -109,7 +109,7 @@
  
  
 <!-- 썸머노트경로를 준다. -->
-<script type="text/javascript" src="../resources/script/product.js"> </script> 
+<script type="text/javascript" src="../resources/script/pWrite.js"> </script>
 	
 <script type="text/javascript">
 		$("#contents").summernote('code', '${vo.contents}');

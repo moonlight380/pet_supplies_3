@@ -93,6 +93,10 @@
 			
 
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
 
 			<%
 				if(session.getAttribute("ids")!=null){
@@ -144,7 +148,11 @@
 								$("#header").html(data.trim());
 							});
 							$.get("${pageContext.request.contextPath}/member/memberCartRefresh");
+<<<<<<< HEAD
 							
+=======
+							console.log("check");
+>>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
 							
 						} 
 					});  

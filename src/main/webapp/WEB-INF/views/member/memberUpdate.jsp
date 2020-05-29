@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>memberUpdate</title>
+<title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
@@ -139,7 +139,11 @@
 	<button type="button" id="cancel" class="btn btn-primary" onclick="goback()">취소</button>
 </div>
 <div style="float: right; margin-top: 10px;">
+<<<<<<< HEAD
 	<button type="button" onclick="mdelete()" class="btn btn-danger btn-sm">회원탈퇴</button>
+=======
+	<button type="button" onclick="removeCheck()" class="btn btn-danger btn-sm">회원탈퇴</button>
+>>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
 </div>
 
 	
@@ -162,6 +166,7 @@
 document.getElementById('button').style.backgroundColor = '#FF324D';
 document.getElementById('button').style.color = 'white';
 
+<<<<<<< HEAD
 function mdelete() {
 	
 	if(confirm("회원정보을 탈최하시겠습니까 ?") == true){
@@ -171,6 +176,23 @@ function mdelete() {
         return ;
     }
 }
+=======
+function removeCheck() {
+
+	 if (confirm("정말 탈퇴하시겠습니까??") == true){    //확인
+
+		 location.href="./memberDelete";
+
+	 }else{   //취소
+
+	     return false;
+
+	 }
+
+}
+
+
+>>>>>>> parent of dff6e9f... Merge branch 'master' of https://github.com/moonlight380/pet_supplies_3
 
 function goback() {
 	history.back();

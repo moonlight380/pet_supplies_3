@@ -61,8 +61,6 @@
 			var check=0;
 			
 
-
-
 			<%
 				if(session.getAttribute("ids")!=null){
 					Long ids[] = (Long[])session.getAttribute("ids");
@@ -118,8 +116,7 @@
 								console.log("asdasd");
 							});
 							$.get("${pageContext.request.contextPath}/member/memberCartRefresh");
-							console.log("check");
-							
+				
 						} 
 					});  
 					} else{

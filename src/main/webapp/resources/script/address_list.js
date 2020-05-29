@@ -73,13 +73,11 @@
       							deleteAddress:deleteAddress
       						},
       						success: function(data){
-      							location.reload();
-/*      							$.get("./address_reset",function(data){
+      							$.get("./address_reset",function(data){
       								console.log(data);
-      								
       								$("#reset").html(data.trim());
       								
-      							});*/
+      							});
       						}					
       				}); //END ajax  
       				

@@ -48,7 +48,7 @@
       							deleteProduct:deleteProduct
       						},
       						success: function(data)
-      						{	alert("삭제 성공!")
+      						{	console.log("삭제성공");
       							//$("#"+deleteProduct).remove();
       							location.reload();
       						},error : function(request, status, error) {

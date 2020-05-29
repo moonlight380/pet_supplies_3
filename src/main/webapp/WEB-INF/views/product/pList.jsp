@@ -196,7 +196,7 @@
 										       <dt>타임세일</dt>
 										          <dd>
 										            <del><fmt:formatNumber value="${vo.price}" type="number"></fmt:formatNumber></del>
-										              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(vo.sale/1000)}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
+										              <strong><img src="../resources/images/icon_time.png" alt="타임세일가"> <strong id="timeSalePrice_top"><fmt:formatNumber value="${vo.price*(1-(vo.sale/100))}" type="number"></fmt:formatNumber></strong></strong><span id="timeSalePrice_unit">원</span>
 										          </dd>
 										     </dl>
 						                </c:if>   

@@ -6,7 +6,7 @@ function timeout() {
 	 var h = Math.floor(ms / (1000*60*60));
 	 var m = Math.floor((ms -(h*1000*60*60)) / (1000*60));
 	 var s = Math.floor((ms - (h*1000*60*60) -(m*1000*60)) / 1000);
-
+ 
 /*	var h = 0;
 	var m = 0;
 	var s = 0;*/

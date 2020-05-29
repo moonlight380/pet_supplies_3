@@ -294,7 +294,7 @@ var birthCheck = true;
       alert("년도를 확인하세요. "+adultYear+"년생 이전 출생자만 등록 가능합니다.");
       birthCheck = false;
       
- }else if (month <1 || month > 12) { 
+ }else if (month < 1 || month > 12) { 
       alert("달은 1월부터 12월까지 입력 가능합니다.");
       birthCheck = false;
       

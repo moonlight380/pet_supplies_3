@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시물 삭제</title>
 
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>

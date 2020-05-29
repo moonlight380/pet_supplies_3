@@ -16,7 +16,7 @@
 								alt="" style="width: 100px; height: auto;" /></a>
 						</div>
 						<p style="font-family: 'Do Hyeon', sans-serif; font-size: 17px;">
-							회사명 : (주)펫샵 <br> 대표 : 김쌍용 <br>전화 : 1234-5678 <br>사업자등록번호
+							회사명 : (주)오달리 <br> 대표 : 김쌍용 <br>전화 : 1234-5678 <br>사업자등록번호
 							: 1234-5678-90<br> 통신판매업 신고 : 제 2020-서울마포-2020호 <br>
 							개인정보관리책임자 : 김쌍용 <br> 이메일문의 : kimssangyong@naver.com<br>
 						</p>
@@ -68,7 +68,7 @@
 								style="font-family: 'Do Hyeon', sans-serif; font-size: 17px;">kimssangyong@naver.com</a></li>
 							<li><i class="ti-mobile"></i>
 								<p style="font-family: 'Do Hyeon', sans-serif; font-size: 17px;">02-336-8546</p></li>
-							<li><p>©2020 All Rights Reserved by 펫샵</p></li>
+							<li><p>©2020 All Rights Reserved by 오달리</p></li>
 							<li><a href="https://www.facebook.com" target="_blank"><i
 									class="ion-social-facebook"></i></a><a
 								href="https://www.twitter.com" target="_blank"><i

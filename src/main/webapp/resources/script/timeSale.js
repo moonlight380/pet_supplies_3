@@ -3,13 +3,13 @@ function timeout() {
 	var targetDate = new Date("2020-05-30");
 	var ms = targetDate - new Date;
 
-/*	 var h = Math.floor(ms / (1000*60*60));
+	 var h = Math.floor(ms / (1000*60*60));
 	 var m = Math.floor((ms -(h*1000*60*60)) / (1000*60));
-	 var s = Math.floor((ms - (h*1000*60*60) -(m*1000*60)) / 1000);*/
+	 var s = Math.floor((ms - (h*1000*60*60) -(m*1000*60)) / 1000);
  
-	var h = 0;
+/*	var h = 0;
 	var m = 0;
-	var s = 0;
+	var s = 0;*/
 	 
 	var ids = [];
 
@@ -35,7 +35,7 @@ function timeout() {
 			data : {
 				ids : ids
 			},success:function(){
-				alert("성공");
+				//alert("성공");
 				/*location.reload();*/
 			}
 		});

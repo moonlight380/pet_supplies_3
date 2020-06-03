@@ -1,6 +1,6 @@
 
 function timeout() {
-	var targetDate = new Date("2020-05-30");
+	var targetDate = new Date("2020-06-10");
 	var ms = targetDate - new Date;
 
 	 var h = Math.floor(ms / (1000*60*60));
